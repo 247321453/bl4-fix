@@ -599,35 +599,40 @@
         return { pick: pick === undefined ? null : pick, confirm: !!(state && handle !== null && state.confirm === handle) };
     }
 
+    // Translate only displayed text; names used by card matching stay unchanged.
+    function statName(name) {
+        return (state && state.labels && state.labels[name]) || name;
+    }
+
     function renderPrompts(card, info, m) {
         var keys = (state && state.keys) || {};
         var costs = (state && state.costs) || {};
         var reroll = null, pick = null, dim = false, keyed = false;
         if (info && state && state.blocked) {
-            reroll = "Reroll: " + state.blocked;
+            reroll = "重掷：" + state.blocked;
             dim = true;
         } else if (m && m.ambiguous) {
-            reroll = "Reroll: use the mod menu for this one";
+            reroll = "重掷：请从 Mod 菜单操作这件装备";
             dim = true;
         } else if (m && m.item.kind === "legendary") {
             var lc = choice(m);
-            var what = m.item.pearl ? "Pearl" : "Legendary";
+            var what = m.item.pearl ? "珠光装备" : "传奇装备";
             keyed = true;
-            reroll = (lc.confirm ? "Yes, Reroll " + m.item.title : "Reroll " + what) + " (" + costs.legendary + " Eridium)";
+            reroll = (lc.confirm ? "确认重掷 " + m.item.title : "重掷 " + what) + "（" + costs.legendary + " 镒矿）";
             dim = state.eridium !== null && state.eridium < costs.legendary;
         } else if (m) {
             var c = choice(m);
             var free = pickOrder(m);
             keyed = true;
             if (c.confirm) {
-                reroll = "Yes, Reroll All (" + costs.all + " Eridium)";
-                pick = "Pick One Instead";
+                reroll = "确认重掷全部词条（" + costs.all + " 镒矿）";
+                pick = "改为选择单个词条";
             } else if (c.pick === null) {
-                reroll = "Reroll All (" + costs.all + " Eridium)";
-                pick = free.length > 1 || (free.length === 1 && m.item.names.length > 1) ? "Pick One" : null;
+                reroll = "重掷全部词条（" + costs.all + " 镒矿）";
+                pick = free.length > 1 || (free.length === 1 && m.item.names.length > 1) ? "选择单个词条" : null;
             } else {
-                reroll = "Reroll " + m.item.names[c.pick] + " (" + costs.one + " Eridium)";
-                pick = free[free.length - 1] === c.pick ? "Back to All" : "Next";
+                reroll = "重掷 " + statName(m.item.names[c.pick]) + "（" + costs.one + " 镒矿）";
+                pick = free[free.length - 1] === c.pick ? "返回重掷全部" : "下一条";
             }
             dim = state.eridium !== null && state.eridium < (c.pick === null ? costs.all : costs.one);
         }
@@ -649,7 +654,7 @@
         }
     }
 
-    // "Reroll all modifiers?" under the modifiers while it waits for the second press
+    // "是否重掷全部词条？" under the modifiers while it waits for the second press
     function renderAsk(card, m) {
         var host = card.querySelector(".item_card_enhancement");
         var box = card.querySelector(".bl4rr_ask");
@@ -661,7 +666,7 @@
         if (!box || box.parentNode !== host) {
             if (box) box.parentNode.removeChild(box);
             box = element("div", "bl4rr_ask");
-            box.appendChild(element("p", "bl4rr_ask_title", "Reroll all modifiers?"));
+            box.appendChild(element("p", "bl4rr_ask_title", "是否重掷全部词条？"));
             box.appendChild(element("p", "bl4rr_ask_text"));
             host.appendChild(box);
         }
@@ -669,7 +674,7 @@
         var costs = (state && state.costs) || {};
         box.style.display = "";
         box.querySelector(".bl4rr_ask_text").textContent =
-            "Press " + keyName(keys.reroll) + " again to spend " + costs.all + " Eridium, or " + keyName(keys.pick) + " to pick one instead.";
+            "再次按 " + keyName(keys.reroll) + " 将消耗 " + costs.all + " 镒矿，或按 " + keyName(keys.pick) + " 改为选择单个词条。";
     }
 
     function render(card) {
@@ -735,7 +740,7 @@
             names.push(line["new"]);
             var win = element("div", "bl4rr_reel");
             var strip = element("div", "bl4rr_strip");
-            for (var n = 0; n < names.length; n++) strip.appendChild(element("p", "bl4rr_reel_name", names[n]));
+            for (var n = 0; n < names.length; n++) strip.appendChild(element("p", "bl4rr_reel_name", statName(names[n])));
             win.appendChild(strip);
             at.box.appendChild(win);
             textStyle(rowText(rows(card)[line.row]), win);
@@ -750,14 +755,14 @@
             return row;
         }
         var bulbsL = bulbs();
-        var title = element("p", "bl4rr_banner_title", roll.kind === "one" ? "REROLLING" : "REROLL");
+        var title = element("p", "bl4rr_banner_title", roll.kind === "one" ? "正在重掷" : "重掷");
         // A legendary's banner spins on its own for a moment (no reels to wait for)
         var minMs = roll.kind === "legendary" ? LEGEND_SPIN_MS : 0;
         var bulbsR = bulbs();
         banner.appendChild(bulbsL);
         banner.appendChild(title);
         banner.appendChild(bulbsR);
-        var sub = element("p", "bl4rr_banner_sub", "-" + roll.cost + " Eridium");
+        var sub = element("p", "bl4rr_banner_sub", "-" + roll.cost + " 镒矿");
         at.box.appendChild(banner);
         at.box.appendChild(sub);
         anim = { card: card, roll: roll, reels: reels, banner: banner, title: title, sub: sub, started: now, finished: 0, lastTick: 0, revealed: false, minMs: minMs };
@@ -813,13 +818,13 @@
     }
 
     function finishText(roll) {
-        if (roll.kind === "legendary") return roll.pearl ? "NEW PEARL ROLL!" : "NEW ROLL!";
+        if (roll.kind === "legendary") return roll.pearl ? "珠光装备重掷完成！" : "重掷完成！";
         var spun = roll.lines.filter(function (l) { return l.spins; });
         var changed = spun.filter(function (l) { return l.changed; });
-        if (roll.kind === "one") return "REPLACED!";
-        if (!changed.length) return "SAME AGAIN!";
-        if (changed.length === spun.length && spun.length > 1) return "JACKPOT!";
-        return "NEW MODIFIERS!";
+        if (roll.kind === "one") return "替换完成！";
+        if (!changed.length) return "词条与原来相同！";
+        if (changed.length === spun.length && spun.length > 1) return "全部焕新！";
+        return "获得新词条！";
     }
 
     // Each frame: move the reels, stop them in turn, then show the result
@@ -965,12 +970,12 @@
             keep.landedAt = 0;
         }
         if (anim && anim.roll && anim.roll.id === roll.id && anim.sub) {
-            anim.sub.textContent = result.ok ? "-" + roll.cost + " Eridium, " + result.left + " left" : result.error;
+            anim.sub.textContent = result.ok ? "-" + roll.cost + " 镒矿，剩余 " + result.left + "" : result.error;
         }
         if (result.ok) {
-            toast("Reroll", result.message, result.equipped ? "Equip it again from your backpack to use the new roll" : "", false);
+            toast("重掷", result.message, result.equipped ? "请从背包重新装备，以使用重掷后的属性" : "", false);
         } else {
-            toast("Reroll failed", result.error, "", true);
+            toast("重掷失败", result.error, "", true);
             playSound(SOUND_ERROR);
         }
     }

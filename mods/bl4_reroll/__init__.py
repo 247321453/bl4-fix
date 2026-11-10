@@ -59,6 +59,7 @@ from mods_base import (
 from unrealsdk import logging
 
 from . import card, frametick, game, legendary, pak, reroll
+from .i18n import item_label, rarity_name, stat_name
 
 try:
     from bl4_direct import coop
@@ -143,11 +144,11 @@ def data_ok() -> bool | None:
 def _blocked() -> str | None:
     ok = data_ok()
     if ok is None:
-        return "Still checking the game files; try again in a moment."
+        return "正在检查游戏文件，请稍后重试。"
     if not ok:
-        return "Reroll needs an update for this game version."
+        return "当前游戏版本需要更新 BL4 Reroll 后才能使用。"
     if not game.is_host() and not _host_rerolls():
-        return "In co-op the host needs Reroll to reroll your items."
+        return "联机时，房主也需要安装并启用 BL4 Reroll，才能重掷你的装备。"
     return None
 
 
@@ -193,14 +194,14 @@ def _slot(handle: int, serial: str | None) -> game.Slot:
     if slot is None or (serial is not None and slot.item.serial != serial):
         S.signature = None
         game.invalidate(handle)
-        raise Refused("That item changed; have another look.")
+        raise Refused("该装备已发生变化，请重新查看后再试。")
     return slot
 
 
 def _check(cost: int) -> None:
     have = game.balance()
     if have < cost:
-        raise Refused(f"Not enough Eridium: this costs {cost} and you have {have}.")
+        raise Refused(f"镒矿不足：需要 {cost}，当前拥有 {have}。")
     if _host_rerolls():
         return  # the host checks how it can swap
     if (why := game.can_replace()) is not None:
@@ -211,15 +212,15 @@ def plan_all(handle: int, serial: str | None = None, seed: int | None = None) ->
     """Rolls every free modifier again. Raises Refused if it can't."""
     slot = _slot(handle, serial)
     if isinstance(slot.item, legendary.Legend):
-        raise Refused("A legendary's parts are rerolled all together, not one by one.")
+        raise Refused("传奇装备的部件需要整体重掷，无法逐个替换。")
     _check(cost_all())
     seed = random.getrandbits(48) if seed is None else seed
     new_serial = reroll.reroll_all(slot.item, random.Random(seed))
     after = reroll.read(new_serial) if new_serial else None
     if after is None:
-        raise Refused("This item has no modifiers that can be rerolled.")
-    changes = [f"{a.name} is now {b.name}" for a, b in zip(slot.item.lines, after.lines, strict=True) if a.part != b.part]
-    return Plan(slot, after, cost_all(), f"Rerolled: {', '.join(changes) if changes else 'the same modifiers came up again'}.",
+        raise Refused("该装备没有可重掷的词条。")
+    changes = [f"{stat_name(a.name)} → {stat_name(b.name)}" for a, b in zip(slot.item.lines, after.lines, strict=True) if a.part != b.part]
+    return Plan(slot, after, cost_all(), f"重掷完成：{'；'.join(changes) if changes else '本次得到的词条与原来相同'}。",
                 "all", None, seed)  # fmt: skip
 
 
@@ -227,20 +228,20 @@ def plan_one(handle: int, line: int, serial: str | None = None, seed: int | None
     """Rolls one modifier into a different one. Raises Refused if it can't."""
     slot = _slot(handle, serial)
     if isinstance(slot.item, legendary.Legend):
-        raise Refused("A legendary's parts are rerolled all together, not one by one.")
+        raise Refused("传奇装备的部件需要整体重掷，无法逐个替换。")
     if not 0 <= line < len(slot.item.lines):  # a negative line from a co-op request indexes from the end
         S.signature = None
-        raise Refused("That item changed; have another look.")
+        raise Refused("该装备已发生变化，请重新查看后再试。")
     old = slot.item.lines[line]
     if old.locked:
-        raise Refused(f"{old.name} comes with this legendary and can't be rerolled.")
+        raise Refused(f"{stat_name(old.name)} 是传奇装备自带的固定词条，无法单独重掷。")
     _check(cost_one())
     seed = random.getrandbits(48) if seed is None else seed
     new_serial = reroll.reroll_one(slot.item, line, random.Random(seed))
     after = reroll.read(new_serial) if new_serial else None
     if after is None:
-        raise Refused(f"There's nothing else {old.name} could become on this item.")
-    return Plan(slot, after, cost_one(), f"Replaced {old.name} with {after.lines[line].name}.", "one", line, seed)
+        raise Refused(f"该装备上的 {stat_name(old.name)} 没有其他可替换词条。")
+    return Plan(slot, after, cost_one(), f"已将 {stat_name(old.name)} 替换为 {stat_name(after.lines[line].name)}。", "one", line, seed)
 
 
 def plan_legendary(handle: int, serial: str | None = None, seed: int | None = None) -> Plan:
@@ -248,18 +249,18 @@ def plan_legendary(handle: int, serial: str | None = None, seed: int | None = No
     slot = _slot(handle, serial)
     item = legendary.read(slot.item.serial)
     if item is None:
-        raise Refused("Only legendaries and pearls can be rerolled whole.")
+        raise Refused("只有传奇和珠光装备可以整体重掷。")
     _check(cost_legendary())
     seed = random.getrandbits(48) if seed is None else seed
     try:
         new_serial = legendary.reroll(item, random.Random(seed), game.Values.resolve)
     except (ValueError, KeyError, IndexError) as ex:
-        raise Refused(f"Couldn't roll this {item.name} again ({ex}); nothing was changed.") from ex
+        raise Refused(f"无法重掷 {item.name}（{ex}），未进行任何更改。") from ex
     after = game.decode(new_serial)
     if after is None:
-        raise Refused(f"Couldn't roll this {item.name} again; nothing was changed.")
+        raise Refused(f"无法重掷 {item.name}，未进行任何更改。")
     kind = "pearl" if item.pearl else "legendary"
-    return Plan(slot, after, cost_legendary(), f"Rerolled your {item.name}: a fresh {kind} roll at level {item.level}.",
+    return Plan(slot, after, cost_legendary(), f"已重掷 {item.name}：重新生成了一件 {item.level} 级{'珠光' if kind == 'pearl' else '传奇'}装备。",
                 "legendary", None, seed)  # fmt: skip
 
 
@@ -269,10 +270,10 @@ def apply(plan: Plan) -> Outcome:
     _check(plan.cost)
     handle, equipped = game.replace(slot, plan.after.serial)
     left = game.set_balance(game.ERIDIUM, game.balance() - plan.cost)
-    note = " It's in your backpack now: equip it again." if slot.equipped and not equipped else ""
+    note = "装备现已放入背包，请重新装备。" if slot.equipped and not equipped else ""
     log(f"{slot.item.label} (handle {slot.handle} -> {handle}): {slot.item.serial} -> {plan.after.serial}")
     S.signature = None
-    message = f"{plan.what} {plan.cost} Eridium spent, {left} left.{note}"
+    message = f"{plan.what} 本次消耗 {plan.cost} 镒矿，剩余 {left}。{note}"
     return Outcome(slot.item, plan.after, slot.equipped and not equipped, handle, plan.cost, left, message)
 
 
@@ -307,13 +308,13 @@ def apply_async(plan: Plan, done: Callable[[dict[str, Any]], None]) -> None:
 def _serve(req: Any) -> dict[str, Any]:
     """On the host: a co-op friend's reroll, rolled again here from their seed."""
     if not mod.is_enabled:
-        return {"ok": False, "error": "Reroll is off on the host"}
+        return {"ok": False, "error": "房主未启用 BL4 Reroll"}
     data = req.data
     with game.acting_for(req.pc):
         try:
             slot = game.find_serial(str(data["serial"]))
             if slot is None:
-                return {"ok": False, "error": "That item changed; have another look."}
+                return {"ok": False, "error": "该装备已发生变化，请重新查看后再试。"}
             seed = int(data["seed"])
             if data.get("kind") == "one":
                 plan = plan_one(slot.handle, int(data["line"]), slot.item.serial, seed)
@@ -322,7 +323,7 @@ def _serve(req: Any) -> dict[str, Any]:
             else:
                 plan = plan_all(slot.handle, slot.item.serial, seed)
             if plan.after.serial != data.get("after"):
-                return {"ok": False, "error": "The host's Reroll is a different version; nothing was changed."}
+                return {"ok": False, "error": "房主的 BL4 Reroll 版本不同，未进行任何更改。"}
             outcome = apply(plan)
         except (Refused, game.RerollError, KeyError, TypeError, ValueError) as ex:
             return {"ok": False, "error": str(ex) or type(ex).__name__}
@@ -378,22 +379,19 @@ class S:
 def _title(slot: game.Slot) -> str:
     item = slot.item
     if isinstance(item, legendary.Legend):
-        text = f"{item.name} ({'Pearl' if item.pearl else 'Legendary'} {item.label}), Lv {item.level}"
+        text = f"{item.name}（{'珠光' if item.pearl else '传奇'} {item_label(item.label)}），{item.level} 级"
     else:
-        text = f"{item.rarity.capitalize()} {item.label}, Lv {item.level}".strip()
-    return text + (" (equipped)" if slot.equipped else "")
+        text = f"{rarity_name(item.rarity)} {item_label(item.label)}，{item.level} 级".strip()
+    return text + ("（已装备）" if slot.equipped else "")
 
 
 def _legendary_button(slot: game.Slot, item: legendary.Legend, display_name: str) -> ButtonOption:
     handle, serial = slot.handle, slot.item.serial
     return ButtonOption(
         "legendary",
-        display_name=f"{display_name} ({cost_legendary()} Eridium)",
+        display_name=f"{display_name}（{cost_legendary()} 镒矿）",
         description=(
-            f"A fresh roll of this {item.name} at level {item.level}, as if it dropped again: every"
-            " part the game rolls (element, accessories, licensed parts, firmware, skills and"
-            " modifiers) rolls again with the game's own odds, so rare parts stay rare. Its level"
-            " and any cosmetic stay."
+            f"保持 {item.name} 的 {item.level} 级，像重新掉落一样整体重掷：元素、配件、授权部件、固件、技能和词条等所有可随机生成的内容，均按游戏原有概率重新生成，稀有部件仍然稀有。装备等级和已应用的外观保持不变。"
         ),
         on_press=lambda _: reroll_legendary(handle, serial),
     )
@@ -401,9 +399,9 @@ def _legendary_button(slot: game.Slot, item: legendary.Legend, display_name: str
 
 def _legendary_page(slot: game.Slot, item: legendary.Legend) -> NestedOption:
     kind = "pearl" if item.pearl else "legendary"
-    children: list[BaseOption] = [_legendary_button(slot, item, f"Reroll this {kind}")]
+    children: list[BaseOption] = [_legendary_button(slot, item, f"重掷这件{'珠光' if kind == 'pearl' else '传奇'}装备")]
     return NestedOption(f"item{slot.handle}", children, display_name=_title(slot),
-                        description=f"{item.maker} {item.label}. Reroll it for a new roll of its parts.".strip())  # fmt: skip
+                        description=f"{item.maker} {item_label(item.label)}。重掷以重新随机生成该装备的部件。".strip())  # fmt: skip
 
 
 def _item_page(slot: game.Slot) -> NestedOption:
@@ -413,9 +411,9 @@ def _item_page(slot: game.Slot) -> NestedOption:
     children: list[BaseOption] = [
         ButtonOption(
             "all",
-            display_name=f"Reroll all modifiers ({cost_all()} Eridium)",
-            description="Every modifier rolls again (it can land on what it had)."
-            + (" The legendary's own stat stays." if any(line.locked for line in item.lines) else ""),
+            display_name=f"重掷全部词条（{cost_all()} 镒矿）",
+            description="重新随机生成全部可重掷词条，也可能得到原有词条。"
+            + ("传奇装备自带的固定词条保持不变。" if any(line.locked for line in item.lines) else ""),
             on_press=lambda _: reroll_all(handle, serial),
         ),
     ]
@@ -423,22 +421,22 @@ def _item_page(slot: game.Slot) -> NestedOption:
         if line.locked:
             children.append(ButtonOption(
                 f"line{i}",
-                display_name=f"{line.name} (stays: comes with this legendary)",
-                description="This modifier is part of the legendary and can't be rerolled.",
+                display_name=f"{stat_name(line.name)}（固定：传奇装备自带）",
+                description="这是传奇装备自带的固定词条，无法单独重掷。",
                 on_press=lambda _, i=i: reroll_one(handle, i, serial),
             ))  # fmt: skip
         else:
             children.append(ButtonOption(
                 f"line{i}",
-                display_name=f"Replace {line.name} ({cost_one()} Eridium)",
-                description=f"Swaps {line.name} for a different random modifier. The others stay.",
+                display_name=f"替换 {stat_name(line.name)}（{cost_one()} 镒矿）",
+                description=f"将 {stat_name(line.name)} 替换为另一个随机词条，其他词条保持不变。",
                 on_press=lambda _, i=i: reroll_one(handle, i, serial),
             ))  # fmt: skip
     if (whole := legendary.read(serial)) is not None:
         # A legendary class mod: its skills, modifiers and firmware can also roll again together
-        children.append(_legendary_button(slot, whole, "Reroll the whole item"))
-    names = ", ".join(line.name for line in item.lines) or "none"
-    return NestedOption(f"item{handle}", children, display_name=_title(slot), description=f"Modifiers: {names}.")
+        children.append(_legendary_button(slot, whole, "重掷整件装备"))
+    names = "、".join(stat_name(line.name) for line in item.lines) or "无"
+    return NestedOption(f"item{handle}", children, display_name=_title(slot), description=f"词条：{names}。")
 
 
 def _info(text: str, description: str = "") -> ButtonOption:
@@ -446,7 +444,7 @@ def _info(text: str, description: str = "") -> ButtonOption:
 
 
 def _balance_text(eridium: int) -> str:
-    return f"You have {eridium} Eridium"
+    return f"当前拥有 {eridium} 镒矿"
 
 
 def _build() -> list[BaseOption]:
@@ -462,14 +460,12 @@ def _build() -> list[BaseOption]:
         return [_info(str(ex)), *settings]
     info = _info(
         _balance_text(eridium),
-        f"Reroll all of an item's modifiers for {cost_all()} Eridium, or replace one for {cost_one()};"
-        f" a whole legendary or pearl for {cost_legendary()}. Or hover the item in your backpack and"
-        " use the keys below.",
+        f"重掷全部词条需要 {cost_all()} 镒矿，替换单个词条需要 {cost_one()} 镒矿，整体重掷传奇或珠光装备需要 {cost_legendary()} 镒矿。也可将鼠标悬停在背包装备上，使用下方快捷键操作。",
     )
     S.balance_option, S.balance = info, eridium
     options: list[BaseOption] = [info, *settings]
     if not slots:
-        options.append(_info("No class mods, enhancements, legendaries or pearls in your backpack"))
+        options.append(_info("背包中没有职业模组、强化装置、传奇或珠光装备"))
     options += [_item_page(slot) for slot in slots]
     return options
 
@@ -577,7 +573,7 @@ def _report(ex: Exception) -> None:
 # region Console
 
 
-@command("reroll", description="List your class mods, enhancements, legendaries and pearls, or reroll them.")
+@command("reroll", description="列出背包中的职业模组、强化装置、传奇和珠光装备，或对其进行重掷。")
 def reroll_command(args: argparse.Namespace) -> None:
     try:
         slots = game.items()
@@ -585,15 +581,14 @@ def reroll_command(args: argparse.Namespace) -> None:
         log(str(ex))
         return
     if args.item is None:
-        log(f"You have {game.balance()} Eridium. 'reroll <item>' rerolls all ({cost_all()}; a whole legendary or pearl"
-            f" {cost_legendary()}), 'reroll <item> <modifier>' replaces one ({cost_one()}).")
+        log(f"当前拥有 {game.balance()} 镒矿。reroll <装备编号> 重掷全部词条（{cost_all()} 镒矿；整件传奇或珠光装备为 {cost_legendary()} 镒矿），reroll <装备编号> <词条编号> 替换单个词条（{cost_one()} 镒矿）。")
         for n, slot in enumerate(slots, 1):
             log(f"{n}. {_title(slot)}")
             for m, line in enumerate(slot.item.lines, 1):
-                log(f"     {m}. {line.name}{' (comes with the legendary)' if line.locked else ''}")
+                log(f"     {m}. {stat_name(line.name)}{'（传奇装备自带）' if line.locked else ''}")
         return
     if not 1 <= args.item <= len(slots):
-        log(f"No item {args.item}; 'reroll' lists them.")
+        log(f"没有编号为 {args.item} 的装备，请使用 reroll 命令查看列表。")
         return
     slot = slots[args.item - 1]
     if isinstance(slot.item, legendary.Legend):
@@ -603,11 +598,11 @@ def reroll_command(args: argparse.Namespace) -> None:
     elif 1 <= args.modifier <= len(slot.item.lines):
         reroll_one(slot.handle, args.modifier - 1)
     else:
-        log(f"That item has no modifier {args.modifier}.")
+        log(f"该装备没有编号为 {args.modifier} 的词条。")
 
 
-reroll_command.add_argument("item", type=int, nargs="?", help="item number from 'reroll'")
-reroll_command.add_argument("modifier", type=int, nargs="?", help="replace just this modifier")
+reroll_command.add_argument("item", type=int, nargs="?", help="使用 reroll 命令列出的装备编号")
+reroll_command.add_argument("modifier", type=int, nargs="?", help="仅替换指定编号的词条")
 
 # endregion
 
@@ -617,18 +612,17 @@ reroll_command.add_argument("modifier", type=int, nargs="?", help="replace just 
 reroll_key = KeybindOption(
     "Reroll key",
     "T",
+    display_name="重掷快捷键",
     description=(
-        "While hovering a class mod or enhancement in your backpack: rerolls all its modifiers, or"
-        " the one you picked with the pick key. On a legendary or pearl: rerolls the whole item."
-        " Rerolling all asks first: press it again to confirm."
+        "将鼠标悬停在背包中的职业模组或强化装置上，按此键可重掷全部词条，或替换通过选择键选中的词条。对于传奇或珠光装备，会重掷整件装备。重掷全部内容前需要再次按键确认。"
     ),
 )
 pick_key = KeybindOption(
     "Pick modifier key",
     "G",
+    display_name="选择词条快捷键",
     description=(
-        "While hovering a class mod or enhancement: picks one of its modifiers for the reroll key to"
-        " replace. Press again for the next one; past the last it goes back to rerolling all."
+        "将鼠标悬停在职业模组或强化装置上，按此键可选择要替换的词条，再按重掷键执行。重复按下可选择下一条，越过最后一条后恢复为重掷全部词条。"
     ),
 )
 
@@ -641,9 +635,9 @@ cost_all_option = SliderOption(
     0,
     1000,
     5,
+    display_name="重掷全部词条费用",
     description=(
-        "Eridium to reroll every modifier on an item. In co-op the host's price counts: its copy"
-        " makes and charges every reroll."
+        "重掷一件装备全部词条所需的镒矿。联机时以房主设置的价格为准，由房主端执行重掷并扣除镒矿。"
     ),
 )
 cost_one_option = SliderOption(
@@ -652,9 +646,9 @@ cost_one_option = SliderOption(
     0,
     1000,
     5,
+    display_name="替换单个词条费用",
     description=(
-        "Eridium to replace one modifier you picked. In co-op the host's price counts: its copy"
-        " makes and charges every reroll."
+        "替换一个选定词条所需的镒矿。联机时以房主设置的价格为准，由房主端执行重掷并扣除镒矿。"
     ),
 )
 
@@ -665,10 +659,9 @@ cost_legendary_option = SliderOption(
     0,
     1000,
     5,
+    display_name="传奇 / 珠光装备重掷费用",
     description=(
-        "Eridium to reroll a whole legendary or pearl: a fresh roll of its parts at its level, with"
-        " the game's own odds. In co-op the host's price counts: its copy makes and charges every"
-        " reroll."
+        "整体重掷传奇或珠光装备所需的镒矿。保持装备等级，按游戏原有概率重新生成各部件。联机时以房主设置的价格为准，由房主端执行重掷并扣除镒矿。"
     ),
 )
 

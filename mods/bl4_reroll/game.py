@@ -132,7 +132,7 @@ def _player_state() -> Any:
     pc = _pc()
     ps = pc.PlayerState if pc else None
     if ps is None or pc.Pawn is None:
-        raise RerollError("Load into the game first.")
+        raise RerollError("请先进入游戏。")
     return ps
 
 
@@ -310,24 +310,24 @@ def _open_package_with(serial: str) -> None:
     pc = _pc()
     manager = pc.RewardsManager
     if manager is None:
-        raise RerollError("The game's reward mail isn't available.")
+        raise RerollError("游戏的奖励邮件功能暂不可用。")
     lib = unrealsdk.find_class("GbxRewards_BlueprintFunctions").ClassDefaultObject
     func = unrealsdk.find_object("Function", "/Script/GbxGame.GbxRewards_BlueprintFunctions:GiveRewardPackage")
     before = len(manager.packages)
     lib.GiveRewardPackage(FGbxDefPtr(CARRIER_REWARD, func._find_prop("RewardDef").Struct), pc)
     if len(manager.packages) != before + 1:
-        raise RerollError("The game didn't create the item package.")
+        raise RerollError("游戏未能创建装备包。")
     index = before
     package = manager.packages[index]
     if package.RewardsDef._name != CARRIER_REWARD or len(package.contents) != 1 or len(package.contents[0].SerialNumbers) != 1:
         # Not the package we asked for: leave it alone (it's the player's)
-        raise RerollError("The item package didn't look right; nothing was changed.")
+        raise RerollError("装备包数据异常，未进行任何更改。")
     package.contents[0].SerialNumbers[0] = serial
     manager.Server_OpenPackage(index)
     if len(manager.packages) > before:
         # Opening failed; don't leave our package in the player's mail
         manager.Server_DeletePackage(index)
-        raise RerollError("The game didn't open the item package.")
+        raise RerollError("游戏未能打开装备包。")
 
 
 def vendor() -> Any:
@@ -388,7 +388,7 @@ def can_replace() -> str | None:
     """Why replace() couldn't work right now, or None."""
     if native.available() or vendor() is not None:
         return None
-    return "Rerolling needs a vending machine nearby (any one the game has loaded around you)."
+    return "重掷需要附近有一台自动售货机（周围已加载的任意一台均可）。"
 
 
 def replace(slot: Slot, new_serial: str) -> tuple[int, bool]:
@@ -407,10 +407,10 @@ def replace(slot: Slot, new_serial: str) -> tuple[int, bool]:
 def _replace(slot: Slot, new_serial: str) -> tuple[int, bool]:
     entry = _entry(slot.handle)
     if entry is None or read_serial(entry.InventoryItem.Item.data.Identity) != slot.item.serial:
-        raise RerollError("That item changed; try again.")
+        raise RerollError("该装备已发生变化，请重试。")
     new = decode(new_serial)
     if new is None:
-        raise RerollError("The new item didn't read back.")
+        raise RerollError("无法重新读取新装备。")
     if native.available():
         try:
             return native.replace(_pc(), entry, slot.item, new_serial), slot.equipped
@@ -424,7 +424,7 @@ def _replace(slot: Slot, new_serial: str) -> tuple[int, bool]:
 def _replace_slow(slot: Slot, entry: Any, new_serial: str) -> int:
     machine = vendor()
     if machine is None:
-        raise RerollError("Rerolling needs a vending machine nearby (any one the game has loaded around you).")
+        raise RerollError("重掷需要附近有一台自动售货机（周围已加载的任意一台均可）。")
     marks = entry.InventoryItem.Item.State.Flags
     entries = _player_state().BackpackItems.items
     # Items already there with either serial (say, an identical copy) aren't the one we add
@@ -434,7 +434,7 @@ def _replace_slow(slot: Slot, entry: Any, new_serial: str) -> int:
     try:
         _sell(machine, slot.handle)
         if _entry(slot.handle) is not None:
-            raise RerollError("The game wouldn't take the old item; nothing was changed.")
+            raise RerollError("游戏未能移除旧装备，未进行任何更改。")
         # The sold item stays on the buyback list until one of the two items has arrived, so
         # it can still be bought back if both fail
         landed = None
@@ -450,9 +450,9 @@ def _replace_slow(slot: Slot, entry: Any, new_serial: str) -> int:
             except Exception as ex:  # noqa: BLE001
                 logging.error(f"[Reroll] Giving the old item back failed: {ex!r}")
             if back is None:
-                raise RerollError("The game didn't add the new item or give the old one back: buy it back at the vending machine.")
+                raise RerollError("游戏未能添加新装备或归还旧装备，请到自动售货机购回旧装备。")
             _forget_sale(machine, slot.item.serial)
-            raise RerollError("The game didn't add the new item; you have the old one back.")
+            raise RerollError("游戏未能添加新装备，旧装备已归还。")
         _forget_sale(machine, slot.item.serial)
         landed.InventoryItem.Item.State.Flags = marks
         landed.ReplicationKey += 1
@@ -484,7 +484,7 @@ class Values:
     def _pawn() -> Any:
         pawn = get_pc().Pawn if get_pc() else None
         if pawn is None:
-            raise RerollError("Load into the game first.")
+            raise RerollError("请先进入游戏。")
         return pawn
 
     @classmethod
@@ -534,11 +534,11 @@ def _currency(name: str) -> Any:
     pc = _pc()
     manager = pc.CurrencyManager if pc else None
     if manager is None:
-        raise RerollError("Load into the game first.")
+        raise RerollError("请先进入游戏。")
     for entry in manager.currencies:
         if entry.type.Name == name:
             return entry
-    raise RerollError(f"No {name} on this character.")
+    raise RerollError(f"当前角色没有 {name}。")
 
 
 def balance(name: str = ERIDIUM) -> int:
