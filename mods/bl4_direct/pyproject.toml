@@ -1,7 +1,7 @@
 [project]
 name = "BL4 Direct Connect"
 version = "0.5.5"
-description = "Direct IP co-op for Borderlands 4, without SHiFT or Steam matchmaking. Press F6 (in game or at the title screen) to host, join and add friends."
+description = "《无主之地 4》IP 直连联机，无需 SHiFT 或 Steam 匹配。在游戏中或标题画面按 F6，可创建房间、加入游戏及添加好友。"
 authors = [{ name = "flame" }]
 
 [tool.sdkmod]

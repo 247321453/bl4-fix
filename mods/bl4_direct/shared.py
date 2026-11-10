@@ -181,7 +181,7 @@ def game_build_id(game_dir: Path) -> str:
 
 def compat_code(game_dir: Path) -> str:
     """A short string both players can compare: game build, SDK and mod versions."""
-    return f"game {game_build_id(game_dir)} / sdk {SDK_VERSION} / mod {MOD_VERSION}"
+    return f"游戏 {game_build_id(game_dir)} / SDK {SDK_VERSION} / Mod {MOD_VERSION}"
 
 
 # region Firewall rule
@@ -206,9 +206,9 @@ _SYSTEM32 = Path(os.environ.get("SystemRoot", r"C:\Windows")) / "System32"
 NETSH = _SYSTEM32 / "netsh.exe"
 # Said right before the prompt (game page, panel, setup app): the name the UAC prompt shows for netsh
 UAC_NAME = "Network Command Shell"
-UAC_HINT = f'Windows will ask if "{UAC_NAME}" may make changes: that\'s the firewall update. Choose Yes.'
+UAC_HINT = f"Windows 将询问是否允许 {UAC_NAME} 进行更改，这是防火墙更新请求。请选择“是”。"
 # Join refuses until the title screen has reached the main menu (see bl4_direct.before_main_menu)
-WAIT_FOR_MENU = "Wait for the main menu (answer any prompts on the title screen first), then join."
+WAIT_FOR_MENU = "请先处理标题画面的所有提示，进入主菜单后再加入。"
 
 LOOPBACK = ["127.0.0.0/8", "::1/128"]
 # Home networks plus VPN overlays (Tailscale/ZeroTier use 100.64.0.0/10; only devices you've

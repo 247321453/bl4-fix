@@ -120,7 +120,7 @@
     // region Page
 
     function friendsText(n) {
-        return n === 1 ? "1 friend" : n + " friends";
+        return n === 1 ? "1 位好友" : n + " 位好友";
     }
 
     function value(api, text, cls) {
@@ -138,7 +138,7 @@
     function toggle(api, on, fn, enabled) {
         var tpl = ns.templates && ns.templates.toggle;
         if (!tpl) {
-            return button(api, on ? "On" : "Off", function () {
+            return button(api, on ? "开启" : "关闭", function () {
                 fn(!on);
             }, enabled);
         }
@@ -146,8 +146,8 @@
         var left = t.querySelector(".toggle_button_left");
         var right = t.querySelector(".toggle_button_right");
         var texts = t.querySelectorAll(".toggle_button_text");
-        if (texts[0]) texts[0].textContent = "Off";
-        if (texts[1]) texts[1].textContent = "On";
+        if (texts[0]) texts[0].textContent = "关闭";
+        if (texts[1]) texts[1].textContent = "开启";
         if (left) left.classList.toggle("active", !on);
         if (right) right.classList.toggle("active", on);
         if (enabled !== false) {
@@ -186,8 +186,8 @@
         if (pollTimer === null && !polling) schedule(20);
         var s = dc.state;
         if (!s) {
-            api.title("Direct connect");
-            api.row("Loading...", "", []);
+            api.title("直连联机");
+            api.row("正在加载……", "", []);
             return;
         }
         var hosting = s.mode === "hosting";
@@ -196,103 +196,103 @@
         // The friend list or a firewall switch changed and Windows Firewall is behind: ask here
         // before Windows does (Python only sends ask_firewall while there's something to change)
         var ASKS = {
-            friends: ["Your friend list changed", "Your firewall rule still has your old friend list: friends you added can't reach a game you host " +
-                "(and anyone you removed still can)."],  // prettier-ignore
-            on: ["Turn on the firewall rule", "Adds BL4 Direct's rule to Windows Firewall: only this PC, your friends and (if allowed) your local " +
-                "network can reach a game you host."],  // prettier-ignore
-            off: ["Remove the firewall rule", "Takes BL4 Direct's rule out of Windows Firewall."],
-            lan: ["Local network setting changed", "Changes who on your local network and VPN can reach a game you host."]
+            friends: ["好友列表已更改", "防火墙规则仍使用旧的好友列表：新添加的好友无法连接到你创建的房间" +
+                "，已移除的好友仍可连接。"],  // prettier-ignore
+            on: ["启用防火墙规则", "将 BL4 Direct 规则添加到 Windows 防火墙：仅允许本机、好友以及已放行的" +
+                "局域网连接到你创建的房间。"],  // prettier-ignore
+            off: ["移除防火墙规则", "从 Windows 防火墙中删除 BL4 Direct 规则。"],
+            lan: ["局域网设置已更改", "更改局域网和 VPN 中哪些设备可以连接到你创建的房间。"]
         };
         var ask = s.ask_firewall && ASKS[s.ask_firewall];
         if (ask) {
-            api.title("Update your firewall?");
-            api.row(ask[0], ask[1] + " Continue: Windows asks if \"Network Command Shell\" may make changes. That's netsh, " +
-                "Windows' own firewall tool (Show more details lists the rule): choose Yes. Not now: do it later with Update in the Firewall section.", [  // prettier-ignore
-                value(api, "Windows asks next", "bl4dc_small"),
-                button(api, "Continue", function () {
+            api.title("是否更新防火墙？");
+            api.row(ask[0], ask[1] + "点击“继续”：Windows 将询问是否允许 Network Command Shell 进行更改。这是 netsh，" +
+                "即 Windows 自带的防火墙工具（“显示更多详细信息”中可查看规则），请选择“是”。点击“暂不更新”：稍后可在“防火墙”部分点击“更新”。", [  // prettier-ignore
+                value(api, "接下来将显示 Windows 权限提示", "bl4dc_small"),
+                button(api, "继续", function () {
                     send({ do: "firewall" });
                 }, !s.asking),
-                button(api, "Not now", function () {
+                button(api, "暂不更新", function () {
                     send({ do: "firewall_later" });
                 })
             ]);
         }
 
-        api.title("Your game");
+        api.title("你的游戏");
         var status, statusDesc, statusCls = "";
         if (hosting) {
-            status = "Hosting, " + friendsText(s.connected) + " in";
-            statusDesc = "You're hosting on UDP port " + s.port + ". Friends in your list join from their own BL4 Direct page.";
+            status = "房间已创建，" + friendsText(s.connected) + "已连接";
+            statusDesc = "房间使用 UDP 端口 " + s.port + "。列表中的好友可在各自的 BL4 Direct 页面加入。";
             statusCls = "bl4dc_on";
         } else if (connected) {
-            status = "In a friend's game";
-            statusDesc = "You're connected to a friend's game directly, without SHiFT.";
+            status = "正在好友的游戏中";
+            statusDesc = "已直连到好友的游戏，无需经过 SHiFT。";
             statusCls = "bl4dc_on";
         } else if (s.intent) {
-            status = s.in_game ? "Restarting hosting..." : "Hosts when you load in";
-            statusDesc = "Hosting picks up again by itself after a map change. Don't resume cancels it.";
+            status = s.in_game ? "正在重新开房……" : "进入游戏后自动开房";
+            statusDesc = "切换地图后会自动恢复开房。点击“取消恢复”可取消。";
             statusCls = "bl4dc_warn";
         } else {
-            status = "Not in a direct game";
-            statusDesc = "Host your game for friends, or join a friend who is hosting.";
+            status = "未进行直连联机";
+            statusDesc = "创建房间供好友加入，或加入好友已创建的房间。";
         }
-        api.row("Status", statusDesc, [value(api, status, statusCls)]);
+        api.row("状态", statusDesc, [value(api, status, statusCls)]);
 
         if (hosting) {
-            api.row("Stop hosting", "Reloads your map as a normal game. Friends who are in get dropped.", [
-                button(api, "Stop", function () {
+            api.row("停止开房", "重新加载地图并恢复为普通游戏，已连接的好友将断开连接。", [
+                button(api, "停止", function () {
                     travel({ do: "stop" });
                 }, true, true)
             ]);
         } else if (connected) {
-            api.row("Leave game", "Back to the main menu, and normal online play.", [
-                button(api, "Leave", function () {
+            api.row("离开游戏", "返回主菜单，恢复普通在线联机。", [
+                button(api, "离开", function () {
                     travel({ do: "leave" });
                 }, true, true)
             ]);
         } else if (s.intent) {
-            api.row("Don't resume", "Cancels hosting: your next map loads as a normal game.", [
-                button(api, "Cancel", function () {
+            api.row("取消恢复", "取消开房：下次加载地图时将作为普通游戏运行。", [
+                button(api, "取消", function () {
                     send({ do: "dont_resume" });
                 }, true, true)
             ]);
         } else {
             var hostDesc = !s.in_game
-                ? "Load into your game first (Continue), then host."
+                ? "请先选择“继续”进入游戏，再创建房间。"
                 : s.firewall_off
-                ? "Reloads your current map as a co-op host on UDP port " + s.port + "."
-                : "Reloads your current map as a co-op host on UDP port " + s.port + ". Only friends in your list (and your local network) can get in." +
-                  (s.firewall ? "" : " Your firewall rule is behind your friend list: friends you added can't get in until you update it (Firewall section).");  // prettier-ignore
-            api.row("Host a game", hostDesc, [
-                button(api, "Host", function () {
+                ? "重新加载当前地图，并通过 UDP 端口 " + s.port + " 创建联机房间。"
+                : "重新加载当前地图，并通过 UDP 端口 " + s.port + " 创建联机房间。仅允许列表中的好友（及已放行的局域网）加入。" +
+                  (s.firewall ? "" : " 防火墙规则与好友列表不一致，请在“防火墙”部分更新，否则新添加的好友无法加入。");  // prettier-ignore
+            api.row("创建房间", hostDesc, [
+                button(api, "创建", function () {
                     travel({ do: "host" });
                 }, s.in_game, true)
             ]);
         }
 
         // Your address
-        var ipName = hosting ? "Friends join you at" : "Your public IP";
-        var ipDesc = "Send this to your friends: they add it on their own BL4 Direct page (Add a friend). You add theirs the same way.";
+        var ipName = hosting ? "好友连接地址" : "你的公网 IP";
+        var ipDesc = "将此地址发给好友，让对方在各自的 BL4 Direct 页面中点击“添加好友”并填写。你也需要以同样方式添加对方的地址。";
         if (s.ip.state === "ok") {
             var shown = hosting ? s.ip.ip + ":" + s.port : s.ip.ip;
             api.row(ipName, ipDesc, [
                 value(api, shown, "bl4dc_addr"),
-                button(api, "Copy", function () {
+                button(api, "复制", function () {
                     send({ do: "copy", what: hosting ? "address" : "ip" });
                 })
             ]);
         } else if (s.ip.state === "failed") {
-            api.row(ipName, "Couldn't look up your public IP (offline?). " + ipDesc, [
-                value(api, "Couldn't look it up", "bl4dc_off"),
-                button(api, "Retry", function () {
+            api.row(ipName, "无法获取你的公网 IP，请检查网络。" + ipDesc, [
+                value(api, "获取失败", "bl4dc_off"),
+                button(api, "重试", function () {
                     send({ do: "retry_ip" });
                 })
             ]);
         } else {
-            api.row(ipName, ipDesc, [value(api, "Looking it up...")]);
+            api.row(ipName, ipDesc, [value(api, "正在获取……")]);
         }
 
-        api.row("Versions", "You and your friends should see the same versions here, or joining may fail.", [
+        api.row("版本信息", "你与好友在此处看到的版本应一致，否则可能无法加入。", [
             value(api, s.compat, "bl4dc_small")
         ]);
 
@@ -300,64 +300,64 @@
         // Windows Firewall blocks or lets in right now
         var fw = s.fw;
         if (fw) {
-            api.title("Firewall");
-            api.row("Firewall rule", "On: a Windows Firewall rule blocks the co-op port (UDP " + s.port + ") to everyone except this PC, " +
-                "the friends in your list and (if allowed) your local network. It only ever blocks; it never opens anything. " +
-                "Off: no rule, and Steam's own rule lets anyone who can reach the port try to connect while you host. " +
-                "Changing it asks first (Continue), then Windows asks for admin.", [  // prettier-ignore
+            api.title("防火墙");
+            api.row("防火墙规则", "开启：Windows 防火墙规则会限制联机端口（UDP " + s.port + "）的连接来源，仅允许本机、" +
+                "列表中的好友以及已放行的局域网连接。此规则只阻止其他连接，不会开放任何端口。" +
+                "关闭：不设置此规则，开房期间，Steam 自带的规则允许任何能访问该端口的人尝试连接。" +
+                "更改时会先在页面中确认（点击“继续”），随后 Windows 会请求管理员权限。", [  // prettier-ignore
                 toggle(api, fw.on, function (on) {
                     send({ do: "set_firewall", on: on });
                 }, !s.asking)
             ]);
-            api.row("Allow local network", "On: devices on your home network and VPN (Tailscale, ZeroTier) can join a game you host " +
-                "without being in your friends list. Off: only this PC and your friends. Only matters while the firewall rule is on.", [  // prettier-ignore
+            api.row("允许局域网连接", "开启：家庭网络及 VPN（Tailscale、ZeroTier）中的设备" +
+                "无需加入好友列表即可连接到你创建的房间。关闭：仅允许本机和好友连接。此设置仅在防火墙规则开启时生效。", [  // prettier-ignore
                 toggle(api, fw.lan, function (on) {
                     send({ do: "set_lan", on: on });
                 }, !s.asking)
             ]);
-            var fwParts = [value(api, s.asking ? "Waiting for Windows" : fw.summary, s.asking ? "bl4dc_warn" : fw.cls)];
+            var fwParts = [value(api, s.asking ? "等待 Windows 确认" : fw.summary, s.asking ? "bl4dc_warn" : fw.cls)];
             if (fw.action) {
-                fwParts.push(button(api, fw.action === "remove" ? "Remove" : "Update", function () {
+                fwParts.push(button(api, fw.action === "remove" ? "移除" : "更新", function () {
                     send({ do: "firewall" });
                 }, !s.asking));
             }
-            api.row("Status", fw.details, fwParts);
+            api.row("状态", fw.details, fwParts);
         }
 
-        api.title("Friends");
+        api.title("好友");
         if (!s.friends.length) {
-            api.row("No friends yet", "Add a friend below with their public IP: they see it on their own BL4 Direct page.", [
-                value(api, "Add one below")
+            api.row("暂无好友", "在下方填写好友的公网 IP 来添加好友，对方可在自己的 BL4 Direct 页面中查看该地址。", [
+                value(api, "请在下方添加")
             ]);
         }
         s.friends.forEach(function (f) {
             var addr = f.address + (f.port !== 7777 ? ":" + f.port : "");
             // Joining before the main menu leaves you on a black screen (issue #2): Join waits for it
             var joinDesc = s.title
-                ? "Wait for the main menu (answer any prompts on the title screen first), then join " + f.name + "."
-                : "Join " + f.name + "'s game at " + f.address + ":" + f.port + ". They must be hosting and have your IP in their list.";
-            api.row(f.name, joinDesc + " Remove takes them off your list (and out of your firewall rule once you update it).", [  // prettier-ignore
+                ? "请先处理标题画面的所有提示，进入主菜单后再加入好友：" + f.name + "。"
+                : "加入 " + f.name + " 的房间，地址：" + f.address + ":" + f.port + "。对方必须已创建房间，并将你的 IP 添加到好友列表。";
+            api.row(f.name, joinDesc + " 点击“移除”将其从好友列表中删除，更新防火墙后也会取消对方的连接权限。", [  // prettier-ignore
                 value(api, addr, "bl4dc_addr bl4dc_small"),
-                button(api, "Join", function () {
+                button(api, "加入", function () {
                     travel({ do: "join", name: f.name });
                 }, !connected && !s.title),
-                button(api, "Remove", function () {
+                button(api, "移除", function () {
                     send({ do: "remove", name: f.name });
                 })
             ]);
         });
 
-        api.title("Add a friend");
-        api.row("Name", "Click the box and type a name for them. Enter or Tab goes to the IP box.", [field(api, "name", "Their name")]);
-        api.row("IP address", "Their public IP, e.g. 203.0.113.5 (they see it on their own BL4 Direct page). Click the box and type, " +
-            "or copy it and press Paste (Ctrl+V works while typing). Enter adds them.", [  // prettier-ignore
-            field(api, "ip", "e.g. 203.0.113.5"),
-            button(api, "Paste", function () {
+        api.title("添加好友");
+        api.row("名称", "点击输入框并填写好友名称。按 Enter 或 Tab 切换到 IP 输入框。", [field(api, "name", "好友名称")]);
+        api.row("IP 地址", "填写对方的公网 IP，例如 203.0.113.5（对方可在自己的 BL4 Direct 页面中查看）。点击输入框直接输入，" +
+            "或复制地址后点击“粘贴”（输入时也可按 Ctrl+V）。按 Enter 添加好友。", [  // prettier-ignore
+            field(api, "ip", "例如 203.0.113.5"),
+            button(api, "粘贴", function () {
                 send({ do: "paste", field: "ip" });
             })
         ]);
-        api.row("Add friend", "Adds them to your list. With the firewall rule on, the page then asks to let them through it.", [
-            button(api, "Add", function () {
+        api.row("添加好友", "将对方添加到好友列表。启用防火墙规则时，页面会随后询问是否放行对方的连接。", [
+            button(api, "添加", function () {
                 send({ do: "add" });
             }, !!(s.fields.name.trim() && s.fields.ip.trim()), true)
         ]);
@@ -412,7 +412,7 @@
     };
 
     ns.modPages = ns.modPages || {};
-    ns.modPages[MOD] = { gen: gen, render: render, keep: keep, moreTitle: "More" };
+    ns.modPages[MOD] = { gen: gen, render: render, keep: keep, moreTitle: "更多" };
     dc.stateText = null;
     checkCss();
     watch();

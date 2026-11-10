@@ -66,7 +66,7 @@ GAME_NET_DRIVER = "GameNetDriver"
 DIRECT_DRIVER = "/Script/OnlineSubsystemSteam.SteamNetDriver"
 FRIENDS_FILE = SETTINGS_DIR / FRIENDS_FILE_NAME
 GAME_DIR = SETTINGS_DIR.parent.parent
-NO_FRIENDS = "(no friends added - use the BL4 Direct app)"
+NO_FRIENDS = "（暂无好友，请通过 BL4 Direct 添加）"
 
 # The driver class the game had configured before we swapped it, or None if not swapped
 _original_driver: str | None = None
@@ -163,10 +163,10 @@ def host(port: int | None = None, *, auto: bool = False) -> None:
     pc = get_pc()
     world = ENGINE.GameViewport.World if ENGINE.GameViewport else None
     if world is None or pc is None or pc.Pawn is None:
-        log_error("Load into your game first, then host.")
+        log_error("请先进入游戏，再创建房间。")
         return
     if _is_client(world):
-        log_error("You're in a friend's game - leave it first, then host.")
+        log_error("你正在好友的游戏中，请先离开，再创建房间。")
         return
     if not auto:
         _auto_rehosts = 0
@@ -601,10 +601,10 @@ class PanelApi:
             latest.save(FRIENDS_FILE)
             log(f"Firewall rule updated ({signature}).")
 
-        refused = "Firewall update cancelled - they can't join your game until you allow it."
-        failed = "The firewall update failed - try Update again, or re-run BL4 Fix Setup."
+        refused = "已取消防火墙更新。允许更新前，好友可能无法加入你的游戏。"
+        failed = "防火墙更新失败。请再次点击“更新”，或重新运行 BL4 Fix Setup。"
         if not ui.run_elevated(str(NETSH), args, refused, applied, failed):
-            return "Windows is already asking about the firewall - answer that prompt first."
+            return "Windows 已显示防火墙权限提示，请先处理该提示。"
         return None
 
     is_ipv4 = staticmethod(is_ipv4)
@@ -643,24 +643,25 @@ def refresh_friends() -> None:
 open_key = KeybindOption(
     "Open key",
     ui.DEFAULT_KEY,
+    display_name="打开界面快捷键",
     description=(
-        "Opens and closes the BL4 Direct page (host, join and add friends). Works in game, in the"
-        " game's own menus and at the title screen. Unbound: open it from the Mods screen."
+        "打开或关闭 BL4 Direct 页面，可创建房间、加入游戏和添加好友。在游戏中、游戏菜单及标题画面均可使用。未绑定快捷键时，可从 Mod 菜单打开。"
     ),
 )
 ui.open_key = lambda: open_key.value
 
 panel_button = ButtonOption(
     "Open the basic panel",
-    description="The basic BL4 Direct window: host, join friends, and add friends.",
+    display_name="打开基础面板",
+    description="打开 BL4 Direct 基础面板，可创建房间、加入好友的游戏和添加好友。",
     on_press=lambda _: ui.open_panel(),
 )
 
 host_button = ButtonOption(
     "Host a game",
+    display_name="创建房间",
     description=(
-        "Reloads your current map as a co-op host. Load into your game first. Only friends added"
-        " in the BL4 Direct app (and your local network, if allowed) can connect."
+        "重新加载当前地图并创建联机房间，请先进入游戏。启用防火墙规则后，仅允许已添加的好友及已放行的局域网连接。"
     ),
     on_press=lambda _: host(),
 )
@@ -669,7 +670,8 @@ friend_option = DropdownOption(
     "Friend",
     NO_FRIENDS,
     [NO_FRIENDS],
-    description="Which friend's game to join. Add friends in the BL4 Direct app.",
+    display_name="好友",
+    description="选择要加入的好友。可通过 BL4 Direct 添加好友。",
 )
 
 
@@ -679,30 +681,34 @@ def _join_selected(_: ButtonOption) -> None:
         if friend.name == friend_option.value:
             join(friend.address, friend.port)
             return
-    log_error("No friend selected - add one in the BL4 Direct app, then press 'Reload friends'.")
+    log_error("未选择好友。请先通过 BL4 Direct 添加好友，再点击“刷新好友列表”。")
 
 
 join_button = ButtonOption(
     "Join selected friend",
-    description="Connects to the selected friend's hosted game. Run from the main menu.",
+    display_name="加入所选好友",
+    description="连接到所选好友创建的房间，请在主菜单使用。",
     on_press=_join_selected,
 )
 
 reload_button = ButtonOption(
     "Reload friends",
-    description="Picks up friends you just added in the BL4 Direct app.",
+    display_name="刷新好友列表",
+    description="重新读取在 BL4 Direct 中添加的好友。",
     on_press=lambda _: refresh_friends(),
 )
 
 status_button = ButtonOption(
     "Show status / versions",
-    description="Prints versions to the console. Both players' versions should match.",
+    display_name="查看状态 / 版本",
+    description="在控制台输出状态和版本信息。双方的版本应保持一致。",
     on_press=lambda _: show_status(),
 )
 
 offline_button = ButtonOption(
     "Back to normal online play",
-    description="Switches networking back to SHiFT for regular matchmaking and invites.",
+    display_name="恢复普通在线联机",
+    description="切换回 SHiFT，恢复普通在线匹配和邀请功能。",
     on_press=lambda _: (disable_direct(), show_status()),
 )
 

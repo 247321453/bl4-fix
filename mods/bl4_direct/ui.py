@@ -482,7 +482,7 @@ def _draw() -> None:
     p.box(x0, y0, PANEL_W, PANEL_H, (0.02, 0.05, 0.06, 0.97), 1)
     p.box(x0, y0, PANEL_W, 64, (0.0, 0.42, 0.48, 1.0), 2)
     p.text("BL4 DIRECT", x0 + 24, y0, 400, 64, 0.85, 5)
-    p.button(f"Close  ({key_text()})" if key_text() else "Close", x0 + PANEL_W - 190, y0 + 10, 170, 44, close, fill=(0.45, 0.07, 0.05, 0.98), size=0.5)
+    p.button(f"关闭（{key_text()}）" if key_text() else "关闭", x0 + PANEL_W - 190, y0 + 10, 170, 44, close, fill=(0.45, 0.07, 0.05, 0.98), size=0.5)
 
     mode, connected = session()
     S.session_drawn = (mode, connected)
@@ -492,74 +492,74 @@ def _draw() -> None:
     y = y0 + 80
     if mode == "hosting":
         p.box(x0 + 24, y, PANEL_W - 48, 50, (0.03, 0.30, 0.10, 0.98), 2)
-        p.text(f"HOSTING on port {api.host_port()}   -   {connected} friend(s) connected",
+        p.text(f"房间端口：{api.host_port()}   -   已连接 {connected} 位好友",
                x0 + 40, y, PANEL_W - 80, 50, 0.7, 5, color=green)
     elif mode == "connected":
         p.box(x0 + 24, y, PANEL_W - 48, 50, (0.03, 0.30, 0.10, 0.98), 2)
-        p.text("CONNECTED to a friend's game", x0 + 40, y, PANEL_W - 80, 50, 0.7, 5, color=green)
+        p.text("已连接到好友的游戏", x0 + 40, y, PANEL_W - 80, 50, 0.7, 5, color=green)
     else:
-        p.text("Not in a direct game", x0 + 24, y, PANEL_W - 48, 50, 0.65)
+        p.text("未进行直连联机", x0 + 24, y, PANEL_W - 48, 50, 0.65)
     p.text(api.compat_line(), x0 + 24, y + 52, PANEL_W - 48, 26, 0.42, color=(0.6, 0.7, 0.72, 1.0))
 
     # Public IP, with a copy button
     y += 92
     if PublicIp.state == "ok":
         shown = (share_address() if mode == "hosting" else PublicIp.ip) or ""
-        label = "Friends join you at:" if mode == "hosting" else "Your public IP:"
+        label = "好友连接地址：" if mode == "hosting" else "你的公网 IP："
         p.text(label, x0 + 24, y, 260, 48, 0.55, color=(0.75, 0.8, 0.82, 1.0))
         p.text(shown, x0 + 290, y, 420, 48, 0.75, color=(1.0, 0.86, 0.35, 1.0))
-        p.button("COPY", x0 + PANEL_W - 204, y + 4, 180, 40, lambda: _copy(shown), size=0.5)
+        p.button("复制", x0 + PANEL_W - 204, y + 4, 180, 40, lambda: _copy(shown), size=0.5)
     elif PublicIp.state == "failed":
-        p.text("Your public IP: couldn't look it up (offline?)", x0 + 24, y, 600, 48, 0.55,
+        p.text("你的公网 IP：获取失败，请检查网络", x0 + 24, y, 600, 48, 0.55,
                color=(1.0, 0.6, 0.45, 1.0))
-        p.button("RETRY", x0 + PANEL_W - 204, y + 4, 180, 40, _retry_ip, size=0.5)
+        p.button("重试", x0 + PANEL_W - 204, y + 4, 180, 40, _retry_ip, size=0.5)
     else:
-        p.text("Your public IP: looking it up...", x0 + 24, y, 600, 48, 0.55, color=(0.75, 0.8, 0.82, 1.0))
+        p.text("你的公网 IP：正在获取……", x0 + 24, y, 600, 48, 0.55, color=(0.75, 0.8, 0.82, 1.0))
 
     # Host / stop hosting
     y += 64
     in_game = api.in_gameplay()
     if mode == "hosting":
-        p.button("STOP HOSTING", x0 + 24, y, 300, 56, lambda: _run_after_close(api.stop_hosting),
+        p.button("停止开房", x0 + 24, y, 300, 56, lambda: _run_after_close(api.stop_hosting),
                  fill=(0.50, 0.10, 0.06, 0.98), size=0.6)
         if S.firewall_drawn:
             host_hint = (
-                "Firewall up to date: only friends below can get in" if _firewall_on()
-                else "Firewall rule off (BL4 Fix Setup): anyone who can reach the port can try to join"
+                "防火墙已更新：仅允许下方好友（及已放行的局域网）连接" if _firewall_on()
+                else "防火墙规则已在 BL4 Fix Setup 中关闭：任何能访问端口的人均可尝试加入"
             )
         else:
-            p.button("UPDATE FIREWALL", x0 + PANEL_W - 284, y + 8, 260, 40, _update_firewall_now,
+            p.button("更新防火墙", x0 + PANEL_W - 284, y + 8, 260, 40, _update_firewall_now,
                      fill=(0.55, 0.35, 0.02, 0.98), size=0.48)
-            host_hint = "Firewall not updated - friends may be blocked"
+            host_hint = "防火墙未更新，好友可能无法连接"
     elif mode == "connected":
-        p.button("LEAVE GAME", x0 + 24, y, 300, 56, lambda: _run_after_close(api.leave),
+        p.button("离开游戏", x0 + 24, y, 300, 56, lambda: _run_after_close(api.leave),
                  fill=(0.50, 0.10, 0.06, 0.98), size=0.6)
-        host_hint = "Back to the main menu, and normal online play"
+        host_hint = "返回主菜单，恢复普通在线联机"
     elif api.hosting_intent() is not None:
         # Between a map change and the watchdog re-hosting (or at the main menu)
-        p.button("DON'T RESUME", x0 + 24, y, 300, 56, lambda: (api.cancel_hosting_intent(), _draw()),
+        p.button("取消恢复开房", x0 + 24, y, 300, 56, lambda: (api.cancel_hosting_intent(), _draw()),
                  fill=(0.30, 0.10, 0.08, 0.96), size=0.55)
         host_hint = (
-            "Hosting restarts in a moment..." if in_game
-            else "Hosting resumes automatically when you load in"
+            "即将重新开房……" if in_game
+            else "进入游戏后将自动恢复开房"
         )
     else:
-        p.button("HOST A GAME", x0 + 24, y, 300, 56, lambda: _run_after_close(host_now), size=0.6,
+        p.button("创建房间", x0 + 24, y, 300, 56, lambda: _run_after_close(host_now), size=0.6,
                  enabled=in_game and mode == "none")
         if not in_game:
-            host_hint = "Load into your game first (Continue), then host"
+            host_hint = "请先选择“继续”进入游戏，再创建房间"
         elif api.firewall_up_to_date():
-            host_hint = f"Friends join you on UDP port {api.host_port()}"
+            host_hint = f"好友可通过 UDP 端口 {api.host_port()} 加入"
         else:
             # Hosting never asks Windows itself: the friend list changed, the button does
-            p.button("UPDATE FIREWALL", x0 + PANEL_W - 284, y + 8, 260, 40, _update_firewall_now,
+            p.button("更新防火墙", x0 + PANEL_W - 284, y + 8, 260, 40, _update_firewall_now,
                      fill=(0.55, 0.35, 0.02, 0.98), size=0.48)
-            host_hint = "Firewall not updated - new friends can't join yet"
+            host_hint = "防火墙未更新，新添加的好友暂时无法加入"
     p.text(host_hint, x0 + 344, y, PANEL_W - 368, 56, 0.5, color=(0.75, 0.8, 0.82, 1.0))
 
     # Friends
     y += 80
-    p.text("FRIENDS", x0 + 24, y, 300, 34, 0.55, color=(0.3, 0.85, 0.95, 1.0))
+    p.text("好友", x0 + 24, y, 300, 34, 0.55, color=(0.3, 0.85, 0.95, 1.0))
     # Joining before the main menu leaves you on a black screen (issue #2): Join waits for it
     title = api.before_main_menu()
     if title:
@@ -567,30 +567,30 @@ def _draw() -> None:
     y += 40
     friends = api.friends()
     if not friends:
-        p.text("No friends yet - add one below.", x0 + 24, y, PANEL_W - 48, 44, 0.5,
+        p.text("暂无好友，请在下方添加。", x0 + 24, y, PANEL_W - 48, 44, 0.5,
                color=(0.6, 0.65, 0.67, 1.0))
         y += 52
     for friend in friends[:MAX_FRIEND_ROWS]:
         p.box(x0 + 24, y, PANEL_W - 48, 48, (0.04, 0.10, 0.12, 0.96), 2)
         p.text(friend.name, x0 + 40, y, 300, 48, 0.55, 5)
         p.text(f"{friend.address}:{friend.port}", x0 + 340, y, 300, 48, 0.5, 5, color=(0.75, 0.8, 0.82, 1.0))
-        p.button("JOIN", x0 + PANEL_W - 290, y + 6, 140, 36,
+        p.button("加入", x0 + PANEL_W - 290, y + 6, 140, 36,
                  lambda f=friend: _run_after_close(lambda: api.join_friend(f)), enabled=not title)
-        p.button("Remove", x0 + PANEL_W - 140, y + 6, 100, 36, lambda f=friend: _remove(f.name),
+        p.button("移除", x0 + PANEL_W - 140, y + 6, 100, 36, lambda f=friend: _remove(f.name),
                  fill=(0.30, 0.10, 0.08, 0.96), size=0.45)
         y += 54
     if len(friends) > MAX_FRIEND_ROWS:
-        p.text(f"+{len(friends) - MAX_FRIEND_ROWS} more (manage in the BL4 Direct app)",
+        p.text(f"另有 {len(friends) - MAX_FRIEND_ROWS} 位好友（请在 BL4 Direct 配套程序中管理）",
                x0 + 24, y, PANEL_W - 48, 30, 0.45)
 
     # Add friend
     y = y0 + PANEL_H - 200
-    p.text("ADD A FRIEND  (their public IP - they can see it in their BL4 Direct app)",
+    p.text("添加好友（填写对方的公网 IP，可在对方的 BL4 Direct 中查看）",
            x0 + 24, y, PANEL_W - 48, 34, 0.5, color=(0.3, 0.85, 0.95, 1.0))
     y += 44
-    S.name_box = p.text_box("Name", S.name_text, x0 + 24, y, 330, 48)
-    S.ip_box = p.text_box("IP address, e.g. 203.0.113.5", S.ip_text, x0 + 366, y, 400, 48)
-    p.button("ADD", x0 + 778, y, PANEL_W - 802, 48, _add_friend, size=0.55)
+    S.name_box = p.text_box("名称", S.name_text, x0 + 24, y, 330, 48)
+    S.ip_box = p.text_box("IP 地址，例如 203.0.113.5", S.ip_text, x0 + 366, y, 400, 48)
+    p.button("添加", x0 + 778, y, PANEL_W - 802, 48, _add_friend, size=0.55)
 
     # Message line
     y += 66
@@ -626,9 +626,9 @@ def _say(msg: str, *, error: bool = False) -> None:
 
 def _copy(text: str) -> None:
     if text and copy_to_clipboard(text):
-        _say(f"Copied {text} - paste it to your friend.")
+        _say(f"已复制 {text}，请粘贴发送给好友。")
     else:
-        _say("Couldn't copy to the clipboard.", error=True)
+        _say("无法复制到剪贴板。", error=True)
     _draw()
 
 
@@ -642,22 +642,22 @@ def _add_friend() -> None:
     _save_typed_text()
     name, ip = S.name_text.strip(), S.ip_text.strip()
     if not name:
-        _say("Type a name first.", error=True)
+        _say("请先输入好友名称。", error=True)
     elif not api.is_ipv4(ip):
-        _say("That IP doesn't look right - it should look like 203.0.113.5", error=True)
+        _say("IP 地址格式不正确，示例：203.0.113.5", error=True)
     else:
         api.add_friend(name[:24], ip)
         # Clear the boxes themselves too, or the redraw would copy their old text back
         S.name_text = S.ip_text = ""
         _try(S.name_box, "SetText", "")
         _try(S.ip_box, "SetText", "")
-        _after_friends_changed(f"Added {name}.")
+        _after_friends_changed(f"已添加好友 {name}。")
     _draw()
 
 
 def _remove(name: str) -> None:
     api.remove_friend(name)
-    _after_friends_changed(f"Removed {name}.")
+    _after_friends_changed(f"已移除好友 {name}。")
     _draw()
 
 
@@ -670,7 +670,7 @@ def _after_friends_changed(done: str) -> None:
     if api.firewall_up_to_date():  # also when the rule is turned off
         _say(done)
     else:
-        _say(f'{done} Press UPDATE FIREWALL to let them in (Windows asks: "{UAC_NAME}").')
+        _say(f"{done} 请点击“更新防火墙”以放行连接（Windows 提示：{UAC_NAME}）。")
 
 
 def _firewall_on() -> bool:

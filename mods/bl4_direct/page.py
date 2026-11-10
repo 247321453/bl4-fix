@@ -189,45 +189,42 @@ def _firewall_status(config: Config | None) -> dict[str, Any]:
     friends = [f for f in config.friends if is_ipv4(f.address)]
     rules = Live.rules
     live = (
-        "checking" if rules is None and Live.error is None
-        else f"couldn't read it ({Live.error})" if rules is None
+        "正在检查" if rules is None and Live.error is None
+        else f"读取失败（{Live.error}）" if rules is None
         else "; ".join((d or n).rstrip(".") for n, d in rules) if rules
-        else "no BL4 Direct rule"
+        else "未找到 BL4 Direct 规则"
     )  # fmt: skip
     present = bool(rules) if rules is not None else None  # None: not known yet
     current = config.firewall_up_to_date()
     if config.firewall:
-        allowed = ["this PC"]
+        allowed = ["本机"]
         if config.allow_lan:
-            allowed.append("your local network and VPN (home networks, Tailscale, ZeroTier)")
+            allowed.append("局域网和 VPN（家庭网络、Tailscale、ZeroTier）")
         allowed += [f"{f.name} ({f.address})" for f in friends]
         details = (
-            f"UDP {port}, the co-op port, lets in: {'; '.join(allowed)}. Everyone else on the internet is blocked."
+            f"联机端口 UDP {port} 允许以下来源连接：{'；'.join(allowed)}。其他互联网连接均被阻止。"
             if current and present is not False
-            else f"Not applied yet: Windows Firewall doesn't match your list. Update: Windows asks if "
-                 f'"Network Command Shell" may make changes (netsh, its own firewall tool). Then UDP {port} '
-                 f"lets in: {'; '.join(allowed)}; everyone else is blocked."
+            else f"尚未应用：Windows 防火墙与好友列表不一致。点击“更新”后，Windows 会询问是否允许 Network Command Shell（系统自带的防火墙工具 netsh）进行更改。完成后，UDP {port} 将仅允许以下来源连接：{'；'.join(allowed)}；其他连接均被阻止。"
         )  # fmt: skip
         if present is False:
-            summary, cls, action = "Not in Windows Firewall yet", "bl4dc_warn", "update"
+            summary, cls, action = "尚未添加到 Windows 防火墙", "bl4dc_warn", "update"
         elif not current:
-            summary, cls, action = "Needs updating", "bl4dc_warn", "update"
+            summary, cls, action = "需要更新", "bl4dc_warn", "update"
         else:
-            who = ["this PC"] + (["local network"] if config.allow_lan else [])
+            who = ["本机"] + (["局域网"] if config.allow_lan else [])
             if friends:
-                who.append(f"{len(friends)} friend{'s' if len(friends) != 1 else ''}")
-            summary, cls, action = "Lets in " + ", ".join(who), "bl4dc_on", None
+                who.append(f"{len(friends)} 位好友")
+            summary, cls, action = "允许连接：" + ", ".join(who), "bl4dc_on", None
     else:
         details = (
-            f"No BL4 Direct rule: Steam's own rule lets anyone who can reach UDP {port} (port scanners, "
-            "anyone with your IP) try to connect while you host. Turn the rule on so only your friends get through."
+            f"未设置 BL4 Direct 规则：开房期间，Steam 自带的规则允许任何能够访问 UDP {port} 的人（包括端口扫描者、知道你 IP 的人）尝试连接。启用该规则可限制连接来源。"
         )  # fmt: skip
         if present:
-            summary, cls, action = "Off, old rule still there", "bl4dc_warn", "remove"
-            details = "Turned off, but BL4 Direct's rule is still in Windows Firewall. Remove takes it out. " + details
+            summary, cls, action = "已关闭，但旧规则仍然存在", "bl4dc_warn", "remove"
+            details = "已关闭，但 Windows 防火墙中仍有 BL4 Direct 规则。点击“移除”可删除该规则。" + details
         else:
-            summary, cls, action = "Off: anyone can try to join", "bl4dc_warn", None
-    details += f"\n\nWindows Firewall now: {live}."
+            summary, cls, action = "已关闭：任何人均可尝试加入", "bl4dc_warn", None
+    details += f"\n\nWindows 防火墙当前状态：{live}。"
     return {"on": config.firewall, "lan": config.allow_lan, "summary": summary, "details": details,
             "cls": cls, "action": action}  # fmt: skip
 
@@ -246,10 +243,10 @@ def _set_firewall_setting(field: str, on: bool, reason: str) -> None:
     Live.refresh(force=True)
     if config.firewall_up_to_date() and not (field == "firewall" and not on and Live.rules):
         S.ask_firewall = ""
-        say("Saved.")
+        say("已保存。")
     else:
         S.ask_firewall = reason
-        say("Saved. Windows Firewall changes when you Continue at the top of this page.")
+        say("已保存。点击页面顶部的“继续”后，才会更新 Windows 防火墙。")
 
 
 def _compat() -> str:
@@ -276,7 +273,7 @@ def act(action: dict[str, Any]) -> None:
                 if text:
                     S.fields[field] = text
                 else:
-                    say("Nothing to paste: copy their address first.", error=True)
+                    say("没有可粘贴的内容，请先复制好友的地址。", error=True)
         case "clear":
             field = str(action.get("field"))
             if field in FIELDS:
@@ -288,13 +285,13 @@ def act(action: dict[str, Any]) -> None:
         case "remove":
             name = str(action.get("name") or "")
             api.remove_friend(name)
-            _after_friends_changed(f"Removed {name}.")
+            _after_friends_changed(f"已移除好友 {name}。")
         case "copy":
             text = ui.share_address() if action.get("what") == "address" else ui.PublicIp.ip
             if text and ui.copy_to_clipboard(text):
-                say(f"Copied {text}. Paste it to your friend.")
+                say(f"已复制 {text}，请粘贴发送给好友。")
             else:
-                say("Couldn't copy to the clipboard.", error=True)
+                say("无法复制到剪贴板。", error=True)
         case "retry_ip":
             ui.PublicIp.state = "idle"
             ui.PublicIp.lookup()
@@ -306,7 +303,7 @@ def act(action: dict[str, Any]) -> None:
                 say(UAC_HINT)
         case "firewall_later":
             S.ask_firewall = ""
-            say("Not now: Windows Firewall stays as it is until you press Update (Firewall section, Status).")
+            say("暂不更新：Windows 防火墙将保持不变。需要时请在“防火墙”的“状态”一栏点击“更新”。")
         case "set_firewall":
             on = bool(action.get("on"))
             _set_firewall_setting("firewall", on, "on" if on else "off")
@@ -324,7 +321,7 @@ def act(action: dict[str, Any]) -> None:
             name = str(action.get("name") or "")
             friend = next((f for f in api.friends() if f.name == name), None)
             if friend is None:
-                say(f"{name} isn't in your friends list any more.", error=True)
+                say(f"{name} 已不在你的好友列表中。", error=True)
             elif api.before_main_menu():
                 say(WAIT_FOR_MENU, error=True)
             else:
@@ -339,16 +336,16 @@ def _add_friend() -> None:
     ip, _, port_text = address.partition(":")
     port = int(port_text) if port_text.isdigit() and 0 < int(port_text) < 65536 else None
     if not name:
-        say("Type their name first.", error=True)
+        say("请先输入好友名称。", error=True)
     elif not api.is_ipv4(ip) or (port_text and port is None):
-        say("That IP doesn't look right: it should look like 203.0.113.5", error=True)
+        say("IP 地址格式不正确，示例：203.0.113.5", error=True)
     else:
         if port is not None and hasattr(api, "config"):
             api.add_friend(name[:MAX_NAME], ip, port)
         else:
             api.add_friend(name[:MAX_NAME], ip)
         S.fields = {"name": "", "ip": ""}
-        _after_friends_changed(f"Added {name}.")
+        _after_friends_changed(f"已添加好友 {name}。")
 
 
 def _after_friends_changed(done: str) -> None:
@@ -403,7 +400,7 @@ def start_typing(field: str) -> None:
     max_len, allowed = FIELDS[field]
     link = _menu_module("uilink")
     if link is None or not hasattr(link, "TextBox"):
-        say("Typing needs a newer BL4 Mod Menu. Use Paste, or the BL4 Direct app.", error=True)
+        say("输入功能需要较新版本的 BL4 Mod Menu。请使用“粘贴”，或通过 BL4 Direct 配套程序添加好友。", error=True)
         return
     S.typing = link.TextBox(S.fields[field], max_len, clipboard.clipboard_text, allowed=allowed, named=True)
     S.typing_field = field
