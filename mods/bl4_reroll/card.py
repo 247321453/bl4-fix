@@ -35,7 +35,7 @@ from typing import Any
 from unrealsdk import logging
 
 from . import game, health, legendary, reroll, uilink
-from .i18n import STAT_NAMES
+from .i18n import stat_labels
 
 KEY = "reroll"
 UI_DIR = "OakGame/Content/uiresources/bl4reroll"
@@ -319,7 +319,7 @@ def state() -> dict[str, Any]:
         "keys": {"reroll": reroll_key, "pick": pick_key},
         "costs": {"all": cost_all, "one": cost_one, "legendary": cost_legendary},
         "eridium": eridium,
-        "labels": STAT_NAMES,  # Display only; original stat names still identify card rows.
+        "labels": stat_labels(),  # Display only; original stat names still identify card rows.
         "blocked": S.blocked(),
         "items": _items_state(),
         # Per item (handle): the picked line (an index into its lines), and "reroll all?"

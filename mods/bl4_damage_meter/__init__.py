@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Carnage Meter for Borderlands 4: who did the damage, and with what.
 
@@ -47,7 +48,8 @@ def log(msg: str) -> None:
 open_key = KeybindOption(
     "Open key",
     "F9",
-    description="Opens and closes the Carnage Report. Works in game and in the game's menus.",
+    description="打开或关闭伤害统计报告。在游戏内和游戏菜单中均可使用。",
+    display_name="界面开关键",
 )
 
 
@@ -63,10 +65,10 @@ fight_gap = SliderOption(
     1,
     is_integer=True,
     description=(
-        "A fight is over when nobody has hit an enemy for this long; the next hit starts a new one."
-        " This Fight shows the current fight, or the last one until the next begins."
+        "所有玩家连续这么长时间未击中敌人时，判定战斗结束；下一次命中会开始新战斗。“本场战斗”显示当前战斗，或在下一场开始前显示上一场战斗。"
     ),
     on_change=_gap_changed,
+    display_name="战斗结束等待时间（秒）",
 )
 
 def _popup_changed(_: BoolOption, value: bool) -> None:
@@ -77,11 +79,12 @@ report_option = BoolOption(
     "Boss fight pop-up",
     True,
     description=(
-        "When a boss dies, a results panel shows on screen for a few seconds: each player's damage to"
-        " the boss, their top damage source and the MVP. The full report is on the Carnage Report's"
-        " Boss Report tab either way."
+        "击败首领后，在屏幕上短暂显示结算面板：每位玩家对首领的伤害、主要伤害来源和 MVP。无论是否开启弹窗，都可在伤害统计报告的“首领战报告”页查看完整结果。"
     ),
     on_change=_popup_changed,
+    display_name="首领战结算弹窗",
+    true_text="开启",
+    false_text="关闭",
 )
 
 
@@ -133,20 +136,26 @@ def _sync_popup(enabled: bool) -> None:
 
 open_button = ButtonOption(
     "Open the Carnage Report",
-    description="Shows every player's damage, kills and top damage sources.",
+    description="显示每位玩家的伤害、击杀数及主要伤害来源。",
     on_press=lambda _: page.request_open(),
+    display_name="打开伤害统计报告",
 )
 
 
 def _reset(_: ButtonOption) -> None:
     if share.role() == "client":
-        log("Only the host can reset the board.")
+        log("只有房主可以重置统计。")
         return
     tracker.reset()
-    page.say("Board reset.")
+    page.say("统计已重置。")
 
 
-reset_button = ButtonOption("Reset the board", description="Starts the fight and session totals over.", on_press=_reset)
+reset_button = ButtonOption(
+    "Reset the board",
+    description="清空本场战斗及本次游戏的累计统计。",
+    on_press=_reset,
+    display_name="重置统计",
+)
 
 page.S.key_name = lambda: str(open_key.value or "")
 page.S.report_popup = lambda: bool(report_option.value)
@@ -164,12 +173,12 @@ def _fake_report(name: str) -> None:
     boss.first, boss.last = tracker.S.fight_start, tracker.S.fight_last
     boss.damage = {key: p.fight.total for key, p in tracker.S.players.items() if p.fight.total > 0}
     if not boss.damage:
-        log("Nothing in this fight to report: damage something first (or run dev/carnage_fake_board.py).")
+        log("本场战斗还没有可统计的伤害：请先攻击敌人（或运行 dev/carnage_fake_board.py）。")
         return
     tracker._make_report(boss, time.monotonic())  # noqa: SLF001
 
 
-@command("carnage", description="Opens the Carnage Report. `carnage reset` starts it over, `carnage stats` prints diagnostics.")
+@command("carnage", description="打开伤害统计报告。`carnage reset` 重置统计；`carnage stats` 输出诊断信息。")
 def carnage_command(args: argparse.Namespace) -> None:
     verb = (args.verb or "").lower()
     if verb == "reset":
@@ -275,7 +284,7 @@ def _check_session() -> None:
         share.forget()
         page.S.view = {"scope": "fight"}
         page.changed()
-        log("New game session: the board starts over.")
+        log("开始新的游戏会话：统计已清零。")
     S.session = session
 
 

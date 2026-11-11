@@ -1,5 +1,6 @@
 [project]
 name = "BL4 Direct Connect"
+cn_name = "BL4 IP 联机"
 version = "0.5.5"
 description = "《无主之地 4》IP 直连联机，无需 SHiFT 或 Steam 匹配。在游戏中或标题画面按 F6，可创建房间、加入游戏及添加好友。"
 authors = [{ name = "flame" }]

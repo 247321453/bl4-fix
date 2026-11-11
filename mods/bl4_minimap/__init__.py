@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Minimap for Borderlands 4: a round minimap in the corner of the screen, drawn from the game's own
 big-map art.
@@ -119,19 +120,27 @@ def log(msg: str) -> None:
 
 # region Options
 
-toggle_key = KeybindOption("Show/hide key", "N", description="Hides or shows the minimap.")
+toggle_key = KeybindOption(
+    "Show/hide key",
+    "N",
+    description="隐藏或显示小地图。",
+    display_name="小地图开关键",
+)
 zoom_in_key = KeybindOption(
     "Zoom in key",
     "Equals",
-    description="Zooms the minimap in (shorter range); hold it to keep zooming. The keypad's + works too.",
+    description="放大小地图（缩小显示范围）；按住可持续放大。小键盘的 + 键也可使用。",
+    display_name="放大快捷键",
 )
 zoom_out_key = KeybindOption(
     "Zoom out key",
     "Hyphen",
-    description="Zooms the minimap out (longer range); hold it to keep zooming. The keypad's - works too.",
+    description="缩小小地图（扩大显示范围）；按住可持续缩小。小键盘的 - 键也可使用。",
+    display_name="缩小快捷键",
 )
 size_option = SliderOption(
-    "Size (px)", 480, 120, 960, 10, True, description="How wide the minimap is on screen.",
+    "Size (px)", 480, 120, 960, 10, True, description="小地图在屏幕上的宽度。",
+    display_name="尺寸（像素）",
 )  # fmt: skip
 range_option = SliderOption(
     "Range (m)",
@@ -140,7 +149,8 @@ range_option = SliderOption(
     600,
     10,
     True,
-    description="How far the minimap reaches from you to its edge.",
+    description="从玩家位置到小地图边缘的距离。",
+    display_name="显示范围（米）",
 )
 icon_size_option = SliderOption(
     "Icon size (%)",
@@ -149,84 +159,110 @@ icon_size_option = SliderOption(
     250,
     10,
     True,
-    description="How big your arrow and the markers (enemies, teammates, waypoint, ...) are.",
+    description="玩家箭头与标记（敌人、队友、导航点等）的大小。",
+    display_name="图标大小（%）",
 )
 icons_option = BoolOption(
     "Map icons",
     True,
     description=(
-        "Shows the ECHO map's icons (fast travel, vending machines, missions, collectibles, ...)."
-        " The minimap learns them from the ECHO map: open it once on each world; it updates each"
-        " time you open it. Mission objectives and mission givers update live."
+        "显示 ECHO 地图上的图标（快速旅行、售货机、任务、收集品等）。小地图从 ECHO 地图读取这些图标：每个世界至少打开一次地图，每次打开都会更新。任务目标与任务发布者会实时更新。"
     ),
+    display_name="地图图标",
+    true_text="开启",
+    false_text="关闭",
 )
 route_option = BoolOption(
     "Route line",
     True,
     description=(
-        "Shows the route to your waypoint or tracked mission, the same way the ECHO map routes you"
-        " (the game's own route, asked for live), and it follows a new waypoint or objective at once."
+        "显示通往导航点或追踪任务的路线，与 ECHO 地图一致（实时请求游戏自身的路线）。设置新的导航点或目标后，路线会立即更新。"
     ),
+    display_name="导航路线",
+    true_text="开启",
+    false_text="关闭",
 )
 route_top_option = BoolOption(
     "Route line over icons",
     False,
     description=(
-        "Draws the route line over the map's icons (vendors, chests and the like) instead of under"
-        " them. Enemies, objectives and your arrow stay on top. In the HUD minimap only."
+        "将路线绘制在售货机、宝箱等地图图标上方，而非下方。敌人、目标和玩家箭头仍位于最上层。仅对 HUD 小地图生效。"
     ),
+    display_name="路线显示在图标上方",
+    true_text="开启",
+    false_text="关闭",
 )
 contracts_option = BoolOption(
     "Always show contracts",
     False,
     description=(
-        "Off: only the contract (bounty) you're tracking shows on the minimap. On: every contract"
-        " you've accepted shows, like on the ECHO map."
+        "关闭：仅显示正在追踪的合约（悬赏）。开启：与 ECHO 地图一样，显示所有已接受的合约。"
     ),
+    display_name="始终显示合约",
+    true_text="开启",
+    false_text="关闭",
 )
 rifts_option = BoolOption(
     "Always show rift events",
     True,
     description=(
-        "Off: rift events (Rift Champions, rift bosses, Digi-Rifts) and the other world events show"
-        " like any map icon, within range. On: they always show, on the rim when they're out of range."
+        "关闭：裂隙勇士、裂隙首领、数字裂隙等世界事件与普通图标一样，仅在范围内显示。开启：始终显示这些事件；超出范围时显示在小地图边缘。"
     ),
+    display_name="始终显示裂隙事件",
+    true_text="开启",
+    false_text="关闭",
 )
 loot_option = BoolOption(
     "Legendary drops",
     True,
-    description="Marks legendary and pearlescent items lying on the ground (within 300 m).",
+    description="标记地面上的传奇与珠光装备（300 米以内）。",
+    display_name="传奇掉落标记",
+    true_text="开启",
+    false_text="关闭",
 )
 vertical_option = BoolOption(
     "Above/below arrows",
     True,
-    description="Like the compass: a small arrow on markers that are well above or below you.",
+    description="与罗盘类似，在明显高于或低于玩家的标记上显示小箭头。",
+    display_name="高度差箭头",
+    true_text="开启",
+    false_text="关闭",
 )
 spread_option = BoolOption(
     "Spread out stacked icons",
     False,
     description=(
-        "Icons that would sit on top of each other are moved apart so none overlap, each with a thin"
-        " line back to where it really is, like the ECHO map does when you hover a stack of icons."
-        " Enemies and teammates stay where they are."
+        "将重叠图标分散显示，并用细线指回其实际位置，效果类似 ECHO 地图上悬停重叠图标时的展开显示。敌人与队友图标保持原位。"
     ),
+    display_name="分散重叠图标",
+    true_text="开启",
+    false_text="关闭",
 )
 # Markers that spread with the map's icons (they stand still); enemies and teammates move about
 SPREAD_KINDS = frozenset(("objective", "waypoint", "event", "legendary", "pearl"))
 square_option = BoolOption(
     "Square minimap",
     False,
-    description="A square minimap instead of a round one.",
+    description="使用方形小地图，而非圆形。",
+    display_name="方形小地图",
+    true_text="开启",
+    false_text="关闭",
 )
 rotate_option = BoolOption(
     "Rotate with view",
     True,
-    description="On: the map turns so the way you face is up. Off: north stays up and the arrow turns.",
+    description="开启：小地图旋转，玩家朝向始终向上。关闭：北方始终向上，仅玩家箭头旋转。",
+    display_name="随视角旋转",
+    true_text="开启",
+    false_text="关闭",
 )
 north_option = BoolOption(
     "North marker",
     True,
-    description="An N on the minimap's edge that shows which way north is, so you can tell where you're facing.",
+    description="在小地图边缘显示 N 标记，指示北方，方便判断朝向。",
+    display_name="北方标记",
+    true_text="开启",
+    false_text="关闭",
 )
 rate_option = SliderOption(
     "Marker updates per second",
@@ -236,18 +272,19 @@ rate_option = SliderOption(
     5,
     True,
     description=(
-        "How often enemies and other markers are looked up (the map itself moves and turns every"
-        " frame). Lower is a little lighter on your frame rate."
+        "每秒查询敌人等标记的次数（地图本身每帧移动和旋转）。降低此值可稍微减轻性能负担。"
     ),
+    display_name="每秒标记更新次数",
 )
 fog_option = BoolOption(
     "Fog of war",
     True,
     description=(
-        "Hides the parts of the map you haven't explored, like the ECHO map. The minimap learns"
-        " your fog from the ECHO map: open the map once on each world, then it follows your"
-        " exploring as you go. Remembered per character."
+        "与 ECHO 地图一样，隐藏尚未探索的区域。每个世界先打开一次 ECHO 地图以读取迷雾，之后会随探索进度更新，并按角色分别保存。"
     ),
+    display_name="战争迷雾",
+    true_text="开启",
+    false_text="关闭",
 )
 fog_strength_option = SliderOption(
     "Fog strength (%)",
@@ -256,19 +293,36 @@ fog_strength_option = SliderOption(
     100,
     5,
     True,
-    description="How dark unexplored land is on the minimap. 100 hides it completely.",
+    description="未探索区域的暗化程度。100 表示完全隐藏。",
+    display_name="迷雾强度（%）",
 )
-margin_x_option = SliderOption("Distance from right edge (px)", 40, 0, 1500, 5, True)
-margin_y_option = SliderOption("Distance from top edge (px)", 110, 0, 1000, 5, True)
+margin_x_option = SliderOption(
+    "Distance from right edge (px)",
+    40,
+    0,
+    1500,
+    5,
+    True,
+    display_name="距右边缘（像素）",
+)
+margin_y_option = SliderOption(
+    "Distance from top edge (px)",
+    110,
+    0,
+    1000,
+    5,
+    True,
+    display_name="距上边缘（像素）",
+)
 page_option = BoolOption(
     "Draw in the HUD (lighter)",
     True,  # (the default for new installs since 0.1.13: the user's pick; saved settings keep theirs)
     description=(
-        "Draws the minimap in the game's own HUD instead of a widget of ours: the same map, icons and"
-        " settings, but no camera filming the map as you move and nothing redrawn by the mod each"
-        " frame. The map is put together from saved map tiles; new areas are filmed once, the first"
-        " time you're there."
+        "在游戏自身的 HUD 中绘制小地图，而非使用独立控件。地图、图标与设置不变，但无需持续拍摄移动中的地图，也不再由 Mod 每帧重绘。地图由缓存的图块拼接；新区域仅在首次到达时拍摄一次。"
     ),
+    display_name="使用 HUD 绘制（更省性能）",
+    true_text="开启",
+    false_text="关闭",
 )
 
 
@@ -283,12 +337,21 @@ still_hud_option = BoolOption(
     "Still HUD (no sway)",
     False,
     description=(
-        "Stops the whole HUD (every element, the minimap too) zooming and shaking when you sprint,"
-        " boost a vehicle, slide, glide, grapple or ground-slam."
+        "阻止整个 HUD（包括小地图）在冲刺、载具加速、滑铲、滑翔、抓钩或下砸时缩放和晃动。"
     ),
     on_change=_still_hud_changed,
+    display_name="固定 HUD（关闭晃动）",
+    true_text="开启",
+    false_text="关闭",
 )
-saved_on_option = BoolOption("Minimap on", True, is_hidden=True)
+saved_on_option = BoolOption(
+    "Minimap on",
+    True,
+    is_hidden=True,
+    display_name="启用小地图",
+    true_text="开启",
+    false_text="关闭",
+)
 
 # endregion
 # region Keys

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Runtime UMG drawing for the menu: a full-screen UserWidget with one CanvasPanel, filled with
 Borders, TextBlocks and nearly invisible Buttons that give us hit testing (the same technique as
@@ -14,6 +15,8 @@ we never touch a freed object (that crashes the game).
 """
 
 from __future__ import annotations
+
+from .i18n import text as localize
 
 from collections.abc import Callable
 from dataclasses import dataclass
@@ -155,7 +158,7 @@ class Canvas:
 
     def _text_block(self, value: str, size: float, color: Color) -> Any:
         tb = new("/Script/UMG.TextBlock", self.tree)
-        call(tb, "SetText", value)
+        call(tb, "SetText", localize(value))
         font = tb.Font
         font.Size = self._font_size(size)
         call(tb, "SetFont", font)

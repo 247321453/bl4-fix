@@ -1,7 +1,8 @@
 [project]
 name = "BL4 Performance Fixes"
+cn_name = "BL4 性能优化"
 version = "0.2.3"
-description = "Removes hitches: DLSS reloads after menus, Python hook overhead and garbage collection, memory trimming."
+description = "减少 DLSS 在关闭菜单后重新加载、Python 钩子与垃圾回收、内存换出等造成的卡顿。"
 authors = [{ name = "flame" }]
 
 [tool.sdkmod]

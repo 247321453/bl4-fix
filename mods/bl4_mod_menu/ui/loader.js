@@ -71,5 +71,9 @@
         });
     }
 
-    check();
+    // Localization is presentation data, never an action/setting identifier.
+    get(BASE + "zh.json", function (text) {
+        try { ns.zh = JSON.parse(text || "{}"); } catch (err) { ns.zh = {}; }
+        check();
+    });
 })();

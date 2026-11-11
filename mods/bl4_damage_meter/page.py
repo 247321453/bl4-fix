@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 The link between the Carnage Report screen (ui/meter.js, in the game's menu page) and Python.
 
@@ -109,10 +110,10 @@ def act(action: dict[str, Any]) -> None:
                 S.open_pending = False
         case "reset":
             if share.role() == "client":
-                say("Only the host can reset the board.")
+                say("只有房主可以重置统计。")
             else:
                 tracker.reset()
-                say("Board reset. Go make some carnage.")
+                say("统计已重置，继续大杀四方吧！")
         case "view":
             scope = action.get("scope")
             if scope in ("boss", "fight", "session"):
@@ -217,7 +218,7 @@ def _report() -> dict[str, Any] | None:
 def request_open(scope: str | None = None) -> None:
     pc = get_pc(possibly_loading=True)
     if pc is None or pc.Pawn is None:
-        logging.info("[Carnage Meter] The Carnage Report opens in game, not at the title screen.")
+        logging.info("[伤害统计] 请进入游戏后再打开报告，标题界面不支持显示。")
         return
     if not available():
         logging.error(f"[Carnage Meter] {_unavailable()}")
@@ -237,11 +238,11 @@ def _unavailable() -> str:
     link = uilink.status()
     match link.get("state"):
         case "next_start":
-            return "The Carnage Report shows from the next game start (its page link was just set up)."
+            return "伤害统计界面将在下次启动游戏后可用（页面连接刚刚配置完成）。"
         case "game_changed" | "conflict" | "error":
-            return f"The Carnage Report can't show: {link.get('detail') or link.get('state')}"
+            return f"无法显示伤害统计报告：{link.get('detail') or link.get('state')}"
         case _:
-            return "The Carnage Report isn't ready yet; try again in a moment."
+            return "伤害统计报告尚未就绪，请稍后重试。"
 
 
 def request_close() -> None:
@@ -349,7 +350,7 @@ def tick(role: str | None = None) -> None:
     if S.waiting_until and time.monotonic() > S.waiting_until:
         S.waiting_until = 0.0
         if not screen_open():
-            logging.error("[Carnage Meter] The screen didn't open (the game's menu page didn't run it).")
+            logging.error("[伤害统计] 界面未打开（游戏菜单页面没有运行统计脚本）。")
     elif S.waiting_until and screen_open():
         S.waiting_until = 0.0
 

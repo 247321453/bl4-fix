@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Which lines of a class mod or enhancement can be rerolled, and new serials with them rerolled.
 

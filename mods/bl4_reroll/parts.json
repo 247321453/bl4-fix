@@ -7,6 +7,7 @@
      "key": "stat2_criticalhitchance_melee",
      "group": "stat_group2",
      "name": "Melee Critical Hit Chance",
+     "cn_name": "近战暴击率",
      "add": [
       "cm_stat_criticalhitchance_melee"
      ],
@@ -20,6 +21,7 @@
      "key": "stat2_ordnance_cooldown",
      "group": "stat_group2",
      "name": "Ordnance Cooldown Rate",
+     "cn_name": "军械冷却速率",
      "add": [
       "cm_stat_ordnance_cooldown"
      ],
@@ -33,6 +35,7 @@
      "key": "stat_ordnance_cooldown",
      "group": "stat_group1",
      "name": "Ordnance Cooldown Rate",
+     "cn_name": "军械冷却速率",
      "add": [
       "cm_stat_ordnance_cooldown"
      ],
@@ -46,6 +49,7 @@
      "key": "statspecial_miniondamage",
      "group": "stat_group1",
      "name": "Minion Damage",
+     "cn_name": "召唤物伤害",
      "add": [],
      "excl": [],
      "special": true,
@@ -55,6 +59,7 @@
      "key": "statspecial_lifesteal",
      "group": "stat_group1",
      "name": "Lifesteal",
+     "cn_name": "生命偷取",
      "add": [],
      "excl": [],
      "special": true,
@@ -64,6 +69,7 @@
      "key": "statspecial_commandskill_cooldown",
      "group": "stat_group1",
      "name": "Command Skill Cooldown Rate",
+     "cn_name": "指令技能冷却速率",
      "add": [],
      "excl": [],
      "special": true,
@@ -73,6 +79,7 @@
      "key": "statspecial_phaseclone_healthloss",
      "group": "stat_group1",
      "name": "Phase Clone Health loss over time",
+     "cn_name": "相位分身持续生命损耗",
      "add": [],
      "excl": [],
      "special": true,
@@ -82,6 +89,7 @@
      "key": "statspecial_attunement_duration",
      "group": "stat_group1",
      "name": "Attunement Skill Duration",
+     "cn_name": "调谐技能持续时间",
      "add": [],
      "excl": [],
      "special": true,
@@ -91,6 +99,7 @@
      "key": "stat_criticalhitchance_ordnance",
      "group": "stat_group1",
      "name": "Ordnance Critical Hit Chance",
+     "cn_name": "军械暴击率",
      "add": [
       "cm_stat_criticalhitchance_ordnance"
      ],
@@ -104,6 +113,7 @@
      "key": "stat2_criticalhitchance_ordnance",
      "group": "stat_group2",
      "name": "Ordnance Critical Hit Chance",
+     "cn_name": "军械暴击率",
      "add": [
       "cm_stat_criticalhitchance_ordnance"
      ],
@@ -117,6 +127,7 @@
      "key": "stat_criticalhitchance_skill",
      "group": "stat_group1",
      "name": "Skill Critical Hit Chance",
+     "cn_name": "技能暴击率",
      "add": [
       "cm_stat_criticalhitchance_skill"
      ],
@@ -130,6 +141,7 @@
      "key": "stat2_criticalhitchance_skill",
      "group": "stat_group2",
      "name": "Skill Critical Hit Chance",
+     "cn_name": "技能暴击率",
      "add": [
       "cm_stat_criticalhitchance_skill"
      ],
@@ -143,6 +155,7 @@
      "key": "stat2_criticalhitchance_gun",
      "group": "stat_group2",
      "name": "Gun Critical Hit Chance",
+     "cn_name": "枪械暴击率",
      "add": [
       "cm_stat_criticalhitchance_gun"
      ],
@@ -156,6 +169,7 @@
      "key": "stat_criticalhitchance_gun",
      "group": "stat_group1",
      "name": "Gun Critical Hit Chance",
+     "cn_name": "枪械暴击率",
      "add": [
       "cm_stat_criticalhitchance_gun"
      ],
@@ -169,6 +183,7 @@
      "key": "stat2_actionskill_damage",
      "group": "stat_group2",
      "name": "Action Skill Damage",
+     "cn_name": "主动技能伤害",
      "add": [
       "cm_stat_actionskill_damage"
      ],
@@ -182,6 +197,7 @@
      "key": "stat_actionskill_damage",
      "group": "stat_group1",
      "name": "Action Skill Damage",
+     "cn_name": "主动技能伤害",
      "add": [
       "cm_stat_actionskill_damage"
      ],
@@ -195,6 +211,7 @@
      "key": "stat2_ordnance_damage",
      "group": "stat_group2",
      "name": "Ordnance Damage",
+     "cn_name": "军械伤害",
      "add": [
       "cm_stat_grenade_damage"
      ],
@@ -208,6 +225,7 @@
      "key": "stat_ordnance_damage",
      "group": "stat_group1",
      "name": "Ordnance Damage",
+     "cn_name": "军械伤害",
      "add": [
       "cm_stat_grenade_damage"
      ],
@@ -221,6 +239,7 @@
      "key": "stat_all_damage",
      "group": "stat_group1",
      "name": "Damage Dealt",
+     "cn_name": "造成的伤害",
      "add": [
       "cm_stat_all_damage"
      ],
@@ -234,6 +253,7 @@
      "key": "stat2_all_damage",
      "group": "stat_group2",
      "name": "Damage Dealt",
+     "cn_name": "造成的伤害",
      "add": [
       "cm_stat_all_damage"
      ],
@@ -247,6 +267,7 @@
      "key": "stat2_statuseffect_chance",
      "group": "stat_group2",
      "name": "Status Effect Application Chance",
+     "cn_name": "状态效果施加概率",
      "add": [
       "cm_stat_statuseffect_chance"
      ],
@@ -260,6 +281,7 @@
      "key": "stat2_statuseffect_damage",
      "group": "stat_group2",
      "name": "Status Effect Damage",
+     "cn_name": "状态效果伤害",
      "add": [
       "cm_stat_statuseffect_damage"
      ],
@@ -273,6 +295,7 @@
      "key": "stat_statuseffect_chance",
      "group": "stat_group1",
      "name": "Status Effect Application Chance",
+     "cn_name": "状态效果施加概率",
      "add": [
       "cm_stat_statuseffect_chance"
      ],
@@ -286,6 +309,7 @@
      "key": "stat_statuseffect_damage",
      "group": "stat_group1",
      "name": "Status Effect Damage",
+     "cn_name": "状态效果伤害",
      "add": [
       "cm_stat_statuseffect_damage"
      ],
@@ -299,6 +323,7 @@
      "key": "stat2_kinetic_damage",
      "group": "stat_group2",
      "name": "Kinetic Damage",
+     "cn_name": "动能伤害",
      "add": [
       "cm_stat_kinetic_damage"
      ],
@@ -312,6 +337,7 @@
      "key": "stat2_elemental_damage",
      "group": "stat_group2",
      "name": "Elemental Damage",
+     "cn_name": "元素伤害",
      "add": [
       "cm_stat_elemental_damage"
      ],
@@ -325,6 +351,7 @@
      "key": "stat_kinetic_damage",
      "group": "stat_group1",
      "name": "Kinetic Damage",
+     "cn_name": "动能伤害",
      "add": [
       "cm_stat_kinetic_damage"
      ],
@@ -338,6 +365,7 @@
      "key": "stat_elemental_damage",
      "group": "stat_group1",
      "name": "Elemental Damage",
+     "cn_name": "元素伤害",
      "add": [
       "cm_stat_elemental_damage"
      ],
@@ -351,6 +379,7 @@
      "key": "stat_skill_duration",
      "group": "stat_group1",
      "name": "Action Skill Duration",
+     "cn_name": "主动技能持续时间",
      "add": [
       "cm_stat_skill_duration"
      ],
@@ -364,6 +393,7 @@
      "key": "stat_weapon_damage",
      "group": "stat_group1",
      "name": "Gun Damage",
+     "cn_name": "枪械伤害",
      "add": [
       "cm_stat_weapon_damage"
      ],
@@ -377,6 +407,7 @@
      "key": "stat_splash_damage",
      "group": "stat_group1",
      "name": "Splash Damage",
+     "cn_name": "溅射伤害",
      "add": [
       "cm_stat_splash_damage"
      ],
@@ -390,6 +421,7 @@
      "key": "stat_skill_damage",
      "group": "stat_group1",
      "name": "Skill Damage",
+     "cn_name": "技能伤害",
      "add": [
       "cm_stat_skill_damage"
      ],
@@ -403,6 +435,7 @@
      "key": "stat_skill_cooldown_rate",
      "group": "stat_group1",
      "name": "Action Skill Cooldown Rate",
+     "cn_name": "主动技能冷却速率",
      "add": [
       "cm_stat_skill_cdr"
      ],
@@ -416,6 +449,7 @@
      "key": "stat_shield_regen_rate",
      "group": "stat_group1",
      "name": "Energy Shield Regeneration Rate",
+     "cn_name": "能量护盾恢复速率",
      "add": [
       "cm_stat_shield_regen_rate"
      ],
@@ -429,6 +463,7 @@
      "key": "stat_reload_speed",
      "group": "stat_group1",
      "name": "Reload Speed",
+     "cn_name": "换弹速度",
      "add": [
       "cm_stat_reload_speed"
      ],
@@ -442,6 +477,7 @@
      "key": "stat_melee_damage",
      "group": "stat_group1",
      "name": "Melee Damage",
+     "cn_name": "近战伤害",
      "add": [
       "cm_stat_melee_damage"
      ],
@@ -455,6 +491,7 @@
      "key": "stat_max_health",
      "group": "stat_group1",
      "name": "Maximum Health Capacity",
+     "cn_name": "最大生命值",
      "add": [
       "cm_stat_max_health"
      ],
@@ -468,6 +505,7 @@
      "key": "stat_fire_rate",
      "group": "stat_group1",
      "name": "Fire Rate",
+     "cn_name": "射速",
      "add": [
       "cm_stat_fire_rate"
      ],
@@ -481,6 +519,7 @@
      "key": "stat_damage_reduction",
      "group": "stat_group1",
      "name": "Damage Reduction",
+     "cn_name": "伤害减免",
      "add": [
       "cm_stat_damage_reduction"
      ],
@@ -494,6 +533,7 @@
      "key": "stat_crit_damage",
      "group": "stat_group1",
      "name": "Critical Hit Damage",
+     "cn_name": "暴击伤害",
      "add": [
       "cm_stat_crit_damage"
      ],
@@ -507,6 +547,7 @@
      "key": "stat_health_regen",
      "group": "stat_group1",
      "name": "Health Regen per second",
+     "cn_name": "每秒生命恢复",
      "add": [
       "cm_stat_health_regen"
      ],
@@ -520,6 +561,7 @@
      "key": "stat_speed",
      "group": "stat_group1",
      "name": "Movement Speed",
+     "cn_name": "移动速度",
      "add": [
       "cm_stat_movespeed"
      ],
@@ -533,6 +575,7 @@
      "key": "stat_pistol_damage",
      "group": "stat_group1",
      "name": "Pistol Damage",
+     "cn_name": "手枪伤害",
      "add": [
       "cm_stat_pistol_damage",
       "cm_stat_weapon_damage_type"
@@ -548,6 +591,7 @@
      "key": "stat_smg_damage",
      "group": "stat_group1",
      "name": "Submachine Gun Damage",
+     "cn_name": "冲锋枪伤害",
      "add": [
       "cm_stat_smg_damage",
       "cm_stat_weapon_damage_type"
@@ -563,6 +607,7 @@
      "key": "stat_assaultrifle_damage",
      "group": "stat_group1",
      "name": "Assault Rifle Damage",
+     "cn_name": "突击步枪伤害",
      "add": [
       "cm_stat_assault_damage",
       "cm_stat_weapon_damage_type"
@@ -578,6 +623,7 @@
      "key": "stat_shotgun_damage",
      "group": "stat_group1",
      "name": "Shotgun Damage",
+     "cn_name": "霰弹枪伤害",
      "add": [
       "cm_stat_shotgun_damage",
       "cm_stat_weapon_damage_type"
@@ -593,6 +639,7 @@
      "key": "stat_shield_capacity",
      "group": "stat_group1",
      "name": "Maximum Shield Capacity",
+     "cn_name": "最大护盾容量",
      "add": [
       "cm_stat_shield_capacity"
      ],
@@ -606,6 +653,7 @@
      "key": "stat_sniper_damage",
      "group": "stat_group1",
      "name": "Sniper Rifle Damage",
+     "cn_name": "狙击步枪伤害",
      "add": [
       "cm_stat_sniper_damage",
       "cm_stat_weapon_damage_type"
@@ -621,6 +669,7 @@
      "key": "stat2_skill_duration",
      "group": "stat_group2",
      "name": "Action Skill Duration",
+     "cn_name": "主动技能持续时间",
      "add": [
       "cm_stat_skill_duration"
      ],
@@ -634,6 +683,7 @@
      "key": "stat2_weapon_damage",
      "group": "stat_group2",
      "name": "Gun Damage",
+     "cn_name": "枪械伤害",
      "add": [
       "cm_stat_weapon_damage"
      ],
@@ -647,6 +697,7 @@
      "key": "stat2_splash_damage",
      "group": "stat_group2",
      "name": "Splash Damage",
+     "cn_name": "溅射伤害",
      "add": [
       "cm_stat_splash_damage"
      ],
@@ -660,6 +711,7 @@
      "key": "stat2_skill_damage",
      "group": "stat_group2",
      "name": "Skill Damage",
+     "cn_name": "技能伤害",
      "add": [
       "cm_stat_skill_damage"
      ],
@@ -673,6 +725,7 @@
      "key": "stat2_skill_cooldown_rate",
      "group": "stat_group2",
      "name": "Action Skill Cooldown Rate",
+     "cn_name": "主动技能冷却速率",
      "add": [
       "cm_stat_skill_cdr"
      ],
@@ -686,6 +739,7 @@
      "key": "stat2_shield_regen_rate",
      "group": "stat_group2",
      "name": "Energy Shield Regeneration Rate",
+     "cn_name": "能量护盾恢复速率",
      "add": [
       "cm_stat_shield_regen_rate"
      ],
@@ -699,6 +753,7 @@
      "key": "stat2_reload_speed",
      "group": "stat_group2",
      "name": "Reload Speed",
+     "cn_name": "换弹速度",
      "add": [
       "cm_stat_reload_speed"
      ],
@@ -712,6 +767,7 @@
      "key": "stat2_melee_damage",
      "group": "stat_group2",
      "name": "Melee Damage",
+     "cn_name": "近战伤害",
      "add": [
       "cm_stat_melee_damage"
      ],
@@ -725,6 +781,7 @@
      "key": "stat2_max_health",
      "group": "stat_group2",
      "name": "Maximum Health Capacity",
+     "cn_name": "最大生命值",
      "add": [
       "cm_stat_max_health"
      ],
@@ -738,6 +795,7 @@
      "key": "stat2_fire_rate",
      "group": "stat_group2",
      "name": "Fire Rate",
+     "cn_name": "射速",
      "add": [
       "cm_stat_fire_rate"
      ],
@@ -751,6 +809,7 @@
      "key": "stat2_damage_reduction",
      "group": "stat_group2",
      "name": "Damage Reduction",
+     "cn_name": "伤害减免",
      "add": [
       "cm_stat_damage_reduction"
      ],
@@ -764,6 +823,7 @@
      "key": "stat2_crit_damage",
      "group": "stat_group2",
      "name": "Critical Hit Damage",
+     "cn_name": "暴击伤害",
      "add": [
       "cm_stat_crit_damage"
      ],
@@ -777,6 +837,7 @@
      "key": "stat2_health_regen",
      "group": "stat_group2",
      "name": "Health Regen per second",
+     "cn_name": "每秒生命恢复",
      "add": [
       "cm_stat_health_regen"
      ],
@@ -790,6 +851,7 @@
      "key": "stat2_speed",
      "group": "stat_group2",
      "name": "Movement Speed",
+     "cn_name": "移动速度",
      "add": [
       "cm_stat_movespeed"
      ],
@@ -803,6 +865,7 @@
      "key": "stat2_pistol_damage",
      "group": "stat_group2",
      "name": "Pistol Damage",
+     "cn_name": "手枪伤害",
      "add": [
       "cm_stat_pistol_damage",
       "cm_stat_weapon_damage_type"
@@ -818,6 +881,7 @@
      "key": "stat2_smg_damage",
      "group": "stat_group2",
      "name": "Submachine Gun Damage",
+     "cn_name": "冲锋枪伤害",
      "add": [
       "cm_stat_smg_damage",
       "cm_stat_weapon_damage_type"
@@ -833,6 +897,7 @@
      "key": "stat2_assaultrifle_damage",
      "group": "stat_group2",
      "name": "Assault Rifle Damage",
+     "cn_name": "突击步枪伤害",
      "add": [
       "cm_stat_assault_damage",
       "cm_stat_weapon_damage_type"
@@ -848,6 +913,7 @@
      "key": "stat2_shotgun_damage",
      "group": "stat_group2",
      "name": "Shotgun Damage",
+     "cn_name": "霰弹枪伤害",
      "add": [
       "cm_stat_shotgun_damage",
       "cm_stat_weapon_damage_type"
@@ -863,6 +929,7 @@
      "key": "stat2_shield_capacity",
      "group": "stat_group2",
      "name": "Maximum Shield Capacity",
+     "cn_name": "最大护盾容量",
      "add": [
       "cm_stat_shield_capacity"
      ],
@@ -876,6 +943,7 @@
      "key": "stat2_sniper_damage",
      "group": "stat_group2",
      "name": "Sniper Rifle Damage",
+     "cn_name": "狙击步枪伤害",
      "add": [
       "cm_stat_sniper_damage",
       "cm_stat_weapon_damage_type"
@@ -891,6 +959,7 @@
      "key": "statspecial_stasis_damage",
      "group": "stat_group1",
      "name": "Stasis Damage",
+     "cn_name": "停滞伤害",
      "add": [],
      "excl": [],
      "special": true,
@@ -900,6 +969,7 @@
      "key": "statspecial_puddle_damage",
      "group": "stat_group1",
      "name": "Hazard Damage",
+     "cn_name": "危害伤害",
      "add": [],
      "excl": [],
      "special": true,
@@ -909,6 +979,7 @@
      "key": "statspecial_forgeskill_damage",
      "group": "stat_group1",
      "name": "Forgeskill Damage",
+     "cn_name": "锻造技能伤害",
      "add": [],
      "excl": [],
      "special": true,
@@ -918,6 +989,7 @@
      "key": "statspecial_detonation_damage",
      "group": "stat_group1",
      "name": "Detonation Damage",
+     "cn_name": "引爆伤害",
      "add": [],
      "excl": [],
      "special": true,
@@ -927,6 +999,7 @@
      "key": "statspecial_cryo_damage",
      "group": "stat_group1",
      "name": "Cryo Damage",
+     "cn_name": "冰冻伤害",
      "add": [],
      "excl": [],
      "special": true,
@@ -936,6 +1009,7 @@
      "key": "statspecial_forgedrone_duration",
      "group": "stat_group1",
      "name": "Forgedrone Duration",
+     "cn_name": "锻造无人机持续时间",
      "add": [],
      "excl": [],
      "special": true,
@@ -945,6 +1019,7 @@
      "key": "statspecial_incendiary_damage",
      "group": "stat_group1",
      "name": "Incendiary Damage",
+     "cn_name": "燃烧伤害",
      "add": [],
      "excl": [],
      "special": true,
@@ -954,6 +1029,7 @@
      "key": "stat_criticalhitchance_melee",
      "group": "stat_group1",
      "name": "Melee Critical Hit Chance",
+     "cn_name": "近战暴击率",
      "add": [
       "cm_stat_criticalhitchance_melee"
      ],
@@ -967,6 +1043,7 @@
      "key": "statspecial_movementspeed",
      "group": "stat_group1",
      "name": "Movement Speed",
+     "cn_name": "移动速度",
      "add": [],
      "excl": [],
      "special": true,
@@ -1007,6 +1084,7 @@
      "key": "part_stat_wt_sr_magsize",
      "group": "stat_group1",
      "name": "Sniper Rifle Magazine Size",
+     "cn_name": "狙击步枪弹匣容量",
      "add": [
       "enh_magsize_sr"
      ],
@@ -1020,6 +1098,7 @@
      "key": "part_stat_wt_sg_magsize",
      "group": "stat_group1",
      "name": "Shotgun Magazine Size",
+     "cn_name": "霰弹枪弹匣容量",
      "add": [
       "enh_magsize_sg"
      ],
@@ -1033,6 +1112,7 @@
      "key": "part_stat_wt_sm_magsize",
      "group": "stat_group1",
      "name": "SMG Magazine Size",
+     "cn_name": "冲锋枪弹匣容量",
      "add": [
       "enh_magsize_sm"
      ],
@@ -1046,6 +1126,7 @@
      "key": "part_stat_wt_ps_magsize",
      "group": "stat_group1",
      "name": "Pistol Magazine Size",
+     "cn_name": "手枪弹匣容量",
      "add": [
       "enh_magsize_ps"
      ],
@@ -1059,6 +1140,7 @@
      "key": "part_stat_wt_ar_magsize",
      "group": "stat_group1",
      "name": "Assault Rifle Magazine Size",
+     "cn_name": "突击步枪弹匣容量",
      "add": [
       "enh_magsize_ar"
      ],
@@ -1072,6 +1154,7 @@
      "key": "part_stat_wt_sr_criticaldamage",
      "group": "stat_group1",
      "name": "Sniper Rifle Critical Damage",
+     "cn_name": "狙击步枪暴击伤害",
      "add": [
       "enh_critdmg_sr"
      ],
@@ -1085,6 +1168,7 @@
      "key": "part_stat_wt_sg_criticaldamage",
      "group": "stat_group1",
      "name": "Shotgun Critical Damage",
+     "cn_name": "霰弹枪暴击伤害",
      "add": [
       "enh_critdmg_sg"
      ],
@@ -1098,6 +1182,7 @@
      "key": "part_stat_wt_sm_criticaldamage",
      "group": "stat_group1",
      "name": "SMG Critical Damage",
+     "cn_name": "冲锋枪暴击伤害",
      "add": [
       "enh_critdmg_sm"
      ],
@@ -1111,6 +1196,7 @@
      "key": "part_stat_wt_ps_criticaldamage",
      "group": "stat_group1",
      "name": "Pistol Critical Damage",
+     "cn_name": "手枪暴击伤害",
      "add": [
       "enh_critdmg_ps"
      ],
@@ -1124,6 +1210,7 @@
      "key": "part_stat_wt_ar_criticaldamage",
      "group": "stat_group1",
      "name": "Assault Rifle Critical Damage",
+     "cn_name": "突击步枪暴击伤害",
      "add": [
       "enh_critdmg_ar"
      ],
@@ -1137,6 +1224,7 @@
      "key": "part_stat_wt_sr_damage",
      "group": "stat_group1",
      "name": "Sniper Rifle Damage",
+     "cn_name": "狙击步枪伤害",
      "add": [
       "enh_dmg_sr"
      ],
@@ -1150,6 +1238,7 @@
      "key": "part_stat_wt_sg_damage",
      "group": "stat_group1",
      "name": "Shotgun Damage",
+     "cn_name": "霰弹枪伤害",
      "add": [
       "enh_dmg_sg"
      ],
@@ -1163,6 +1252,7 @@
      "key": "part_stat_wt_sm_damage",
      "group": "stat_group1",
      "name": "SMG Damage",
+     "cn_name": "冲锋枪伤害",
      "add": [
       "enh_dmg_sm"
      ],
@@ -1176,6 +1266,7 @@
      "key": "part_stat_wt_ps_damage",
      "group": "stat_group1",
      "name": "Pistol Damage",
+     "cn_name": "手枪伤害",
      "add": [
       "enh_dmg_ps"
      ],
@@ -1189,6 +1280,7 @@
      "key": "part_stat_wt_ar_damage",
      "group": "stat_group1",
      "name": "Assault Rifle Damage",
+     "cn_name": "突击步枪伤害",
      "add": [
       "enh_dmg_ar"
      ],
@@ -1202,6 +1294,7 @@
      "key": "part_stat_wt_sr_firerate",
      "group": "stat_group1",
      "name": "Sniper Rifle Fire Rate",
+     "cn_name": "狙击步枪射速",
      "add": [
       "enh_firerate_sr"
      ],
@@ -1215,6 +1308,7 @@
      "key": "part_stat_wt_sg_firerate",
      "group": "stat_group1",
      "name": "Shotgun Fire Rate",
+     "cn_name": "霰弹枪射速",
      "add": [
       "enh_firerate_sg"
      ],
@@ -1228,6 +1322,7 @@
      "key": "part_stat_wt_sm_firerate",
      "group": "stat_group1",
      "name": "SMG Fire Rate",
+     "cn_name": "冲锋枪射速",
      "add": [
       "enh_firerate_sm"
      ],
@@ -1241,6 +1336,7 @@
      "key": "part_stat_wt_ps_firerate",
      "group": "stat_group1",
      "name": "Pistol Fire Rate",
+     "cn_name": "手枪射速",
      "add": [
       "enh_firerate_ps"
      ],
@@ -1254,6 +1350,7 @@
      "key": "part_stat_wt_ar_firerate",
      "group": "stat_group1",
      "name": "Assault Rifle Fire Rate",
+     "cn_name": "突击步枪射速",
      "add": [
       "enh_firerate_ar"
      ],
@@ -1267,6 +1364,7 @@
      "key": "part_stat_wt_sr_accuracy",
      "group": "stat_group1",
      "name": "Sniper Rifle Accuracy",
+     "cn_name": "狙击步枪精准度",
      "add": [
       "enh_acc_sr"
      ],
@@ -1280,6 +1378,7 @@
      "key": "part_stat_wt_sg_accuracy",
      "group": "stat_group1",
      "name": "Shotgun Accuracy",
+     "cn_name": "霰弹枪精准度",
      "add": [
       "enh_acc_sg"
      ],
@@ -1293,6 +1392,7 @@
      "key": "part_stat_wt_sm_accuracy",
      "group": "stat_group1",
      "name": "SMG Accuracy",
+     "cn_name": "冲锋枪精准度",
      "add": [
       "enh_acc_sm"
      ],
@@ -1306,6 +1406,7 @@
      "key": "part_stat_wt_ps_accuracy",
      "group": "stat_group1",
      "name": "Pistol Accuracy",
+     "cn_name": "手枪精准度",
      "add": [
       "enh_acc_ps"
      ],
@@ -1319,6 +1420,7 @@
      "key": "part_stat_wt_ar_accuracy",
      "group": "stat_group1",
      "name": "Assault Rifle Accuracy",
+     "cn_name": "突击步枪精准度",
      "add": [
       "enh_acc_ar"
      ],
@@ -1332,6 +1434,7 @@
      "key": "part_stat_wt_sr_splashdamage",
      "group": "stat_group1",
      "name": "Sniper Rifle Splash Damage",
+     "cn_name": "狙击步枪溅射伤害",
      "add": [
       "enh_splashdmg_sr"
      ],
@@ -1345,6 +1448,7 @@
      "key": "part_stat_wt_sg_splashdamage",
      "group": "stat_group1",
      "name": "Shotgun Splash Damage",
+     "cn_name": "霰弹枪溅射伤害",
      "add": [
       "enh_splashdmg_sg"
      ],
@@ -1358,6 +1462,7 @@
      "key": "part_stat_wt_sm_splashdamage",
      "group": "stat_group1",
      "name": "SMG Splash Damage",
+     "cn_name": "冲锋枪溅射伤害",
      "add": [
       "enh_splashdmg_sm"
      ],
@@ -1371,6 +1476,7 @@
      "key": "part_stat_wt_ps_splashdamage",
      "group": "stat_group1",
      "name": "Pistol Splash Damage",
+     "cn_name": "手枪溅射伤害",
      "add": [
       "enh_splashdmg_ps"
      ],
@@ -1384,6 +1490,7 @@
      "key": "part_stat_wt_ar_splashdamage",
      "group": "stat_group1",
      "name": "Assault Rifle Splash Damage",
+     "cn_name": "突击步枪溅射伤害",
      "add": [
       "enh_splashdmg_ar"
      ],
@@ -1397,6 +1504,7 @@
      "key": "part_stat_wt_sg_splashradius",
      "group": "stat_group1",
      "name": "Shotgun Splash Radius",
+     "cn_name": "霰弹枪溅射半径",
      "add": [
       "enh_dmgradius_sg"
      ],
@@ -1410,6 +1518,7 @@
      "key": "part_stat_wt_ps_splashradius",
      "group": "stat_group1",
      "name": "Pistol Splash Radius",
+     "cn_name": "手枪溅射半径",
      "add": [
       "enh_dmgradius_ps"
      ],
@@ -1423,6 +1532,7 @@
      "key": "part_stat_wt_sr_splashradius",
      "group": "stat_group1",
      "name": "Sniper Rifle Splash Radius",
+     "cn_name": "狙击步枪溅射半径",
      "add": [
       "enh_dmgradius_sr"
      ],
@@ -1436,6 +1546,7 @@
      "key": "part_stat_wt_sm_splashradius",
      "group": "stat_group1",
      "name": "SMG Splash Radius",
+     "cn_name": "冲锋枪溅射半径",
      "add": [
       "enh_dmgradius_sm"
      ],
@@ -1449,6 +1560,7 @@
      "key": "part_stat_wt_ar_splashradius",
      "group": "stat_group1",
      "name": "Assault Rifle Splash Radius",
+     "cn_name": "突击步枪溅射半径",
      "add": [
       "enh_dmgradius_ar"
      ],
@@ -1462,6 +1574,7 @@
      "key": "part_stat_wt_sr_ads_proficiency",
      "group": "stat_group1",
      "name": "Sniper Rifle ADS Proficiency",
+     "cn_name": "狙击步枪瞄准熟练度",
      "add": [
       "enh_adsprof_sr"
      ],
@@ -1475,6 +1588,7 @@
      "key": "part_stat_wt_sg_ads_proficiency",
      "group": "stat_group1",
      "name": "Shotgun ADS Proficiency",
+     "cn_name": "霰弹枪瞄准熟练度",
      "add": [
       "enh_adsprof_sg"
      ],
@@ -1488,6 +1602,7 @@
      "key": "part_stat_wt_sm_ads_proficiency",
      "group": "stat_group1",
      "name": "SMG ADS Proficiency",
+     "cn_name": "冲锋枪瞄准熟练度",
      "add": [
       "enh_adsprof_sm"
      ],
@@ -1501,6 +1616,7 @@
      "key": "part_stat_wt_ps_ads_proficiency",
      "group": "stat_group1",
      "name": "Pistol ADS Proficiency",
+     "cn_name": "手枪瞄准熟练度",
      "add": [
       "enh_adsprof_ps"
      ],
@@ -1514,6 +1630,7 @@
      "key": "part_stat_wt_ar_ads_proficiency",
      "group": "stat_group1",
      "name": "Assault Rifle ADS Proficiency",
+     "cn_name": "突击步枪瞄准熟练度",
      "add": [
       "enh_adsprof_ar"
      ],
@@ -1527,6 +1644,7 @@
      "key": "part_stat_wt_ps_statuseffectdamage",
      "group": "stat_group1",
      "name": "Pistol Status Effect Damage",
+     "cn_name": "手枪状态效果伤害",
      "add": [
       "enh_statusdmg_ps"
      ],
@@ -1540,6 +1658,7 @@
      "key": "part_stat_wt_sr_statuseffectdamage",
      "group": "stat_group1",
      "name": "Sniper Rifle Status Effect Damage",
+     "cn_name": "狙击步枪状态效果伤害",
      "add": [
       "enh_statusdmg_sr"
      ],
@@ -1553,6 +1672,7 @@
      "key": "part_stat_wt_sg_statuseffectdamage",
      "group": "stat_group1",
      "name": "Shotgun Status Effect Damage",
+     "cn_name": "霰弹枪状态效果伤害",
      "add": [
       "enh_statusdmg_sg"
      ],
@@ -1566,6 +1686,7 @@
      "key": "part_stat_wt_sm_statuseffectdamage",
      "group": "stat_group1",
      "name": "SMG Status Effect Damage",
+     "cn_name": "冲锋枪状态效果伤害",
      "add": [
       "enh_statusdmg_sm"
      ],
@@ -1579,6 +1700,7 @@
      "key": "part_stat_wt_ar_statuseffectdamage",
      "group": "stat_group1",
      "name": "Assault Rifle Status Effect Damage",
+     "cn_name": "突击步枪状态效果伤害",
      "add": [
       "enh_statusdmg_ar"
      ],
@@ -1592,6 +1714,7 @@
      "key": "part_stat_wt_sg_statuseffectchance",
      "group": "stat_group1",
      "name": "Shotgun Status Effect Chance",
+     "cn_name": "霰弹枪状态效果触发概率",
      "add": [
       "enh_statuschance_sg"
      ],
@@ -1605,6 +1728,7 @@
      "key": "part_stat_wt_sm_statuseffectchance",
      "group": "stat_group1",
      "name": "SMG Status Effect Chance",
+     "cn_name": "冲锋枪状态效果触发概率",
      "add": [
       "enh_statuschance_sm"
      ],
@@ -1618,6 +1742,7 @@
      "key": "part_stat_wt_sr_statuseffectchance",
      "group": "stat_group1",
      "name": "Sniper Rifle Status Effect Chance",
+     "cn_name": "狙击步枪状态效果触发概率",
      "add": [
       "enh_statuschance_sr"
      ],
@@ -1631,6 +1756,7 @@
      "key": "part_stat_wt_ps_statuseffectchance",
      "group": "stat_group1",
      "name": "Pistol Status Effect Chance",
+     "cn_name": "手枪状态效果触发概率",
      "add": [
       "enh_statuschance_ps"
      ],
@@ -1644,6 +1770,7 @@
      "key": "part_stat_wt_ar_statuseffectchance",
      "group": "stat_group1",
      "name": "Assault Rifle Status Effect Chance",
+     "cn_name": "突击步枪状态效果触发概率",
      "add": [
       "enh_statuschance_ar"
      ],
@@ -1657,6 +1784,7 @@
      "key": "part_stat_wt_ar_equipspeed",
      "group": "stat_group1",
      "name": "Assault Rifle Equip Speed",
+     "cn_name": "突击步枪切换速度",
      "add": [
       "enh_equip_ar"
      ],
@@ -1670,6 +1798,7 @@
      "key": "part_stat_wt_ps_equipspeed",
      "group": "stat_group1",
      "name": "Pistol Equip Speed",
+     "cn_name": "手枪切换速度",
      "add": [
       "enh_equip_ps"
      ],
@@ -1683,6 +1812,7 @@
      "key": "part_stat_wt_sg_equipspeed",
      "group": "stat_group1",
      "name": "Shotgun Equip Speed",
+     "cn_name": "霰弹枪切换速度",
      "add": [
       "enh_equip_sg"
      ],
@@ -1696,6 +1826,7 @@
      "key": "part_stat_wt_sm_equipspeed",
      "group": "stat_group1",
      "name": "SMG Equip Speed",
+     "cn_name": "冲锋枪切换速度",
      "add": [
       "enh_equip_sm"
      ],
@@ -1709,6 +1840,7 @@
      "key": "part_stat_wt_sr_equipspeed",
      "group": "stat_group1",
      "name": "Sniper Rifle Equip Speed",
+     "cn_name": "狙击步枪切换速度",
      "add": [
       "enh_equip_sr"
      ],
@@ -1722,6 +1854,7 @@
      "key": "part_stat_weapon_equipspeed",
      "group": "stat_group1",
      "name": "Gun Equip Speed",
+     "cn_name": "枪械切换速度",
      "add": [
       "enh_equip_all"
      ],
@@ -1735,6 +1868,7 @@
      "key": "part_stat_weapon_reloadspeed",
      "group": "stat_group1",
      "name": "Gun Reload Speed",
+     "cn_name": "枪械换弹速度",
      "add": [
       "enh_reload_all"
      ],
@@ -1748,6 +1882,7 @@
      "key": "part_stat_statuseffect_chance",
      "group": "stat_group1",
      "name": "Gun Status Effect Chance",
+     "cn_name": "枪械状态效果触发概率",
      "add": [
       "enh_statuschance_all"
      ],
@@ -1761,6 +1896,7 @@
      "key": "part_stat_statuseffect_damage",
      "group": "stat_group1",
      "name": "Gun Status Effect Damage",
+     "cn_name": "枪械状态效果伤害",
      "add": [
       "enh_statusdmg_all"
      ],
@@ -1774,6 +1910,7 @@
      "key": "part_stat_weapon_ads_proficiency",
      "group": "stat_group1",
      "name": "Gun ADS Proficiency",
+     "cn_name": "枪械瞄准熟练度",
      "add": [
       "enh_adsprof_all"
      ],
@@ -1787,6 +1924,7 @@
      "key": "part_stat_weapon_splashradius",
      "group": "stat_group1",
      "name": "Gun Splash Radius",
+     "cn_name": "枪械溅射半径",
      "add": [
       "enh_dmgradius_all"
      ],
@@ -1800,6 +1938,7 @@
      "key": "part_stat_weapon_splashdamage",
      "group": "stat_group1",
      "name": "Gun Splash Damage",
+     "cn_name": "枪械溅射伤害",
      "add": [
       "enh_splashdmg_all"
      ],
@@ -1813,6 +1952,7 @@
      "key": "part_stat_weapon_criticaldamage",
      "group": "stat_group1",
      "name": "Gun Critical Damage",
+     "cn_name": "枪械暴击伤害",
      "add": [
       "enh_critdmg_all"
      ],
@@ -1826,6 +1966,7 @@
      "key": "part_stat_weapon_accuracy",
      "group": "stat_group1",
      "name": "Gun Accuracy",
+     "cn_name": "枪械精准度",
      "add": [
       "enh_acc_all"
      ],
@@ -1839,6 +1980,7 @@
      "key": "part_stat_weapon_firerate",
      "group": "stat_group1",
      "name": "Gun Fire Rate",
+     "cn_name": "枪械射速",
      "add": [
       "enh_firerate_all"
      ],
@@ -1852,6 +1994,7 @@
      "key": "part_stat_weapon_damage",
      "group": "stat_group1",
      "name": "Gun Damage",
+     "cn_name": "枪械伤害",
      "add": [
       "enh_dmg_all"
      ],
@@ -1865,6 +2008,7 @@
      "key": "part_stat_wt_sr_reloadspeed",
      "group": "stat_group1",
      "name": "Sniper Rifle Reload Speed",
+     "cn_name": "狙击步枪换弹速度",
      "add": [
       "enh_reload_sr"
      ],
@@ -1878,6 +2022,7 @@
      "key": "part_stat_wt_sm_reloadspeed",
      "group": "stat_group1",
      "name": "SMG Reload Speed",
+     "cn_name": "冲锋枪换弹速度",
      "add": [
       "enh_reload_sm"
      ],
@@ -1891,6 +2036,7 @@
      "key": "part_stat_wt_sg_reloadspeed",
      "group": "stat_group1",
      "name": "Shotgun Reload Speed",
+     "cn_name": "霰弹枪换弹速度",
      "add": [
       "enh_reload_sg"
      ],
@@ -1904,6 +2050,7 @@
      "key": "part_stat_wt_ar_reloadspeed",
      "group": "stat_group1",
      "name": "Assault Rifle Reload Speed",
+     "cn_name": "突击步枪换弹速度",
      "add": [
       "enh_reload_ar"
      ],
@@ -1917,6 +2064,7 @@
      "key": "part_stat_wt_ps_reloadspeed",
      "group": "stat_group1",
      "name": "Pistol Reload Speed",
+     "cn_name": "手枪换弹速度",
      "add": [
       "enh_reload_ps"
      ],
@@ -1930,6 +2078,7 @@
      "key": "part_stat_weapon_magsize",
      "group": "stat_group1",
      "name": "Gun Magazine Size",
+     "cn_name": "枪械弹匣容量",
      "add": [
       "enh_magsize_all"
      ],
@@ -1943,6 +2092,7 @@
      "key": "part_stat3_wt_sr_statuseffectdamage",
      "group": "stat_group3",
      "name": "Sniper Rifle Status Effect Damage",
+     "cn_name": "狙击步枪状态效果伤害",
      "add": [
       "enh_statusdmg_sr"
      ],
@@ -1956,6 +2106,7 @@
      "key": "part_stat3_wt_sr_statuseffectchance",
      "group": "stat_group3",
      "name": "Sniper Rifle Status Effect Chance",
+     "cn_name": "狙击步枪状态效果触发概率",
      "add": [
       "enh_statuschance_sr"
      ],
@@ -1969,6 +2120,7 @@
      "key": "part_stat3_wt_sr_splashradius",
      "group": "stat_group3",
      "name": "Sniper Rifle Splash Radius",
+     "cn_name": "狙击步枪溅射半径",
      "add": [
       "enh_dmgradius_sr"
      ],
@@ -1982,6 +2134,7 @@
      "key": "part_stat3_wt_sr_splashdamage",
      "group": "stat_group3",
      "name": "Sniper Rifle Splash Damage",
+     "cn_name": "狙击步枪溅射伤害",
      "add": [
       "enh_splashdmg_sr"
      ],
@@ -1995,6 +2148,7 @@
      "key": "part_stat3_wt_sr_reloadspeed",
      "group": "stat_group3",
      "name": "Sniper Rifle Reload Speed",
+     "cn_name": "狙击步枪换弹速度",
      "add": [
       "enh_reload_sr"
      ],
@@ -2008,6 +2162,7 @@
      "key": "part_stat3_wt_sr_magsize",
      "group": "stat_group3",
      "name": "Sniper Rifle Magazine Size",
+     "cn_name": "狙击步枪弹匣容量",
      "add": [
       "enh_magsize_sr"
      ],
@@ -2021,6 +2176,7 @@
      "key": "part_stat3_wt_sr_firerate",
      "group": "stat_group3",
      "name": "Sniper Rifle Fire Rate",
+     "cn_name": "狙击步枪射速",
      "add": [
       "enh_firerate_sr"
      ],
@@ -2034,6 +2190,7 @@
      "key": "part_stat3_wt_sr_equipspeed",
      "group": "stat_group3",
      "name": "Sniper Rifle Equip Speed",
+     "cn_name": "狙击步枪切换速度",
      "add": [
       "enh_equip_sr"
      ],
@@ -2047,6 +2204,7 @@
      "key": "part_stat3_wt_sr_damage",
      "group": "stat_group3",
      "name": "Sniper Rifle Damage",
+     "cn_name": "狙击步枪伤害",
      "add": [
       "enh_dmg_sr"
      ],
@@ -2060,6 +2218,7 @@
      "key": "part_stat3_wt_sr_criticaldamage",
      "group": "stat_group3",
      "name": "Sniper Rifle Critical Damage",
+     "cn_name": "狙击步枪暴击伤害",
      "add": [
       "enh_critdmg_sr"
      ],
@@ -2073,6 +2232,7 @@
      "key": "part_stat3_wt_sr_ads_proficiency",
      "group": "stat_group3",
      "name": "Sniper Rifle ADS Proficiency",
+     "cn_name": "狙击步枪瞄准熟练度",
      "add": [
       "enh_adsprof_sr"
      ],
@@ -2086,6 +2246,7 @@
      "key": "part_stat3_wt_sr_accuracy",
      "group": "stat_group3",
      "name": "Sniper Rifle Accuracy",
+     "cn_name": "狙击步枪精准度",
      "add": [
       "enh_acc_sr"
      ],
@@ -2099,6 +2260,7 @@
      "key": "part_stat3_wt_sm_statuseffectdamage",
      "group": "stat_group3",
      "name": "SMG Status Effect Damage",
+     "cn_name": "冲锋枪状态效果伤害",
      "add": [
       "enh_statusdmg_sm"
      ],
@@ -2112,6 +2274,7 @@
      "key": "part_stat3_wt_sm_statuseffectchance",
      "group": "stat_group3",
      "name": "SMG Status Effect Chance",
+     "cn_name": "冲锋枪状态效果触发概率",
      "add": [
       "enh_statuschance_sm"
      ],
@@ -2125,6 +2288,7 @@
      "key": "part_stat3_wt_sm_splashradius",
      "group": "stat_group3",
      "name": "SMG Splash Radius",
+     "cn_name": "冲锋枪溅射半径",
      "add": [
       "enh_dmgradius_sm"
      ],
@@ -2138,6 +2302,7 @@
      "key": "part_stat3_wt_sm_splashdamage",
      "group": "stat_group3",
      "name": "SMG Splash Damage",
+     "cn_name": "冲锋枪溅射伤害",
      "add": [
       "enh_splashdmg_sm"
      ],
@@ -2151,6 +2316,7 @@
      "key": "part_stat3_wt_sm_reloadspeed",
      "group": "stat_group3",
      "name": "SMG Reload Speed",
+     "cn_name": "冲锋枪换弹速度",
      "add": [
       "enh_reload_sm"
      ],
@@ -2164,6 +2330,7 @@
      "key": "part_stat3_wt_sm_magsize",
      "group": "stat_group3",
      "name": "SMG Magazine Size",
+     "cn_name": "冲锋枪弹匣容量",
      "add": [
       "enh_magsize_sm"
      ],
@@ -2177,6 +2344,7 @@
      "key": "part_stat3_wt_sm_firerate",
      "group": "stat_group3",
      "name": "SMG Fire Rate",
+     "cn_name": "冲锋枪射速",
      "add": [
       "enh_firerate_sm"
      ],
@@ -2190,6 +2358,7 @@
      "key": "part_stat3_wt_sm_equipspeed",
      "group": "stat_group3",
      "name": "SMG Equip Speed",
+     "cn_name": "冲锋枪切换速度",
      "add": [
       "enh_equip_sm"
      ],
@@ -2203,6 +2372,7 @@
      "key": "part_stat3_wt_sm_damage",
      "group": "stat_group3",
      "name": "SMG Damage",
+     "cn_name": "冲锋枪伤害",
      "add": [
       "enh_dmg_sm"
      ],
@@ -2216,6 +2386,7 @@
      "key": "part_stat3_wt_sm_criticaldamage",
      "group": "stat_group3",
      "name": "SMG Critical Damage",
+     "cn_name": "冲锋枪暴击伤害",
      "add": [
       "enh_critdmg_sm"
      ],
@@ -2229,6 +2400,7 @@
      "key": "part_stat3_wt_sm_ads_proficiency",
      "group": "stat_group3",
      "name": "SMG ADS Proficiency",
+     "cn_name": "冲锋枪瞄准熟练度",
      "add": [
       "enh_adsprof_sm"
      ],
@@ -2242,6 +2414,7 @@
      "key": "part_stat3_wt_sm_accuracy",
      "group": "stat_group3",
      "name": "SMG Accuracy",
+     "cn_name": "冲锋枪精准度",
      "add": [
       "enh_acc_sm"
      ],
@@ -2255,6 +2428,7 @@
      "key": "part_stat3_wt_sg_statuseffectdamage",
      "group": "stat_group3",
      "name": "Shotgun Status Effect Damage",
+     "cn_name": "霰弹枪状态效果伤害",
      "add": [
       "enh_statusdmg_sg"
      ],
@@ -2268,6 +2442,7 @@
      "key": "part_stat3_wt_sg_statuseffectchance",
      "group": "stat_group3",
      "name": "Shotgun Status Effect Chance",
+     "cn_name": "霰弹枪状态效果触发概率",
      "add": [
       "enh_statuschance_sg"
      ],
@@ -2281,6 +2456,7 @@
      "key": "part_stat3_wt_sg_splashradius",
      "group": "stat_group3",
      "name": "Shotgun Splash Radius",
+     "cn_name": "霰弹枪溅射半径",
      "add": [
       "enh_dmgradius_sg"
      ],
@@ -2294,6 +2470,7 @@
      "key": "part_stat3_wt_sg_splashdamage",
      "group": "stat_group3",
      "name": "Shotgun Splash Damage",
+     "cn_name": "霰弹枪溅射伤害",
      "add": [
       "enh_splashdmg_sg"
      ],
@@ -2307,6 +2484,7 @@
      "key": "part_stat3_wt_sg_reloadspeed",
      "group": "stat_group3",
      "name": "Shotgun Reload Speed",
+     "cn_name": "霰弹枪换弹速度",
      "add": [
       "enh_reload_sg"
      ],
@@ -2320,6 +2498,7 @@
      "key": "part_stat3_wt_sg_magsize",
      "group": "stat_group3",
      "name": "Shotgun Magazine Size",
+     "cn_name": "霰弹枪弹匣容量",
      "add": [
       "enh_magsize_sg"
      ],
@@ -2333,6 +2512,7 @@
      "key": "part_stat3_wt_sg_firerate",
      "group": "stat_group3",
      "name": "Shotgun Fire Rate",
+     "cn_name": "霰弹枪射速",
      "add": [
       "enh_firerate_sg"
      ],
@@ -2346,6 +2526,7 @@
      "key": "part_stat3_wt_sg_equipspeed",
      "group": "stat_group3",
      "name": "Shotgun Equip Speed",
+     "cn_name": "霰弹枪切换速度",
      "add": [
       "enh_equip_sg"
      ],
@@ -2359,6 +2540,7 @@
      "key": "part_stat3_wt_sg_damage",
      "group": "stat_group3",
      "name": "Shotgun Damage",
+     "cn_name": "霰弹枪伤害",
      "add": [
       "enh_dmg_sg"
      ],
@@ -2372,6 +2554,7 @@
      "key": "part_stat3_wt_sg_criticaldamage",
      "group": "stat_group3",
      "name": "Shotgun Critical Damage",
+     "cn_name": "霰弹枪暴击伤害",
      "add": [
       "enh_critdmg_sg"
      ],
@@ -2385,6 +2568,7 @@
      "key": "part_stat3_wt_sg_ads_proficiency",
      "group": "stat_group3",
      "name": "Shotgun ADS Proficiency",
+     "cn_name": "霰弹枪瞄准熟练度",
      "add": [
       "enh_adsprof_sg"
      ],
@@ -2398,6 +2582,7 @@
      "key": "part_stat3_wt_sg_accuracy",
      "group": "stat_group3",
      "name": "Shotgun Accuracy",
+     "cn_name": "霰弹枪精准度",
      "add": [
       "enh_acc_sg"
      ],
@@ -2411,6 +2596,7 @@
      "key": "part_stat3_wt_ps_statuseffectdamage",
      "group": "stat_group3",
      "name": "Pistol Status Effect Damage",
+     "cn_name": "手枪状态效果伤害",
      "add": [
       "enh_statusdmg_ps"
      ],
@@ -2424,6 +2610,7 @@
      "key": "part_stat3_wt_ps_statuseffectchance",
      "group": "stat_group3",
      "name": "Pistol Status Effect Chance",
+     "cn_name": "手枪状态效果触发概率",
      "add": [
       "enh_statuschance_ps"
      ],
@@ -2437,6 +2624,7 @@
      "key": "part_stat3_wt_ps_splashradius",
      "group": "stat_group3",
      "name": "Pistol Splash Radius",
+     "cn_name": "手枪溅射半径",
      "add": [
       "enh_dmgradius_ps"
      ],
@@ -2450,6 +2638,7 @@
      "key": "part_stat3_wt_ps_splashdamage",
      "group": "stat_group3",
      "name": "Pistol Splash Damage",
+     "cn_name": "手枪溅射伤害",
      "add": [
       "enh_splashdmg_ps"
      ],
@@ -2463,6 +2652,7 @@
      "key": "part_stat3_wt_ps_reloadspeed",
      "group": "stat_group3",
      "name": "Pistol Reload Speed",
+     "cn_name": "手枪换弹速度",
      "add": [
       "enh_reload_ps"
      ],
@@ -2476,6 +2666,7 @@
      "key": "part_stat3_wt_ps_magsize",
      "group": "stat_group3",
      "name": "Pistol Magazine Size",
+     "cn_name": "手枪弹匣容量",
      "add": [
       "enh_magsize_ps"
      ],
@@ -2489,6 +2680,7 @@
      "key": "part_stat3_wt_ps_firerate",
      "group": "stat_group3",
      "name": "Pistol Fire Rate",
+     "cn_name": "手枪射速",
      "add": [
       "enh_firerate_ps"
      ],
@@ -2502,6 +2694,7 @@
      "key": "part_stat3_wt_ps_equipspeed",
      "group": "stat_group3",
      "name": "Pistol Equip Speed",
+     "cn_name": "手枪切换速度",
      "add": [
       "enh_equip_ps"
      ],
@@ -2515,6 +2708,7 @@
      "key": "part_stat3_wt_ps_damage",
      "group": "stat_group3",
      "name": "Pistol Damage",
+     "cn_name": "手枪伤害",
      "add": [
       "enh_dmg_ps"
      ],
@@ -2528,6 +2722,7 @@
      "key": "part_stat3_wt_ps_criticaldamage",
      "group": "stat_group3",
      "name": "Pistol Critical Damage",
+     "cn_name": "手枪暴击伤害",
      "add": [
       "enh_critdmg_ps"
      ],
@@ -2541,6 +2736,7 @@
      "key": "part_stat3_wt_ps_ads_proficiency",
      "group": "stat_group3",
      "name": "Pistol ADS Proficiency",
+     "cn_name": "手枪瞄准熟练度",
      "add": [
       "enh_adsprof_ps"
      ],
@@ -2554,6 +2750,7 @@
      "key": "part_stat3_wt_ps_accuracy",
      "group": "stat_group3",
      "name": "Pistol Accuracy",
+     "cn_name": "手枪精准度",
      "add": [
       "enh_acc_ps"
      ],
@@ -2567,6 +2764,7 @@
      "key": "part_stat3_wt_ar_statuseffectdamage",
      "group": "stat_group3",
      "name": "Assault Rifle Status Effect Damage",
+     "cn_name": "突击步枪状态效果伤害",
      "add": [
       "enh_statusdmg_ar"
      ],
@@ -2580,6 +2778,7 @@
      "key": "part_stat3_wt_ar_statuseffectchance",
      "group": "stat_group3",
      "name": "Assault Rifle Status Effect Chance",
+     "cn_name": "突击步枪状态效果触发概率",
      "add": [
       "enh_statuschance_ar"
      ],
@@ -2593,6 +2792,7 @@
      "key": "part_stat3_wt_ar_splashradius",
      "group": "stat_group3",
      "name": "Assault Rifle Splash Radius",
+     "cn_name": "突击步枪溅射半径",
      "add": [
       "enh_dmgradius_ar"
      ],
@@ -2606,6 +2806,7 @@
      "key": "part_stat3_wt_ar_splashdamage",
      "group": "stat_group3",
      "name": "Assault Rifle Splash Damage",
+     "cn_name": "突击步枪溅射伤害",
      "add": [
       "enh_splashdmg_ar"
      ],
@@ -2619,6 +2820,7 @@
      "key": "part_stat3_wt_ar_reloadspeed",
      "group": "stat_group3",
      "name": "Assault Rifle Reload Speed",
+     "cn_name": "突击步枪换弹速度",
      "add": [
       "enh_reload_ar"
      ],
@@ -2632,6 +2834,7 @@
      "key": "part_stat3_wt_ar_magsize",
      "group": "stat_group3",
      "name": "Assault Rifle Magazine Size",
+     "cn_name": "突击步枪弹匣容量",
      "add": [
       "enh_magsize_ar"
      ],
@@ -2645,6 +2848,7 @@
      "key": "part_stat3_wt_ar_firerate",
      "group": "stat_group3",
      "name": "Assault Rifle Fire Rate",
+     "cn_name": "突击步枪射速",
      "add": [
       "enh_firerate_ar"
      ],
@@ -2658,6 +2862,7 @@
      "key": "part_stat3_wt_ar_equipspeed",
      "group": "stat_group3",
      "name": "Assault Rifle Equip Speed",
+     "cn_name": "突击步枪切换速度",
      "add": [
       "enh_equip_ar"
      ],
@@ -2671,6 +2876,7 @@
      "key": "part_stat3_wt_ar_damage",
      "group": "stat_group3",
      "name": "Assault Rifle Damage",
+     "cn_name": "突击步枪伤害",
      "add": [
       "enh_dmg_ar"
      ],
@@ -2684,6 +2890,7 @@
      "key": "part_stat3_wt_ar_criticaldamage",
      "group": "stat_group3",
      "name": "Assault Rifle Critical Damage",
+     "cn_name": "突击步枪暴击伤害",
      "add": [
       "enh_critdmg_ar"
      ],
@@ -2697,6 +2904,7 @@
      "key": "part_stat3_wt_ar_ads_proficiency",
      "group": "stat_group3",
      "name": "Assault Rifle ADS Proficiency",
+     "cn_name": "突击步枪瞄准熟练度",
      "add": [
       "enh_adsprof_ar"
      ],
@@ -2710,6 +2918,7 @@
      "key": "part_stat3_wt_ar_accuracy",
      "group": "stat_group3",
      "name": "Assault Rifle Accuracy",
+     "cn_name": "突击步枪精准度",
      "add": [
       "enh_acc_ar"
      ],
@@ -2723,6 +2932,7 @@
      "key": "part_stat3_weapon_splashradius",
      "group": "stat_group3",
      "name": "Gun Splash Radius",
+     "cn_name": "枪械溅射半径",
      "add": [
       "enh_dmgradius_all"
      ],
@@ -2736,6 +2946,7 @@
      "key": "part_stat3_weapon_splashdamage",
      "group": "stat_group3",
      "name": "Gun Splash Damage",
+     "cn_name": "枪械溅射伤害",
      "add": [
       "enh_splashdmg_all"
      ],
@@ -2749,6 +2960,7 @@
      "key": "part_stat3_weapon_reloadspeed",
      "group": "stat_group3",
      "name": "Gun Reload Speed",
+     "cn_name": "枪械换弹速度",
      "add": [
       "enh_reload_all"
      ],
@@ -2762,6 +2974,7 @@
      "key": "part_stat3_weapon_magsize",
      "group": "stat_group3",
      "name": "Gun Magazine Size",
+     "cn_name": "枪械弹匣容量",
      "add": [
       "enh_magsize_all"
      ],
@@ -2775,6 +2988,7 @@
      "key": "part_stat3_weapon_firerate",
      "group": "stat_group3",
      "name": "Gun Fire Rate",
+     "cn_name": "枪械射速",
      "add": [
       "enh_firerate_all"
      ],
@@ -2788,6 +3002,7 @@
      "key": "part_stat3_weapon_equipspeed",
      "group": "stat_group3",
      "name": "Gun Equip Speed",
+     "cn_name": "枪械切换速度",
      "add": [
       "enh_equip_all"
      ],
@@ -2801,6 +3016,7 @@
      "key": "part_stat3_weapon_damage",
      "group": "stat_group3",
      "name": "Gun Damage",
+     "cn_name": "枪械伤害",
      "add": [
       "enh_dmg_all"
      ],
@@ -2814,6 +3030,7 @@
      "key": "part_stat3_weapon_criticaldamage",
      "group": "stat_group3",
      "name": "Gun Critical Damage",
+     "cn_name": "枪械暴击伤害",
      "add": [
       "enh_critdmg_all"
      ],
@@ -2827,6 +3044,7 @@
      "key": "part_stat3_weapon_ads_proficiency",
      "group": "stat_group3",
      "name": "Gun ADS Proficiency",
+     "cn_name": "枪械瞄准熟练度",
      "add": [
       "enh_adsprof_all"
      ],
@@ -2840,6 +3058,7 @@
      "key": "part_stat3_weapon_accuracy",
      "group": "stat_group3",
      "name": "Gun Accuracy",
+     "cn_name": "枪械精准度",
      "add": [
       "enh_acc_all"
      ],
@@ -2853,6 +3072,7 @@
      "key": "part_stat3_statuseffect_damage",
      "group": "stat_group3",
      "name": "Gun Status Effect Damage",
+     "cn_name": "枪械状态效果伤害",
      "add": [
       "enh_statusdmg_all"
      ],
@@ -2866,6 +3086,7 @@
      "key": "part_stat3_statuseffect_chance",
      "group": "stat_group3",
      "name": "Gun Status Effect Chance",
+     "cn_name": "枪械状态效果触发概率",
      "add": [
       "enh_statuschance_all"
      ],
@@ -2879,6 +3100,7 @@
      "key": "part_stat2_statuseffect_chance",
      "group": "stat_group2",
      "name": "Gun Status Effect Chance",
+     "cn_name": "枪械状态效果触发概率",
      "add": [
       "enh_statuschance_all"
      ],
@@ -2892,6 +3114,7 @@
      "key": "part_stat2_statuseffect_damage",
      "group": "stat_group2",
      "name": "Gun Status Effect Damage",
+     "cn_name": "枪械状态效果伤害",
      "add": [
       "enh_statusdmg_all"
      ],
@@ -2905,6 +3128,7 @@
      "key": "part_stat2_weapon_accuracy",
      "group": "stat_group2",
      "name": "Gun Accuracy",
+     "cn_name": "枪械精准度",
      "add": [
       "enh_acc_all"
      ],
@@ -2918,6 +3142,7 @@
      "key": "part_stat2_weapon_ads_proficiency",
      "group": "stat_group2",
      "name": "Gun ADS Proficiency",
+     "cn_name": "枪械瞄准熟练度",
      "add": [
       "enh_adsprof_all"
      ],
@@ -2931,6 +3156,7 @@
      "key": "part_stat2_weapon_criticaldamage",
      "group": "stat_group2",
      "name": "Gun Critical Damage",
+     "cn_name": "枪械暴击伤害",
      "add": [
       "enh_critdmg_all"
      ],
@@ -2944,6 +3170,7 @@
      "key": "part_stat2_weapon_damage",
      "group": "stat_group2",
      "name": "Gun Damage",
+     "cn_name": "枪械伤害",
      "add": [
       "enh_dmg_all"
      ],
@@ -2957,6 +3184,7 @@
      "key": "part_stat2_weapon_equipspeed",
      "group": "stat_group2",
      "name": "Gun Equip Speed",
+     "cn_name": "枪械切换速度",
      "add": [
       "enh_equip_all"
      ],
@@ -2970,6 +3198,7 @@
      "key": "part_stat2_weapon_firerate",
      "group": "stat_group2",
      "name": "Gun Fire Rate",
+     "cn_name": "枪械射速",
      "add": [
       "enh_firerate_all"
      ],
@@ -2983,6 +3212,7 @@
      "key": "part_stat2_weapon_magsize",
      "group": "stat_group2",
      "name": "Gun Magazine Size",
+     "cn_name": "枪械弹匣容量",
      "add": [
       "enh_magsize_all"
      ],
@@ -2996,6 +3226,7 @@
      "key": "part_stat2_weapon_reloadspeed",
      "group": "stat_group2",
      "name": "Gun Reload Speed",
+     "cn_name": "枪械换弹速度",
      "add": [
       "enh_reload_all"
      ],
@@ -3009,6 +3240,7 @@
      "key": "part_stat2_weapon_splashdamage",
      "group": "stat_group2",
      "name": "Gun Splash Damage",
+     "cn_name": "枪械溅射伤害",
      "add": [
       "enh_splashdmg_all"
      ],
@@ -3022,6 +3254,7 @@
      "key": "part_stat2_weapon_splashradius",
      "group": "stat_group2",
      "name": "Gun Splash Radius",
+     "cn_name": "枪械溅射半径",
      "add": [
       "enh_dmgradius_all"
      ],
@@ -3035,6 +3268,7 @@
      "key": "part_stat2_wt_ar_accuracy",
      "group": "stat_group2",
      "name": "Assault Rifle Accuracy",
+     "cn_name": "突击步枪精准度",
      "add": [
       "enh_acc_ar"
      ],
@@ -3048,6 +3282,7 @@
      "key": "part_stat2_wt_ar_ads_proficiency",
      "group": "stat_group2",
      "name": "Assault Rifle ADS Proficiency",
+     "cn_name": "突击步枪瞄准熟练度",
      "add": [
       "enh_adsprof_ar"
      ],
@@ -3061,6 +3296,7 @@
      "key": "part_stat2_wt_ar_criticaldamage",
      "group": "stat_group2",
      "name": "Assault Rifle Critical Damage",
+     "cn_name": "突击步枪暴击伤害",
      "add": [
       "enh_critdmg_ar"
      ],
@@ -3074,6 +3310,7 @@
      "key": "part_stat2_wt_ar_damage",
      "group": "stat_group2",
      "name": "Assault Rifle Damage",
+     "cn_name": "突击步枪伤害",
      "add": [
       "enh_dmg_ar"
      ],
@@ -3087,6 +3324,7 @@
      "key": "part_stat2_wt_ar_equipspeed",
      "group": "stat_group2",
      "name": "Assault Rifle Equip Speed",
+     "cn_name": "突击步枪切换速度",
      "add": [
       "enh_equip_ar"
      ],
@@ -3100,6 +3338,7 @@
      "key": "part_stat2_wt_ar_firerate",
      "group": "stat_group2",
      "name": "Assault Rifle Fire Rate",
+     "cn_name": "突击步枪射速",
      "add": [
       "enh_firerate_ar"
      ],
@@ -3113,6 +3352,7 @@
      "key": "part_stat2_wt_ar_magsize",
      "group": "stat_group2",
      "name": "Assault Rifle Magazine Size",
+     "cn_name": "突击步枪弹匣容量",
      "add": [
       "enh_magsize_ar"
      ],
@@ -3126,6 +3366,7 @@
      "key": "part_stat2_wt_ar_reloadspeed",
      "group": "stat_group2",
      "name": "Assault Rifle Reload Speed",
+     "cn_name": "突击步枪换弹速度",
      "add": [
       "enh_reload_ar"
      ],
@@ -3139,6 +3380,7 @@
      "key": "part_stat2_wt_ar_splashdamage",
      "group": "stat_group2",
      "name": "Assault Rifle Splash Damage",
+     "cn_name": "突击步枪溅射伤害",
      "add": [
       "enh_splashdmg_ar"
      ],
@@ -3152,6 +3394,7 @@
      "key": "part_stat2_wt_ar_splashradius",
      "group": "stat_group2",
      "name": "Assault Rifle Splash Radius",
+     "cn_name": "突击步枪溅射半径",
      "add": [
       "enh_dmgradius_ar"
      ],
@@ -3165,6 +3408,7 @@
      "key": "part_stat2_wt_ar_statuseffectchance",
      "group": "stat_group2",
      "name": "Assault Rifle Status Effect Chance",
+     "cn_name": "突击步枪状态效果触发概率",
      "add": [
       "enh_statuschance_ar"
      ],
@@ -3178,6 +3422,7 @@
      "key": "part_stat2_wt_ar_statuseffectdamage",
      "group": "stat_group2",
      "name": "Assault Rifle Status Effect Damage",
+     "cn_name": "突击步枪状态效果伤害",
      "add": [
       "enh_statusdmg_ar"
      ],
@@ -3191,6 +3436,7 @@
      "key": "part_stat2_wt_ps_accuracy",
      "group": "stat_group2",
      "name": "Pistol Accuracy",
+     "cn_name": "手枪精准度",
      "add": [
       "enh_acc_ps"
      ],
@@ -3204,6 +3450,7 @@
      "key": "part_stat2_wt_ps_ads_proficiency",
      "group": "stat_group2",
      "name": "Pistol ADS Proficiency",
+     "cn_name": "手枪瞄准熟练度",
      "add": [
       "enh_adsprof_ps"
      ],
@@ -3217,6 +3464,7 @@
      "key": "part_stat2_wt_ps_criticaldamage",
      "group": "stat_group2",
      "name": "Pistol Critical Damage",
+     "cn_name": "手枪暴击伤害",
      "add": [
       "enh_critdmg_ps"
      ],
@@ -3230,6 +3478,7 @@
      "key": "part_stat2_wt_ps_damage",
      "group": "stat_group2",
      "name": "Pistol Damage",
+     "cn_name": "手枪伤害",
      "add": [
       "enh_dmg_ps"
      ],
@@ -3243,6 +3492,7 @@
      "key": "part_stat2_wt_ps_equipspeed",
      "group": "stat_group2",
      "name": "Pistol Equip Speed",
+     "cn_name": "手枪切换速度",
      "add": [
       "enh_equip_ps"
      ],
@@ -3256,6 +3506,7 @@
      "key": "part_stat2_wt_ps_firerate",
      "group": "stat_group2",
      "name": "Pistol Fire Rate",
+     "cn_name": "手枪射速",
      "add": [
       "enh_firerate_ps"
      ],
@@ -3269,6 +3520,7 @@
      "key": "part_stat2_wt_ps_magsize",
      "group": "stat_group2",
      "name": "Pistol Magazine Size",
+     "cn_name": "手枪弹匣容量",
      "add": [
       "enh_magsize_ps"
      ],
@@ -3282,6 +3534,7 @@
      "key": "part_stat2_wt_ps_reloadspeed",
      "group": "stat_group2",
      "name": "Pistol Reload Speed",
+     "cn_name": "手枪换弹速度",
      "add": [
       "enh_reload_ps"
      ],
@@ -3295,6 +3548,7 @@
      "key": "part_stat2_wt_ps_splashdamage",
      "group": "stat_group2",
      "name": "Pistol Splash Damage",
+     "cn_name": "手枪溅射伤害",
      "add": [
       "enh_splashdmg_ps"
      ],
@@ -3308,6 +3562,7 @@
      "key": "part_stat2_wt_ps_splashradius",
      "group": "stat_group2",
      "name": "Pistol Splash Radius",
+     "cn_name": "手枪溅射半径",
      "add": [
       "enh_dmgradius_ps"
      ],
@@ -3321,6 +3576,7 @@
      "key": "part_stat2_wt_ps_statuseffectchance",
      "group": "stat_group2",
      "name": "Pistol Status Effect Chance",
+     "cn_name": "手枪状态效果触发概率",
      "add": [
       "enh_statuschance_ps"
      ],
@@ -3334,6 +3590,7 @@
      "key": "part_stat2_wt_ps_statuseffectdamage",
      "group": "stat_group2",
      "name": "Pistol Status Effect Damage",
+     "cn_name": "手枪状态效果伤害",
      "add": [
       "enh_statusdmg_ps"
      ],
@@ -3347,6 +3604,7 @@
      "key": "part_stat2_wt_sg_accuracy",
      "group": "stat_group2",
      "name": "Shotgun Accuracy",
+     "cn_name": "霰弹枪精准度",
      "add": [
       "enh_acc_sg"
      ],
@@ -3360,6 +3618,7 @@
      "key": "part_stat2_wt_sg_ads_proficiency",
      "group": "stat_group2",
      "name": "Shotgun ADS Proficiency",
+     "cn_name": "霰弹枪瞄准熟练度",
      "add": [
       "enh_adsprof_sg"
      ],
@@ -3373,6 +3632,7 @@
      "key": "part_stat2_wt_sg_criticaldamage",
      "group": "stat_group2",
      "name": "Shotgun Critical Damage",
+     "cn_name": "霰弹枪暴击伤害",
      "add": [
       "enh_critdmg_sg"
      ],
@@ -3386,6 +3646,7 @@
      "key": "part_stat2_wt_sg_damage",
      "group": "stat_group2",
      "name": "Shotgun Damage",
+     "cn_name": "霰弹枪伤害",
      "add": [
       "enh_dmg_sg"
      ],
@@ -3399,6 +3660,7 @@
      "key": "part_stat2_wt_sg_equipspeed",
      "group": "stat_group2",
      "name": "Shotgun Equip Speed",
+     "cn_name": "霰弹枪切换速度",
      "add": [
       "enh_equip_sg"
      ],
@@ -3412,6 +3674,7 @@
      "key": "part_stat2_wt_sg_firerate",
      "group": "stat_group2",
      "name": "Shotgun Fire Rate",
+     "cn_name": "霰弹枪射速",
      "add": [
       "enh_firerate_sg"
      ],
@@ -3425,6 +3688,7 @@
      "key": "part_stat2_wt_sg_magsize",
      "group": "stat_group2",
      "name": "Shotgun Magazine Size",
+     "cn_name": "霰弹枪弹匣容量",
      "add": [
       "enh_magsize_sg"
      ],
@@ -3438,6 +3702,7 @@
      "key": "part_stat2_wt_sg_reloadspeed",
      "group": "stat_group2",
      "name": "Shotgun Reload Speed",
+     "cn_name": "霰弹枪换弹速度",
      "add": [
       "enh_reload_sg"
      ],
@@ -3451,6 +3716,7 @@
      "key": "part_stat2_wt_sg_splashdamage",
      "group": "stat_group2",
      "name": "Shotgun Splash Damage",
+     "cn_name": "霰弹枪溅射伤害",
      "add": [
       "enh_splashdmg_sg"
      ],
@@ -3464,6 +3730,7 @@
      "key": "part_stat2_wt_sg_splashradius",
      "group": "stat_group2",
      "name": "Shotgun Splash Radius",
+     "cn_name": "霰弹枪溅射半径",
      "add": [
       "enh_dmgradius_sg"
      ],
@@ -3477,6 +3744,7 @@
      "key": "part_stat2_wt_sg_statuseffectchance",
      "group": "stat_group2",
      "name": "Shotgun Status Effect Chance",
+     "cn_name": "霰弹枪状态效果触发概率",
      "add": [
       "enh_statuschance_sg"
      ],
@@ -3490,6 +3758,7 @@
      "key": "part_stat2_wt_sg_statuseffectdamage",
      "group": "stat_group2",
      "name": "Shotgun Status Effect Damage",
+     "cn_name": "霰弹枪状态效果伤害",
      "add": [
       "enh_statusdmg_sg"
      ],
@@ -3503,6 +3772,7 @@
      "key": "part_stat2_wt_sm_accuracy",
      "group": "stat_group2",
      "name": "SMG Accuracy",
+     "cn_name": "冲锋枪精准度",
      "add": [
       "enh_acc_sm"
      ],
@@ -3516,6 +3786,7 @@
      "key": "part_stat2_wt_sm_ads_proficiency",
      "group": "stat_group2",
      "name": "SMG ADS Proficiency",
+     "cn_name": "冲锋枪瞄准熟练度",
      "add": [
       "enh_adsprof_sm"
      ],
@@ -3529,6 +3800,7 @@
      "key": "part_stat2_wt_sm_criticaldamage",
      "group": "stat_group2",
      "name": "SMG Critical Damage",
+     "cn_name": "冲锋枪暴击伤害",
      "add": [
       "enh_critdmg_sm"
      ],
@@ -3542,6 +3814,7 @@
      "key": "part_stat2_wt_sm_damage",
      "group": "stat_group2",
      "name": "SMG Damage",
+     "cn_name": "冲锋枪伤害",
      "add": [
       "enh_dmg_sm"
      ],
@@ -3555,6 +3828,7 @@
      "key": "part_stat2_wt_sm_equipspeed",
      "group": "stat_group2",
      "name": "SMG Equip Speed",
+     "cn_name": "冲锋枪切换速度",
      "add": [
       "enh_equip_sm"
      ],
@@ -3568,6 +3842,7 @@
      "key": "part_stat2_wt_sm_firerate",
      "group": "stat_group2",
      "name": "SMG Fire Rate",
+     "cn_name": "冲锋枪射速",
      "add": [
       "enh_firerate_sm"
      ],
@@ -3581,6 +3856,7 @@
      "key": "part_stat2_wt_sm_magsize",
      "group": "stat_group2",
      "name": "SMG Magazine Size",
+     "cn_name": "冲锋枪弹匣容量",
      "add": [
       "enh_magsize_sm"
      ],
@@ -3594,6 +3870,7 @@
      "key": "part_stat2_wt_sm_reloadspeed",
      "group": "stat_group2",
      "name": "SMG Reload Speed",
+     "cn_name": "冲锋枪换弹速度",
      "add": [
       "enh_reload_sm"
      ],
@@ -3607,6 +3884,7 @@
      "key": "part_stat2_wt_sm_splashdamage",
      "group": "stat_group2",
      "name": "SMG Splash Damage",
+     "cn_name": "冲锋枪溅射伤害",
      "add": [
       "enh_splashdmg_sm"
      ],
@@ -3620,6 +3898,7 @@
      "key": "part_stat2_wt_sm_splashradius",
      "group": "stat_group2",
      "name": "SMG Splash Radius",
+     "cn_name": "冲锋枪溅射半径",
      "add": [
       "enh_dmgradius_sm"
      ],
@@ -3633,6 +3912,7 @@
      "key": "part_stat2_wt_sm_statuseffectchance",
      "group": "stat_group2",
      "name": "SMG Status Effect Chance",
+     "cn_name": "冲锋枪状态效果触发概率",
      "add": [
       "enh_statuschance_sm"
      ],
@@ -3646,6 +3926,7 @@
      "key": "part_stat2_wt_sm_statuseffectdamage",
      "group": "stat_group2",
      "name": "SMG Status Effect Damage",
+     "cn_name": "冲锋枪状态效果伤害",
      "add": [
       "enh_statusdmg_sm"
      ],
@@ -3659,6 +3940,7 @@
      "key": "part_stat2_wt_sr_accuracy",
      "group": "stat_group2",
      "name": "Sniper Rifle Accuracy",
+     "cn_name": "狙击步枪精准度",
      "add": [
       "enh_acc_sr"
      ],
@@ -3672,6 +3954,7 @@
      "key": "part_stat2_wt_sr_ads_proficiency",
      "group": "stat_group2",
      "name": "Sniper Rifle ADS Proficiency",
+     "cn_name": "狙击步枪瞄准熟练度",
      "add": [
       "enh_adsprof_sr"
      ],
@@ -3685,6 +3968,7 @@
      "key": "part_stat2_wt_sr_criticaldamage",
      "group": "stat_group2",
      "name": "Sniper Rifle Critical Damage",
+     "cn_name": "狙击步枪暴击伤害",
      "add": [
       "enh_critdmg_sr"
      ],
@@ -3698,6 +3982,7 @@
      "key": "part_stat2_wt_sr_damage",
      "group": "stat_group2",
      "name": "Sniper Rifle Damage",
+     "cn_name": "狙击步枪伤害",
      "add": [
       "enh_dmg_sr"
      ],
@@ -3711,6 +3996,7 @@
      "key": "part_stat2_wt_sr_equipspeed",
      "group": "stat_group2",
      "name": "Sniper Rifle Equip Speed",
+     "cn_name": "狙击步枪切换速度",
      "add": [
       "enh_equip_sr"
      ],
@@ -3724,6 +4010,7 @@
      "key": "part_stat2_wt_sr_firerate",
      "group": "stat_group2",
      "name": "Sniper Rifle Fire Rate",
+     "cn_name": "狙击步枪射速",
      "add": [
       "enh_firerate_sr"
      ],
@@ -3737,6 +4024,7 @@
      "key": "part_stat2_wt_sr_magsize",
      "group": "stat_group2",
      "name": "Sniper Rifle Magazine Size",
+     "cn_name": "狙击步枪弹匣容量",
      "add": [
       "enh_magsize_sr"
      ],
@@ -3750,6 +4038,7 @@
      "key": "part_stat2_wt_sr_reloadspeed",
      "group": "stat_group2",
      "name": "Sniper Rifle Reload Speed",
+     "cn_name": "狙击步枪换弹速度",
      "add": [
       "enh_reload_sr"
      ],
@@ -3763,6 +4052,7 @@
      "key": "part_stat2_wt_sr_splashdamage",
      "group": "stat_group2",
      "name": "Sniper Rifle Splash Damage",
+     "cn_name": "狙击步枪溅射伤害",
      "add": [
       "enh_splashdmg_sr"
      ],
@@ -3776,6 +4066,7 @@
      "key": "part_stat2_wt_sr_splashradius",
      "group": "stat_group2",
      "name": "Sniper Rifle Splash Radius",
+     "cn_name": "狙击步枪溅射半径",
      "add": [
       "enh_dmgradius_sr"
      ],
@@ -3789,6 +4080,7 @@
      "key": "part_stat2_wt_sr_statuseffectchance",
      "group": "stat_group2",
      "name": "Sniper Rifle Status Effect Chance",
+     "cn_name": "狙击步枪状态效果触发概率",
      "add": [
       "enh_statuschance_sr"
      ],
@@ -3802,6 +4094,7 @@
      "key": "part_stat2_wt_sr_statuseffectdamage",
      "group": "stat_group2",
      "name": "Sniper Rifle Status Effect Damage",
+     "cn_name": "狙击步枪状态效果伤害",
      "add": [
       "enh_statusdmg_sr"
      ],

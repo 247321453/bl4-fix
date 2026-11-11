@@ -131,7 +131,8 @@
     // region Formatting
 
     function plural(n, one, many) {
-        return n + " " + (n === 1 ? one : many || one + "s");
+        var labels = { item: "件物品", backup: "份备份", version: "个版本" };
+        return n + " " + (labels[one] || (n === 1 ? one : many || one + "s"));
     }
 
     function commas(n) {
@@ -155,59 +156,59 @@
     function hours(s) {
         var h = Math.floor(s / 3600);
         var m = Math.floor((s % 3600) / 60);
-        return h ? h + " h " + m + " m" : m + " m";
+        return h ? h + " 小时 " + m + " 分钟" : m + " 分钟";
     }
 
     function signed(n, unit) {
         return (n > 0 ? "+" : "") + n + (unit || "");
     }
 
-    var DIFFICULTY = { Easy: "Easy", Normal: "Normal", Hard: "Hard" };
+    var DIFFICULTY = { Easy: "简单", Normal: "普通", Hard: "困难" };
 
     // "Level 52, 66 h 33 m, $33.2M"
     function brief(i) {
-        if (i.ok === false) return "Damaged";
+        if (i.ok === false) return "已损坏";
         var parts = [];
-        if (i.level !== undefined) parts.push("Level " + i.level + (i.uvh ? " UVH " + i.uvh : ""));
+        if (i.level !== undefined) parts.push("等级 " + i.level + (i.uvh ? " 终极秘藏猎人 " + i.uvh : ""));
         if (i.playtime !== undefined) parts.push(hours(i.playtime));
         if (i.cash !== undefined) parts.push("$" + short(i.cash));
         return parts.join(", ");
     }
 
     function details(i) {
-        if (i.ok === false) return "This copy didn't read whole (" + (i.error || "damaged") + "), so it can't be restored.";
-        if (i.ok !== true) return "The mod couldn't open this save to read it (" + (i.error || "no key") + "), but the copy is kept.";
+        if (i.ok === false) return "此副本未能完整读取（" + (i.error || "损坏") + "），无法还原。";
+        if (i.ok !== true) return "Mod 无法打开并读取此存档（" + (i.error || "缺少密钥") + "），但副本已保留。";
         var lines = [];
-        var level = "Level " + i.level;
-        if (i.spec) level += ", Specialization " + i.spec;
+        var level = "等级 " + i.level;
+        if (i.spec) level += "，专精 " + i.spec;
         if (i.difficulty) level += ", " + (DIFFICULTY[i.difficulty] || i.difficulty);
-        if (i.uvh) level += ", Ultimate Vault Hunter " + i.uvh;
+        if (i.uvh) level += "，终极秘藏猎人 " + i.uvh;
         lines.push(level + ".");
-        lines.push("Played " + hours(i.playtime || 0) + (i.story_done ? ", story done." : "."));
-        lines.push("Cash $" + commas(i.cash || 0) + ", Eridium " + commas(i.eridium || 0) + ".");
-        lines.push(plural(i.backpack || 0, "item") + " (" + (i.equipped || 0) + " equipped), Lost Loot " + (i.lost_loot || 0) + ".");
+        lines.push("游戏时长 " + hours(i.playtime || 0) + (i.story_done ? "，主线已完成。" : "."));
+        lines.push("现金 $" + commas(i.cash || 0) + "，镒矿 " + commas(i.eridium || 0) + ".");
+        lines.push(plural(i.backpack || 0, "item") + " (" + (i.equipped || 0) + " 件已装备），失物招领 " + (i.lost_loot || 0) + ".");
         return lines.join(" ");
     }
 
     function changes(d) {
         if (!d) return "";
         var out = [];
-        if (d.level) out.push("level " + signed(d.level));
-        if (d.uvh) out.push("UVH " + signed(d.uvh));
-        if (d.items_added) out.push(plural(d.items_added, "item") + " gained");
-        if (d.items_removed) out.push(plural(d.items_removed, "item") + " gone");
-        if (d.cash) out.push("cash " + (d.cash > 0 ? "+$" : "-$") + commas(Math.abs(d.cash)));
-        if (d.playtime > 60) out.push(hours(d.playtime) + " played");
-        return out.length ? "Since the version before: " + out.join(", ") + "." : "";
+        if (d.level) out.push("等级 " + signed(d.level));
+        if (d.uvh) out.push("终极秘藏猎人 " + signed(d.uvh));
+        if (d.items_added) out.push(plural(d.items_added, "item") + " 新获得");
+        if (d.items_removed) out.push(plural(d.items_removed, "item") + " 已失去");
+        if (d.cash) out.push("现金 " + (d.cash > 0 ? "+$" : "-$") + commas(Math.abs(d.cash)));
+        if (d.playtime > 60) out.push(hours(d.playtime) + " 游戏时长");
+        return out.length ? "与上一版本相比：" + out.join(", ") + "." : "";
     }
 
     function versusNow(v, thing) {
-        if (v.current) return "This is your save as it is now.";
+        if (v.current) return "这就是当前存档。";
         if (v.gone_now === undefined) return "";
         var out = [];
-        if (v.gone_now) out.push(plural(v.gone_now, "item") + " here that aren't in " + thing + " now");
-        if (v.new_now) out.push(plural(v.new_now, "item") + " in " + thing + " now that this version doesn't have (they'd be gone)");
-        return out.length ? "Compared with now: " + out.join("; ") + "." : "Same items as now.";
+        if (v.gone_now) out.push(plural(v.gone_now, "item") + " 存在于此版本，但当前已不在" + thing + "中");
+        if (v.new_now) out.push(plural(v.new_now, "item") + " 位于" + thing + "中，但此版本中没有（还原后将失去）");
+        return out.length ? "与当前相比：" + out.join("; ") + "." : "物品与当前相同。";
     }
 
     // endregion
@@ -223,10 +224,10 @@
         return b;
     }
 
-    // A restore button: the first click arms it ("Sure?"), the second within CONFIRM_MS restores
+    // A restore button: the first click arms it ("确认还原？"), the second within CONFIRM_MS restores
     function restoreButton(api, id, text, payload, enabled) {
         var armed = sb.armed && sb.armed.id === id && Date.now() - sb.armed.at < CONFIRM_MS;
-        return button(api, armed ? "Sure?" : text, function () {
+        return button(api, armed ? "确认还原？" : text, function () {
             if (sb.state && sb.state.busy) return;
             if (sb.armed && sb.armed.id === id && Date.now() - sb.armed.at < CONFIRM_MS) {
                 sb.armed = null;
@@ -247,7 +248,7 @@
 
     function back(api, title) {
         api.title(title);
-        api.row("Back", "Back to the list of characters and backups.", [button(api, "Back", function () {
+        api.row("返回", "返回角色与备份列表。", [button(api, "返回", function () {
             go("home");
         }, true, true)]);
     }
@@ -260,8 +261,8 @@
         var s = sb.state;
         var d = sb.data;
         if (!s || !d) {
-            api.title("Save backups");
-            api.row("Loading...", "", []);
+            api.title("存档备份");
+            api.row("正在加载……", "", []);
             return;
         }
         var page = sb.page;
@@ -280,35 +281,35 @@
     }
 
     function renderStatus(api, s) {
-        if (s.busy) api.row("Working", s.busy, [value(api, s.busy, "bl4sb_warn")]);
+        if (s.busy) api.row("处理中", s.busy, [value(api, s.busy, "bl4sb_warn")]);
         if (s.result) {
-            api.title("Last restore");
+            api.title("上次还原结果");
             s.result.results.forEach(function (r) {
-                api.row(r.what || r.target || "Restore", r.ok
-                    ? "Restored when the game closed. Your saves from just before are in the backup marked \"Before a restore\" (All backups), if you want them back."
-                    : "Not restored: " + (r.error || "unknown error") + ". Nothing was changed for this one.",  // prettier-ignore
-                    [value(api, r.ok ? "Restored" : "Failed: " + (r.error || "error"), r.ok ? "bl4sb_on" : "bl4sb_off")]);
+                api.row(r.what || r.target || "还原", r.ok
+                    ? "已在退出游戏后还原。如需找回还原前的存档，可在“全部备份”中查找标记为“还原前备份”的版本。"
+                    : "未还原：" + (r.error || "未知错误") + "。此项未做任何更改。",  // prettier-ignore
+                    [value(api, r.ok ? "已还原" : "失败：" + (r.error || "错误"), r.ok ? "bl4sb_on" : "bl4sb_off")]);
             });
-            api.row("Got it", "Hides this until the next restore.", [button(api, "OK", function () {
+            api.row("知道了", "隐藏此结果，直到下次还原。", [button(api, "确定", function () {
                 send({ do: "dismiss" });
             }, true, true)]);
         }
         if (s.pending && s.pending.length) {
-            api.title("Restores when you quit the game");
+            api.title("将在退出游戏后还原");
             s.pending.forEach(function (p) {
-                api.row(p.what, "The game keeps your saves in memory and saves them again as you play and when you quit, so the " +
-                    "restore happens right after it closes. Your saves as they are then are backed up first (\"Before a restore\").", [  // prettier-ignore
+                api.row(p.what, "游戏会将存档保留在内存中，并在游玩和退出时再次保存，因此" +
+                    "还原会在游戏关闭后立即执行。届时会先备份现有存档（标记为“还原前备份”）。", [  // prettier-ignore
                     value(api, p.target, "bl4sb_small"),
-                    button(api, "Remove", function () {
+                    button(api, "移除", function () {
                         send({ do: "cancel", target: p.target });
                     })
                 ]);
             });
-            api.row("Quit the game now", "Closes the game normally (it saves first), then the restore happens. Start the game again afterwards.", [
-                button(api, s.quitting ? "Quitting..." : "Quit game", function () {
+            api.row("立即退出游戏", "正常退出游戏（先保存存档），随后执行还原。完成后请重新启动游戏。", [
+                button(api, s.quitting ? "正在退出……" : "退出游戏", function () {
                     send({ do: "quit" });
                 }, !s.quitting),
-                button(api, "Cancel all", function () {
+                button(api, "全部取消", function () {
                     send({ do: "cancel" });
                 })
             ]);
@@ -317,48 +318,48 @@
 
     function renderHome(api, s, d) {
         renderStatus(api, s);
-        api.title("Backups");
+        api.title("备份");
         var last = d.last;
-        api.row("Last backup", last
-            ? "Made " + last.created_text + " (" + last.label.toLowerCase() + "): " + last.files.length + " save files, " + last.size + ". A backup is made each time you start the game, when a save changed since the one before."
-            : "No backup yet. One is made each time you start the game.",  // prettier-ignore
-            [value(api, last ? last.created_text : "None yet"),
-             button(api, "Back up now", function () {
+        api.row("上次备份", last
+            ? "创建于 " + last.created_text + " (" + last.label.toLowerCase() + "): " + last.files.length + " 个存档文件，" + last.size + "。每次启动游戏时，若存档与上次相比有变化，就会创建一份备份。"
+            : "暂无备份。每次启动游戏时会自动备份。",  // prettier-ignore
+            [value(api, last ? last.created_text : "暂无"),
+             button(api, "立即备份", function () {
                  send({ do: "backup" });
              }, !s.busy)]);  // prettier-ignore
-        var fit = d.fit_1gb ? " At " + d.per_backup + " a backup, 1 GB holds about " + commas(d.fit_1gb) + " of yours." : "";
-        api.row("Backups kept", "Keeps " + (s.keep === "All that fit in 1 GB" ? "as many as fit in 1 GB" : "the newest " + s.keep) +
-            " (Backups to keep, below), never more than 1 GB in all. Backups marked Keep are never removed." + fit, [  // prettier-ignore
+        var fit = d.fit_1gb ? " 按每份 " + d.per_backup + " 计算，1 GB 约可容纳 " + commas(d.fit_1gb) + " 份备份。" : "";
+        api.row("已保留备份", "保留 " + (s.keep === "All that fit in 1 GB" ? "1 GB 以内尽可能多的备份" : "最新的 " + s.keep) +
+            "（可在下方“保留备份数量”中设置），总容量上限为 1 GB。标记为“保留”的备份不会被自动删除。" + fit, [  // prettier-ignore
             value(api, plural(d.count, "backup") + ", " + d.size),
-            button(api, "Show all", function () {
+            button(api, "查看全部", function () {
                 go("backups");
             })
         ]);
 
-        api.title("Characters");
-        if (!d.characters.length) api.row("No characters yet", "", []);
+        api.title("角色");
+        if (!d.characters.length) api.row("暂无角色", "", []);
         d.characters.forEach(function (c) {
             var n = c.versions.length;
-            api.row(c.name + (c.exists ? "" : " (deleted)"),
-                (c.exists ? "Slot " + c.slot + " now. " : "Not in your saves any more; its backups are kept. ") + details(c.now) +
-                " " + plural(n, "version") + " in the backups. History shows each one and restores it.",  // prettier-ignore
+            api.row(c.name + (c.exists ? "" : "（已删除）"),
+                (c.exists ? "当前位于槽位 " + c.slot + "。" : "当前存档中已无此角色，但其备份仍保留。") + details(c.now) +
+                " " + plural(n, "version") + " 位于备份中。可通过“历史版本”查看并还原。",  // prettier-ignore
                 [value(api, brief(c.now) + ", " + plural(n, "version"), "bl4sb_small"),
-                 button(api, "History", function () {
+                 button(api, "历史版本", function () {
                      go("char", c.guid);
                  })]);  // prettier-ignore
         });
 
-        api.title("Bank");
+        api.title("银行");
         var bank = d.bank;
-        api.row("Bank", "The bank is shared by every character (in profile.sav). History shows each version of it; a restore puts " +
-            "back only the bank, or the whole profile.", [  // prettier-ignore
+        api.row("银行", "银行由所有角色共享（位于 profile.sav 中）。可在历史版本中查看各个版本，并还原" +
+            "银行或整个个人档案。", [  // prettier-ignore
             value(api, (bank.now !== null && bank.now !== undefined ? plural(bank.now, "item") + ", " : "") + plural(bank.versions.length, "version"), "bl4sb_small"),
-            button(api, "History", function () {
+            button(api, "历史版本", function () {
                 go("bank");
             })
         ]);
-        api.row("Backup folder", "Opens the folder in Explorer: one folder per backup with plain copies of your save files. " + d.folder, [
-            button(api, "Open folder", function () {
+        api.row("备份文件夹", "在资源管理器中打开备份文件夹。每份备份单独存放，内含存档文件的原样副本。" + d.folder, [
+            button(api, "打开文件夹", function () {
                 send({ do: "folder" });
             }, true, true)
         ]);
@@ -366,15 +367,15 @@
 
     function renderCharacter(api, s, d, c) {
         renderStatus(api, s);
-        back(api, c.name + " history");
-        if (c.exists) api.row("Now", "Your save as it is now (slot " + c.slot + "). " + details(c.now), [value(api, brief(c.now), "bl4sb_small")]);
+        back(api, c.name + "的历史版本");
+        if (c.exists) api.row("当前", "当前存档（槽位 " + c.slot + "）。" + details(c.now), [value(api, brief(c.now), "bl4sb_small")]);
         c.versions.forEach(function (v) {
-            var desc = [details(v.info), changes(v.vs_older), versusNow(v, "the backpack"),
-                v.current ? "" : "Restore puts this version back when you quit the game (your save as it is then is backed up first). Shared progress and the bank stay as they are."]  // prettier-ignore
+            var desc = [details(v.info), changes(v.vs_older), versusNow(v, "背包"),
+                v.current ? "" : "退出游戏后还原此版本（会先备份届时的现有存档）。共享进度与银行保持不变。"]  // prettier-ignore
                 .filter(function (x) { return x; }).join(" ");
-            api.row((v.current ? "Now: " : "") + "Saved " + v.saved_text, desc, [
+            api.row((v.current ? "当前：" : "") + "保存于 " + v.saved_text, desc, [
                 value(api, brief(v.info), "bl4sb_small" + (v.ok === false ? " bl4sb_off" : "")),
-                restoreButton(api, "c" + v.id, "Restore", { do: "restore", kind: "character", backup: v.backup, file: v.file },
+                restoreButton(api, "c" + v.id, "还原", { do: "restore", kind: "character", backup: v.backup, file: v.file },
                     !v.current && v.ok !== false && !s.busy)  // prettier-ignore
             ]);
         });
@@ -382,38 +383,38 @@
 
     function renderBank(api, s, d) {
         renderStatus(api, s);
-        back(api, "Bank history");
+        back(api, "银行历史版本");
         var bank = d.bank;
-        if (bank.now !== null && bank.now !== undefined) api.row("Now", "Your bank as it is now.", [value(api, plural(bank.now, "item"), "bl4sb_small")]);
-        if (!bank.versions.length) api.row("No versions yet", "", []);
+        if (bank.now !== null && bank.now !== undefined) api.row("当前", "当前银行内容。", [value(api, plural(bank.now, "item"), "bl4sb_small")]);
+        if (!bank.versions.length) api.row("暂无历史版本", "", []);
         bank.versions.forEach(function (v) {
-            var since = v.added || v.removed ? "Since the version before: " + v.added + " in, " + v.removed + " out. " : "";
-            var desc = since + versusNow(v, "the bank") +
-                " Bank puts back only this bank (the rest of your profile stays). Profile puts back the whole profile.sav of that day:" +
-                " bank, shared progress, vault cards, settings. Either happens when you quit the game.";  // prettier-ignore
-            api.row((v.current ? "Now: " : "") + "Saved " + v.saved_text, desc, [
+            var since = v.added || v.removed ? "与上一版本相比：" + v.added + " 件新增，" + v.removed + " 件移除。" : "";
+            var desc = since + versusNow(v, "银行") +
+                " 点击“银行”仅还原银行（个人档案的其他内容不变）。点击“个人档案”则还原当时的整个 profile.sav：" +
+                "包括银行、共享进度、秘藏卡和设置。两种还原都会在退出游戏后执行。";  // prettier-ignore
+            api.row((v.current ? "当前：" : "") + "保存于 " + v.saved_text, desc, [
                 value(api, plural(v.items, "item"), "bl4sb_small"),
-                restoreButton(api, "b" + v.id, "Bank", { do: "restore", kind: "bank", backup: v.backup }, !v.current && !s.busy),
-                restoreButton(api, "p" + v.id, "Profile", { do: "restore", kind: "profile", backup: v.backup }, !s.busy)
+                restoreButton(api, "b" + v.id, "银行", { do: "restore", kind: "bank", backup: v.backup }, !v.current && !s.busy),
+                restoreButton(api, "p" + v.id, "个人档案", { do: "restore", kind: "profile", backup: v.backup }, !s.busy)
             ]);
         });
     }
 
     function renderBackups(api, s, d) {
         renderStatus(api, s);
-        back(api, "All backups");
+        back(api, "全部备份");
         d.sessions.forEach(function (b) {
             var who = b.files.map(function (f) {
-                return f.who + (f.level ? " (level " + f.level + ")" : "") + (f.ok === false ? " (damaged)" : "");
+                return f.who + (f.level ? "（等级 " + f.level + ")" : "") + (f.ok === false ? "（损坏）" : "");
             }).join(", ");
-            var desc = b.label + ", " + b.created_text + ", " + b.size + ": " + who + ". Keep stops it from ever being removed. " +
-                "Restore all puts back every save in it when you quit the game (characters into the slot they're in now).";  // prettier-ignore
-            api.row(b.created_text + (b.keep ? " (kept)" : ""), desc, [
-                value(api, b.label + ", " + b.files.length + " files", "bl4sb_small" + (b.bad ? " bl4sb_warn" : "")),
-                button(api, b.keep ? "Unkeep" : "Keep", function () {
+            var desc = b.label + ", " + b.created_text + ", " + b.size + ": " + who + "。标记为“保留”可防止备份被自动删除。" +
+                "“全部还原”会在退出游戏后还原备份内的所有存档（角色还原到其当前所在的槽位）。";  // prettier-ignore
+            api.row(b.created_text + (b.keep ? "（已保留）" : ""), desc, [
+                value(api, b.label + ", " + b.files.length + " 个文件", "bl4sb_small" + (b.bad ? " bl4sb_warn" : "")),
+                button(api, b.keep ? "取消保留" : "保留", function () {
                     send({ do: "keep", backup: b.name, keep: !b.keep });
                 }),
-                restoreButton(api, "a" + b.name, "Restore all", { do: "restore", kind: "all", backup: b.name }, !s.busy)
+                restoreButton(api, "a" + b.name, "全部还原", { do: "restore", kind: "all", backup: b.name }, !s.busy)
             ]);
         });
     }
@@ -454,7 +455,7 @@
     };
 
     ns.modPages = ns.modPages || {};
-    ns.modPages[MOD] = { gen: gen, render: render, keep: keep, moreTitle: "Settings" };
+    ns.modPages[MOD] = { gen: gen, render: render, keep: keep, moreTitle: "设置" };
     sb.stateText = null;
     checkCss();
     watch();

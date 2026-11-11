@@ -1,7 +1,8 @@
 [project]
 name = "BL4 Detailed Item Cards"
+cn_name = "BL4 更好的物品描述"
 version = "0.2.5"
-description = "Class mod skills with names, ranks and numbers, named secondary stats, and where legendaries drop (with Big Encore waypoint/travel keys) on item cards."
+description = "在物品卡片上显示职业模组技能名称、等级、精确数值、次要属性名称和传奇掉落来源，并支持莫西“大返场”导航与传送快捷键。"
 authors = [{ name = "flame" }]
 
 [tool.sdkmod]

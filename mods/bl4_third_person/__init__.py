@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Third Person for Borderlands 4: a hotkey switches to an over-the-shoulder third-person camera.
 
@@ -69,12 +70,14 @@ def _changed(_option: Any, _value: Any) -> None:
 toggle_key = KeybindOption(
     "Third person key",
     "H",
-    description="Switches between first and third person.",
+    description="在第一人称与第三人称之间切换。",
+    display_name="第三人称切换键",
 )
 swap_key = KeybindOption(
     "Swap shoulder key",
     "K",
-    description="Moves the camera to your other shoulder.",
+    description="将镜头切换到另一侧肩膀。",
+    display_name="切换肩位快捷键",
 )
 distance_option = SliderOption(
     "Camera distance (cm)",
@@ -83,8 +86,9 @@ distance_option = SliderOption(
     600,
     10,
     True,
-    description="How far behind you the camera sits.",
+    description="镜头位于玩家身后的距离。",
     on_change_while_enabled=_changed,
+    display_name="镜头距离（厘米）",
 )
 shoulder_option = SliderOption(
     "Shoulder offset (cm)",
@@ -93,8 +97,9 @@ shoulder_option = SliderOption(
     150,
     5,
     True,
-    description="How far to the side the camera sits, so you aren't in the way of the crosshair.",
+    description="镜头向侧面偏移的距离，避免角色挡住准星。",
     on_change_while_enabled=_changed,
+    display_name="肩位偏移（厘米）",
 )
 height_option = SliderOption(
     "Camera height (cm)",
@@ -103,8 +108,9 @@ height_option = SliderOption(
     100,
     5,
     True,
-    description="How high above your eyes the camera sits.",
+    description="镜头高于角色眼睛的距离。",
     on_change_while_enabled=_changed,
+    display_name="镜头高度（厘米）",
 )
 aim_distance_option = SliderOption(
     "Aim-in camera distance (cm)",
@@ -113,8 +119,9 @@ aim_distance_option = SliderOption(
     400,
     10,
     True,
-    description="How far behind you the camera sits while you aim.",
+    description="瞄准时镜头位于玩家身后的距离。",
     on_change_while_enabled=_changed,
+    display_name="瞄准时镜头距离（厘米）",
 )
 aim_zoom_option = SliderOption(
     "Aim-in zoom (%)",
@@ -124,22 +131,35 @@ aim_zoom_option = SliderOption(
     5,
     True,
     description=(
-        "How much aiming zooms in, compared with aiming down sights in first person. 100% zooms as"
-        " much as the gun's sights would."
+        "相对于第一人称开镜瞄准时的缩放程度。100% 表示与武器瞄具的缩放程度相同。"
     ),
     on_change_while_enabled=_changed,
+    display_name="瞄准缩放（%）",
 )
 crosshair_option = BoolOption(
     "Crosshair while aiming",
     True,
-    description="Draws a crosshair while you aim in third person (the game hides its own).",
+    description="在第三人称瞄准时绘制准星（游戏此时会隐藏原生准星）。",
+    display_name="瞄准时显示准星",
+    true_text="开启",
+    false_text="关闭",
 )
 start_option = BoolOption(
     "Remember third person",
     True,
-    description="Stays in third person between play sessions if you left it on.",
+    description="退出游戏时若开启第三人称，下次启动仍保持开启。",
+    display_name="记住第三人称状态",
+    true_text="开启",
+    false_text="关闭",
 )
-saved_on_option = BoolOption("Third person on", False, is_hidden=True)
+saved_on_option = BoolOption(
+    "Third person on",
+    False,
+    is_hidden=True,
+    display_name="启用第三人称",
+    true_text="开启",
+    false_text="关闭",
+)
 
 
 # endregion
@@ -285,7 +305,7 @@ def _update(pc: UObject, pawn: UObject) -> None:
     defs = camera_defs.Finder.get()
     if defs is None:
         if not State.waiting_logged:
-            log("Getting the third-person camera ready (takes a few seconds once per game)...")
+            log("正在准备第三人称镜头（每次启动游戏仅需等待几秒）……")
             State.waiting_logged = True
         return
 

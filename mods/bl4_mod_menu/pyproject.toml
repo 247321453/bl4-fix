@@ -1,7 +1,8 @@
 [project]
 name = "BL4 Mod Menu"
+cn_name = "BL4 Mod 菜单"
 version = "0.2.5"
-description = "An in-game settings menu for every SDK mod. Press F7 in game (or type modmenu in the console)."
+description = "为所有 SDK 模组提供游戏内设置菜单。按 F7 打开，或在控制台输入 modmenu。"
 authors = [{ name = "flame" }]
 
 [tool.sdkmod]

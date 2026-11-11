@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+from functools import cache
+
 # Known modifier labels. Internal keys, part IDs, weights and serials remain untranslated.
 STAT_NAMES: dict[str, str] = {
     "Action Skill Cooldown Rate": "主动技能冷却速率",
@@ -94,9 +96,23 @@ _RARITIES = {
 }
 
 
+@cache
+def stat_labels() -> dict[str, str]:
+    """Display labels from parts.json's cn_name, with defaults for older data files."""
+    from .reroll import data
+
+    labels = STAT_NAMES.copy()
+    for base in data()["bases"].values():
+        for stat in base["stats"].values():
+            cn_name = stat.get("cn_name")
+            if isinstance(cn_name, str) and cn_name:
+                labels[stat["name"]] = cn_name
+    return labels
+
+
 def stat_name(name: str) -> str:
-    """Translate a known label, preserving unknown labels from future game versions."""
-    return STAT_NAMES.get(name, name)
+    """Translate for display only; names used to identify card rows stay in English."""
+    return stat_labels().get(name, name)
 
 
 def item_label(label: str) -> str:

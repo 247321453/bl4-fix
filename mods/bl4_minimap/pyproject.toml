@@ -1,7 +1,8 @@
 [project]
 name = "BL4 Minimap"
+cn_name = "BL4 小地图"
 version = "0.1.15"
-description = "A round or square minimap drawn from the ECHO map: its art, fog of war, icons and route."
+description = "基于 ECHO 地图绘制圆形或方形小地图，包含地图画面、战争迷雾、图标和导航路线。"
 authors = [{ name = "flame" }]
 
 [tool.sdkmod]

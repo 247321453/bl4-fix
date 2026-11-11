@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Detailed item cards for Borderlands 4.
 
@@ -51,7 +52,20 @@ _errors: set[str] = set()
 
 
 def log(msg: str) -> None:
-    logging.info(f"[Item Cards] {msg}")
+    for original, translated in (
+        ("Detailed item cards: not checked yet.", "详细物品卡片：尚未检查。"),
+        ("Detailed item cards: couldn't update", "详细物品卡片：无法更新"),
+        ("Detailed item cards are off.", "详细物品卡片已关闭。"),
+        ("Detailed item cards are on.", "详细物品卡片已开启。"),
+        ("Detailed item cards paused: this game version changed the item card, so they need a mod update.",
+         "详细物品卡片已暂停：当前游戏版本更改了物品卡片，需要更新 Mod。"),
+        ("Detailed item cards paused:", "详细物品卡片已暂停："),
+        (" also changes the item card.", "也修改了物品卡片。"),
+        (" The old item card page (", " 旧物品卡片页面（"),
+        (") goes when the game exits.", "）将在退出游戏后移除。"),
+    ):
+        msg = msg.replace(original, translated)
+    logging.info(f"[物品卡片] {msg}")
 
 
 def _report_error(ex: Exception) -> None:
@@ -135,18 +149,18 @@ waypoint_key = KeybindOption(
     "Big Encore waypoint key",
     "J",
     description=(
-        "While hovering a legendary that a boss drops, press this to set your waypoint (and a"
-        " map pin) on that boss's Moxxi's Big Encore machine."
+        "将鼠标悬停在首领掉落的传奇装备上，按此键将导航点（及地图标记）设为对应首领的莫西“大返场”机器。"
     ),
+    display_name="大返场导航点快捷键",
 )
 
 travel_key = KeybindOption(
     "Big Encore travel key",
     "K",
     description=(
-        "While hovering a legendary that a boss drops, press this to go to that boss's Moxxi's Big"
-        " Encore machine (fast travel to its map if needed). Solo or as host only."
+        "将鼠标悬停在首领掉落的传奇装备上，按此键前往对应首领的莫西“大返场”机器（必要时先快速旅行至对应地图）。仅限单人游戏或房主使用。"
     ),
+    display_name="大返场传送快捷键",
 )
 
 def card_settings(
@@ -181,18 +195,21 @@ scale_option = SliderOption(
     50,
     150,
     5,
-    description="Scales item cards (percent of the game's size). Applies within a couple of seconds.",
+    description="调整物品卡片的缩放比例（相对于游戏默认大小的百分比）。几秒内生效。",
     on_change_while_enabled=lambda _, value: publish_settings(card_settings(scale=value)),
+    display_name="物品卡片大小",
 )
 
 fit_option = BoolOption(
     "Shrink tall cards to fit",
     False,
     description=(
-        "Shrinks a card that would be taller than the screen until it fits. Otherwise a tall card"
-        " scrolls with the mouse wheel in menus (on the HUD it shows its top part)."
+        "物品卡片高于屏幕时，自动缩小至可完整显示。关闭后，菜单中的过高卡片可用鼠标滚轮滚动；HUD 中只显示顶部。"
     ),
     on_change_while_enabled=lambda _, value: publish_settings(card_settings(fit=value)),
+    display_name="自动缩小过高的卡片",
+    true_text="开启",
+    false_text="关闭",
 )
 
 def set_skill_numbers(on: bool) -> None:
@@ -204,47 +221,55 @@ skill_numbers_option = BoolOption(
     "Exact skill numbers",
     False,
     description=(
-        "Under each class mod skill, lists its exact numbers (\"Gun Damage: +14% -> +35%\"): what"
-        " your points give now and what they'd give with this class mod. Off, the card shows the"
-        " skill, your rank and its max with the mod, and the description."
+        "在职业模组的各项技能下列出精确数值（例如“枪械伤害：+14% → +35%”），对比当前技能点效果与装备此模组后的效果。关闭时，仅显示技能、当前等级、装备后的等级上限及技能说明。"
     ),
     on_change_while_enabled=lambda _, value: set_skill_numbers(value),
+    display_name="显示精确技能数值",
+    true_text="开启",
+    false_text="关闭",
 )
 
 firmware_option = BoolOption(
     "Detailed firmware",
     True,
     description=(
-        "Lists every firmware bonus tier with its numbers, marks the tiers you have now, and shows"
-        " which ones equipping the item would unlock or lose."
+        "列出各档固件加成及其数值，标记当前生效的档位，并显示装备此物品后会解锁或失去的档位。"
     ),
     on_change_while_enabled=lambda _, value: publish_settings(card_settings(firmware=value)),
+    display_name="详细固件信息",
+    true_text="开启",
+    false_text="关闭",
 )
 
 slot_names_option = BoolOption(
     "Legendary names in the inventory",
     True,
     description=(
-        "Shows each legendary's own name (\"Golden God\" for a \"Churned Aching Golden God\") on the"
-        " inventory's weapon and gear slots and in the list of items you can switch to."
+        "在背包的武器和装备槽位，以及可切换物品列表中，显示传奇装备本名（例如将带前缀的“Churned Aching Golden God”显示为“Golden God”）。"
     ),
     on_change_while_enabled=lambda _, value: publish_settings(card_settings(slot_names=value)),
+    display_name="背包中显示传奇本名",
+    true_text="开启",
+    false_text="关闭",
 )
 
 full_names_option = BoolOption(
     "Full legendary names",
     False,
     description=(
-        "Shows the whole name with its rolled prefixes (\"Churned Aching Golden God\") instead of"
-        " the legendary's own name. Long names get smaller text, on two lines if needed."
+        "显示包含随机前缀的完整名称（如“Churned Aching Golden God”），而非仅传奇本名。过长的名称会缩小字号，必要时分为两行。"
     ),
     on_change_while_enabled=lambda _, value: publish_settings(card_settings(full_names=value)),
+    display_name="显示完整传奇名称",
+    true_text="开启",
+    false_text="关闭",
 )
 
 status_button = ButtonOption(
     "Show status",
-    description="Prints to the console whether the detailed cards are installed, or why not.",
+    description="在控制台输出详细物品卡片是否已启用，或无法启用的原因。",
     on_press=lambda _: log(_status),
+    display_name="显示状态",
 )
 
 

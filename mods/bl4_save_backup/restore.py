@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Staging a restore, which restore_helper.ps1 applies after the game exits.
 
@@ -119,7 +120,7 @@ def _target_for(acc: store.Account, guid: str, fname: str) -> str:
         if live.get("guid") == guid:
             return name
     if fname in acc.live or (acc.save_dir / fname).exists():
-        raise RestoreError("another character is in its slot now")
+        raise RestoreError("该存档槽位当前已被另一个角色占用")
     return fname
 
 
@@ -127,16 +128,16 @@ def _file_action(st: store.Store, acc: store.Account, backup: str, fname: str, t
     info = acc.sessions.get(backup, {}).get("files", {}).get(fname)
     source = acc.dir / backup / fname
     if info is None or not source.is_file():
-        raise RestoreError("that backup is gone")
+        raise RestoreError("该备份已不存在")
     data = source.read_bytes()
     if info.get("ok") is False:
-        raise RestoreError(f"that backup didn't read whole ({info.get('error', 'damaged')})")
+        raise RestoreError(f"该备份未能完整读取（{info.get('error', '损坏')}）")
     key = st.key(acc)
     if key is not None:
         try:
             savefile.decrypt(key, data)
         except savefile.SaveError as ex:
-            raise RestoreError(f"that backup doesn't open: {ex}") from None
+            raise RestoreError(f"无法打开该备份：{ex}") from None
     return {"kind": "file", "target": target, "source": str(source), "sha1": hashlib.sha1(data).hexdigest(), "what": what}
 
 
@@ -144,8 +145,8 @@ def stage_character(st: store.Store, acc: store.Account, backup: str, fname: str
     info = acc.sessions.get(backup, {}).get("files", {}).get(fname) or {}
     guid = info.get("guid")
     if not guid:
-        raise RestoreError("that backup has no character in it")
-    what = f"{_who(info, fname)} (saved {store.when(info.get('mtime', 0))})"
+        raise RestoreError("该备份中没有角色存档")
+    what = f"{_who(info, fname)}（保存于 {store.when(info.get('mtime', 0))}）"
     action = _file_action(st, acc, backup, fname, _target_for(acc, guid, fname), what)
     _add(acc, [action], None)
     return what
@@ -154,17 +155,17 @@ def stage_character(st: store.Store, acc: store.Account, backup: str, fname: str
 def _bank_block(st: store.Store, acc: store.Account, backup: str) -> tuple[str, bytes]:
     key = st.key(acc)
     if key is None:
-        raise RestoreError("couldn't find the save key, so the bank can't be read")
+        raise RestoreError("未找到存档密钥，无法读取银行")
     try:
         old = savefile.decrypt(key, (acc.dir / backup / "profile.sav").read_bytes())
         now = savefile.decrypt(key, (acc.save_dir / "profile.sav").read_bytes())
     except OSError:
-        raise RestoreError("that backup's profile is gone") from None
+        raise RestoreError("该备份中的个人档案已不存在") from None
     except savefile.SaveError as ex:
-        raise RestoreError(f"a profile doesn't open: {ex}") from None
+        raise RestoreError(f"无法打开个人档案：{ex}") from None
     block = savefile.bank_block(old)
     if block is None:
-        raise RestoreError("that backup has no bank")
+        raise RestoreError("该备份中没有银行数据")
     try:
         savefile.with_bank(now, block)  # the same splice the helper does: it must fit the profile now
     except savefile.SaveError as ex:
@@ -175,14 +176,14 @@ def _bank_block(st: store.Store, acc: store.Account, backup: str) -> tuple[str, 
 def stage_bank(st: store.Store, acc: store.Account, backup: str) -> str:
     info = acc.sessions.get(backup, {}).get("files", {}).get("profile.sav") or {}
     block, key = _bank_block(st, acc, backup)
-    what = f"Bank: {len(info.get('bank', ()))} items (saved {store.when(info.get('mtime', 0))})"
+    what = f"银行：{len(info.get('bank', ()))} 件物品（保存于 {store.when(info.get('mtime', 0))}）"
     _add(acc, [{"kind": "bank", "target": "profile.sav", "block": block, "what": what}], key)
     return what
 
 
 def stage_profile(st: store.Store, acc: store.Account, backup: str) -> str:
     info = acc.sessions.get(backup, {}).get("files", {}).get("profile.sav") or {}
-    what = f"Whole profile and bank (saved {store.when(info.get('mtime', 0))})"
+    what = f"完整个人档案与银行（保存于 {store.when(info.get('mtime', 0))}）"
     _add(acc, [_file_action(st, acc, backup, "profile.sav", "profile.sav", what)], None)
     return what
 
@@ -194,7 +195,7 @@ def stage_all(st: store.Store, acc: store.Account, backup: str) -> tuple[str, li
     for fname, info in sorted(files.items()):
         try:
             if fname == "profile.sav":
-                actions.append(_file_action(st, acc, backup, fname, fname, "Profile and bank"))
+                actions.append(_file_action(st, acc, backup, fname, fname, "个人档案与银行"))
             elif info.get("guid"):
                 target = _target_for(acc, info["guid"], fname)
                 actions.append(_file_action(st, acc, backup, fname, target, _who(info, fname)))
@@ -203,10 +204,10 @@ def stage_all(st: store.Store, acc: store.Account, backup: str) -> tuple[str, li
         except RestoreError as ex:
             skipped.append(f"{_who(info, fname)}: {ex}")
     if not actions:
-        raise RestoreError("nothing in that backup can be restored" + (f" ({'; '.join(skipped)})" if skipped else ""))
+        raise RestoreError("该备份中没有可还原的内容" + (f" ({'; '.join(skipped)})" if skipped else ""))
     _add(acc, actions, None)
     created = acc.sessions.get(backup, {}).get("created", 0)
-    return f"Everything from the backup of {store.when(created)}", skipped
+    return f"{store.when(created)} 备份中的全部内容", skipped
 
 
 # endregion

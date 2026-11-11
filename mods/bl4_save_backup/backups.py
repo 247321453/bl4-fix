@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 The mod's worker: backups, restores and the page's data, all off the game thread.
 
@@ -113,9 +114,9 @@ def _run() -> None:
         try:
             job[1]()
         except restore.RestoreError as ex:
-            say(f"Can't restore that: {ex}.", error=True)
+            say(f"无法还原：{ex}。", error=True)
         except Exception as ex:  # noqa: BLE001 - one failed job mustn't stop the others
-            say(f"Save Backups: {job[0]} failed ({ex or type(ex).__name__}).", error=True)
+            say(f"存档备份：{job[0]} 失败（{ex or type(ex).__name__}）。", error=True)
             W.log("".join(traceback.format_exception(ex)), True)
         try:
             _publish()
@@ -143,7 +144,7 @@ def _account() -> store.Account | None:
     if W.store is None:
         # The mod was never switched on this session (configure() runs at enable), but its page can
         # still be open: a bare assert showed the player "stage failed ()" (2026-10-31)
-        raise restore.RestoreError("Save Backups is switched off. Switch it on in MODS first")
+        raise restore.RestoreError("存档备份 Mod 已关闭，请先在 MODS 菜单中启用。")
     return W.store.active()
 
 
@@ -155,14 +156,14 @@ def backup(label: str) -> None:
     accounts = st.scan() if label == "launch" else [a for a in [_account()] if a]
     if not accounts:
         if label != "launch":
-            say("No saves found to back up.", error=True)
+            say("未找到可备份的存档。", error=True)
         return
     for acc in accounts:
         name, text = st.backup(acc, label)
         pruned = st.prune(acc, keep_count()) if name else []
         if label == "launch":
             W.last_launch = text
-            W.log(f"At launch ({acc.sid}): {text}" + (f" Removed {len(pruned)} old backups." if pruned else ""), False)
+            W.log(f"启动时备份（{acc.sid}）：{text}" + (f" 已删除 {len(pruned)} 份旧备份。" if pruned else ""), False)
         else:
             say(text)
 
@@ -195,15 +196,15 @@ def backup_now(reason: str, timeout: float = 10.0) -> bool:
             name, text = st.backup(acc, "before_mod")
             if name:
                 st.prune(acc, keep_count())
-            W.log(f"Backed up {reason}: {text}", False)
-            result[0] = name is not None or text.startswith("Nothing changed")
+            W.log(f"备份原因 {reason}：{text}", False)
+            result[0] = name is not None or text.startswith("存档没有变化")
         finally:
             done.set()
 
     if threading.current_thread() is W.thread:
         job()  # already on the worker (a job asked): run it here rather than wait for ourselves
     else:
-        submit(f"backup_now {next(_now_ids)}", job, "Backing up your saves...")
+        submit(f"backup_now {next(_now_ids)}", job, "正在备份存档……")
     return done.wait(max(0.0, timeout)) and result[0]
 
 
@@ -221,7 +222,7 @@ def prune() -> None:
     for acc in st.scan():
         gone = st.prune(acc, keep_count())
         if gone:
-            W.log(f"Removed {len(gone)} old backups ({acc.sid}).", False)
+            W.log(f"已删除 {len(gone)} 份旧备份（{acc.sid}）。", False)
 
 
 def set_keep(name: str, keep: bool) -> None:
@@ -234,7 +235,7 @@ def set_keep(name: str, keep: bool) -> None:
 def stage(kind: str, backup_name: str, fname: str = "") -> None:
     st, acc = W.store, _account()
     if st is None or acc is None:
-        raise restore.RestoreError("no saves found")
+        raise restore.RestoreError("未找到存档")
     st.refresh_live(acc)
     if kind == "character":
         what = restore.stage_character(st, acc, backup_name, fname)
@@ -245,17 +246,17 @@ def stage(kind: str, backup_name: str, fname: str = "") -> None:
     else:
         what, skipped = restore.stage_all(st, acc, backup_name)
         if skipped:
-            what += f" (left out: {'; '.join(skipped)})"
+            what += f"（已跳过：{'; '.join(skipped)}）"
     if not restore.start_helper(st.base):
         restore.cancel(acc)
-        raise restore.RestoreError("couldn't start the helper that restores after the game closes")
-    say(f"Will restore {what} when you quit the game.")
+        raise restore.RestoreError("无法启动退出游戏后执行还原的辅助程序")
+    say(f"将在退出游戏后还原：{what}。")
 
 
 def cancel(target: str | None) -> None:
     acc = _account()
     if acc is not None and restore.cancel(acc, target):
-        say("Restore cancelled." if target is None else "Taken off the restore.")
+        say("已取消还原。" if target is None else "已从还原任务中移除。")
 
 
 def cancel_all_accounts() -> None:
@@ -265,7 +266,7 @@ def cancel_all_accounts() -> None:
         return
     for acc in st.scan():
         if restore.cancel(acc):
-            W.log("Switched off: the restore waiting for the game to close was cancelled.", False)
+            W.log("Mod 已关闭：等待退出游戏后执行的还原任务已取消。", False)
 
 
 def dismiss_result() -> None:
@@ -279,7 +280,7 @@ def at_enable(launch: bool) -> None:
     st = W.store
     assert st is not None
     if launch:
-        submit("backup", lambda: backup("launch"), "Backing up your saves...")
+        submit("backup", lambda: backup("launch"), "正在备份存档……")
     else:
         submit("refresh", refresh)
 

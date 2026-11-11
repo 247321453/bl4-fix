@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 The mods and their options as the menus see them, and the changes the menus can make.
 
@@ -34,7 +35,7 @@ from mods_base import (
 )
 from unrealsdk import logging
 
-from . import keys
+from . import keys, names
 
 COOP_TEXT = {
     CoopSupport.Incompatible: "Co-op: incompatible",
@@ -210,7 +211,7 @@ def mod_sig(mod: Mod) -> tuple[Any, ...]:
     so the snapshot reuses the mod's last JSON (building every mod's JSON 4 times a second while
     the screen shows cost 3.5 ms a time, 2026-10-29).
     """
-    out: list[Any] = [mod.name, mod.author, mod.version, mod.description, mod.get_status(), mod.is_enabled,
+    out: list[Any] = [mod.name, names.display_name(mod), mod.author, mod.version, mod.description, mod.get_status(), mod.is_enabled,
                       mod.enabling_locked, mod.coop_support]  # fmt: skip
     for option in mod.iter_display_options():
         _option_sig(option, out)
@@ -221,6 +222,7 @@ def mod_json(mod: Mod) -> dict[str, Any]:
     text, kind = status(mod)
     return {
         "name": mod.name,
+        "cn_name": names.display_name(mod),
         "author": mod.author or "",
         "version": mod.version or "",
         "desc": plain(mod.description),

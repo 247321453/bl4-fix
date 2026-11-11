@@ -384,7 +384,7 @@
     function el(tag, cls, text) {
         var e = document.createElement(tag);
         if (cls) e.className = cls;
-        if (text !== undefined) e.textContent = text;
+        if (text !== undefined) e.textContent = tr(text);
         return e;
     }
 
@@ -415,11 +415,49 @@
         b.classList.add("bl4mm_btn");
         if (extraClass) b.classList.add(extraClass);
         var label = q(b, ".button_txt") || b;
-        label.textContent = text;
+        label.textContent = tr(text);
         hoverable(b);
         if (fn) onClick(b, fn);
         return b;
     }
+
+    // Display-only localization. Raw status codes, option values and mod names are never changed.
+    var language = ns.zh || {};
+    var rules = Object.keys(language.templates || {}).map(function (source) {
+        var escaped = source.split(/(\{\d+\})/).map(function (part) {
+            return /^\{\d+\}$/.test(part) ? "([\\s\\S]*?)" : part.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        }).join("");
+        return [new RegExp("^" + escaped + "$"), language.templates[source]];
+    });
+    function tr(value, depth) {
+        if (typeof value !== "string") return value;
+        var exact = language.exact || {};
+        if (Object.prototype.hasOwnProperty.call(exact, value)) return exact[value];
+        depth = depth || 0;
+        if (depth >= 4 || value.length > 16384) return value;
+        for (var i = 0; i < rules.length; i++) {
+            var match = rules[i][0].exec(value);
+            if (match && match[0].length === value.length) {
+                return rules[i][1].replace(/\{(\d+)\}/g, function (_, at) {
+                    return tr(match[Number(at) + 1], depth + 1);
+                });
+            }
+        }
+        if (value.indexOf("\n") >= 0) return value.split("\n").map(function (line) { return tr(line, depth + 1); }).join("\n");
+        return value;
+    }
+    ns.tr = tr;
+    function displayName(info) {
+        if (!info) return "";
+        if (info.cn_name) return info.cn_name;
+        var mods = link.state && link.state.mods || [];
+        for (var i = 0; i < mods.length; i++) {
+            if ((info.id && mods[i].id === info.id) || (info.name && mods[i].name === info.name))
+                return mods[i].cn_name || mods[i].name;
+        }
+        return info.name || "";
+    }
+    ns.displayName = displayName;
 
     // endregion
     // region State
@@ -439,7 +477,7 @@
 
     function updatesPage() {
         var u = updatesState() || {};
-        return { name: "Updates", pseudo: UPDATES, desc: u.message || "", version: u.release || "", status: "", coop: "" };
+        return { name: "更新", pseudo: UPDATES, desc: u.message || "", version: u.release || "", status: "", coop: "" };
     }
 
     // The small repositories summary in /state (counts, the toast); the pages' data is repoData()
@@ -477,11 +515,11 @@
 
     function pseudoPage(key) {
         if (key === UPDATES) return updatesPage();
-        if (key === DISCOVER) return { name: "Discover", pseudo: DISCOVER, desc: "", version: "", status: "", coop: "" };
-        if (key === REPOS) return { name: "Repositories", pseudo: REPOS, desc: "", version: "", status: "", coop: "" };
-        if (key === REPORT) return { name: "Report a problem", pseudo: REPORT, desc: "", version: "", status: "", coop: "" };
-        if (key === PERF) return { name: "Performance", pseudo: PERF, desc: "", version: "", status: "", coop: "" };
-        if (key === SEARCH) return { name: "Search", pseudo: SEARCH, desc: "", version: "", status: "", coop: "" };
+        if (key === DISCOVER) return { name: "发现", pseudo: DISCOVER, desc: "", version: "", status: "", coop: "" };
+        if (key === REPOS) return { name: "模组仓库", pseudo: REPOS, desc: "", version: "", status: "", coop: "" };
+        if (key === REPORT) return { name: "问题反馈", pseudo: REPORT, desc: "", version: "", status: "", coop: "" };
+        if (key === PERF) return { name: "性能分析", pseudo: PERF, desc: "", version: "", status: "", coop: "" };
+        if (key === SEARCH) return { name: "搜索", pseudo: SEARCH, desc: "", version: "", status: "", coop: "" };
         return null;
     }
 
@@ -588,7 +626,7 @@
 
         var frame = el("div", "bl4mm_frame");
         var header = el("div", "bl4mm_header");
-        header.appendChild(el("p", "bl4mm_title", "MODS"));
+        header.appendChild(el("p", "bl4mm_title", "模组"));
         ui.crumb = el("p", "bl4mm_crumb");
         header.appendChild(ui.crumb);
         // The search bar, right of the crumb: on every page
@@ -629,9 +667,9 @@
         frame.appendChild(body);
 
         var footer = el("div", "bl4mm_footer");
-        ui.back = listButton("Back", back, "bl4mm_back");
+        ui.back = listButton("返回", back, "bl4mm_back");
         footer.appendChild(ui.back);
-        ui.hint = el("p", "bl4mm_hint", "Changes take effect right away and are saved.");
+        ui.hint = el("p", "bl4mm_hint", "修改立即生效并自动保存。");
         footer.appendChild(ui.hint);
         frame.appendChild(footer);
 
@@ -782,14 +820,14 @@
         if (u && u.status !== "off") {
             var count = updatesWaiting();
             var asking = updatesQuestion();
-            var word = count ? count + " new" : asking ? "Set up" : { checking: "Checking", downloading: "Downloading",
-                ready: "Restart", error: "Error", current: "Up to date" }[u.status] || (u.auto ? "" : "Manual");  // prettier-ignore
+            var word = count ? count + " 个新模组" : asking ? "待设置" : { checking: "检查中", downloading: "下载中",
+                ready: "需重启", error: "错误", current: "已是最新" }[u.status] || (u.auto ? "" : "手动");  // prettier-ignore
             var ub = pseudoButton(UPDATES, word, count || asking || u.status === "ready" ? "warn" : u.status === "error" ? "off" : "on");
             setBadge(q(ub, ".button_txt") || ub, count || asking);
         }
         // Discover's count: mods dropped into the folder waiting to load first, else what's new
         var fresh = freshMods().length;
-        var db = pseudoButton(DISCOVER, rs.found ? rs.found + " to load" : fresh ? fresh + " new" : rs.discover ? String(rs.discover) : "",
+        var db = pseudoButton(DISCOVER, rs.found ? rs.found + " 个待加载" : fresh ? fresh + " 个新模组" : rs.discover ? String(rs.discover) : "",
             rs.found || fresh ? "warn" : "on");  // prettier-ignore
         setBadge(q(db, ".button_txt") || db, fresh);
         pseudoButton(REPOS, rs.sources ? String(rs.sources) : "", "on");
@@ -804,7 +842,7 @@
             return mod.name !== SELF_NAME;
         });
         own.concat(others).forEach(function (mod) {
-            var b = listButton(mod.name, function () {
+            var b = listButton(displayName(mod), function () {
                 view.backTo = null;
                 if (view.mod !== mod.name) {
                     view.mod = mod.name;
@@ -886,8 +924,8 @@
             return;
         }
         var page = pageNodes(mod);
-        ui.crumb.textContent = [mod.name].concat(page.names).join("  /  ");
-        ui.back.querySelector(".button_txt").textContent = view.nested.length ? "Back" : "Close";
+        ui.crumb.textContent = tr([displayName(mod)].concat(page.names).join("  /  "));
+        ui.back.querySelector(".button_txt").textContent = tr(view.nested.length ? "返回" : "关闭");
 
         // A page the mod draws itself (ns.modPages, see "Mod pages"), above its remaining options
         var custom = view.nested.length ? null : modPage(mod.name);
@@ -902,15 +940,15 @@
         if (!view.nested.length && mod.can_toggle) addEntry(mod, enableNode(mod), []);
         addNodes(mod, page.nodes, page.prefix, 0, custom && custom.keep);
         if (!ui.options.children.length) {
-            ui.options.appendChild(el("p", "bl4mm_empty small_text_2", "This mod has no settings."));
+            ui.options.appendChild(el("p", "bl4mm_empty small_text_2", "此模组没有可配置的选项。"));
         }
         ui.options.scrollTop = scroll;
     }
 
     // The "Enabled" row heading a mod's page (also a search result)
     function enableNode(mod) {
-        return { kind: "enable", id: "", name: "Enabled", title: "Enabled", desc: "Turns " + mod.name + " on or off right now.",
-                 value: mod.enabled, off: "Off", on: "On" };  // prettier-ignore
+        return { kind: "enable", id: "", name: "启用", title: "启用", desc: "立即开启或关闭 " + displayName(mod) + "。",
+                 value: mod.enabled, off: "关闭", on: "开启" };  // prettier-ignore
     }
 
     // keep (optional): which options to draw (a mod page hides the ones it replaces)
@@ -929,11 +967,11 @@
 
     // The Performance page: ui/perf.js draws it (ns.modPages[PERF], the same API as a mod's page)
     function renderPerf(mod) {
-        ui.crumb.textContent = "Performance";
-        ui.back.querySelector(".button_txt").textContent = "Close";
+        ui.crumb.textContent = tr("性能分析");
+        ui.back.querySelector(".button_txt").textContent = tr("关闭");
         var custom = modPage(PERF);
         if (!custom) {
-            ui.options.appendChild(el("p", "bl4mm_empty small_text_2", "Loading..."));
+            ui.options.appendChild(el("p", "bl4mm_empty small_text_2", "加载中…"));
             return;
         }
         try {
@@ -987,7 +1025,7 @@
         wrap.classList.add("bl4mm_entry_wrap");
         var entry = q(wrap, ".menu_options_entry") || wrap;
         var text = q(wrap, ".menu_options_entry_text");
-        if (text) text.textContent = name;
+        if (text) text.textContent = tr(name);
         var comp = q(wrap, ".menu_options_entry_component") || wrap;
         comp.innerHTML = "";
         (parts || []).forEach(function (part) {
@@ -1022,10 +1060,10 @@
 
     // region Search
 
-    var SEARCH_HINT = "Search every mod's settings";
-    var SEARCH_HELP = "Type any part of a setting's name or description, or a mod's name: every matching setting of" +
-        " every mod shows on the Search page, and works right there. Upper or lower case doesn't matter.\n\nClick" +
-        " the box to type. Enter or Esc stops typing, Backspace deletes a letter, Delete clears it.";  // prettier-ignore
+    var SEARCH_HINT = "搜索所有模组的设置";
+    var SEARCH_HELP = "输入选项名称、说明或模组名称的一部分：" +
+        "所有匹配的选项都会显示在搜索页面，并可直接修改。不区分英文大小写。\n\n点击" +
+        "输入框即可输入。Enter 或 Esc 结束输入，Backspace 删除一个字符，Delete 清空。";  // prettier-ignore
 
     function searchState() {
         return (link.state && link.state.search) || { text: "", typing: false };
@@ -1069,7 +1107,7 @@
         });
         bar.root.addEventListener("mouseenter", function () {
             bar.field.classList.add("bl4mm_search_hover");
-            view.details = { node: { name: "Search", title: "Search", desc: SEARCH_HELP } };
+            view.details = { node: { name: "搜索", title: "搜索", desc: SEARCH_HELP } };
             renderDetails(selectedMod());
         });
         bar.root.addEventListener("mouseleave", function () {
@@ -1091,13 +1129,13 @@
         bar.text.classList.toggle("bl4mm_textbox_hint", !s.text && !s.typing);
         bar.text.textContent = s.text || (s.typing ? "" : SEARCH_HINT);
         bar.caret.classList.toggle("bl4mm_hidden", !s.typing);
-        bar.count.textContent = n < 0 ? "" : n === 1 ? "1 setting" : n + " settings";
+        bar.count.textContent = tr(n < 0 ? "" : n === 1 ? "1 项设置" : n + " 项设置");
     }
 
     // Lowercase letters and digits only, like Kairosdex's search: "less fog", "Less-Fog" and
     // "LESS FOG" all match "Less Fog"
     function norm(text) {
-        return String(text || "").toLowerCase().replace(/[^a-z0-9]+/g, "");
+        return String(text || "").toLowerCase().replace(/[^a-z0-9\u3400-\u9fff\uf900-\ufaff]+/g, "");
     }
 
     function searchWords(raw) {
@@ -1125,9 +1163,9 @@
         lastSearch = { state: link.state, key: key, out: out };
         currentMods().forEach(function (mod) {
             var hits = [];
-            var modText = norm(mod.name);
+            var modText = norm(mod.name + " " + (mod.cn_name || ""));
             if (mod.can_toggle && matchesAll(modText + "|" + norm(mod.desc), words)) {
-                hits.push({ node: enableNode(mod), path: [], label: "Enabled", nested: [], start: 0 });
+                hits.push({ node: enableNode(mod), path: [], label: "启用", nested: [], start: 0 });
             }
             searchNodes(mod.options || [], { path: [], names: [], nested: [], start: 0, text: modText, depth: 0 }, words, hits);
             if (hits.length) out.push({ mod: mod, hits: hits });
@@ -1181,38 +1219,38 @@
 
     function renderSearch() {
         var s = searchState();
-        ui.crumb.textContent = "Search";
-        ui.back.querySelector(".button_txt").textContent = "Close";
+        ui.crumb.textContent = tr("搜索");
+        ui.back.querySelector(".button_txt").textContent = tr("关闭");
         if (s.text) {
             var actions = el("div", "bl4mm_update_actions");
-            actions.appendChild(listButton("Clear", function () {
+            actions.appendChild(listButton("清空", function () {
                 send({ op: "search_clear" });
             }, "bl4mm_update_btn"));
             ui.options.appendChild(actions);
         }
         var words = searchWords(s.text);
         if (!words.length) {
-            ui.options.appendChild(el("p", "bl4mm_update_msg", "Finds settings in every mod at once: type a word in the" +
-                " box at the top, e.g. \"key\" for every hotkey, \"fog\", or a mod's name for all its settings."));  // prettier-ignore
+            ui.options.appendChild(el("p", "bl4mm_update_msg", "同时搜索所有模组的设置：在顶部" +
+                "输入框中输入关键词，例如“按键”“迷雾”，或输入模组名称查找该模组的全部设置。"));  // prettier-ignore
             return;
         }
         var results = searchResults(words);
         var total = countHits(results);
         if (!total) {
-            ui.options.appendChild(el("p", "bl4mm_empty small_text_2", "No setting matches \"" + s.text.trim() + "\"."));
+            ui.options.appendChild(el("p", "bl4mm_empty small_text_2", "没有匹配的设置：“" + s.text.trim() + "\"."));
             return;
         }
         var shown = 0;
         for (var i = 0; i < results.length && shown < MAX_SEARCH_HITS; i++) {
             var r = results[i];
-            addTitle(r.mod.name);
+            addTitle(displayName(r.mod));
             for (var j = 0; j < r.hits.length && shown < MAX_SEARCH_HITS; j++, shown++) {
                 var hit = r.hits[j];
                 addEntry(r.mod, relabel(hit.node, hit.label), hit.path, hit.node.kind === "nested" ? openFromSearch(r.mod, hit) : null);
             }
         }
         if (total > shown) {
-            ui.options.appendChild(el("p", "bl4mm_update_msg", "Showing " + shown + " of " + total + " settings: type more to narrow it down."));
+            ui.options.appendChild(el("p", "bl4mm_update_msg", "显示 " + shown + " / " + total + " 项设置；请增加关键词以缩小范围。"));
         }
     }
 
@@ -1238,50 +1276,50 @@
     }
 
     function errorsText(n) {
-        return n + (n === 1 ? " error" : " errors");
+        return n + (n === 1 ? " 个错误" : " 个错误");
     }
 
     function modNameOf(id) {
         var mods = currentMods();
-        for (var i = 0; i < mods.length; i++) if (mods[i].id === id) return mods[i].name;
-        return id || "Unknown mod";
+        for (var i = 0; i < mods.length; i++) if (mods[i].id === id) return displayName(mods[i]);
+        return id || "未知模组";
     }
 
     // Errors this session (newest first) and the bug report: make it, show it, open GitHub's issue page
     function renderReport() {
         var r = reportState();
-        ui.crumb.textContent = "Report a problem";
-        ui.back.querySelector(".button_txt").textContent = "Close";
+        ui.crumb.textContent = tr("问题反馈");
+        ui.back.querySelector(".button_txt").textContent = tr("关闭");
         var busy = r.status === "building";
-        addTitle("Bug report");
+        addTitle("错误报告");
         ui.options.appendChild(el("p", "bl4mm_update_msg", r.message ||
-            "Makes a zip with what a bug report needs: your mods and their versions, this session's and the" +
-            " last session's log, the errors below and the last crash's summary. Nothing is sent anywhere:" +
-            " you attach the zip to a new issue on GitHub yourself."));  // prettier-ignore
+            "生成包含排查问题所需信息的 ZIP：模组及其版本、本次和" +
+            "上次运行的日志、下方列出的错误，以及最近一次崩溃的摘要。不会自动发送任何内容：" +
+            "请自行将 ZIP 附加到 GitHub 上新建的问题中。"));  // prettier-ignore
         var actions = el("div", "bl4mm_update_actions");
-        actions.appendChild(listButton(busy ? "Making..." : "Make a bug report", function () {
+        actions.appendChild(listButton(busy ? "生成中…" : "生成错误报告", function () {
             if (!busy) send({ op: "report_make" });
         }, "bl4mm_update_btn"));
         if (r.zip) {
-            actions.appendChild(listButton("Show the zip", function () {
+            actions.appendChild(listButton("显示报告文件", function () {
                 send({ op: "report_show" });
             }, "bl4mm_update_btn"));
         }
-        actions.appendChild(listButton("Open issue page", function () {
+        actions.appendChild(listButton("打开问题反馈页面", function () {
             send({ op: "report_issue" });
         }, "bl4mm_update_btn"));
         ui.options.appendChild(actions);
 
-        addTitle(r.errors ? "Errors this session (" + r.errors + ")" : "Errors this session");
+        addTitle(r.errors ? "本次运行的错误（" + r.errors + ")" : "本次运行的错误");
         var recent = r.recent || [];
         if (!recent.length) {
-            ui.options.appendChild(el("p", "bl4mm_empty small_text_2", "No mod has logged an error since the game started."));
+            ui.options.appendChild(el("p", "bl4mm_empty small_text_2", "游戏启动后尚无模组记录错误。"));
         }
         recent.forEach(function (item) {
-            addInfoRow(modNameOf(item.mod), item.count > 1 ? item.count + " times" : "", item.msg || "", null);
+            addInfoRow(modNameOf(item.mod), item.count > 1 ? item.count + " 次" : "", item.msg || "", null);
         });
         if (r.errors > recent.length) {
-            ui.options.appendChild(el("p", "bl4mm_empty small_text_2", "The bug report has all of them, with their tracebacks."));
+            ui.options.appendChild(el("p", "bl4mm_empty small_text_2", "错误报告包含所有错误及其完整调用堆栈。"));
         }
     }
 
@@ -1291,9 +1329,9 @@
 
     function updatesLine(u) {
         if (u.status === "downloading" && u.progress && u.progress[1]) {
-            return "Downloading... " + Math.floor((100 * u.progress[0]) / u.progress[1]) + "%";
+            return "下载中… " + Math.floor((100 * u.progress[0]) / u.progress[1]) + "%";
         }
-        return u.message || "";
+        return tr(u.message || "");
     }
 
     // A row in the game's Options entry style: a name, a value on the right, maybe a button
@@ -1302,7 +1340,7 @@
         wrap.classList.add("bl4mm_entry_wrap");
         var entry = q(wrap, ".menu_options_entry") || wrap;
         var text = q(wrap, ".menu_options_entry_text");
-        if (text) text.textContent = name;
+        if (text) text.textContent = tr(name);
         var comp = q(wrap, ".menu_options_entry_component") || wrap;
         comp.innerHTML = "";
         if (value) comp.appendChild(el("p", "bl4mm_update_ver", value));
@@ -1322,61 +1360,61 @@
 
     function renderUpdates() {
         var u = updatesState() || {};
-        ui.crumb.textContent = "Updates";
-        ui.back.querySelector(".button_txt").textContent = "Close";
+        ui.crumb.textContent = tr("更新");
+        ui.back.querySelector(".button_txt").textContent = tr("关闭");
         var busy = u.status === "checking" || u.status === "downloading";
         var items = u.items || [];
 
         if (u.ask) {
             // Asked once, after the Mod Menu is installed: until then nothing checks on its own
-            addTitle("Check for updates automatically?");
+            addTitle("自动检查更新？");
             ui.options.appendChild(el("p", "bl4mm_update_msg",
-                "Once per launch, the Mod Menu can ask GitHub (in the background) whether BL4 Fix has newer versions " +
-                "of your mods, and show them here with a \"!\" on MODS. Nothing downloads or installs until you press " +
-                "Update all. That check sends GitHub the usual web request (your IP address), nothing else."));  // prettier-ignore
+                "每次启动时，模组菜单可以在后台向 GitHub 查询 BL4 Fix 是否发布了" +
+                "模组的新版本，并在“模组”旁显示“!”。只有点击" +
+                "“全部更新”才会下载或安装。检查时只会向 GitHub 发送常规网络请求（包含你的 IP 地址），不会发送其他信息。"));  // prettier-ignore
             ui.options.appendChild(el("p", "bl4mm_update_msg",
-                "No: nothing is checked until you press Check again. You can change this any time on Repositories: " +
-                "BL4 Fix's Check at launch switch."));  // prettier-ignore
+                "选择“否”：只有点击“重新检查”才会检查更新。可随时在“模组仓库”中修改" +
+                "BL4 Fix 的“启动时检查”开关。"));  // prettier-ignore
             var answer = el("div", "bl4mm_update_actions");
-            answer.appendChild(listButton("Yes, check at launch", function () {
+            answer.appendChild(listButton("是，启动时检查", function () {
                 send({ op: "updates_auto", value: true });
             }, "bl4mm_update_btn"));
-            answer.appendChild(listButton("No, I'll check myself", function () {
+            answer.appendChild(listButton("否，我会手动检查", function () {
                 send({ op: "updates_auto", value: false });
             }, "bl4mm_update_btn"));
             ui.options.appendChild(answer);
         }
 
-        addTitle(u.release ? "Mod updates (" + u.release + ")" : "Mod updates");
+        addTitle(u.release ? "模组更新（" + u.release + ")" : "模组更新");
         ui.options.appendChild(el("p", "bl4mm_update_msg", updatesLine(u)));
         items.forEach(function (item) {
             var ready = item.state === "staged";
-            addInfoRow(item.name, item.installed + "  ->  " + item.latest + (ready ? "   READY" : ""),
-                (item.notes ? item.notes + "\n\n" : "") + (ready ? "Downloaded: installs when the game closes." :
-                "Installed: " + item.installed + ". Latest: " + item.latest + "."), null);  // prettier-ignore
+            addInfoRow(displayName(item), item.installed + "  ->  " + item.latest + (ready ? "   已就绪" : ""),
+                (item.notes ? item.notes + "\n\n" : "") + (ready ? "已下载：将在游戏关闭后安装。" :
+                "已安装：" + item.installed + "。最新：" + item.latest + "."), null);  // prettier-ignore
         });
 
         // "updates" counts waiting updates only ("count", the badge, also counts new mods)
         var waiting = u.updates !== undefined ? u.updates : u.count;
         var actions = el("div", "bl4mm_update_actions");
         if (!busy && waiting) {
-            actions.appendChild(listButton("Update all", function () {
+            actions.appendChild(listButton("全部更新", function () {
                 send({ op: "updates_apply", value: [] });
             }, "bl4mm_update_btn"));
         }
         if (!busy && u.status === "ready") {
             // Reload the staged mods that can, without a restart (the rest wait for it)
-            actions.appendChild(listButton("Load now", function () {
+            actions.appendChild(listButton("立即加载", function () {
                 send({ op: "updates_load_now" });
             }, "bl4mm_update_btn"));
         }
         if (!busy && u.status === "ready" && u.can_restart) {
-            actions.appendChild(listButton("Restart now", function () {
+            actions.appendChild(listButton("立即重启", function () {
                 send({ op: "updates_restart" });
             }, "bl4mm_update_btn"));
         }
         if (!busy) {
-            actions.appendChild(listButton("Check again", function () {
+            actions.appendChild(listButton("重新检查", function () {
                 send({ op: "updates_check" });
             }, "bl4mm_update_btn"));
         }
@@ -1385,8 +1423,8 @@
         var repoUpdates = renderRepoUpdates();
         if (!items.length && !repoUpdates && !busy) {
             ui.options.appendChild(el("p", "bl4mm_empty small_text_2",
-                u.status === "error" ? "No update information." : u.status === "idle" ? "Not checked yet this launch." :
-                "Everything is up to date."));  // prettier-ignore
+                u.status === "error" ? "没有更新信息。" : u.status === "idle" ? "本次启动尚未检查。" :
+                "所有模组均为最新版本。"));  // prettier-ignore
         }
         renderRollbacks();
     }
@@ -1399,24 +1437,24 @@
         var list = undo.rollbacks || [];
         if (!list.length) return;
         var jobs = undo.jobs || {};
-        addTitle("Roll back");
+        addTitle("回退版本");
         ui.options.appendChild(el("p", "bl4mm_update_msg",
-            "Each update keeps the copy it replaced. Roll back puts that one back: right away when the mod can " +
-            "reload, else when the game closes."));  // prettier-ignore
+            "每次更新都会保留被替换的旧版本。回退会恢复旧版：如果模组支持重载则立即生效，" +
+            "否则在游戏关闭后生效。"));  // prettier-ignore
         list.forEach(function (item) {
             var job = jobs[item.id];
             var state = job ? job.state : "";
             var b = null;
             if (!state || state === "failed") {
-                b = listButton(state === "failed" ? "Try again" : "Roll back", function () {
+                b = listButton(state === "failed" ? "重试" : "回退版本", function () {
                     sendRepo("repo_rollback", [item.id]);
                 }, "bl4mm_update_btn");
             }
-            var word = { working: "   ...", staged: "   AT RESTART", reloaded: "   ROLLED BACK", failed: "   FAILED" }[state] || "";
-            addInfoRow(item.name, item.installed + "  ->  back to " + item.previous + word,
-                "Installed: " + item.installed + ". The copy you had before: " + item.previous + "." +
-                (job && job.message ? "\n\n" + job.message : "\n\nUpdates won't offer " + item.installed +
-                " again until the game starts again."), b);  // prettier-ignore
+            var word = { working: "   ...", staged: "   重启后生效", reloaded: "   已回退", failed: "   失败" }[state] || "";
+            addInfoRow(displayName(item), item.installed + "  →  回退到 " + item.previous + word,
+                "已安装：" + item.installed + "。此前的版本：" + item.previous + "." +
+                (job && job.message ? "\n\n" + tr(job.message) : "\n\n下次启动游戏前，不会再次提示更新到 " + item.installed +
+                "。"), b);  // prettier-ignore
         });
     }
 
@@ -1426,15 +1464,15 @@
         var safe = r && r.undo && r.undo.safe;
         if (!safe || !safe.count) return;
         var names = (safe.names || []).map(function (n) {
-            return n.name || n.file;
+            return displayName(n) || n.file;
         });
-        addTitle("Safe mode");
-        addInfoRow("Safe mode: " + safe.count + " mod" + (safe.count === 1 ? "" : "s") + " from other modders " +
-            (safe.count === 1 ? "is" : "are") + " set aside", "",
-            "BL4 Fix Setup's safe mode moved these out of your mods folder (into sdk_mods\\.bl4_safe_mode), so " +
-            "they don't load: " + names.join(", ") + ".\n\nRestore moves them back. They then show under \"In your " +
-            "mods folder\" on Discover, where Load starts one now; otherwise they load at the next start.",
-            r.undo.restoring ? el("p", "bl4mm_card_state", "RESTORING") : listButton("Restore", function () {
+        addTitle("安全模式");
+        addInfoRow("安全模式：" + safe.count + " 个模组" + "" + "（其他作者的模组）" +
+            "" + " 已被隔离", "",
+            "BL4 Fix 安装程序的安全模式已将以下模组移出模组目录（移至 sdk_mods\\.bl4_safe_mode），" +
+            "因此它们不会加载：" + names.join(", ") + "。\n\n点击“恢复”将其移回。随后它们会在“发现”的“" +
+            "模组文件”中出现，点击“加载”即可立即启用；否则会在下次启动时加载。",
+            r.undo.restoring ? el("p", "bl4mm_card_state", "正在恢复") : listButton("恢复", function () {
                 sendRepo("repo_safe_restore");
             }, "bl4mm_update_btn"));  // prettier-ignore
     }
@@ -1445,7 +1483,7 @@
         var list = (r && r.updates) || [];
         if (!list.length) return 0;
         var jobs = r.jobs || {};
-        addTitle("From your repositories");
+        addTitle("来自已添加的仓库");
         renderUpdateReview(list, jobs);
         var open = [];
         list.forEach(function (item) {
@@ -1457,17 +1495,17 @@
             var b = null;
             if (!state || state === "failed") {
                 open.push(item.id);
-                b = listButton("Update", function () {
+                b = listButton("更新", function () {
                     send({ op: "repo_update", value: [item.id] });
                 }, "bl4mm_update_btn");
             }
-            addInfoRow(item.name, item.installed + "  ->  " + item.version + jobWord(job),
-                (item.notes ? item.notes + "\n\n" : "") + "From " + item.repo_name + "." +
-                (job && job.message ? "\n\n" + job.message : "\n\nUpdate reloads it right away when it can; otherwise it installs when the game closes."), b);  // prettier-ignore
+            addInfoRow(displayName(item), item.installed + "  ->  " + item.version + jobWord(job),
+                (item.notes ? item.notes + "\n\n" : "") + "来自 " + item.repo_name + "." +
+                (job && job.message ? "\n\n" + tr(job.message) : "\n\n若支持重载，更新将立即生效；否则在游戏关闭后安装。"), b);  // prettier-ignore
         });
         if (open.length > 1) {
             var actions = el("div", "bl4mm_update_actions");
-            actions.appendChild(listButton("Update all " + open.length, function () {
+            actions.appendChild(listButton("全部更新：" + open.length, function () {
                 send({ op: "repo_update", value: open });
             }, "bl4mm_update_btn"));
             ui.options.appendChild(actions);
@@ -1483,28 +1521,28 @@
             return job && job.state === "review" && job.kind === "update";
         });
         if (!waiting.length) return;
-        addTitle(waiting.length === 1 ? "Update " + waiting[0].name + "?" : "Update these " + waiting.length + " mods?");
+        addTitle(waiting.length === 1 ? "更新 " + displayName(waiting[0]) + "?" : "更新以下 " + waiting.length + " 个模组？");
         var news = [];
         waiting.forEach(function (item) {
             var job = jobs[item.id];
             var fresh = job.new_uses || [];
-            if (fresh.length) news.push(item.name + ": " + fresh.join(", "));
-            addInfoRow(item.name, (job.old_version || item.installed) + "  ->  " + (job.version || item.version) + (fresh.length ? "   NEW: " +
-                fresh.join(", ").toUpperCase() : ""), "Size: " + (fmtSize(job.old_size) || "?") + "  ->  " + fmtSize(job.size) +
-                "\n\nIts code uses: " + usesText(job.uses) + "." + (job.old_read ? "" : "\n\nThe installed copy couldn't be read, so all of it counts as new.") +
-                whereText(job) + "\n\nFrom " + item.repo_name + ".", null);  // prettier-ignore
+            if (fresh.length) news.push(displayName(item) + ": " + fresh.map(function (use) { return tr(use); }).join(", "));
+            addInfoRow(displayName(item), (job.old_version || item.installed) + "  ->  " + (job.version || item.version) + (fresh.length ? "   新增：" +
+                fresh.map(function (use) { return tr(use); }).join(", ").toUpperCase() : ""), "大小：" + (fmtSize(job.old_size) || "?") + "  ->  " + fmtSize(job.size) +
+                "\n\n代码涉及：" + usesText(job.uses) + "." + (job.old_read ? "" : "\n\n无法读取已安装版本，因此将全部内容视为新增。") +
+                whereText(job) + "\n\n来自 " + item.repo_name + ".", null);  // prettier-ignore
         });
         ui.options.appendChild(el("p", "bl4mm_update_msg" + (news.length ? " bl4mm_risk" : ""), news.length
-            ? "New in " + (waiting.length === 1 ? "this update" : "these updates") + ": " + news.join("; ") + ". " + (jobs[waiting[0].id].hint || "")
-            : "Nothing new on the list of what the code uses. " + (jobs[waiting[0].id].hint || "")));  // prettier-ignore
+            ? "新增于 " + (waiting.length === 1 ? "本次更新" : "这些更新") + ": " + news.join("; ") + ". " + tr(jobs[waiting[0].id].hint || "")
+            : "代码涉及的功能类别没有新增。" + tr(jobs[waiting[0].id].hint || "")));  // prettier-ignore
         var ids = waiting.map(function (item) {
             return item.id;
         });
         var actions = el("div", "bl4mm_update_actions");
-        actions.appendChild(listButton(waiting.length === 1 ? "Update" : "Update all " + waiting.length, function () {
+        actions.appendChild(listButton(waiting.length === 1 ? "更新" : "全部更新：" + waiting.length, function () {
             sendRepo("repo_update_confirm", ids);
         }, "bl4mm_update_btn"));
-        actions.appendChild(listButton("Cancel", function () {
+        actions.appendChild(listButton("取消", function () {
             sendRepo("repo_review_cancel", ids);
         }, "bl4mm_update_btn"));
         ui.options.appendChild(actions);
@@ -1512,7 +1550,7 @@
 
     // What a scanned download's code uses, for a sentence
     function usesText(uses) {
-        return uses && uses.length ? uses.join(", ") : "nothing on the list (network, programs, native code, registry, dynamic code)";
+        return uses && uses.length ? uses.map(function (use) { return tr(use); }).join(", ") : "未检出所列功能（网络、外部程序、原生代码、注册表、动态代码）";
     }
 
     // Where the scan saw each thing, one line each (the details pane)
@@ -1521,9 +1559,9 @@
         var lines = (job.uses || []).filter(function (u) {
             return !!where[u];
         }).map(function (u) {
-            return u + ": " + where[u];
+            return tr(u) + ": " + where[u];
         });
-        return lines.length ? "\n\nSeen in:\n" + lines.join("\n") : "";
+        return lines.length ? "\n\n检出位置：\n" + lines.join("\n") : "";
     }
 
     // "   45%", "   RELOADED"...: a job's state after a version or name
@@ -1533,8 +1571,8 @@
             var p = job.progress || [0, 0];
             return "   " + (p[1] ? Math.floor((100 * p[0]) / p[1]) + "%" : "...");
         }
-        return "   " + ({ loading: "LOADING", loaded: "INSTALLED", reloaded: "RELOADED", staged: "AT RESTART",
-                         failed: "FAILED", removed: "REMOVED", review: "WAITING FOR OK" }[job.state] || "");  // prettier-ignore
+        return "   " + ({ loading: "加载中", loaded: "已安装", reloaded: "已重载", staged: "重启后生效",
+                         failed: "失败", removed: "已移除", review: "等待确认" }[job.state] || "");  // prettier-ignore
     }
 
     // endregion
@@ -1659,12 +1697,12 @@
         var job = jobs[item.id];
         var state = job ? job.state : "";
         if (state === "review") {
-            return listButton("Review", function () {
+            return listButton("查看详情", function () {
                 openItem(item);
             }, "bl4mm_update_btn");
         }
         if (!state || state === "failed") {
-            return listButton(state === "failed" ? "Try again" : "Install", function () {
+            return listButton(state === "failed" ? "重试" : "安装", function () {
                 if (!isOfficialRepo(repoData() || {}, item.repo) && view.item !== item.id) openItem(item);
                 sendRepo("repo_install", [item.id]);
             }, "bl4mm_update_btn");
@@ -1674,10 +1712,10 @@
 
     function renderDiscover() {
         var r = repoData();
-        ui.crumb.textContent = "Discover";
-        ui.back.querySelector(".button_txt").textContent = view.item ? "Back" : "Close";
+        ui.crumb.textContent = tr("发现");
+        ui.back.querySelector(".button_txt").textContent = tr(view.item ? "返回" : "关闭");
         if (!r) {
-            ui.options.appendChild(el("p", "bl4mm_update_msg", "Reading your repositories..."));
+            ui.options.appendChild(el("p", "bl4mm_update_msg", "正在读取仓库…"));
             return;
         }
         if (view.item) {
@@ -1687,10 +1725,10 @@
         }
         renderSafeMode(r);
         var actions = el("div", "bl4mm_update_actions");
-        actions.appendChild(listButton("Open mods folder", function () {
+        actions.appendChild(listButton("打开模组文件夹", function () {
             sendRepo("mods_folder");
         }, "bl4mm_update_btn"));
-        actions.appendChild(checkButton(r, "Refresh repositories"));
+        actions.appendChild(checkButton(r, "刷新仓库"));
         ui.options.appendChild(actions);
 
         addRepoFilter(r);
@@ -1698,17 +1736,17 @@
         // Mods dropped into sdk_mods the game hasn't loaded (or replaced since it did): with "All" only
         var found = discoverFilter(r) ? [] : r.found || [];
         if (found.length) {
-            addTitle("In your mods folder");
-            ui.options.appendChild(el("p", "bl4mm_update_msg", "Not running yet. Load starts a mod now, no restart needed."));
+            addTitle("模组文件夹中的文件");
+            ui.options.appendChild(el("p", "bl4mm_update_msg", "尚未运行。点击“加载”即可启动模组，无需重启。"));
             found.forEach(function (f) {
                 var changed = f.kind === "changed";
-                var b = f.problem ? null : listButton(changed ? "Reload" : "Load", function () {
+                var b = f.problem ? null : listButton(changed ? "重新加载" : "加载", function () {
                     send({ op: changed ? "mods_reload" : "mods_load", value: [f.id] });
                 }, "bl4mm_update_btn");
-                addInfoRow(f.name || f.id, (f.version || "") + (changed ? "   CHANGED" : f.problem ? "   CAN'T LOAD" : ""),
-                    (f.problem ? f.problem + "\n\n" : "") + (f.description ? f.description + "\n\n" : "") + f.file +
-                    (changed ? "\n\nThis file was replaced while the game runs. Reload swaps the running copy for it." :
-                        "\n\nLoad imports it like the game does at start and turns it on."), b);  // prettier-ignore
+                addInfoRow(displayName(f) || f.id, (f.version || "") + (changed ? "   文件已更改" : f.problem ? "   无法加载" : ""),
+                    (f.problem ? tr(f.problem) + "\n\n" : "") + (f.description ? f.description + "\n\n" : "") + f.file +
+                    (changed ? "\n\n此文件在游戏运行时被替换。重新加载会用新文件替换当前运行的版本。" :
+                        "\n\n“加载”会像游戏启动时一样导入并启用此模组。"), b);  // prettier-ignore
             });
         }
 
@@ -1718,10 +1756,10 @@
         var list = all.filter(function (item) {
             return !shown || item.repo === shown.key;
         });
-        ui.options.appendChild(el("p", "bl4mm_update_msg", r.refreshing ? "Checking repositories..." :
-            list.length ? "Mods from your repositories that you don't have yet. Add more sources on Repositories." :
-            shown ? "Nothing new from " + shown.name + ": you have every mod it offers." :
-            "Nothing new: you have every mod your repositories offer. Add more on Repositories."));  // prettier-ignore
+        ui.options.appendChild(el("p", "bl4mm_update_msg", r.refreshing ? "正在检查仓库…" :
+            list.length ? "已添加仓库中你尚未安装的模组。可在“模组仓库”中添加更多来源。" :
+            shown ? "没有新模组，来自 " + shown.name + "：你已安装此仓库提供的全部模组。" :
+            "没有新模组：已安装所有仓库提供的全部模组。可在“模组仓库”中添加更多来源。"));  // prettier-ignore
         // Repositories whose check-at-launch switch is off weren't read yet: their mods aren't listed.
         // BL4 Fix's release read but refused (unsigned, offline) has no status either: Updates says why
         var refused = (updatesState() || {}).status === "error";
@@ -1729,12 +1767,12 @@
             return !s.hidden && !s.status && (!shown || s.key === shown.key) && !(s.official && refused);
         });
         if (refused && (r.sources || []).some(function (s) { return s.official && !s.hidden && !s.status && (!shown || s.key === shown.key); })) {
-            ui.options.appendChild(el("p", "bl4mm_update_msg", "BL4 Fix's release couldn't be read this launch: Updates says why."));
+            ui.options.appendChild(el("p", "bl4mm_update_msg", "本次启动未能读取 BL4 Fix 的发布信息：请在“更新”页面查看原因。"));
         }
         if (unread.length && !r.refreshing) {
-            ui.options.appendChild(el("p", "bl4mm_update_msg", (unread.length === 1 ? unread[0].name + " wasn't" :
-                unread.length + " repositories weren't") + " read this launch (check at launch is off): Refresh repositories lists " +
-                (unread.length === 1 ? "its" : "their") + " mods."));  // prettier-ignore
+            ui.options.appendChild(el("p", "bl4mm_update_msg", (unread.length === 1 ? unread[0].name + " 未被" :
+                unread.length + " 个仓库未被") + "读取（已关闭启动时检查）：点击“刷新仓库”以显示" +
+                "其中的" + " 个模组。"));  // prettier-ignore
         }
         // New mods the badge counted are on screen now: tell Python (no badge for them again). They
         // keep their NEW tag for the rest of this page's life
@@ -1799,7 +1837,7 @@
         wrap.classList.add("bl4mm_entry_wrap");
         var entry = q(wrap, ".menu_options_entry") || wrap;
         var label = q(wrap, ".menu_options_entry_text");
-        if (label) label.textContent = "Repository";
+        if (label) label.textContent = tr("仓库");
         var comp = q(wrap, ".menu_options_entry_component") || wrap;
         comp.innerHTML = "";
         comp.classList.add("menu_options_entry_stepper");
@@ -1810,13 +1848,13 @@
             ui.options.scrollTop = 0;
             render();
         }));
-        var desc = "Which repository's mods to show. Click the arrows (or the name) to switch.\n\n" +
+        var desc = "选择要显示哪个仓库的模组。点击箭头或仓库名称切换。\n\n" +
             sources.map(function (s) {
-                return s.name + ": " + (counts[s.key] || 0) + " new";
+                return s.name + ": " + (counts[s.key] || 0) + " 个新模组";
             }).join("\n");  // prettier-ignore
         entry.addEventListener("mouseenter", function () {
             entry.classList.add("hover_effect");
-            view.details = { node: { name: "Repository", title: "Repository", desc: desc } };
+            view.details = { node: { name: "仓库", title: "仓库", desc: desc } };
             renderDetails(selectedMod());
         });
         entry.addEventListener("mouseleave", function () {
@@ -1829,10 +1867,10 @@
     // Click it for the full page (pictures, notes).
     function card(item, jobs) {
         var c = el("div", "bl4mm_card");
-        c.appendChild(picture(item.icon, "bl4mm_card_icon", item.name));
+        c.appendChild(picture(item.icon, "bl4mm_card_icon", displayName(item)));
         var text = el("div", "bl4mm_card_text");
-        text.appendChild(el("p", "bl4mm_card_name", item.name));
-        var meta = [view.newTags[item.id] ? "NEW" : "", item.author ? "by " + item.author : "", item.version, fmtSize(item.size)].filter(function (s) {
+        text.appendChild(el("p", "bl4mm_card_name", displayName(item)));
+        var meta = [view.newTags[item.id] ? "新增" : "", item.author ? "作者：" + item.author : "", item.version, fmtSize(item.size)].filter(function (s) {
             return !!s;
         });
         text.appendChild(el("p", "bl4mm_card_meta", meta.join("   |   ")));
@@ -1861,12 +1899,12 @@
 
     // One Discover entry, full size: its pictures (click for the next), description and notes
     function renderItem(r, item) {
-        ui.crumb.textContent = "Discover  /  " + item.name;
+        ui.crumb.textContent = tr("发现  /  " + displayName(item));
         var head = el("div", "bl4mm_item_head");
-        head.appendChild(picture(item.icon, "bl4mm_item_icon", item.name));
+        head.appendChild(picture(item.icon, "bl4mm_item_icon", displayName(item)));
         var text = el("div", "bl4mm_card_text");
-        text.appendChild(el("p", "bl4mm_item_name", item.name));
-        var meta = [item.author ? "by " + item.author : "", item.version, fmtSize(item.size), "from " + item.repo_name];
+        text.appendChild(el("p", "bl4mm_item_name", displayName(item)));
+        var meta = [item.author ? "作者：" + item.author : "", item.version, fmtSize(item.size), "来源：" + item.repo_name];
         text.appendChild(el("p", "bl4mm_card_meta", meta.filter(function (s) { return !!s; }).join("   |   ")));  // prettier-ignore
         head.appendChild(text);
         ui.options.appendChild(head);
@@ -1876,16 +1914,16 @@
         var actions = el("div", "bl4mm_update_actions");
         if (!reviewing) actions.appendChild(installPart(item, r.jobs || {}));
         if (item.homepage) {
-            actions.appendChild(listButton("Web page", function () {
+            actions.appendChild(listButton("网页", function () {
                 sendRepo("repo_link", item.homepage);
             }, "bl4mm_update_btn"));
         }
         ui.options.appendChild(actions);
         if (reviewing) renderInstallReview(item, job);
         if (!isOfficialRepo(r, item.repo) && !reviewing) {
-            ui.options.appendChild(el("p", "bl4mm_update_msg bl4mm_risk", "From " + item.repo_name + " (" + item.repo + "), not " +
-                "BL4 Fix: nobody at BL4 Fix checked it. Like any mod it runs with the game's rights on your PC, so install it " +
-                "only if you trust its author."));  // prettier-ignore
+            ui.options.appendChild(el("p", "bl4mm_update_msg bl4mm_risk", "来自 " + item.repo_name + " (" + item.repo + "），并非 " +
+                "BL4 Fix：BL4 Fix 团队未审查此模组。与任何模组一样，它会以游戏的权限在你的电脑上运行，" +
+                "请仅在信任作者的情况下安装。"));  // prettier-ignore
         }
 
         var shots = item.images || [];
@@ -1906,7 +1944,7 @@
         var desc = item.description || item.blurb;
         if (desc) ui.options.appendChild(el("p", "bl4mm_item_desc", desc));
         if (item.notes) {
-            addTitle("What's new");
+            addTitle("更新内容");
             ui.options.appendChild(el("p", "bl4mm_item_desc", item.notes));
         }
     }
@@ -1914,21 +1952,21 @@
     // The confirm step of an install from another modder's repository: downloaded and checked, its
     // code read (repos._review); Install uses those same bytes, Cancel drops them
     function renderInstallReview(item, job) {
-        addTitle("Install " + item.name + "?");
+        addTitle("安装 " + displayName(item) + "?");
         var uses = job.uses || [];
-        addInfoRow("It uses", uses.length ? uses.join(", ").toUpperCase() : "NOTHING LISTED",
-            "What " + item.name + "'s code uses, read from the download before anything runs: " + usesText(uses) + "." +
-            whereText(job) + "\n\n" + (job.hint || ""), null);  // prettier-ignore
-        addInfoRow("Version", (job.version || item.version || "?") + "   |   " + fmtSize(job.size),
-            "The file you install: downloaded, its checksum matched the repository's, nothing of it has run.", null);  // prettier-ignore
-        ui.options.appendChild(el("p", "bl4mm_update_msg bl4mm_risk", "Install " + item.name + "? " + (uses.length ? "It uses: " +
-            uses.join(", ") + ". " : "") + (job.hint || "") + " From " + item.repo_name + " (" + item.repo + "), not BL4 Fix: " +
-            "nobody at BL4 Fix checked it, and like any mod it runs with the game's rights on your PC."));  // prettier-ignore
+        addInfoRow("涉及功能", uses.length ? uses.map(function (use) { return tr(use); }).join(", ").toUpperCase() : "未检出所列功能",
+            "模组 " + displayName(item) + " 的代码涉及的功能（在运行任何内容之前，从下载文件中读取）：" + usesText(uses) + "." +
+            whereText(job) + "\n\n" + tr(job.hint || ""), null);  // prettier-ignore
+        addInfoRow("版本", (job.version || item.version || "?") + "   |   " + fmtSize(job.size),
+            "将要安装的文件：已下载且校验和与仓库提供的一致，尚未运行其中任何内容。", null);  // prettier-ignore
+        ui.options.appendChild(el("p", "bl4mm_update_msg bl4mm_risk", "安装 " + displayName(item) + "? " + (uses.length ? "涉及功能：" +
+            uses.map(function (use) { return tr(use); }).join(", ") + ". " : "") + tr(job.hint || "") + " 来自 " + item.repo_name + " (" + item.repo + "），并非 BL4 Fix：" +
+            "BL4 Fix 团队未审查此模组；与任何模组一样，它会以游戏的权限在你的电脑上运行。"));  // prettier-ignore
         var actions = el("div", "bl4mm_update_actions");
-        actions.appendChild(listButton("Install", function () {
+        actions.appendChild(listButton("安装", function () {
             sendRepo("repo_install_confirm", [item.id]);
         }, "bl4mm_update_btn"));
-        actions.appendChild(listButton("Cancel", function () {
+        actions.appendChild(listButton("取消", function () {
             sendRepo("repo_review_cancel", [item.id]);
         }, "bl4mm_update_btn"));
         ui.options.appendChild(actions);
@@ -1939,118 +1977,118 @@
 
     function renderRepos() {
         var r = repoData();
-        ui.crumb.textContent = "Repositories";
-        ui.back.querySelector(".button_txt").textContent = "Close";
+        ui.crumb.textContent = tr("模组仓库");
+        ui.back.querySelector(".button_txt").textContent = tr("关闭");
         if (!r) {
-            ui.options.appendChild(el("p", "bl4mm_update_msg", "Reading your repositories..."));
+            ui.options.appendChild(el("p", "bl4mm_update_msg", "正在读取仓库…"));
             return;
         }
         ui.options.appendChild(el("p", "bl4mm_update_msg",
-            "Add other modders' repositories to get their mods on Discover, with updates. Mods run code on " +
-            "your PC like any mod: only add repositories you trust."));  // prettier-ignore
+            "添加其他作者的仓库，即可在“发现”页面获取其模组及后续更新。模组会在" +
+            "你的电脑上运行代码，请只添加你信任的仓库。"));  // prettier-ignore
         renderSafeMode(r);
         var box = boxState();
         var pending = r.pending;
         var editing = box.editing;
         var editName = editing ? sourceName(r, editing) : "";
         if (!pending) {
-            addTitle(editing ? "Edit " + editName : "Add a repository");
+            addTitle(editing ? "编辑 " + editName : "添加仓库");
             addTextBox(box, editing
-                ? "Change the link of " + editName + ". Enter saves, Esc stops typing, Ctrl+V pastes."
-                : "Click the box and paste (Ctrl+V) or type the modder's GitHub link, e.g.\n" +
-                  "https://github.com/flameaway/bl4-fix\nor just flameaway/bl4-fix. A raw.githubusercontent.com link to " +
-                  "an index works too; only GitHub is allowed. Enter adds, Esc stops typing. (Or type modrepo add <link> " +
-                  "in the console.)");  // prettier-ignore
+                ? "修改仓库链接：" + editName + "。Enter 保存，Esc 结束输入，Ctrl+V 粘贴。"
+                : "点击输入框粘贴（Ctrl+V）或输入作者的 GitHub 链接，例如：\n" +
+                  "https://github.com/flameaway/bl4-fix\n或直接输入 flameaway/bl4-fix。也可使用 raw.githubusercontent.com 上的" +
+                  "索引文件同样受支持；仅允许 GitHub。Enter 添加，Esc 结束输入。（也可在控制台输入 modrepo add <link> " +
+                  "。）");  // prettier-ignore
             var actions = el("div", "bl4mm_update_actions");
-            actions.appendChild(listButton(editing ? "Save" : "Add", function () {
+            actions.appendChild(listButton(editing ? "保存" : "添加", function () {
                 send({ op: "box_submit" });
             }, "bl4mm_update_btn"));
-            actions.appendChild(listButton("Paste", function () {
+            actions.appendChild(listButton("粘贴", function () {
                 send({ op: "box_paste" });
             }, "bl4mm_update_btn"));
             if (editing || box.text) {
-                actions.appendChild(listButton(editing ? "Cancel" : "Clear", function () {
+                actions.appendChild(listButton(editing ? "取消" : "清空", function () {
                     send({ op: "box_cancel" });
                 }, "bl4mm_update_btn"));
             }
             ui.options.appendChild(actions);
         } else if (pending.status === "checking") {
-            addTitle(pending.replace ? "Checking the new link" : "Adding");
-            addInfoRow(pending.key, "CHECKING", "Reading the repository...", null);
+            addTitle(pending.replace ? "正在检查新链接" : "正在添加");
+            addInfoRow(pending.key, "检查中", "正在读取仓库…", null);
         } else {
-            addTitle(pending.replace ? "Use this link for " + (pending.replace_name || pending.replace) + "?" : "Add this repository?");
+            addTitle(pending.replace ? "使用此链接：" + (pending.replace_name || pending.replace) + "?" : "添加此仓库？");
             // The link next to the name: the name is the repository's own word for itself
             addInfoRow(pending.name === pending.key ? pending.name : pending.name + "  (" + pending.key + ")",
-                pending.count + " mod" + (pending.count === 1 ? "" : "s"),
+                pending.count + " 个模组",
                 (pending.description ? pending.description + "\n\n" : "") + pending.key +
-                (pending.mods && pending.mods.length ? "\n\nMods: " + pending.mods.join(", ") : ""), null);  // prettier-ignore
+                (pending.mods && pending.mods.length ? "\n\n模组：" + pending.mods.join(", ") : ""), null);  // prettier-ignore
             if (pending.description) ui.options.appendChild(el("p", "bl4mm_new_blurb", pending.description));
             if (pending.no_checksum && pending.no_checksum.length) {
-                ui.options.appendChild(el("p", "bl4mm_update_msg", "Left out (no SHA-256 checksum listed): " + pending.no_checksum.join(", ") + "."));
+                ui.options.appendChild(el("p", "bl4mm_update_msg", "已忽略（未提供 SHA-256 校验和）：" + pending.no_checksum.join(", ") + "."));
             }
             if (pending.id_note) ui.options.appendChild(el("p", "bl4mm_update_msg", pending.id_note));
             // Every time, also for an edited link: what adding a repository means
-            ui.options.appendChild(el("p", "bl4mm_update_msg bl4mm_risk", "Before you add it: " + (r.risk || "")));
-            addToggleRow("Check for updates at launch", "Reads this repository once per launch (in the background), so " +
-                "Discover lists its new mods and Updates its new versions. Nothing downloads until you press Install or " +
-                "Update.\n\nOff: it's read only when you press Refresh. You can change this later on its row below.",
+            ui.options.appendChild(el("p", "bl4mm_update_msg bl4mm_risk", "添加前请注意：" + tr(r.risk || "")));
+            addToggleRow("启动时检查更新", "每次启动时在后台读取此仓库，" +
+                "在“发现”中列出新模组，在“更新”中列出新版本。只有点击“安装”或" +
+                "“更新”才会下载。\n\n关闭：仅在点击“刷新”时读取。之后可在下方对应仓库的设置中修改。",
                 !!pending.auto, function (on) {
                     sendRepo("repo_add_auto", on);
                 });  // prettier-ignore
             var confirm = el("div", "bl4mm_update_actions");
-            confirm.appendChild(listButton(pending.replace ? "Save" : "Add", function () {
+            confirm.appendChild(listButton(pending.replace ? "保存" : "添加", function () {
                 sendRepo("repo_add_confirm");
             }, "bl4mm_update_btn"));
-            confirm.appendChild(listButton("Cancel", function () {
+            confirm.appendChild(listButton("取消", function () {
                 sendRepo("repo_add_cancel");
             }, "bl4mm_update_btn"));
             ui.options.appendChild(confirm);
         }
 
-        addTitle("Your repositories");
+        addTitle("你的仓库");
         var checkRow = el("div", "bl4mm_update_actions");
-        checkRow.appendChild(checkButton(r, "Refresh all"));
+        checkRow.appendChild(checkButton(r, "全部刷新"));
         ui.options.appendChild(checkRow);
         (r.sources || []).forEach(function (s) {
-            var word = s.hidden ? "REMOVED" : s.official ? "BUILT IN" : s.blocked ? "BLOCKED" : s.status === "error" ? "ERROR" :
-                s.status === "checking" ? "CHECKING" : s.status ? (s.message || "").toUpperCase() : "NOT CHECKED";  // prettier-ignore
+            var word = s.hidden ? "已移除" : s.official ? "内置" : s.blocked ? "已阻止" : s.status === "error" ? "错误" :
+                s.status === "checking" ? "检查中" : s.status ? (s.message || "").toUpperCase() : "未检查";  // prettier-ignore
             var web = repoWebLink(s);
             var buttons = [];
             if (web) {
-                buttons.push(listButton(isGithubKey(s.key) ? "GitHub" : "Web page", function () {
+                buttons.push(listButton(isGithubKey(s.key) ? "GitHub" : "网页", function () {
                     sendRepo("repo_link", web);
                 }, "bl4mm_row_btn"));
             }
             if (!s.official) {
-                buttons.push(listButton("Edit", function () {
+                buttons.push(listButton("编辑", function () {
                     send({ op: "box_edit", value: s.key });
                 }, "bl4mm_row_btn"));
             }
             if (s.hidden) {
-                buttons.push(listButton("Restore", function () {
+                buttons.push(listButton("恢复", function () {
                     sendRepo("repo_show_official");
                 }, "bl4mm_row_btn"));
             } else {
-                buttons.push(listButton("Remove", function () {
+                buttons.push(listButton("移除", function () {
                     sendRepo("repo_remove", s.key);
                 }, "bl4mm_row_btn"));
             }
             addInfoRow(s.name || s.key, word,
                 (s.description ? s.description + "\n\n" : "") +
-                (s.official ? "The BL4 Fix mods (" + s.key + "), built in. Remove takes them off Discover; the ones " +
-                    "you have still update on the Updates page." : s.url || s.key) +
-                (s.release ? "\n\nNewest release: " + s.release : "") + (s.status === "error" ? "\n\n" + s.message : "") +
+                (s.official ? "BL4 Fix 模组（" + s.key + "），内置来源。移除后不再显示于“发现”；" +
+                    "已安装的模组仍会在“更新”页面接收更新。" : s.url || s.key) +
+                (s.release ? "\n\n最新发布：" + s.release : "") + (s.status === "error" ? "\n\n" + tr(s.message) : "") +
                 (s.id_note ? "\n\n" + s.id_note : "") +
-                (s.no_checksum && s.no_checksum.length ? "\n\nLeft out (no SHA-256 checksum listed): " + s.no_checksum.join(", ") : "") +
+                (s.no_checksum && s.no_checksum.length ? "\n\n已忽略（未提供 SHA-256 校验和）：" + s.no_checksum.join(", ") : "") +
                 (web ? "\n\n" + web : ""), buttons);  // prettier-ignore
             if (s.hidden) return;
             if (s.blocked) addTrustAgain(r, s);
             // Its own check-at-launch switch, the only one: BL4 Fix's sets the Mod Menu's hidden "Check for
             // updates at launch" option (no second copy in the Mod Menu's settings to confuse with these)
-            addToggleRow("Check at launch", (s.official ? "Asks GitHub once per launch whether BL4 Fix has newer versions of " +
-                "your mods." : "Reads " + (s.name || s.key) + " once per launch, so Discover lists its new mods and " +
-                "Updates its new versions.") + " Nothing downloads until you press Install or Update.\n\nOff: only " +
-                "Refresh reads it.", !!s.auto, function (on) {
+            addToggleRow("启动时检查", (s.official ? "每次启动时向 GitHub 查询 BL4 Fix 是否有新版" +
+                "模组。" : "读取 " + (s.name || s.key) + "（每次启动一次），以便在“发现”中显示新模组，在" +
+                "“更新”中显示新版本。") + "只有点击“安装”或“更新”才会下载。\n\n关闭：仅在点击" +
+                "“刷新”时读取。", !!s.auto, function (on) {
                     if (s.official) sendRepo("updates_auto", on);
                     else sendRepo("repo_auto", { key: s.key, on: on });
                 }, true);  // prettier-ignore
@@ -2058,16 +2096,16 @@
 
         var installed = r.installed || [];
         if (installed.length) {
-            addTitle("Installed from repositories");
+            addTitle("从仓库安装的模组");
             var jobs = r.jobs || {};
             installed.forEach(function (m) {
                 var job = jobs[m.id];
                 var gone = job && job.state === "removed";
-                var b = gone ? null : listButton("Remove", function () {
+                var b = gone ? null : listButton("移除", function () {
                     sendRepo("repo_remove_mod", [m.id]);
                 }, "bl4mm_update_btn");
                 addInfoRow(m.id, (m.version || "") + jobWord(job),
-                    "From " + m.repo_name + ". Remove turns it off now and deletes its file when the game closes.", b);  // prettier-ignore
+                    "来自 " + m.repo_name + ". Remove turns it off now and deletes its file when the game closes.", b);  // prettier-ignore
             });
         }
     }
@@ -2076,21 +2114,21 @@
     // and Trust again, which shows the warning once more before it accepts the new repository
     function addTrustAgain(r, s) {
         var asking = view.trusting === s.key;
-        ui.options.appendChild(el("p", "bl4mm_update_msg bl4mm_risk", asking ? "Trust " + (s.name || s.key) + " again? " +
-            "Its link now leads to a different repository than the one you added: maybe its modder renamed or moved it, " +
-            "maybe someone else took the name. Its mods and updates come from the new one from now on. " + (r.risk || "") : s.message));  // prettier-ignore
+        ui.options.appendChild(el("p", "bl4mm_update_msg bl4mm_risk", asking ? "重新信任 " + (s.name || s.key) + "？" +
+            "此链接现在指向的仓库与你添加时不同：可能是作者重命名或迁移了仓库，" +
+            "也可能是其他人占用了原来的名称。今后此仓库的模组和更新将来自新的地址。" + tr(r.risk || "") : tr(s.message)));  // prettier-ignore
         var actions = el("div", "bl4mm_update_actions");
         if (asking) {
-            actions.appendChild(listButton("Trust it", function () {
+            actions.appendChild(listButton("信任此仓库", function () {
                 view.trusting = null;
                 sendRepo("repo_trust", s.key);
             }, "bl4mm_update_btn"));
-            actions.appendChild(listButton("Cancel", function () {
+            actions.appendChild(listButton("取消", function () {
                 view.trusting = null;
                 render();
             }, "bl4mm_update_btn"));
         } else {
-            actions.appendChild(listButton("Trust again", function () {
+            actions.appendChild(listButton("重新信任", function () {
                 view.trusting = s.key;
                 render();
             }, "bl4mm_update_btn"));
@@ -2101,7 +2139,7 @@
     // Refreshes every repository: new mods and updates (and says what it found when done). While it
     // runs it reads "Refreshing..." and does nothing, so a click always shows something.
     function checkButton(r, text) {
-        var b = listButton(r.refreshing ? "Refreshing..." : text, function () {
+        var b = listButton(r.refreshing ? "刷新中…" : text, function () {
             if (!(repoData() || {}).refreshing) sendRepo("repo_refresh");
         }, "bl4mm_update_btn");
         if (r.refreshing) b.classList.add("bl4mm_disabled");
@@ -2143,10 +2181,10 @@
         if (sub) wrap.classList.add("bl4mm_sub_row");
         var entry = q(wrap, ".menu_options_entry") || wrap;
         var label = q(wrap, ".menu_options_entry_text");
-        if (label) label.textContent = name;
+        if (label) label.textContent = tr(name);
         var comp = q(wrap, ".menu_options_entry_component") || wrap;
         comp.innerHTML = "";
-        comp.appendChild(toggle({ off: "Off", on: "On", value: value }, function (op, on) {
+        comp.appendChild(toggle({ off: "关闭", on: "开启", value: value }, function (op, on) {
             fn(on);
         }));
         entry.addEventListener("mouseenter", function () {
@@ -2161,7 +2199,7 @@
     }
 
     // The Repositories box (addTextBox's default spec)
-    var REPO_BOX = { label: "Link", title: "Repository link", hint: "https://github.com/flameaway/bl4-fix", type: "box_type", stop: "box_stop" };  // prettier-ignore
+    var REPO_BOX = { label: "链接", title: "仓库链接", hint: "https://github.com/flameaway/bl4-fix", type: "box_type", stop: "box_stop" };  // prettier-ignore
 
     // A text box: Python reads the keys (none reach this page) and sends the text in its state.
     // spec (optional, REPO_BOX by default): label, title (details pane), hint (shown while empty),
@@ -2173,7 +2211,7 @@
         var entry = q(wrap, ".menu_options_entry") || wrap;
         entry.classList.add("bl4mm_textbox_entry");
         var label = q(wrap, ".menu_options_entry_text");
-        if (label) label.textContent = spec.label;
+        if (label) label.textContent = tr(spec.label);
         var comp = q(wrap, ".menu_options_entry_component") || wrap;
         comp.innerHTML = "";
         var field = el("div", "bl4mm_textbox" + (box.typing ? " bl4mm_typing" : ""));
@@ -2201,7 +2239,7 @@
     function addTitle(text) {
         var t = make("title", "menu_options_title_entry");
         var title = q(t, ".cat_divider_title") || t;
-        title.textContent = text;
+        title.textContent = tr(text);
         t.classList.add("bl4mm_title_entry");
         ui.options.appendChild(t);
     }
@@ -2212,7 +2250,7 @@
         wrap.classList.add("bl4mm_entry_wrap");
         var entry = q(wrap, ".menu_options_entry") || wrap;
         var text = q(wrap, ".menu_options_entry_text");
-        if (text) text.textContent = node.name;
+        if (text) text.textContent = tr(node.name);
         var comp = q(wrap, ".menu_options_entry_component") || wrap;
         entry.addEventListener("mouseenter", function () {
             entry.classList.add("hover_effect");
@@ -2248,13 +2286,13 @@
                 break;
             case "button":
                 comp.classList.add("menu_options_entry_button");
-                comp.appendChild(listButton("Run", function () {
+                comp.appendChild(listButton("执行", function () {
                     act("press");
                 }, "bl4mm_run"));
                 break;
             case "nested":
                 comp.classList.add("menu_options_entry_button");
-                comp.appendChild(listButton("Open", open || function () {
+                comp.appendChild(listButton("打开", open || function () {
                     view.nested.push(path.slice(nestedPrefix().length).join("\u0001"));
                     view.details = null;
                     ui.options.scrollTop = 0;
@@ -2285,8 +2323,8 @@
         var right = q(t, ".toggle_button_right");
         if (!left || !right) return t;
         var texts = t.querySelectorAll(".toggle_button_text");
-        if (texts[0]) texts[0].textContent = node.off;
-        if (texts[1]) texts[1].textContent = node.on;
+        if (texts[0]) texts[0].textContent = tr(node.off);
+        if (texts[1]) texts[1].textContent = tr(node.on);
         left.classList.toggle("active", !node.value);
         right.classList.toggle("active", !!node.value);
         onClick(left, function () {
@@ -2327,7 +2365,7 @@
             if (fill) fill.style.width = pct + "%";
             if (lines) lines.style.width = pct + "%";
             if (handle) handle.style.left = pct + "%";
-            if (values[0]) values[0].textContent = fmt(node, value);
+            if (values[0]) values[0].textContent = tr(fmt(node, value));
         }
         show(node.value);
 
@@ -2380,7 +2418,7 @@
         var choices = node.choices || [];
         var index = choices.indexOf(node.value);
         var value = q(s, ".stepper_value");
-        if (value) value.textContent = node.value;
+        if (value) value.textContent = tr(node.value);
         var pips = q(s, ".stepper_indicator_container");
         if (pips) {
             var pipTemplate = q(pips, ".stepper_inner_cntr");
@@ -2439,7 +2477,7 @@
             primary.classList.add("bl4mm_key");
             if (capturing) {
                 primary.classList.add("hover_effect");
-                primary.appendChild(el("p", "bl4mm_key_text small_text_1", "Press a key"));
+                primary.appendChild(el("p", "bl4mm_key_text small_text_1", "按下一个按键"));
             } else if (node.value && /^([A-Z]|F\d+|Zero|One|Two|Three|Four|Five|Six|Seven|Eight|Nine)$/.test(node.value)) {
                 var img = el("img", "bl4mm_key_img");
                 img.src = keyImage(node.value);
@@ -2480,96 +2518,96 @@
         if (ui.detailsPic) ui.detailsPic.innerHTML = "";
         if (d && d.item) {
             var item = d.item;
-            ui.detailsTitle.textContent = item.name;
-            ui.detailsMeta.textContent = [item.author ? "by " + item.author : "", item.version, "from " + item.repo_name]
+            ui.detailsTitle.textContent = tr(displayName(item));
+            ui.detailsMeta.textContent = tr([item.author ? "作者：" + item.author : "", item.version, "来源：" + item.repo_name]
                 .filter(function (s) { return !!s; })
-                .join("   |   ");  // prettier-ignore
+                .join("   |   "));  // prettier-ignore
             // Read from its download on Install (the confirm step), shown here too
             var scanned = ((repoData() || {}).jobs || {})[item.id];
-            ui.detailsBody.textContent = (item.description || item.blurb || "") + (view.item ? "" : "\n\nClick for pictures and details.") +
-                (scanned && scanned.uses ? "\n\nIts code uses: " + usesText(scanned.uses) + ". " + (scanned.hint || "") : "");  // prettier-ignore
+            ui.detailsBody.textContent = tr((item.description || item.blurb || "") + (view.item ? "" : "\n\n点击查看图片与详情。") +
+                (scanned && scanned.uses ? "\n\n代码涉及：" + usesText(scanned.uses) + ". " + tr(scanned.hint || "") : ""));  // prettier-ignore
             var first = (item.images || [])[0];
             if (first && ui.detailsPic) ui.detailsPic.appendChild(picture(first, "bl4mm_details_shot"));
             return;
         }
         if (d && d.node) {
-            ui.detailsTitle.textContent = d.node.title || d.node.name;
+            ui.detailsTitle.textContent = tr(d.node.title || d.node.name);
             var meta = [];
             // A search result: whose setting it is
-            if (view.mod === SEARCH && d.mod && d.mod.name) meta.push(d.mod.name);
-            if (d.node.default !== undefined) meta.push("Default: " + d.node.default);
-            if (d.node.kind === "keybind" && d.node.rebindable) meta.push("Click the key, then press the new one. Esc cancels.");
-            ui.detailsMeta.textContent = meta.join("   |   ");
-            ui.detailsBody.textContent = d.node.desc || "";
+            if (view.mod === SEARCH && d.mod && d.mod.name) meta.push(displayName(d.mod));
+            if (d.node.default !== undefined) meta.push("默认值：" + d.node.default);
+            if (d.node.kind === "keybind" && d.node.rebindable) meta.push("点击按键后，按下要绑定的新键。Esc 取消。");
+            ui.detailsMeta.textContent = tr(meta.join("   |   "));
+            ui.detailsBody.textContent = tr(d.node.desc || "");
             return;
         }
         var shown = (d && d.mod) || mod;
         if (!shown) return;
         if (shown.pseudo === DISCOVER) {
-            ui.detailsTitle.textContent = "Discover";
-            ui.detailsMeta.textContent = "";
+            ui.detailsTitle.textContent = tr("发现");
+            ui.detailsMeta.textContent = tr("");
             ui.detailsBody.textContent =
-                "Mods from your repositories you don't have yet, with their pictures. Install puts a mod in your" +
-                " mods folder and starts it right away, no restart.\n\nOpen mods folder: drop any .sdkmod file in," +
-                " and it shows here to load, also without a restart.";  // prettier-ignore
+                tr("来自仓库、你尚未安装的模组及其图片。点击“安装”会将模组放入" +
+                "模组文件夹并立即启用，无需重启。\n\n打开模组文件夹：放入任意 .sdkmod 文件，" +
+                "即可在此处直接加载，同样无需重启。");  // prettier-ignore
             return;
         }
         if (shown.pseudo === REPOS) {
-            ui.detailsTitle.textContent = "Repositories";
-            ui.detailsMeta.textContent = "";
+            ui.detailsTitle.textContent = tr("模组仓库");
+            ui.detailsMeta.textContent = tr("");
             ui.detailsBody.textContent =
-                "Where mods come from. BL4 Fix is built in; add any modder's GitHub repository (owner/name) or" +
-                " a link to an index file on GitHub, and their mods show on Discover and update from Updates. Only" +
-                " GitHub is allowed: repositories, downloads and pictures all come from there." +
-                "\n\nModders: see docs/mod-repos.md in the BL4 Fix repository for how to publish one.";  // prettier-ignore
+                tr("模组的来源。BL4 Fix 为内置来源；添加作者的 GitHub 仓库（owner/name）或" +
+                "GitHub 上的索引文件链接，即可在“发现”中查看其模组，在“更新”中获取新版。仅允许" +
+                "GitHub：仓库、下载文件及图片均来自 GitHub。" +
+                "\n\n模组作者：发布仓库的方法请参阅 BL4 Fix 仓库中的 docs/mod-repos.md。");  // prettier-ignore
             return;
         }
         if (shown.pseudo === SEARCH) {
-            ui.detailsTitle.textContent = "Search";
-            ui.detailsMeta.textContent = "";
+            ui.detailsTitle.textContent = tr("搜索");
+            ui.detailsMeta.textContent = tr("");
             ui.detailsBody.textContent =
-                "Finds a setting in every mod at once. Type part of its name or description, or a mod's name: every" +
-                " match shows with its mod, and you can change it right there.";  // prettier-ignore
+                tr("同时搜索所有模组的设置。输入选项名称、说明或模组名称的一部分，" +
+                "即可显示全部匹配结果，并直接修改。");  // prettier-ignore
             return;
         }
         if (shown.pseudo === PERF) {
-            ui.detailsTitle.textContent = "Performance";
-            ui.detailsMeta.textContent = "";
+            ui.detailsTitle.textContent = tr("性能分析");
+            ui.detailsMeta.textContent = tr("");
             ui.detailsBody.textContent =
-                "How much each mod costs your frame rate. Run a benchmark, close the menus and play for a few seconds:" +
-                " every enabled mod is timed, other modders' mods too, and the results show here, most expensive" +
-                " first, with a text report to send to a mod's author.";  // prettier-ignore
+                tr("查看各模组对帧率的影响。开始基准测试后，关闭菜单并正常游玩几秒：" +
+                "会统计所有已启用模组（包括其他作者的模组），按开销从高到低显示，" +
+                "并生成可发送给作者的文本报告。");  // prettier-ignore
             return;
         }
         if (shown.pseudo === REPORT) {
-            ui.detailsTitle.textContent = "Report a problem";
-            ui.detailsMeta.textContent = "";
+            ui.detailsTitle.textContent = tr("问题反馈");
+            ui.detailsMeta.textContent = tr("");
             ui.detailsBody.textContent =
-                "Something broke? Make a bug report here and attach the zip to a new issue on GitHub (Open issue" +
-                " page). After a crash, start the game again first: the report then has the crashed session's log." +
-                "\n\nThe number is how many different errors the mods logged since the game started.";  // prettier-ignore
+                tr("遇到问题？在此生成错误报告，将 ZIP 附加到 GitHub 上新建的问题中（点击“打开问题反馈" +
+                "页面”）。发生崩溃后请先重新启动游戏，这样报告才会包含崩溃时的日志。" +
+                "\n\n此数字表示本次启动后模组记录的不同错误的数量。");  // prettier-ignore
             return;
         }
         if (shown.pseudo) {
             var u = updatesState() || {};
-            ui.detailsTitle.textContent = "Updates";
-            ui.detailsMeta.textContent = u.release ? "Latest release: " + u.release : "";
-            ui.detailsBody.textContent = (updatesLine(u) || "") + (u.page ? "\n\nReleases: " + u.page : "") +
-                "\n\nUpdates download from GitHub and install when the game closes (Restart now does both).";  // prettier-ignore
+            ui.detailsTitle.textContent = tr("更新");
+            ui.detailsMeta.textContent = tr(u.release ? "最新发布：" + u.release : "");
+            ui.detailsBody.textContent = tr((updatesLine(u) || "") + (u.page ? "\n\n发布页面：" + u.page : "") +
+                "\n\n更新从 GitHub 下载，并在游戏关闭后安装（“立即重启”会完成这两步）。");  // prettier-ignore
             return;
         }
-        ui.detailsTitle.textContent = shown.name;
-        ui.detailsMeta.textContent = [shown.author ? "by " + shown.author : "", shown.version, shown.status, shown.coop,
-                                      shown.errors ? errorsText(shown.errors) + " this session (Report a problem)" : ""]
+        ui.detailsTitle.textContent = tr(displayName(shown));
+        ui.detailsMeta.textContent = tr([shown.author ? "作者：" + shown.author : "", shown.version, tr(shown.status), tr(shown.coop),
+                                      shown.errors ? errorsText(shown.errors) + "（本次运行，详见“问题反馈”）" : ""]
             .filter(function (s) { return !!s; })
-            .join("   |   ");
-        ui.detailsBody.textContent = shown.desc || "";
+            .join("   |   "));
+        ui.detailsBody.textContent = tr(shown.desc || "");
     }
 
     var toastTimer = null;
     function toast(text, error) {
         if (!ui.toast || !text) return;
-        ui.toast.textContent = text;
+        ui.toast.textContent = tr(text);
         ui.toast.classList.toggle("bl4mm_toast_error", !!error);
         ui.toast.classList.remove("bl4mm_hidden");
         if (toastTimer !== null) clearTimeout(toastTimer);
@@ -2640,7 +2678,7 @@
         var label = q(b, ".button_txt");
         var theirs = q(optionsBtn, ".button_txt");
         if (label) {
-            label.textContent = "Mods";
+            label.textContent = tr("模组");
             if (theirs) label.className = theirs.className;
         }
         hoverable(b);
@@ -2709,7 +2747,7 @@
         var label = q(entry, ".mm_button_txt");
         if (label) {
             var text = (theirs && theirs.textContent || "").trim();
-            label.textContent = text && text === text.toUpperCase() ? "MODS" : "Mods";
+            label.textContent = tr(text && text === text.toUpperCase() ? "模组" : "模组");
             label.classList.add("bl4mm_main_label");
         }
         var wrapper = q(entry, ".menu_button_wrapper") || entry.firstElementChild || entry;

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 BL4 Mod Menu: an in-game settings screen for every SDK mod. Open it from MODS in the pause menu,
 with F7, or by typing `modmenu` in the console.
@@ -48,7 +49,8 @@ GAME_DIR = SETTINGS_DIR.parent.parent
 open_key = KeybindOption(
     "Open key",
     "F7",
-    description="Opens and closes this menu. Works in game, in the game's own menus and at the title screen.",
+    display_name="打开菜单的快捷键",
+    description="打开或关闭模组菜单。在游戏内、游戏菜单及标题画面均可使用。",
 )
 
 
@@ -91,11 +93,10 @@ def _announce_changed(_: BoolOption, value: bool) -> None:
 announce_option = BoolOption(
     "Tell me about new mods",
     True,
-    description=(
-        "When a release adds a mod you've never installed, MODS shows a \"!\" and the Updates page"
-        " marks it NEW, once per mod. Off: no badge for new mods. Either way, every mod you don't have"
-        " is listed on the Updates page with an Install button."
-    ),
+    display_name="提醒我有新模组",
+    true_text="开启",
+    false_text="关闭",
+    description="发布中新增尚未安装的模组时，在“模组”旁显示“!”并在“更新”页面标为“新增”，每个模组仅提醒一次。关闭后不显示新模组徽标；未安装的模组仍会在“更新”页面列出并提供安装按钮。",
     on_change=_announce_changed,
 )
 
@@ -115,7 +116,7 @@ def _check_now(_: ButtonOption) -> None:
         web.say("Checking for updates...")
 
 
-check_button = ButtonOption("Check for updates now", on_press=_check_now, description="Asks GitHub right away.")
+check_button = ButtonOption("Check for updates now", display_name="立即检查更新", on_press=_check_now, description="立即向 GitHub 查询更新。")
 
 # Before 0.2.3 one switch for every added repository; now each has its own (Repositories). Kept
 # hidden only so repositories added back then start with what this said (repos._load)

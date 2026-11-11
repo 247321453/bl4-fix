@@ -1,5 +1,6 @@
 [project]
 name = "BL4 Reroll"
+cn_name = "BL4 洗装备属性"
 version = "0.3.4"
 description = "消耗镒矿重掷职业模组和强化装置的词条（全部词条 25，单个词条 50），或整体重掷传奇、珠光装备（100），遵循游戏原有随机概率。费用可在设置中调整。将鼠标悬停在装备上按 T，或使用 Mod 菜单（F7）中的页面，也可在控制台输入 reroll。"
 authors = [{ name = "flame" }]

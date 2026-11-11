@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 The "mods need an update" notice: a box near the top of the screen for a few seconds, once per game
 version and set of problems (health/__init__.py decides when).
@@ -8,6 +9,8 @@ input). Its name has a fixed prefix so a later copy of this module finds one an 
 """
 
 from __future__ import annotations
+
+from ..i18n import text as localize
 
 import time
 from typing import Any
@@ -85,7 +88,7 @@ def show(pc: Any, title: str, details: list[str]) -> None:
         font.Size = 28 if i == 0 else 19
         text.SetFont(font)
         text.SetColorAndOpacity(_slate(TITLE if i == 0 else DETAIL))
-        text.SetText(line)
+        text.SetText(localize(line))
         text.SetVisibility(HIT_TEST_INVISIBLE)
         column.AddChild(text)
 

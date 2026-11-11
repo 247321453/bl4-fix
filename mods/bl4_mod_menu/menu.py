@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 The mod menu panel: every registered mod on the left, the selected mod's options on the right.
 
@@ -54,7 +55,8 @@ from mods_base import (
 from unrealsdk import logging
 from unrealsdk.unreal import WeakPointer
 
-from . import errors, frametick, health, keys, reporting, uilink, web
+from . import errors, frametick, health, keys, names, reporting, uilink, web
+from .i18n import text as localize
 from .widgets import DESIGN_H, DESIGN_W, Canvas, Color, Hint, call, make_overlay, viewport_scale, widget_lib
 
 # Ticked once per engine frame through the shared frametick (one camera hook for all our mods)
@@ -196,13 +198,13 @@ def _selected_mod() -> Mod | None:
 def _current_options(mod: Mod) -> tuple[list[BaseOption], list[str]]:
     """The options on the current page (the mod's, or a nested page's) and the page's path."""
     options: list[BaseOption] = list(mod.iter_display_options())
-    path = [mod.name]
+    path = [names.display_name(mod)]
     for ident in S.nested:
         nested = next((o for o in _walk(options) if isinstance(o, NestedOption) and o.identifier == ident), None)
         if nested is None:
             # The mod changed under us (hot reload); go back to its top page
             S.nested.clear()
-            return list(mod.iter_display_options()), [mod.name]
+            return list(mod.iter_display_options()), [names.display_name(mod)]
         options = list(nested.children)
         path.append(nested.display_name)
     return options, path
@@ -335,10 +337,10 @@ def _draw_mod_list(c: Canvas) -> None:
     for mod in mods[S.mod_page * per_page:(S.mod_page + 1) * per_page]:
         selected = mod.name == S.mod_name
         fill = ROW_SELECTED if selected else ROW
-        hint = Hint(mod.name, _plain(mod.description) or "No description.")
+        hint = Hint(names.display_name(mod), _plain(mod.description) or "No description.")
         c.button("", LIST_X, y, LIST_W, ROW_H, lambda m=mod: _select(m),
                  fill=fill, hover=fill if selected else ROW_HOVER, hint=hint, z=3)  # fmt: skip
-        c.label(mod.name[:30], LIST_X + 16, y, ROW_H, 17, WHITE, 6)
+        c.label(names.display_name(mod)[:30], LIST_X + 16, y, ROW_H, 17, WHITE, 6)
         status = _plain(mod.get_status())
         c.label(status[:16], LIST_X + LIST_W - 14, y, ROW_H, 13, _status_color(mod, status), 6, right=True)
         y += ROW_H + ROW_GAP
@@ -363,7 +365,7 @@ def _pager(c: Canvas, x: float, y: float, w: float, page: int, pages: int, turn:
 
 def _draw_mod(c: Canvas, mod: Mod) -> None:
     y = Y0 + HEADER_H + 16
-    c.label(mod.name[:48], RIGHT_X, y, 44, 28, WHITE, 5)
+    c.label(names.display_name(mod)[:48], RIGHT_X, y, 44, 28, WHITE, 5)
     if not mod.enabling_locked:
         if mod.is_enabled:
             c.button("Disable mod", RIGHT_X + RIGHT_W - 180, y + 2, 180, 40, lambda: _set_enabled(mod, False),
@@ -550,9 +552,9 @@ def _show_hint(hint: Hint | None) -> None:
     shown = hint or DEFAULT_HINT
     title, text = S.hint_title(), S.hint_text()
     if title is not None:
-        call(title, "SetText", shown.title)
+        call(title, "SetText", localize(shown.title))
     if text is not None:
-        call(text, "SetText", shown.text)
+        call(text, "SetText", localize(shown.text))
 
 
 # endregion

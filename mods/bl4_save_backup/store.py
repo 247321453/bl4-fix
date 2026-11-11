@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 The backups on disk, and the history the page shows.
 
@@ -43,8 +44,8 @@ GB = 1 << 30
 MAX_BYTES = GB
 READ_TRIES = 6  # a save the game is writing reads torn: try again a moment later
 READ_RETRY_S = 0.5
-LABELS = {"launch": "At launch", "manual": "Backed up by hand", "before_restore": "Before a restore",
-          "before_mod": "Before loading a mod"}  # before_mod: backups.backup_now (the Mod Menu asks)
+LABELS = {"launch": "启动时备份", "manual": "手动备份", "before_restore": "还原前备份",
+          "before_mod": "加载 Mod 前备份"}  # before_mod: backups.backup_now (the Mod Menu asks)
 
 
 def root() -> Path:
@@ -129,7 +130,7 @@ class Store:
         info: dict[str, Any] = {"sha1": hashlib.sha1(data).hexdigest(), "size": len(data), "mtime": mtime, "ok": None}
         key = self._key(acc)
         if key is None:
-            info["error"] = "couldn't find the save key"
+            info["error"] = "未找到存档密钥"
             return info
         try:
             info.update(savefile.summarize(savefile.decrypt(key, data)))
@@ -203,14 +204,14 @@ class Store:
         """
         files = self.read_live(acc)
         if not files:
-            return None, "No saves found to back up."
+            return None, "未找到可备份的存档。"
         acc.live = {name: info for name, (_, info) in files.items()}
         acc.live_stamp = _stamp(acc.save_dir)
         newest = self.ordered(acc)[:1]
         if newest and not force:
             before = {n: f.get("sha1") for n, f in acc.sessions[newest[0]]["files"].items()}
             if before == {n: info["sha1"] for n, (_, info) in files.items()}:
-                return None, "Nothing changed since the last backup."
+                return None, "存档没有变化，与上次备份相同。"
         now = time.time()
         name = stamp_name(now, "before-restore" if label == "before_restore" else "")
         while (acc.dir / name).exists() or name in acc.sessions:
@@ -227,8 +228,8 @@ class Store:
         partial.rename(acc.dir / name)
         acc.sessions[name] = info
         bad = [n for n, f in info["files"].items() if f.get("ok") is False]
-        note = f" ({', '.join(bad)} didn't read whole: kept as it was)" if bad else ""
-        return name, f"Backed up {len(files)} saves{note}."
+        note = f"（{', '.join(bad)} 未能完整读取：已按原样保留）" if bad else ""
+        return name, f"已备份 {len(files)} 个存档{note}。"
 
     def clean_partials(self) -> None:
         """Half-written backups from a session that ended mid-backup."""
@@ -351,7 +352,7 @@ def _characters(acc: Account, names: list[str], live_by_guid: dict[str, tuple[st
                 v["vs_older"] = _delta(older["info"], v["info"], _count(v["_items"] - older["_items"]), _count(older["_items"] - v["_items"]))
             del v["_items"]
         del ch["_seen"]
-        ch["name"] = ch["now"].get("name") or "Unknown character"
+        ch["name"] = ch["now"].get("name") or "未知角色"
         ch["slot"] = _slot(ch["file"])
         out.append(ch)
     out.sort(key=lambda c: (not c["exists"], c["slot"]))
@@ -400,11 +401,11 @@ def _session_row(store: Store, acc: Account, name: str) -> dict[str, Any]:
     info = acc.sessions[name]
     files = []
     for fname, f in sorted(info["files"].items(), key=lambda kv: (kv[0] == "profile.sav", _slot(kv[0]))):
-        who = "Profile and bank" if fname == "profile.sav" else f.get("name") or fname
+        who = "个人档案与银行" if fname == "profile.sav" else f.get("name") or fname
         files.append({"file": fname, "who": who, "ok": f.get("ok"), "level": f.get("level")})
     return {
         "name": name,
-        "label": LABELS.get(info.get("label", ""), "Backup"),
+        "label": LABELS.get(info.get("label", ""), "备份"),
         "created": info.get("created", 0),
         "created_text": when(info.get("created", 0)),
         "keep": bool(info.get("keep")),
@@ -447,13 +448,13 @@ def when(t: float) -> str:
     days = (date.today() - then.date()).days
     clock = then.strftime("%H:%M")
     if days == 0:
-        return f"Today {clock}"
+        return f"今天 {clock}"
     if days == 1:
-        return f"Yesterday {clock}"
-    month = then.strftime("%b")
+        return f"昨天 {clock}"
+    month = then.month
     if then.year == date.today().year:
-        return f"{month} {then.day} {clock}"
-    return f"{month} {then.day} {then.year} {clock}"
+        return f"{month}月{then.day}日 {clock}"
+    return f"{then.year}年{month}月{then.day}日 {clock}"
 
 
 def _size(n: float) -> str:

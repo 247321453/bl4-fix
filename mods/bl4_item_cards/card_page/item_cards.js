@@ -12,7 +12,7 @@
 //     Splash Damage: +14% » +35%     (option "Exact skill numbers", off by default; "+21%" when
 //                                     you have no points in it yet)
 //
-// Legendary cards get a "Drops from" block from drops.json (made from the game's loot data by
+// Legendary cards get a "掉落来源" block from drops.json (made from the game's loot data by
 // tools/gen_item_cards.py): each boss with its drop chance at your UVH level and its Big Encore
 // chance and location (world drops get no line: a world-only item shows no block).
 //
@@ -185,7 +185,7 @@
     // entries have no ranks (max 0): no rank shown
     function rankText(info, bonus) {
         if (!info || !(info.max > 0)) return null;
-        return info.spent === null ? "max " + info.max : (info.spent + Math.max(0, bonus)) + "/" + info.max;
+        return info.spent === null ? "上限 " + info.max : (info.spent + Math.max(0, bonus)) + "/" + info.max;
     }
 
     // The most points this class mod's rarity can roll on one skill (classmods.json), or null
@@ -196,19 +196,24 @@
         return caps && rarity && caps[rarity] > 0 ? caps[rarity] : null;
     }
 
+    // Presentation only: raw names and DataModel fields remain unchanged for matching.
+    function displayName(info, fallback) {
+        return (info && info.cn_name) || fallback || (info && info.name) || "";
+    }
+
     function skillRow(entry, info, cap) {
         var row = element("div", "bl4d_cm_skill " + (entry.comparison || ""));
         var head = element("div", "bl4d_cm_skill_head");
         var icon = element("div", "bl4d_cm_skill_icon");
         if (entry.image) icon.style.backgroundImage = "url(" + entry.image + ")";
         head.appendChild(icon);
-        head.appendChild(element("p", "bl4d_cm_skill_name", entry.ident));
+        head.appendChild(element("p", "bl4d_cm_skill_name", displayName(info, entry.ident)));
         var rank = rankText(info, points(entry));
         if (rank) head.appendChild(element("p", "bl4d_cm_skill_rank", rank));
         head.appendChild(element("p", "bl4d_cm_skill_points", entry.value));
         if (cap) {
             var rolled = points(entry);
-            head.appendChild(element("p", "bl4d_cm_skill_cap" + (rolled >= cap ? " bl4d_cm_skill_cap_hit" : ""), "(max +" + cap + ")"));
+            head.appendChild(element("p", "bl4d_cm_skill_cap" + (rolled >= cap ? " bl4d_cm_skill_cap_hit" : ""), "（最高 +" + cap + "）"));
         }
         row.appendChild(head);
         if (entry.description) row.appendChild(markupElement("bl4d_cm_skill_desc", entry.description));
@@ -489,16 +494,16 @@
             var rate, note;
             if (uvh === null || uvh === undefined) {
                 rate = percent(source.uvh0);
-                note = "UVH 5: " + percent(source.uvh5);
+                note = "终极秘藏猎人 5：" + percent(source.uvh5);
             } else {
                 // The game's chance grows linearly with the UVH level
                 rate = percent(source.uvh0 + (source.uvh5 - source.uvh0) * uvh / 5);
-                note = uvh > 0 ? "UVH " + uvh : "";
+                note = uvh > 0 ? "终极秘藏猎人 " + uvh : "";
             }
-            rows.push(chanceRow("bl4d_drop_kill", "bl4d_drop_icon_kill", "Per kill", rate, note));
+            rows.push(chanceRow("bl4d_drop_kill", "bl4d_drop_icon_kill", "每次击杀", rate, note));
         }
         if (source.encore !== undefined) {
-            rows.push(chanceRow("bl4d_drop_encore", "bl4d_drop_icon_encore", "Big Encore", percent(source.encore), source.encore_map || ""));
+            rows.push(chanceRow("bl4d_drop_encore", "bl4d_drop_icon_encore", "大返场", percent(source.encore), source.encore_map || ""));
             if (source.encore_id !== undefined && pinnedHere(source.encore_id)) {
                 var done = element("div", "bl4d_drop_row bl4d_drop_waypoint");
                 done.appendChild(element("p", "bl4d_drop_waypoint_text", waypointText()));
@@ -517,7 +522,7 @@
 
     function waypointText() {
         var pinned = ns.hotkey && ns.hotkey.pinned;
-        return "Waypoint set on this machine" + (pinned && pinned.elsewhere ? " (shows on its map)" : "");
+        return "已在此机器设置导航点" + (pinned && pinned.elsewhere ? "（进入对应地图后显示）" : "");
     }
 
     // The game's own key art, e.g. Glyphs/assets/PC/Ico_Hint_PC_Key_J.png
@@ -567,8 +572,8 @@
         if (!wrapper) return;
         var status = ns.hotkey || {};
         var has = machine !== null;
-        promptEntry(wrapper, "bl4d_glyph", status.key, has && (pinnedHere(machine) ? "Encore Waypoint Set" : "Encore Waypoint"));
-        promptEntry(wrapper, "bl4d_glyph_travel", status.travel_key, has && "Travel to Encore");
+        promptEntry(wrapper, "bl4d_glyph", status.key, has && (pinnedHere(machine) ? "已设置返场导航点" : "返场导航点"));
+        promptEntry(wrapper, "bl4d_glyph_travel", status.travel_key, has && "传送至返场机器");
     }
 
     function send(op, arg, value) {
@@ -610,17 +615,17 @@
     }
 
     var TRIP_TEXT = {
-        travelling: ["Fast travelling", "To the nearest station, then on to the machine"],
-        arrived: ["Arrived", null],
-        blocked: ["Couldn't get closer", "No free spot next to the machine: follow the waypoint"],
-        failed: ["Trip stopped", "The map didn't load in time: follow the waypoint"],
-        host_only: ["Needs the host", "In co-op the host needs BL4 Direct to move you; the waypoint still works"],
+        travelling: ["正在快速旅行", "先前往最近的快速旅行站，再移动至机器旁"],
+        arrived: ["已到达", null],
+        blocked: ["无法进一步靠近", "机器旁没有可用落脚点，请跟随导航点前往"],
+        failed: ["行程已停止", "地图未能及时加载，请跟随导航点前往"],
+        host_only: ["需要房主协助", "合作游戏中，房主需要安装 BL4 Direct 才能传送你；导航点仍可正常使用"],
     };
 
     function showTrip(trip) {
         var text = TRIP_TEXT[trip.state];
         if (!text) return;
-        var where = "Moxxi's Big Encore \u00b7 " + trip.boss + (trip.place ? " (" + trip.place + ")" : "");
+        var where = "莫西的大返场 · " + trip.boss + (trip.place ? " (" + trip.place + ")" : "");
         popup(text[0], where, text[1] || "");
         if (trip.state === "arrived" || trip.state === "travelling") playSound(WAYPOINT_SOUND);
     }
@@ -649,9 +654,9 @@
     // A box in the corner like the game's own notices, gone after a couple of seconds
     function confirmWaypoint(pinned) {
         popup(
-            "Waypoint set",
-            "Moxxi's Big Encore \u00b7 " + pinned.boss + (pinned.place ? " (" + pinned.place + ")" : ""),
-            pinned.elsewhere ? "On another map: it shows up when you travel there" : "Follow the route on your map and compass"
+            "已设置导航点",
+            "莫西的大返场 · " + pinned.boss + (pinned.place ? " (" + pinned.place + ")" : ""),
+            pinned.elsewhere ? "位于另一张地图，到达后会显示" : "请跟随地图与罗盘上的路线"
         );
         playSound(WAYPOINT_SOUND);
     }
@@ -742,7 +747,7 @@
         if (!entries) return;
 
         box.style.display = "";
-        box.appendChild(element("p", "bl4d_drops_title", "Drops from"));
+        box.appendChild(element("p", "bl4d_drops_title", "掉落来源"));
         var world = false;
         var any = false;
         for (var i = 0; i < entries.length; i++) {
@@ -756,7 +761,7 @@
         // No "world drop" line (the user's ask 2026-11-06): a world-only item shows no block at all
         // (saying "no drop source" would be wrong)
         if (!any && world) box.style.display = "none";
-        if (!any && !world) box.appendChild(element("p", "bl4d_drops_line", "No drop source (pack, reward or vendor item)"));
+        if (!any && !world) box.appendChild(element("p", "bl4d_drops_line", "无固定掉落来源（礼包、奖励或商店物品）"));
     }
 
     // endregion
@@ -802,16 +807,16 @@
         var state, label;
         if (counts.now >= need && counts.after >= need) {
             state = "active";
-            label = "Active";
+            label = "已生效";
         } else if (counts.after >= need) {
             state = "gain";
-            label = "Unlocks";
+            label = "将解锁";
         } else if (counts.now >= need) {
             state = "lose";
-            label = "Lost";
+            label = "将失去";
         } else {
             state = "locked";
-            label = "Needs " + need;
+            label = "需要件数：" + need;
         }
         var row = element("div", "bl4d_fw_tier bl4d_fw_" + state);
         row.appendChild(element("p", "bl4d_fw_pieces", String(need)));
@@ -845,8 +850,8 @@
         }
         box.innerHTML = "";
         var counts = firmwareCounts(data);
-        var summary = "Equipped " + counts.now + " of " + FIRMWARE_TIERS;
-        if (counts.after !== counts.now) summary += ARROW + counts.after + " with this item";
+        var summary = displayName(info, data.firmware && data.firmware.loc_text) + " · 已装备 " + counts.now + " / " + FIRMWARE_TIERS;
+        if (counts.after !== counts.now) summary += ARROW + counts.after + "（装备此物品后）";
         box.appendChild(element("p", "bl4d_fw_summary" + (counts.after > counts.now ? " bl4d_fw_gain" : counts.after < counts.now ? " bl4d_fw_lose" : ""), summary));
         for (var i = 0; i < info.tiers.length; i++) box.appendChild(tierRow(info.tiers[i], counts));
     }

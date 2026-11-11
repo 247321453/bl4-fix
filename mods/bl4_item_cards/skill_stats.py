@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Live skill numbers for the detailed item cards.
 
@@ -220,7 +221,14 @@ def _render_node(node: dict, spent: int | None, bonus: int | None, evaluate: Any
         if values is None:
             continue
         lines.append(_render(line, values, grade, node["max"] + EXTRA_RANKS + 1))
-    return {"name": node["name"], "max": node["max"], "spent": spent, "bonus": bonus, "lines": lines}
+    return {
+        "name": node["name"],
+        "cn_name": node.get("cn_name", ""),
+        "max": node["max"],
+        "spent": spent,
+        "bonus": bonus,
+        "lines": lines,
+    }
 
 
 def _render_one_firmware(firmware: dict, evaluate: Any) -> dict:
@@ -232,7 +240,11 @@ def _render_one_firmware(firmware: dict, evaluate: Any) -> dict:
             if values is not None:
                 lines.append(_render(line, values, 0, 1))
         tiers.append({"count": tier["count"], "lines": lines})
-    return {"name": firmware["name"], "tiers": tiers}
+    return {
+        "name": firmware["name"],
+        "cn_name": firmware.get("cn_name", ""),
+        "tiers": tiers,
+    }
 
 
 def _render_firmware(evaluate: Any) -> dict[str, Any]:

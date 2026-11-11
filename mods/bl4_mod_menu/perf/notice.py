@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 A short notice at the top of the screen when a benchmark starts and when it's done (the run
 happens in gameplay, where no page script runs). Copied from Build Presets' notice.py.
@@ -11,6 +12,8 @@ script and the disable path remove the notice first. Game thread only.
 """
 
 from __future__ import annotations
+
+from ..i18n import text as localize
 
 import time
 from typing import Any
@@ -135,7 +138,7 @@ class Notice:
             if line is None:
                 continue
             if i < len(texts):
-                line.SetText(texts[i])
+                line.SetText(localize(texts[i]))
                 line.SetVisibility(HIT_TEST_INVISIBLE)
             else:
                 line.SetVisibility(COLLAPSED)

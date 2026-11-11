@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 What to call the things that dealt damage.
 
@@ -86,11 +87,11 @@ def describe(type_index: int, comp_index: int) -> dict[str, Any]:
     if own:
         name = own
     elif kind.get("class"):
-        name = f"{kind['class']} Class Mod"
+        name = f"{kind['class']} 职业模组"
     elif kind:
         name = f"{kind.get('maker', '')} {kind.get('kind', '')}".strip()
     else:
-        name = "Gear"
+        name = "装备"
     return {"name": name, "rarity": rarity or "common", "icon": kind.get("icon", ""), "kind": kind.get("kind", "")}
 
 

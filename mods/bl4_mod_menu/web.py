@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 The link between the HTML mod menu (a loose page script running inside the game's menu view) and
 Python: a tiny HTTP server on 127.0.0.1.
@@ -66,7 +67,7 @@ SIG_BATCH = 8
 WAIT_S = 0.2
 MAX_BODY = 64 * 1024
 # The page's scripts, kept as loose files (never in a pak, or they couldn't reload themselves)
-UI_FILES = ("link.js", "loader.js", "main_loader.js", "menu.js", "menu.css", "extensions.js")
+UI_FILES = ("link.js", "loader.js", "main_loader.js", "menu.js", "menu.css", "extensions.js", "zh.json")
 PUBLISH_S = 1.0
 # A packed .sdkmod can't change while the game runs: then the loop only repairs deleted files
 PUBLISH_RELEASE_S = 10.0

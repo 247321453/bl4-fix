@@ -1,7 +1,8 @@
 [project]
 name = "BL4 Carnage Meter"
+cn_name = "BL4 伤害统计"
 version = "0.2.5"
-description = "Every player's damage in co-op: totals, DPS, kills and each player's top 3 damage sources (guns, skills, elements). F9."
+description = "实时统计合作游戏中每位玩家的总伤害、每秒伤害（DPS）、击杀数及前三大伤害来源（枪械、技能、元素等）。按 F9 打开。"
 authors = [{ name = "flame" }]
 
 [tool.sdkmod]

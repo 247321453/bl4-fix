@@ -1,7 +1,8 @@
 [project]
 name = "BL4 Save Backups"
+cn_name = "BL4 存档备份"
 version = "0.1.2"
-description = "Backs up every character and your profile (with the bank) each time the game starts. History per character and for the bank, with restores (applied when you quit the game). MODS > BL4 Save Backups."
+description = "每次启动游戏时备份所有角色存档与个人档案（含银行）。支持查看角色与银行的历史版本，并在退出游戏后执行还原。可在 MODS 菜单中打开本 Mod 页面。"
 authors = [{ name = "flame" }]
 
 [tool.sdkmod]

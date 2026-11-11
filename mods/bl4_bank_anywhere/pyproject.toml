@@ -1,7 +1,8 @@
 [project]
 name = "BL4 Bank Anywhere"
+cn_name = "BL4 随身保管库"
 version = "0.1.1"
-description = "Open the bank anywhere with a key (F10): the game's own Withdraw / Deposit screen, no machine needed."
+description = "按快捷键（默认 F10）随时打开银行，使用游戏原生的取出／存入界面，无需寻找银行机器。"
 authors = [{ name = "flame" }]
 
 [tool.sdkmod]

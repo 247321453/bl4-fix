@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Loading SDK mods while the game runs: a new .sdkmod dropped into sdk_mods (or installed from a
 repository) loads at once, and an updated one reloads, with no restart.
@@ -130,6 +131,7 @@ def read_info(path: Path) -> dict[str, str]:
     author = ", ".join(str(a.get("name", "")) for a in authors if isinstance(a, dict) and a.get("name"))
     info = {
         "name": str(sdkmod.get("name") or project.get("name") or path.stem)[:80],
+        "cn_name": str(project.get("cn_name") or "")[:80],
         "version": str(sdkmod.get("version") or project.get("version") or "")[:32],
         "description": str(project.get("description") or "")[:600],
         "author": author[:80],

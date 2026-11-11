@@ -113,33 +113,33 @@
     }
 
     var VERDICT = {
-        free: ["Free", "bl4pf_free"],
-        light: ["Light", "bl4pf_light"],
-        heavy: ["Heavy", "bl4pf_heavy"],
-        hitches: ["Hitches", "bl4pf_bad"]
+        free: ["几乎无开销", "bl4pf_free"],
+        light: ["轻量", "bl4pf_light"],
+        heavy: ["高开销", "bl4pf_heavy"],
+        hitches: ["卡顿", "bl4pf_bad"]
     };
 
     function modDesc(m) {
         var lines = [];
-        lines.push(fixed(m.ms_frame, 3) + " ms of Python per frame on average, its own worst call " + fixed(m.own_worst_ms, 2) + " ms" +
-            (m.own_over_5ms ? ", " + m.own_over_5ms + " of its calls over 5 ms (a visible hitch each)" : "") + ".");  // prettier-ignore
+        lines.push(fixed(m.ms_frame, 3) + " 毫秒 Python / 帧（平均），最慢单次调用 " + fixed(m.own_worst_ms, 2) + " 毫秒" +
+            (m.own_over_5ms ? ", " + m.own_over_5ms + " 的调用超过 5 毫秒（每次都可能造成可见卡顿）" : "") + ".");  // prettier-ignore
         if (m.outside_slow) {
-            lines.push(m.outside_slow + " slow call(s) (up to " + fixed(m.worst_ms, 2) + " ms) weren't its fault: a Python GC pause, or a " +
-                "stall that hit several mods in the same frame.");  // prettier-ignore
+            lines.push(m.outside_slow + " 次慢调用（最长 " + fixed(m.worst_ms, 2) + " 毫秒）并非由该模组导致：可能是 Python 垃圾回收暂停，或" +
+                "同一帧中影响多个模组的停顿。");  // prettier-ignore
         }
         if (m.hooks.length) {
             lines.push("");
-            lines.push("Hooks (ms per frame, worst ms, calls per second):");
+            lines.push("钩子（毫秒/帧、最长耗时、调用次数/秒）：");
             m.hooks.slice(0, 8).forEach(function (h) {
                 lines.push("  " + h.label + ":  " + fixed(h.ms_frame, 3) + ",  " + fixed(h.worst_ms, 2) + ",  " + Math.round(h.calls_s));
             });
-            if (m.hooks.length > 8) lines.push("  and " + (m.hooks.length - 8) + " more (see the report)");
+            if (m.hooks.length > 8) lines.push("  另有 " + (m.hooks.length - 8) + " 项（详见报告）");
         } else {
-            lines.push("No hooks seen: it does its work some other way (or only on events that didn't happen).");
+            lines.push("未检测到钩子：可能采用其他工作方式，或相关事件在测试期间未触发。");
         }
         if (m.threads.length) {
             lines.push("");
-            lines.push("Background threads (ms of CPU per second):");
+            lines.push("后台线程（CPU 毫秒/秒）：");
             m.threads.forEach(function (t) {
                 lines.push("  " + t.name + ":  " + fixed(t.cpu_ms_s, 1));
             });
@@ -150,58 +150,58 @@
     function render(api) {
         if (pollTimer === null && !polling) schedule(20);
         var s = pf.state;
-        api.title("Benchmark");
+        api.title("基准测试");
         if (!s) {
-            api.row("Loading...", "", []);
+            api.row("加载中…", "", []);
             return;
         }
         var busy = s.phase !== "idle";
-        var runDesc = "Close the menus and play normally for " + Math.round(s.length) + " s: every enabled mod is timed meanwhile, " +
-            "other modders' mods too. A fight or the open world shows the most. Notices on screen say when it starts and ends.";  // prettier-ignore
+        var runDesc = "关闭菜单并正常游玩 " + Math.round(s.length) + " 秒：将统计所有已启用的模组，" +
+            "包括其他作者的模组。战斗或开放世界场景更有参考价值。测试开始和结束时会显示屏幕提示。";  // prettier-ignore
         if (!busy) {
-            api.row("Run benchmark", runDesc, [
-                button(api, "Run", function () {
+            api.row("开始基准测试", runDesc, [
+                button(api, "执行", function () {
                     send({ do: "run" });
                     // Measure play, not this screen: close the menus (Python waits for that)
                     if (ns.modCloseScreen && ns.context !== "main") ns.modCloseScreen(true);
                 }, true)
             ]);
         } else {
-            var status = s.phase === "running" ? "Measuring, " + Math.ceil(s.left) + " s left" :
-                s.phase === "settling" ? "Starting..." : "Starts when the menus close";  // prettier-ignore
-            api.row("Benchmark", runDesc, [
+            var status = s.phase === "running" ? "测量中，剩余 " + Math.ceil(s.left) + " 秒" :
+                s.phase === "settling" ? "即将开始…" : "关闭菜单后开始";  // prettier-ignore
+            api.row("基准测试", runDesc, [
                 value(api, status, "bl4pf_warn"),
-                button(api, "Stop", function () {
+                button(api, "停止", function () {
                     send({ do: "stop" });
                 })
             ]);
         }
-        api.row("Length", "How long a benchmark measures. Longer runs average out more, and catch rarer hitches.", [
-            value(api, Math.round(s.length) + " s"),
-            button(api, "Change", function () {
+        api.row("时长", "基准测试的测量时长。更长的测试可获得更稳定的平均值，并捕获较少出现的卡顿。", [
+            value(api, Math.round(s.length) + " 秒"),
+            button(api, "更改", function () {
                 send({ do: "length" });
             })
         ]);
-        if (s.message) api.row("Last message", s.message, [value(api, s.message, "bl4pf_small")]);
+        if (s.message) api.row("最新消息", s.message, [value(api, s.message, "bl4pf_small")]);
 
         var r = s.result;
         if (!r) return;
-        api.title("Last run: " + r.at + (r.world ? ", " + r.world : ""));
-        api.row("Frame time", Math.round(r.seconds) + " s, " + r.frames + " frames. Median " + fixed(r.median_ms, 2) + " ms, 99% of frames under " +
-            fixed(r.p99_ms, 2) + " ms, worst " + fixed(r.worst_ms, 1) + " ms. Hitches: frames over " + Math.round(r.hitch_ms) +
-            " ms (twice the median, at least 33 ms).", [  // prettier-ignore
-            value(api, Math.round(r.fps) + " fps, median " + fixed(r.median_ms, 1) + " ms, " + r.hitches + " hitches")
+        api.title("上次测试：" + r.at + (r.world ? ", " + r.world : ""));
+        api.row("帧耗时", Math.round(r.seconds) + " 秒，" + r.frames + " 帧。中位数 " + fixed(r.median_ms, 2) + " 毫秒，99% 的帧低于 " +
+            fixed(r.p99_ms, 2) + " 毫秒，最差 " + fixed(r.worst_ms, 1) + " 毫秒。卡顿阈值：帧耗时超过 " + Math.round(r.hitch_ms) +
+            " 毫秒（中位数的两倍，且至少为 33 毫秒）。", [  // prettier-ignore
+            value(api, Math.round(r.fps) + " FPS，中位数 " + fixed(r.median_ms, 1) + " 毫秒，" + r.hitches + " 次卡顿")
         ]);
         var slow = r.slowest.map(function (f) {
-            return "  " + fixed(f.ms, 1) + " ms frame: mods " + fixed(f.mods_ms, 2) + " ms" + (f.top ? ", most " + f.top + " " + fixed(f.top_ms, 2) : "");
+            return "  " + fixed(f.ms, 1) + " 毫秒/帧：模组 " + fixed(f.mods_ms, 2) + " 毫秒" + (f.top ? " 毫秒，最高 " + f.top + " " + fixed(f.top_ms, 2) : "");
         });
-        api.row("All mods", "Python time of every mod's hooks together, per frame, and its share of a median frame. The profiler's own " +
-            "timing added about " + fixed(r.overhead_ms_frame, 3) + " ms per frame during the run (not counted)." +
-            (r.dispatch_us ? "\n\nNot counted either: the SDK's own cost of calling each hook, about " + fixed(r.dispatch_us, 1) + " us a call, " +
-                Math.round(r.calls_frame) + " calls a frame = ~" + fixed(r.dispatch_ms_frame, 2) + " ms per frame." : "") +
-            "\n\nSlowest frames:\n" +
-            slow.join("\n") + (r.other_threads_ms_s > 0.05 ? "\n\nPython threads not tied to a mod: " + fixed(r.other_threads_ms_s, 1) + " ms CPU per second." : ""), [  // prettier-ignore
-            value(api, fixed(r.mods_ms_frame, 2) + " ms per frame (" + fixed(r.share * 100, 1) + "%)", r.mods_ms_frame >= 1 ? "bl4pf_heavy" : "")
+        api.row("全部模组", "所有模组的钩子合计每帧耗时，及其占一帧中位耗时的比例。测试工具自身的" +
+            "计时开销约为 " + fixed(r.overhead_ms_frame, 3) + " 毫秒/帧（不计入结果）。" +
+            (r.dispatch_us ? "\n\n同样不计入：SDK 调用每个钩子的开销，约 " + fixed(r.dispatch_us, 1) + " 微秒/次，" +
+                Math.round(r.calls_frame) + " 次调用/帧 ≈ " + fixed(r.dispatch_ms_frame, 2) + " 毫秒/帧。" : "") +
+            "\n\n最慢的帧：\n" +
+            slow.join("\n") + (r.other_threads_ms_s > 0.05 ? "\n\n未关联到模组的 Python 线程：" + fixed(r.other_threads_ms_s, 1) + " 毫秒 CPU / 秒。" : ""), [  // prettier-ignore
+            value(api, fixed(r.mods_ms_frame, 2) + " 毫秒/帧（" + fixed(r.share * 100, 1) + "%)", r.mods_ms_frame >= 1 ? "bl4pf_heavy" : "")
         ]);
         if (r.gc.length) {
             var worst = 0, count = 0;
@@ -209,23 +209,23 @@
                 worst = Math.max(worst, g.worst_ms);
                 count += g.count;
             });
-            api.row("Python garbage collection", r.gc.map(function (g) {
-                return "Generation " + g.gen + ": " + g.count + "x, average " + fixed(g.avg_ms, 2) + " ms, worst " + fixed(g.worst_ms, 2) + " ms";
-            }).join("\n") + "\n\nShared by every mod. Performance Fixes keeps long full collections away.", [  // prettier-ignore
-                value(api, count + "x, worst " + fixed(worst, 1) + " ms", worst > 5 ? "bl4pf_bad" : "")
+            api.row("Python 垃圾回收", r.gc.map(function (g) {
+                return "第 " + g.gen + ": " + g.count + " 次，平均 " + fixed(g.avg_ms, 2) + " 毫秒，最差 " + fixed(g.worst_ms, 2) + " 毫秒";
+            }).join("\n") + "\n\n由所有模组共享。“性能修复”会尽量避免耗时较长的完整回收。", [  // prettier-ignore
+                value(api, count + " 次，最长 " + fixed(worst, 1) + " 毫秒", worst > 5 ? "bl4pf_bad" : "")
             ]);
         }
 
-        api.title("Per mod (most expensive first)");
+        api.title("各模组（开销从高到低）");
         r.mods.forEach(function (m) {
             var v = VERDICT[m.verdict] || VERDICT.free;
-            var text = fixed(m.ms_frame, 3) + " ms/frame, worst " + fixed(m.own_worst_ms, 1) + " ms";
-            if (m.threads_ms_s >= 1) text += ", threads " + fixed(m.threads_ms_s, 0) + " ms/s";
-            api.row(m.name, modDesc(m), [value(api, text, "bl4pf_small"), value(api, v[0], "bl4pf_tag " + v[1])]);
+            var text = fixed(m.ms_frame, 3) + " 毫秒/帧，最长 " + fixed(m.own_worst_ms, 1) + " 毫秒";
+            if (m.threads_ms_s >= 1) text += "，线程 " + fixed(m.threads_ms_s, 0) + " 毫秒/秒";
+            api.row(ns.displayName ? ns.displayName(m) : m.name, modDesc(m), [value(api, text, "bl4pf_small"), value(api, v[0], "bl4pf_tag " + v[1])]);
         });
-        api.row("Report file", "The whole report as text (every hook, slow calls, slowest frames), to keep or send to a mod's author:\n" + s.report +
-            "\n\n" + r.mods_off + " switched-off mod(s) weren't measured. " + r.notes.join(" "), [  // prettier-ignore
-            button(api, "Open", function () {
+        api.row("报告文件", "完整文本报告（所有钩子、慢调用、最慢的帧），可保存或发送给模组作者：\n" + s.report +
+            "\n\n" + r.mods_off + " 个已关闭的模组未参与测量。" + r.notes.map(function (note) { return ns.tr ? ns.tr(note) : note; }).join(" "), [  // prettier-ignore
+            button(api, "打开", function () {
                 send({ do: "open" });
             })
         ]);

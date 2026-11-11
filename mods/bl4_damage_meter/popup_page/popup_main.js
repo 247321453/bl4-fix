@@ -69,9 +69,9 @@
         pic.style.backgroundImage = 'url("' + (ev.picture || SKULL) + '")';
         head.appendChild(pic);
         var titles = el("div", "bl4cmp_titles");
-        titles.appendChild(el("p", "bl4cmp_kicker", "BOSS DEFEATED"));
-        titles.appendChild(el("p", "bl4cmp_boss", (ev.boss || "Boss").toUpperCase()));
-        titles.appendChild(el("p", "bl4cmp_meta", clock(ev.seconds) + "  |  " + commas(ev.team || 0) + " DAMAGE"));
+        titles.appendChild(el("p", "bl4cmp_kicker", "首领已击败"));
+        titles.appendChild(el("p", "bl4cmp_boss", (ev.boss || "首领").toUpperCase()));
+        titles.appendChild(el("p", "bl4cmp_meta", clock(ev.seconds) + "  |  " + commas(ev.team || 0) + " 总伤害"));
         head.appendChild(titles);
         panel.appendChild(head);
 
@@ -93,7 +93,7 @@
             var mid = el("div", "bl4cmp_mid");
             var line = el("div", "bl4cmp_line");
             line.appendChild(el("p", "bl4cmp_name", p.name));
-            if (p.local) line.appendChild(el("p", "bl4cmp_tag", "YOU"));
+            if (p.local) line.appendChild(el("p", "bl4cmp_tag", "你"));
             if (i === 0 && players.length > 1) line.appendChild(el("p", "bl4cmp_tag bl4cmp_tag_mvp", "MVP"));
             mid.appendChild(line);
             var track = el("div", "bl4cmp_track");
@@ -121,7 +121,7 @@
             row.appendChild(right);
             panel.appendChild(row);
         });
-        if (ev.key) panel.appendChild(el("p", "bl4cmp_hint", ev.key + "  FULL CARNAGE REPORT"));
+        if (ev.key) panel.appendChild(el("p", "bl4cmp_hint", ev.key + "  查看完整伤害统计报告"));
         root.appendChild(panel);
         document.body.appendChild(root);
         current = root;

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Who dealt how much damage, with what. Runs where the damage is dealt: solo, or on the host for
 every player (a client gets the host's board through the co-op channel, see share.py).
@@ -123,10 +124,10 @@ class Boss:
 ELEMENTS = ("normal", "fire", "shock", "corrosive", "cryo", "radiation", "sonic")
 ELEMENT_BIT = {name: 1 << i for i, name in enumerate(ELEMENTS)}
 # The status names the game's skill tooltips use ("apply Bleed, causing Kinetic Status Effect damage")
-DOT_NAMES = {"normal": "Bleed", "fire": "Burning", "shock": "Shock", "corrosive": "Corrosion", "cryo": "Frozen",
-             "radiation": "Irradiated", "sonic": "Sonic"}  # fmt: skip
-ELEMENT_NAMES = {"normal": "Kinetic", "fire": "Fire", "shock": "Shock", "corrosive": "Corrosive", "cryo": "Cryo",
-                 "radiation": "Radiation", "sonic": "Sonic"}  # fmt: skip
+DOT_NAMES = {"normal": "流血", "fire": "燃烧", "shock": "电击", "corrosive": "腐蚀", "cryo": "冰冻",
+             "radiation": "辐射", "sonic": "音波"}  # fmt: skip
+ELEMENT_NAMES = {"normal": "物理", "fire": "火焰", "shock": "电击", "corrosive": "腐蚀", "cryo": "冰冻",
+                 "radiation": "辐射", "sonic": "音波"}  # fmt: skip
 
 
 class S:
@@ -521,7 +522,7 @@ def _words(def_name: str) -> str:
         if i and ch.isupper() and text[i - 1].islower():
             out += " "
         out += ch
-    return out.strip() or "Boss"
+    return out.strip() or "首领"
 
 
 def _boss_identity(actor: Any) -> tuple[str, str]:
@@ -589,7 +590,7 @@ def _player_entry(player: Player, now: float) -> dict[str, Any]:
     info = naming.character(player.char)
     return {
         "id": player.key & 0xFFFFFFFF,
-        "name": player.name or "Vault Hunter",
+        "name": player.name or "秘藏猎人",
         "hero": info["hero"],
         "class": info["class"],
         "portrait": info.get("portrait", ""),
@@ -812,19 +813,19 @@ def _label(player: Player, key: str) -> dict[str, Any]:
         return {"name": info["name"], "kind": "item", "rarity": info["rarity"], "icon": info["icon"], "sub": info["kind"]}
     if key.startswith("dot:"):
         elem = key[4:]
-        sub = f"{ELEMENT_NAMES.get(elem, elem.title())} damage over time"
+        sub = f"{ELEMENT_NAMES.get(elem, elem.title())}持续伤害"
         return {"name": DOT_NAMES.get(elem, elem.title()), "kind": "dot", "element": elem, "sub": sub}
     if key.startswith("other:"):
         return {"name": key[6:], "kind": "other", "sub": ""}
     fixed = {
-        "slam": ("Ground Slam", "Slam"),
-        "melee": ("Melee", "Melee"),
-        "skill": ("Skills", "Abilities"),
-        "companion": ("Companions", "Allies"),
-        "vehicle": ("Vehicle", "Vehicle"),
-        "env": ("Environment", "Hazards"),
-        "grenade": ("Grenade", "Ordnance"),
-        "gear": ("Gear", ""),
+        "slam": ("下砸", "下砸"),
+        "melee": ("近战", "近战"),
+        "skill": ("技能", "技能"),
+        "companion": ("伙伴", "友军"),
+        "vehicle": ("载具", "载具"),
+        "env": ("环境", "环境危害"),
+        "grenade": ("手雷", "爆炸物"),
+        "gear": ("装备", ""),
     }
     name, sub = fixed.get(key, (key.title(), ""))
     return {"name": name, "kind": key, "sub": sub}

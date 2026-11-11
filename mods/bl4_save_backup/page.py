@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Save Backups' page in the BL4 Mod Menu screen (MODS > BL4 Save Backups).
 
@@ -74,14 +75,14 @@ def act(action: dict[str, Any]) -> None:
     name = str(action.get("backup") or "")
     match action.get("do"):
         case "backup":
-            W.submit("backup", lambda: W.backup("manual"), "Backing up your saves...")
+            W.submit("backup", lambda: W.backup("manual"), "正在备份存档……")
         case "keep":
             keep = bool(action.get("keep"))
             W.submit(f"keep {name}", lambda: W.set_keep(name, keep))
         case "restore":
             kind, fname = str(action.get("kind")), str(action.get("file") or "")
             if kind in ("character", "bank", "profile", "all") and name:
-                W.submit("stage", lambda: W.stage(kind, name, fname), "Checking the backup...")
+                W.submit("stage", lambda: W.stage(kind, name, fname), "正在检查备份……")
         case "cancel":
             target = action.get("target")
             W.submit("cancel", lambda: W.cancel(str(target) if target else None))

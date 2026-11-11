@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Bank Anywhere for Borderlands 4: open the bank (Withdraw / Deposit) anywhere with a key.
 
@@ -31,7 +32,12 @@ def log(msg: str) -> None:
     logging.info(f"[Bank Anywhere] {msg}")
 
 
-key_option = KeybindOption("Open the bank", "F10", description="Opens the bank anywhere. Press it again to close it.")
+key_option = KeybindOption(
+    "Open the bank",
+    "F10",
+    description="随时随地打开银行。再次按下可关闭。",
+    display_name="打开银行",
+)
 
 
 class S:
@@ -85,7 +91,7 @@ def tick() -> None:
             S.check = None
             found = _states()
             if found is not None and _has(found[1], BANK_STATE) != want:
-                log(f"the bank didn't {'open' if want else 'close'} (a game update may have changed its menu)")
+                log(f"银行未能{'打开' if want else '关闭'}（游戏更新可能更改了银行菜单）")
     except Exception as ex:  # noqa: BLE001 - never let our tick break the game's
         logging.error(f"[Bank Anywhere] {ex!r}")
 

@@ -1,7 +1,8 @@
 [project]
 name = "BL4 Third Person"
+cn_name = "BL4 第三人称"
 version = "0.1.4"
-description = "A hotkey for an over-the-shoulder third-person camera, with proper aiming."
+description = "使用快捷键切换越肩第三人称视角，支持正常瞄准。"
 authors = [{ name = "flame" }]
 
 [tool.sdkmod]

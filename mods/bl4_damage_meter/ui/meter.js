@@ -227,10 +227,10 @@
         ui.bossPic = el("div", "bl4cm_boss_pic bl4cm_hidden");
         header.appendChild(ui.bossPic);
         var titles = el("div", "bl4cm_titles");
-        ui.title = el("p", "bl4cm_title", "CARNAGE REPORT");
+        ui.title = el("p", "bl4cm_title", "伤害统计报告");
         titles.appendChild(ui.title);
         ui.subtitle = el("div", "bl4cm_subtitle");
-        ui.live = el("p", "bl4cm_live", "LIVE");
+        ui.live = el("p", "bl4cm_live", "战斗中");
         ui.subtitleText = el("p", "bl4cm_subtitle_text");
         ui.subtitle.appendChild(ui.live);
         ui.subtitle.appendChild(ui.subtitleText);
@@ -239,21 +239,21 @@
         var team = el("div", "bl4cm_team");
         ui.teamTotal = el("p", "bl4cm_team_total", "0");
         team.appendChild(ui.teamTotal);
-        ui.teamLabel = el("p", "bl4cm_team_label", "TEAM DAMAGE");
+        ui.teamLabel = el("p", "bl4cm_team_label", "团队总伤害");
         team.appendChild(ui.teamLabel);
         header.appendChild(team);
         frame.appendChild(header);
 
         var bar = el("div", "bl4cm_bar");
         ui.tabs = el("div", "bl4cm_tabs");
-        ui.tabBoss = button("Boss Report", function () {
+        ui.tabBoss = button("首领战报告", function () {
             setScope("boss");
         }, "bl4cm_tab bl4cm_tab_boss bl4cm_hidden");
         ui.tabs.appendChild(ui.tabBoss);
-        ui.tabFight = button("This Fight", function () {
+        ui.tabFight = button("本场战斗", function () {
             setScope("fight");
         }, "bl4cm_tab");
-        ui.tabSession = button("Session", function () {
+        ui.tabSession = button("本次游戏", function () {
             setScope("session");
         }, "bl4cm_tab");
         ui.tabs.appendChild(ui.tabFight);
@@ -269,15 +269,15 @@
         ui.emptyIcon = el("div", "bl4cm_empty_icon");
         ui.emptyIcon.style.backgroundImage = art(ICON_SKULL);
         ui.empty.appendChild(ui.emptyIcon);
-        ui.emptyTitle = el("p", "bl4cm_empty_title", "NO CARNAGE YET");
+        ui.emptyTitle = el("p", "bl4cm_empty_title", "暂无伤害记录");
         ui.empty.appendChild(ui.emptyTitle);
         ui.emptyText = el("p", "bl4cm_empty_text");
         ui.empty.appendChild(ui.emptyText);
         frame.appendChild(ui.empty);
 
         var footer = el("div", "bl4cm_footer");
-        footer.appendChild(button("Close", close, "bl4cm_close"));
-        ui.reset = button("Reset", function () {
+        footer.appendChild(button("关闭", close, "bl4cm_close"));
+        ui.reset = button("重置", function () {
             send({ do: "reset" });
         }, "bl4cm_reset");
         footer.appendChild(ui.reset);
@@ -386,7 +386,7 @@
         var nameLine = el("div", "bl4cm_name_line");
         c.name = el("p", "bl4cm_name");
         nameLine.appendChild(c.name);
-        c.you = el("p", "bl4cm_you", "YOU");
+        c.you = el("p", "bl4cm_you", "你");
         nameLine.appendChild(c.you);
         who.appendChild(nameLine);
         c.cls = el("p", "bl4cm_class");
@@ -413,14 +413,14 @@
         c.appendChild(share);
 
         var stats = el("div", "bl4cm_stats");
-        c.dps = stat(stats, ICON_DPS, "DPS");
-        c.kills = stat(stats, ICON_SKULL, "KILLS");
-        c.crit = stat(stats, ICON_KILLS, "CRIT DMG");
-        c.big = stat(stats, ICON_BIG, "BIGGEST HIT");
+        c.dps = stat(stats, ICON_DPS, "每秒伤害");
+        c.kills = stat(stats, ICON_SKULL, "击杀数");
+        c.crit = stat(stats, ICON_KILLS, "暴击伤害");
+        c.big = stat(stats, ICON_BIG, "最高单次伤害");
         c.appendChild(stats);
 
         var srcHead = el("div", "bl4cm_src_head");
-        c.srcTitle = srcHead.appendChild(el("p", "bl4cm_src_title", "TOP DAMAGE"));
+        c.srcTitle = srcHead.appendChild(el("p", "bl4cm_src_title", "主要伤害来源"));
         c.more = el("p", "bl4cm_more");
         srcHead.appendChild(c.more);
         c.appendChild(srcHead);
@@ -432,10 +432,10 @@
             c.list.appendChild(row);
         }
         c.appendChild(c.list);
-        c.none = el("p", "bl4cm_src_none", "No damage yet.");
+        c.none = el("p", "bl4cm_src_none", "尚未造成伤害。");
         c.appendChild(c.none);
         var mix = el("div", "bl4cm_mix");
-        mix.appendChild(el("p", "bl4cm_src_title", "DAMAGE MIX"));
+        mix.appendChild(el("p", "bl4cm_src_title", "伤害构成"));
         c.mixBar = el("div", "bl4cm_mix_bar");
         mix.appendChild(c.mixBar);
         c.mixLegend = el("div", "bl4cm_mix_legend");
@@ -455,6 +455,19 @@
         return KIND_ICONS[src.kind] || KIND_ICONS.other;
     }
 
+    var DISPLAY_LABELS = {
+        "Pistol": "手枪", "SMG": "冲锋枪", "Assault Rifle": "突击步枪", "Shotgun": "霰弹枪",
+        "Sniper Rifle": "狙击步枪", "Heavy": "重型武器", "Turret": "炮塔", "Shield": "护盾",
+        "Grenade": "手雷", "Repkit": "修复套件", "Enhancement": "强化装置", "Class Mod": "职业模组",
+        "common": "普通", "uncommon": "优秀", "rare": "稀有", "epic": "史诗", "legendary": "传奇",
+        "pearl": "珠光", "pearlescent": "珠光", "Siren": "魔女", "Exo-Soldier": "外骨骼战士",
+        "Gravitar": "重力操控者", "Forgeknight": "锻造骑士", "Hacker": "黑客", "Rogue": "游荡者",
+        "Vex": "薇克丝", "Rafa": "拉法", "Harlowe": "哈洛", "Amon": "亚蒙"
+    };
+    function displayLabel(text) {
+        return DISPLAY_LABELS[text] || text;
+    }
+
     function fillRow(row, src, rank, player, tally) {
         setText(row.rank, String(rank));
         setBg(row.iconArt, sourceIcon(src, player));
@@ -462,9 +475,9 @@
             (src.kind === "dot" ? " bl4cm_elem_" + src.element : "") + (rank === 1 ? " bl4cm_src_first" : "");
         row.iconArt.className = "bl4cm_src_icon_art" + (src.kind === "item" && ["pistol", "smg", "assault", "shotgun", "sniper", "heavy", "turret"].indexOf(src.icon) >= 0 ? " bl4cm_wide" : "");
         setText(row.name, src.name);
-        var sub = src.sub || "";
-        if (src.kind === "item" && src.rarity) sub = src.rarity.charAt(0).toUpperCase() + src.rarity.slice(1) + " " + sub;
-        setText(row.sub, sub + (src.hits ? "  |  " + commas(src.hits) + " hit" + (src.hits === 1 ? "" : "s") : ""));
+        var sub = displayLabel(src.sub || "");
+        if (src.kind === "item" && src.rarity) sub = displayLabel(src.rarity) + " " + sub;
+        setText(row.sub, sub + (src.hits ? "  |  " + commas(src.hits) + " 次命中" : ""));
         var elems = (src.elements || []).join(",");
         if (row.elements.dataset.e !== elems) {
             row.elements.dataset.e = elems;
@@ -488,7 +501,7 @@
         setClass(c.portrait, "bl4cm_portrait_none", !player.portrait);
         setText(c.name, player.name);
         setClass(c.you, "bl4cm_hidden", !player.local);
-        setText(c.cls, [player.hero, player.class].filter(Boolean).join("  |  ").toUpperCase() + (player.here ? "" : "  (LEFT)"));
+        setText(c.cls, [player.hero, player.class].map(displayLabel).filter(Boolean).join("  |  ").toUpperCase() + (player.here ? "" : "  （已离开）"));
         setText(c.rank, "#" + rank);
         countTo(c.total, tally.total, big);
         setWidth(c.shareFill, teamTotal ? tally.total / teamTotal : 0);
@@ -507,11 +520,11 @@
         }
         setClass(c.none, "bl4cm_hidden", tally.top.length > 0);
         var extra = tally.top.length - ROWS;
-        setText(c.more, extra > 0 ? (expanded ? "SHOW LESS" : "+" + extra + " MORE") : "");
+        setText(c.more, extra > 0 ? (expanded ? "收起" : "+" + extra + " 项更多来源") : "");
         fillMix(c, tally);
     }
 
-    var MIX_NAMES = { guns: "GUNS", elemental: "ELEMENTAL", skills: "SKILLS", melee: "MELEE & SLAM", gear: "GEAR", other: "OTHER" };
+    var MIX_NAMES = { guns: "枪械", elemental: "元素", skills: "技能", melee: "近战与下砸", gear: "装备", other: "其他" };
     function fillMix(c, tally) {
         var mix = tally.mix || [];
         var sig = JSON.stringify(mix);
@@ -566,15 +579,15 @@
         setClass(ui.tabFight, "bl4cm_active", scope === "fight");
         setClass(ui.tabSession, "bl4cm_active", scope === "session");
         setClass(ui.reset, "bl4cm_hidden", state.role === "client");
-        setText(ui.hint, state.key ? state.key + " opens and closes this screen.  Click a player to see all their sources." : "Click a player to see all their sources.");
+        setText(ui.hint, state.key ? state.key + " 打开或关闭此界面。点击玩家可查看其全部伤害来源。" : "点击玩家可查看其全部伤害来源。");
 
         var notice = "";
-        if (state.role === "client" && state.host === "missing") notice = "The host doesn't run Carnage Meter: ask them to install it to see the board.";
-        else if (state.role === "client" && state.host === "unknown") notice = "Waiting for the host. They need BL4 Direct and Carnage Meter for the board.";
-        else if (state.role === "client" && state.stale) notice = "Waiting for the host's board...";
-        else if (board && board.error) notice = "Can't count damage on this game version (" + board.error + ").";
-        else if (board && !board.listening) notice = "Not listening yet: load into the world.";
-        else if (state.role === "client") notice = "Live from the host's game.";
+        if (state.role === "client" && state.host === "missing") notice = "房主未启用伤害统计 Mod，请让房主安装后再查看统计。";
+        else if (state.role === "client" && state.host === "unknown") notice = "正在等待房主。房主需要安装 BL4 Direct 和伤害统计 Mod 才能共享数据。";
+        else if (state.role === "client" && state.stale) notice = "正在等待房主的统计数据……";
+        else if (board && board.error) notice = "无法在当前游戏版本中统计伤害（" + board.error + ").";
+        else if (board && !board.listening) notice = "尚未开始记录，请先进入游戏世界。";
+        else if (state.role === "client") notice = "正在实时显示房主游戏中的统计。";
         setText(ui.notice, notice);
 
         var players = boss ? report.players : (board && board.players) || [];
@@ -584,16 +597,16 @@
         var sub;
         if (boss) sub = report.boss.toUpperCase() + "  " + clock(report.seconds);
         else if (scope === "fight") {
-            sub = board && board.fight.ago !== null && board.fight.ago !== undefined ? (live ? "THIS FIGHT  " : "LAST FIGHT  ") + clock(info.seconds) : "THIS FIGHT";
-            if (live && board.fight.boss) sub += "  |  VS " + board.fight.boss.toUpperCase();
-        } else sub = "SESSION  " + clock(info ? info.seconds : 0);
-        setText(ui.subtitleText, sub + "  |  " + players.length + " VAULT HUNTER" + (players.length === 1 ? "" : "S"));
-        setText(ui.title, boss ? "BOSS DEFEATED" : "CARNAGE REPORT");
-        setText(ui.teamLabel, boss ? "DAMAGE TO " + report.boss.toUpperCase() : "TEAM DAMAGE");
+            sub = board && board.fight.ago !== null && board.fight.ago !== undefined ? (live ? "本场战斗  " : "上场战斗  ") + clock(info.seconds) : "本场战斗";
+            if (live && board.fight.boss) sub += "  |  对战 " + board.fight.boss.toUpperCase();
+        } else sub = "本次游戏  " + clock(info ? info.seconds : 0);
+        setText(ui.subtitleText, sub + "  |  " + players.length + " 位秘藏猎人" + "");
+        setText(ui.title, boss ? "首领已击败" : "伤害统计报告");
+        setText(ui.teamLabel, boss ? "对首领造成的伤害：" + report.boss.toUpperCase() : "团队总伤害");
         setClass(ui.root, "bl4cm_boss_mode", boss);
         setClass(ui.bossPic, "bl4cm_hidden", !(boss && report.picture));
         if (boss && report.picture) setBg(ui.bossPic, report.picture);
-        var words = boss ? { share: "OF BOSS DAMAGE", sources: "TOP DAMAGE THIS FIGHT" } : { share: "OF TEAM DAMAGE", sources: "TOP DAMAGE" };
+        var words = boss ? { share: "占首领总伤害", sources: "本场主要伤害来源" } : { share: "占团队总伤害", sources: "主要伤害来源" };
 
         var ranked = players.map(function (p) {
             if (!boss) return { p: p, t: p[scope] };
@@ -616,8 +629,8 @@
         setClass(ui.empty, "bl4cm_hidden", any);
         setClass(ui.players, "bl4cm_hidden", !any);
         if (!any) {
-            setText(ui.emptyText, scope === "fight" ? "Hit something hostile: every player's damage in your game shows up here, live." :
-                "Nothing yet this session. Every player's damage in your game shows up here.");
+            setText(ui.emptyText, scope === "fight" ? "攻击敌人后，游戏中每位玩家的伤害都会实时显示在这里。" :
+                "本次游戏还没有伤害记录。每位玩家的伤害都会显示在这里。");
             return;
         }
         setClass(ui.players, "bl4cm_count_" + ranked.length, true);
@@ -753,7 +766,7 @@
         });
     }
 
-    // A "Carnage Report" entry in the pause menu, under the Mod Menu's / Kairosdex's entries
+    // A "伤害统计报告" entry in the pause menu, under the Mod Menu's / Kairosdex's entries
     function injectPauseEntry() {
         var list = document.querySelector('[data-input-id="menu_pause_list"]');
         if (!list || list.querySelector(".bl4cm_pause_entry")) return;
@@ -763,7 +776,7 @@
         var after = list.querySelector(".bl4dex_pause_entry") || list.querySelector(".bl4mm_pause_entry") || options;
         var entry = el("div", options.className + " bl4cm_pause_entry");
         var slot = el("div", optionsBtn.className);
-        var b = button("Carnage Report", function () {
+        var b = button("伤害统计报告", function () {
             open(false);
         });
         var theirs = optionsBtn.querySelector(".button_txt");

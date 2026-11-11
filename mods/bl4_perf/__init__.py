@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Performance Fixes for Borderlands 4: removes hitches we traced with an external stack sampler
 (dev/perf/, findings in docs/game-performance.md).
@@ -55,11 +56,12 @@ python_option = BoolOption(
     "Faster Python hooks",
     True,
     description=(
-        "Keeps one Python thread state on the game thread instead of building and tearing one"
-        " down for every mod hook call (~1-2 ms per frame with many mods), and lets the game"
-        " thread get Python's lock back sooner from background threads."
+        "在游戏线程上保留一个 Python 线程状态，避免每次调用 Mod 钩子时反复创建和销毁（使用较多 Mod 时，每帧约可节省 1–2 毫秒），并让游戏线程更快地从后台线程取回 Python 锁。"
     ),
     on_change_while_enabled=_python_changed,
+    display_name="加速 Python 钩子",
+    true_text="开启",
+    false_text="关闭",
 )
 
 
@@ -73,12 +75,12 @@ gc_option = BoolOption(
     "Python garbage collection without hitches",
     True,
     description=(
-        "Python's garbage collector now and then walks every mod's data in one go, inside a game"
-        " frame (35-200 ms freezes). This sets the long-lived data aside after each world load so"
-        " it only walks what's new, and runs those passes while a menu is open or the game is"
-        " loading instead of in the middle of play. Changes nothing you can see."
+        "Python 垃圾回收器偶尔会在单个游戏帧内遍历所有 Mod 数据，导致 35–200 毫秒的卡顿。此选项在每次加载世界后将长期存活的数据冻结，使回收器仅检查新增数据，并尽量在菜单或加载期间执行回收，避免游玩中卡顿。不影响可见功能。"
     ),
     on_change_while_enabled=_gc_changed,
+    display_name="减少 Python 垃圾回收卡顿",
+    true_text="开启",
+    false_text="关闭",
 )
 
 
@@ -98,11 +100,12 @@ dlss_option = BoolOption(
     "Keep DLSS loaded (experimental)",
     False,
     description=(
-        "Keeps the DLSS upscaler loaded when a menu hides the game instead of rebuilding it"
-        " afterwards. Experimental: it did not stop the longer freezes from frame generation"
-        " rebuilding itself. No effect without DLSS."
+        "菜单遮挡游戏画面时仍保留 DLSS 超分辨率组件，避免关闭菜单后重建。实验性：无法消除帧生成重建造成的较长卡顿。未使用 DLSS 时无效。"
     ),
     on_change_while_enabled=_dlss_changed,
+    display_name="保持 DLSS 加载（实验性）",
+    true_text="开启",
+    false_text="关闭",
 )
 
 
@@ -110,12 +113,12 @@ framegen_option = BoolOption(
     "Frame generation stays on in menus",
     False,
     description=(
-        "The game switches frame generation off in menus and cinematics, and switching it back on"
-        " rebuilds it: with an RTX 30 frame generation mod that freezes the game for up to half a"
-        " second every time you close a menu. This keeps it on instead. Menus and cutscenes may"
-        " show small frame generation artifacts. No effect with frame generation off."
+        "游戏通常会在菜单与过场动画中关闭帧生成，重新开启时会重建组件。使用 RTX 30 系列帧生成 Mod 时，每次关闭菜单可能卡顿长达半秒。此选项让帧生成保持开启，但菜单或过场动画可能出现轻微的帧生成瑕疵。未开启帧生成时无效。"
     ),
     on_change_while_enabled=_framegen_changed,
+    display_name="菜单中保持帧生成",
+    true_text="开启",
+    false_text="关闭",
 )
 
 
@@ -133,13 +136,10 @@ memory_option = SliderOption(
     24,
     1,
     description=(
-        "When the PC runs low on free memory, Windows moves parts of the game out of RAM and the"
-        " game freezes briefly each time it needs them back. This asks Windows to keep at least"
-        " this much of the game in RAM and take memory from other programs first. 0 = off."
-        " Leave it at 0 unless you see stutter with little free RAM; never set it near your total"
-        " RAM."
+        "可用内存不足时，Windows 会将部分游戏数据移出物理内存；再次访问时会造成短暂卡顿。此选项请求 Windows 至少将指定容量的游戏数据保留在物理内存，并优先回收其他程序的内存。0 = 关闭。除非已确认低可用内存导致卡顿，否则请保持 0；切勿设置为接近电脑的总内存容量。"
     ),
     on_change_while_enabled=_memory_changed,
+    display_name="保留在物理内存中的游戏数据（GB）",
 )
 
 

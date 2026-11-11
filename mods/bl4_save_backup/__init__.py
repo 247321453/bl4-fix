@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Save Backups for Borderlands 4: a copy of every save each time the game starts, with a history
 per character and for the bank, and restores of a character, the bank or everything.
@@ -57,33 +58,36 @@ keep_option = SpinnerOption(
     backups.KEEP_CHOICES,
     wrap_enabled=False,
     description=(
-        "How many backups to keep (a backup is made each time you start the game, if a save"
-        " changed). Older ones are removed. However many you pick, the backups never take more"
-        " than 1 GB in all; a typical backup is a few hundred KB, so 1 GB holds thousands. Backups"
-        " you mark Keep are never removed."
+        "存档发生变化时，每次启动游戏都会生成备份。超过指定数量的旧备份会被清理。无论选择多少，总容量上限均为 1 GB；每份通常只有几百 KB，1 GB 可容纳数千份。标记为“保留”的备份不会被自动删除。"
     ),
     on_change_while_enabled=_keep_changed,
+    display_name="保留备份数量",
 )
 launch_option = BoolOption(
     "Back up when the game starts",
     True,
-    description="Copies every character and your profile (with the bank) as the game starts.",
+    description="游戏启动时复制所有角色存档与个人档案（包含银行）。",
+    display_name="启动游戏时备份",
+    true_text="开启",
+    false_text="关闭",
 )
 
 
 def _backup_now(_: ButtonOption) -> None:
-    backups.submit("backup", lambda: backups.backup("manual"), "Backing up your saves...")
+    backups.submit("backup", lambda: backups.backup("manual"), "正在备份存档……")
 
 
 backup_button = ButtonOption(
     "Back up now",
-    description="Copies every save right now. The game saves as you play, so this catches what you've done so far.",
+    description="立即复制所有存档。游戏会在游玩时持续保存，因此可备份截至当前的游戏进度。",
     on_press=_backup_now,
+    display_name="立即备份",
 )
 folder_button = ButtonOption(
     "Open the backup folder",
-    description="Shows the backups in Explorer. Each backup folder holds plain copies of your save files.",
+    description="在资源管理器中显示备份。每个备份文件夹都包含存档文件的原样副本。",
     on_press=lambda _: backups.submit("folder", backups.open_folder),
+    display_name="打开备份文件夹",
 )
 
 
@@ -119,7 +123,7 @@ def backup_now(reason: str, timeout: float = 10.0) -> bool:
     return backups.backup_now(reason, timeout)
 
 
-@command("savebackup", description="Copies every save now (BL4 Save Backups). The backups are in MODS > BL4 Save Backups.")
+@command("savebackup", description="立即复制所有存档。请在 MODS 菜单的存档备份页面查看备份。")
 def backup_command(_: object) -> None:
     _backup_now(backup_button)
 
