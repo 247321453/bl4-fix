@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 The in-game BL4 Direct panel, drawn with the game's own UMG widgets.
 

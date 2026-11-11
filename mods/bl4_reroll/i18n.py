@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Simplified Chinese labels for display only; never change item data or card matching names."""
 
 from __future__ import annotations

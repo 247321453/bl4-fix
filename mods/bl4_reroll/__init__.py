@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Reroll for Borderlands 4: reroll the modifiers at the bottom of a class mod or enhancement (the
 stat lines like "+12% Gun Damage"), or a whole legendary or pearl, for Eridium.

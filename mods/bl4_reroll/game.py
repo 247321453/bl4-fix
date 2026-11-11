@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 The game side: reading the backpack's serials, swapping an item for one with a new serial, and
 Eridium. Call everything here on the game thread.

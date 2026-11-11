@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 BL4 Direct's page in the BL4 Mod Menu screen (F6, or BL4 Direct Connect in the MODS list).
 

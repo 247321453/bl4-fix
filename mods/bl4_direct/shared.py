@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 State shared between the in-game mod and the BL4 Direct companion app.
 

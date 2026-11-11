@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Rerolling from the item card: hover a class mod, enhancement, legendary or pearl in your backpack
 and press a key.

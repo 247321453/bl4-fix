@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Direct IP co-op for Borderlands 4.
 
