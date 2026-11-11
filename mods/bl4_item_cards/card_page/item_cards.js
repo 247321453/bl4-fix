@@ -484,11 +484,18 @@
         return row;
     }
 
+    // Display labels only. Keep boss slugs, item matches and Encore machine/map IDs in English.
+    function sourceName(source, field) {
+        var labels = source && source.cn_name;
+        var label = labels && typeof labels === "object" ? labels[field] : null;
+        return typeof label === "string" && label ? label : (source && source[field]) || "";
+    }
+
     function sourceRows(source, uvh) {
         var rows = [];
         var head = element("div", "bl4d_drop_row bl4d_drop_head");
         head.appendChild(bossIcon(source.boss));
-        head.appendChild(element("p", "bl4d_drop_boss", source.boss));
+        head.appendChild(element("p", "bl4d_drop_boss", sourceName(source, "boss")));
         rows.push(head);
         if (source.uvh0 !== undefined) {
             var rate, note;
@@ -503,7 +510,7 @@
             rows.push(chanceRow("bl4d_drop_kill", "bl4d_drop_icon_kill", "每次击杀", rate, note));
         }
         if (source.encore !== undefined) {
-            rows.push(chanceRow("bl4d_drop_encore", "bl4d_drop_icon_encore", "大返场", percent(source.encore), source.encore_map || ""));
+            rows.push(chanceRow("bl4d_drop_encore", "bl4d_drop_icon_encore", "大返场", percent(source.encore), sourceName(source, "encore_map")));
             if (source.encore_id !== undefined && pinnedHere(source.encore_id)) {
                 var done = element("div", "bl4d_drop_row bl4d_drop_waypoint");
                 done.appendChild(element("p", "bl4d_drop_waypoint_text", waypointText()));
@@ -625,7 +632,7 @@
     function showTrip(trip) {
         var text = TRIP_TEXT[trip.state];
         if (!text) return;
-        var where = "莫西的大返场 · " + trip.boss + (trip.place ? " (" + trip.place + ")" : "");
+        var where = "莫西的大返场 · " + sourceName(trip, "boss") + (sourceName(trip, "place") ? " (" + sourceName(trip, "place") + ")" : "");
         popup(text[0], where, text[1] || "");
         if (trip.state === "arrived" || trip.state === "travelling") playSound(WAYPOINT_SOUND);
     }
@@ -655,7 +662,7 @@
     function confirmWaypoint(pinned) {
         popup(
             "已设置导航点",
-            "莫西的大返场 · " + pinned.boss + (pinned.place ? " (" + pinned.place + ")" : ""),
+            "莫西的大返场 · " + sourceName(pinned, "boss") + (sourceName(pinned, "place") ? " (" + sourceName(pinned, "place") + ")" : ""),
             pinned.elsewhere ? "位于另一张地图，到达后会显示" : "请跟随地图与罗盘上的路线"
         );
         playSound(WAYPOINT_SOUND);

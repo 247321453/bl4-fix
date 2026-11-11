@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Moxxi's Big Encore from item cards: hover a legendary that a boss drops and press
 
@@ -241,6 +242,7 @@ def pin_machine(game_dir: Path, index: int, seq: int) -> None:
         "id": index,
         "boss": machine["boss"],
         "place": machine["place"],
+        "cn_name": machine.get("cn_name", {}),
         "elsewhere": bool(here) and here.lower() != machine["map"].lower(),
         "seq": seq,
     }
@@ -284,7 +286,10 @@ def _teleport_next_to(machine: dict) -> bool:
 
 def _set_travel(game_dir: Path, machine: dict, index: int, state: str, seq: int) -> None:
     global _travel
-    _travel = {"id": index, "boss": machine["boss"], "place": machine["place"], "state": state, "seq": seq}
+    _travel = {
+        "id": index, "boss": machine["boss"], "place": machine["place"],
+        "cn_name": machine.get("cn_name", {}), "state": state, "seq": seq,
+    }
     _write_status(game_dir)
 
 

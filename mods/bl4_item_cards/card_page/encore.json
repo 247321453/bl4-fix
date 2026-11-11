@@ -1,6 +1,10 @@
 [
  {
   "boss": "Minister Screw",
+  "cn_name": {
+   "boss": "斯克鲁部长",
+   "place": "文化部"
+  },
   "map": "Banjo_P",
   "place": "Ministry of Culture",
   "location": "dlmd_banjo_p_io_bossreplay_uaid_b04f130574aa427902_1943371898",
@@ -12,6 +16,10 @@
  },
  {
   "boss": "Stone Demon",
+  "cn_name": {
+   "boss": "石魔",
+   "place": "恶魔领地"
+  },
   "map": "Cello_P",
   "place": "The Demon's Domain",
   "location": "dlmd_cello_p_io_bossreplay_uaid_b04f130574aafc8c02_2117905695",
@@ -23,6 +31,10 @@
  },
  {
   "boss": "Chiselbella",
+  "cn_name": {
+   "boss": "美凿",
+   "place": "恶魔领地"
+  },
   "map": "Cello_P",
   "place": "The Demon's Domain",
   "location": "dlmd_cello_p_io_bossreplay_uaid_d843ae5fac6a409f02_1438957675",
@@ -34,6 +46,10 @@
  },
  {
   "boss": "Bore-tex",
+  "cn_name": {
+   "boss": "钻旋风",
+   "place": "恶魔领地"
+  },
   "map": "Cello_P",
   "place": "The Demon's Domain",
   "location": "dlmd_cello_p_io_bossreplay_uaid_d843ae5fac6a429f02_1291584059",
@@ -45,6 +61,10 @@
  },
  {
   "boss": "Sturmdrang",
+  "cn_name": {
+   "boss": "狂飙怒涛",
+   "place": "恶魔领地"
+  },
   "map": "Cello_P",
   "place": "The Demon's Domain",
   "location": "dlmd_cello_p_io_bossreplay_uaid_d843ae5fac6a439f02_1126779308",
@@ -56,6 +76,10 @@
  },
  {
   "boss": "Colonel Crash",
+  "cn_name": {
+   "boss": "克拉什上校",
+   "place": "低语冰川"
+  },
   "map": "Cowbell_P",
   "place": "The Whispering Glacier",
   "location": "dlmd_cowbell_p_io_bossreplay_uaid_94f6d6f414de13a802_1430136250",
@@ -67,6 +91,10 @@
  },
  {
   "boss": "Big Oil",
+  "cn_name": {
+   "boss": "大石油",
+   "place": "低语冰川"
+  },
   "map": "Cowbell_P",
   "place": "The Whispering Glacier",
   "location": "dlmd_cowbell_p_io_bossreplay_uaid_cc96e51c03aea39202_1299763362",
@@ -78,6 +106,10 @@
  },
  {
   "boss": "Air Raider Scremulous",
+  "cn_name": {
+   "boss": "空袭者斯克雷姆勒斯",
+   "place": "低语冰川"
+  },
   "map": "Cowbell_P",
   "place": "The Whispering Glacier",
   "location": "dlmd_cowbell_p_io_bossreplay_uaid_cc96e51c03aea39202_1651541364",
@@ -89,6 +121,10 @@
  },
  {
   "boss": "The Penitent Steel",
+  "cn_name": {
+   "boss": "忏悔之钢",
+   "place": "低语冰川"
+  },
   "map": "Cowbell_P",
   "place": "The Whispering Glacier",
   "location": "dlmd_cowbell_p_io_bossreplay_uaid_cc96e51c03aea79202_1857533082",
@@ -100,6 +136,10 @@
  },
  {
   "boss": "Corporal Brennan",
+  "cn_name": {
+   "boss": "布伦南下士",
+   "place": "低语冰川"
+  },
   "map": "Cowbell_P",
   "place": "The Whispering Glacier",
   "location": "dlmd_cowbell_p_io_bossreplay_uaid_cc96e51c03aeba9302_1998212469",
@@ -111,6 +151,10 @@
  },
  {
   "boss": "Crazed Earl",
+  "cn_name": {
+   "boss": "疯子厄尔",
+   "place": "低语冰川"
+  },
   "map": "Cowbell_P",
   "place": "The Whispering Glacier",
   "location": "dlmd_cowbell_p_oakinteractiveobject_uaid_e04f43e6da06eb9302_1594745088",
@@ -122,6 +166,10 @@
  },
  {
   "boss": "Moon-Maddened Callis",
+  "cn_name": {
+   "boss": "月狂凯莉丝",
+   "place": "厄尔庇斯轨道碎片区"
+  },
   "map": "Elpis_P",
   "place": "Elpis Orbital Shatterfield",
   "location": "dlmd_elpis_p_io_bossreplay_uaid_2cf05d562853555002_1865449048",
@@ -133,6 +181,10 @@
  },
  {
   "boss": "Idolator Sol",
+  "cn_name": {
+   "boss": "教主索尔",
+   "place": "隐没旷野堡垒"
+  },
   "map": "Fortress_Grasslands_P",
   "place": "Fortress Grasslands",
   "location": "dlmd_fortress_grasslands_p_io_bossreplay_uaid_e04f43e6ae842f4702_2127496748",
@@ -144,6 +196,10 @@
  },
  {
   "boss": "Vile Lictor",
+  "cn_name": {
+   "boss": "卑鄙鬼·里克托",
+   "place": "终点山脉堡垒"
+  },
   "map": "Fortress_Mountains_P",
   "place": "Fortress Mountains",
   "location": "dlmd_fortress_mountains_p_io_bossreplay_uaid_2cf05d5628535b4f02_1586449935",
@@ -155,6 +211,10 @@
  },
  {
   "boss": "Callis, the Ripper Queen",
+  "cn_name": {
+   "boss": "开颅者女王凯莉丝",
+   "place": "卡尔卡丹堡垒"
+  },
   "map": "Fortress_Shatteredlands_P",
   "place": "Fortress Shatteredlands",
   "location": "dlmd_fortress_shatteredlands_p_io_bossreplay_uaid_2cf05d5628534c5002_2142538407",
@@ -166,6 +226,10 @@
  },
  {
   "boss": "Dr. Elena Smith",
+  "cn_name": {
+   "boss": "埃琳娜·史密斯博士",
+   "place": "普罗维登斯岛"
+  },
   "map": "Harmonica_P",
   "place": "Providence Island",
   "location": "dlmd_harmonica_p_io_bossreplay_uaid_74563cb78d1f03d502_1574808960",
@@ -177,6 +241,10 @@
  },
  {
   "boss": "Vulkorr",
+  "cn_name": {
+   "boss": "沃尔科尔",
+   "place": "普罗维登斯岛"
+  },
   "map": "Harmonica_P",
   "place": "Providence Island",
   "location": "dlmd_harmonica_p_io_bossreplay_uaid_74563cb78d1f06c902_1384772829",
@@ -188,6 +256,10 @@
  },
  {
   "boss": "RelaxMech",
+  "cn_name": {
+   "boss": "悠闲机甲",
+   "place": "普罗维登斯岛"
+  },
   "map": "Harmonica_P",
   "place": "Providence Island",
   "location": "dlmd_harmonica_p_io_bossreplay_uaid_74563cb78d1f0ec902_1843950215",
@@ -199,6 +271,10 @@
  },
  {
   "boss": "Big Bada Boom Drone",
+  "cn_name": {
+   "boss": "大爆炸无人机",
+   "place": "普罗维登斯岛"
+  },
   "map": "Harmonica_P",
   "place": "Providence Island",
   "location": "dlmd_harmonica_p_io_bossreplay_uaid_74563cb78d1f22d202_1099951241",
@@ -210,6 +286,10 @@
  },
  {
   "boss": "Blackgrin",
+  "cn_name": {
+   "boss": "黑色笑靥",
+   "place": "普罗维登斯岛"
+  },
   "map": "Harmonica_P",
   "place": "Providence Island",
   "location": "dlmd_harmonica_p_io_bossreplay_uaid_74563cb78d1f2fd202_1277265578",
@@ -221,6 +301,10 @@
  },
  {
   "boss": "Drilla Killa",
+  "cn_name": {
+   "boss": "钻杀者",
+   "place": "普罗维登斯岛"
+  },
   "map": "Harmonica_P",
   "place": "Providence Island",
   "location": "dlmd_harmonica_p_io_bossreplay_uaid_74563cb78d1f73d202_1397325503",
@@ -232,6 +316,10 @@
  },
  {
   "boss": "Ducky",
+  "cn_name": {
+   "boss": "小黄鸭",
+   "place": "普罗维登斯岛"
+  },
   "map": "Harmonica_P",
   "place": "Providence Island",
   "location": "dlmd_harmonica_p_io_bossreplay_uaid_74563cb78d1f9ebf02_1170519008",
@@ -243,6 +331,10 @@
  },
  {
   "boss": "Jr. Manager Warrant Baggett",
+  "cn_name": {
+   "boss": "初级经理沃伦特·巴吉特",
+   "place": "普罗维登斯岛"
+  },
   "map": "Harmonica_P",
   "place": "Providence Island",
   "location": "dlmd_harmonica_p_io_bossreplay_uaid_74563cb78d1fa4c402_1942293337",
@@ -254,6 +346,10 @@
  },
  {
   "boss": "Megan",
+  "cn_name": {
+   "boss": "梅根",
+   "place": "普罗维登斯岛"
+  },
   "map": "Harmonica_P",
   "place": "Providence Island",
   "location": "dlmd_harmonica_p_io_bossreplay_uaid_74563cb78d1fb8d402_1097811822",
@@ -265,6 +361,10 @@
  },
  {
   "boss": "Logistics Manager",
+  "cn_name": {
+   "boss": "后勤经理",
+   "place": "普罗维登斯岛"
+  },
   "map": "Harmonica_P",
   "place": "Providence Island",
   "location": "dlmd_harmonica_p_io_bossreplay_uaid_74563cb78d1fbfc202_1871170995",
@@ -276,6 +376,10 @@
  },
  {
   "boss": "Lieutenant Bume",
+  "cn_name": {
+   "boss": "布姆中尉",
+   "place": "普罗维登斯岛"
+  },
   "map": "Harmonica_P",
   "place": "Providence Island",
   "location": "dlmd_harmonica_p_io_bossreplay_uaid_74563cb78d1fdac002_2068913639",
@@ -287,6 +391,10 @@
  },
  {
   "boss": "Jayson and his Frame",
+  "cn_name": {
+   "boss": "杰森与他的机甲",
+   "place": "普罗维登斯岛"
+  },
   "map": "Harmonica_P",
   "place": "Providence Island",
   "location": "dlmd_harmonica_p_io_bossreplay_uaid_74563cb78d1fe0d102_1292592624",
@@ -298,6 +406,10 @@
  },
  {
   "boss": "BETAMAXXX",
+  "cn_name": {
+   "boss": "贝塔麦克斯",
+   "place": "毒怒区"
+  },
   "map": "Harp_P",
   "place": "The Toxic Scowl",
   "location": "dlmd_harp_p_oakinteractiveobject_uaid_00d861c3a6aa1ae102_1631269672",
@@ -309,6 +421,10 @@
  },
  {
   "boss": "Infamous Dave",
+  "cn_name": {
+   "boss": "恶名戴夫",
+   "place": "毒怒区"
+  },
   "map": "Harp_P",
   "place": "The Toxic Scowl",
   "location": "dlmd_harp_p_oakinteractiveobject_uaid_00d861c3a6aa9ae102_1488827210",
@@ -320,6 +436,10 @@
  },
  {
   "boss": "MAXXXSUPREMENOOLIVES",
+  "cn_name": {
+   "boss": "至尊无橄榄麦克斯",
+   "place": "毒怒区"
+  },
   "map": "Harp_P",
   "place": "The Toxic Scowl",
   "location": "dlmd_harp_p_oakinteractiveobject_uaid_089204dcf6e7e8e102_1798517969",
@@ -331,6 +451,10 @@
  },
  {
   "boss": "Skank Eyes",
+  "cn_name": {
+   "boss": "臭眼",
+   "place": "毒怒区"
+  },
   "map": "Harp_P",
   "place": "The Toxic Scowl",
   "location": "dlmd_harp_p_oakinteractiveobject_uaid_089204dcf6e7f1e102_1294557535",
@@ -342,6 +466,10 @@
  },
  {
   "boss": "CL34n.R",
+  "cn_name": {
+   "boss": "清洁机器人",
+   "place": "曼陀林区1"
+  },
   "map": "Mandolin1_P",
   "place": "Mandolin 1",
   "location": "dlmd_mandolin1_p_io_bossreplay_uaid_b04f130574aa0dce02_1961658328",
@@ -353,6 +481,10 @@
  },
  {
   "boss": "F1x.R",
+  "cn_name": {
+   "boss": "维修机器人",
+   "place": "曼陀林区1"
+  },
   "map": "Mandolin1_P",
   "place": "Mandolin 1",
   "location": "dlmd_mandolin1_p_io_bossreplay_uaid_b04f130574aa0fce02_1281203690",
@@ -364,6 +496,10 @@
  },
  {
   "boss": "Biff Fistful",
+  "cn_name": {
+   "boss": "铁拳比夫",
+   "place": "曼陀林区1"
+  },
   "map": "Mandolin1_P",
   "place": "Mandolin 1",
   "location": "dlmd_mandolin1_p_io_bossreplay_uaid_b04f130574aa30c702_1681661108",
@@ -375,6 +511,10 @@
  },
  {
   "boss": "Bloomreaper the Invincible",
+  "cn_name": {
+   "boss": "无敌采花贼",
+   "place": "绽放区"
+  },
   "map": "Raid1_P",
   "place": "The Bloom",
   "location": "dlmd_raid1_p_io_bossreplay_uaid_54bf6467aefc796e02_1384453958",
@@ -386,6 +526,10 @@
  },
  {
   "boss": "Subjugator & Thol",
+  "cn_name": {
+   "boss": "镇压者与索尔",
+   "place": "镇压者巢穴"
+  },
   "map": "Raid2_P",
   "place": "Lair of the Subjugator",
   "location": "dlmd_raid2_p_io_bossreplay_uaid_54bf6467aefc2d9a02_2070445050",
@@ -397,6 +541,10 @@
  },
  {
   "boss": "Arjay",
+  "cn_name": {
+   "boss": "阿杰",
+   "place": "上城区"
+  },
   "map": "UpperCity_P",
   "place": "Upper City",
   "location": "dlmd_uppercity_p_io_bossreplay_uaid_74563cb78d1fa15c02_1362280990",
@@ -408,6 +556,10 @@
  },
  {
   "boss": "The Timekeeper",
+  "cn_name": {
+   "boss": "时间尊者",
+   "place": "上城区"
+  },
   "map": "UpperCity_P",
   "place": "Upper City",
   "location": "dlmd_uppercity_p_io_bossreplay_uaid_e04f43e6ae84a05002_1128500350",
@@ -419,6 +571,10 @@
  },
  {
   "boss": "Primordial Guardian Inceptus",
+  "cn_name": {
+   "boss": "原始护卫者·源始",
+   "place": "隐没旷野秘藏"
+  },
   "map": "Vault_Grasslands_P",
   "place": "Vault Grasslands",
   "location": "dlmd_vault_grasslands_p_io_bossreplay_uaid_e04f43e6ae84fd4f02_2091336463",
@@ -430,6 +586,10 @@
  },
  {
   "boss": "Primordial Guardian Origo",
+  "cn_name": {
+   "boss": "原始护卫者·发端",
+   "place": "终点山脉秘藏"
+  },
   "map": "Vault_Mountains_P",
   "place": "Vault Mountains",
   "location": "dlmd_vault_mountains_p_io_bossreplay_uaid_2cf05d562853d84d02_1287652858",
@@ -441,6 +601,10 @@
  },
  {
   "boss": "Primordial Guardian Radix",
+  "cn_name": {
+   "boss": "原始护卫者·根源",
+   "place": "卡尔卡丹秘藏"
+  },
   "map": "Vault_ShatteredLands_P",
   "place": "Vault Shattered Lands",
   "location": "dlmd_vault_shatteredlands_p_io_bossreplay_uaid_2cf05d562853af4f02_1787837744",
@@ -452,6 +616,10 @@
  },
  {
   "boss": "Captain Willis",
+  "cn_name": {
+   "boss": "威利斯队长",
+   "place": "大漩涡"
+  },
   "map": "VaultoftheDamned_P",
   "place": "The Maelstrom",
   "location": "dlmd_vaultofthedamned_p_oakinteractiveobject_1",
@@ -463,6 +631,10 @@
  },
  {
   "boss": "Vile Grasp",
+  "cn_name": {
+   "boss": "卑鄙鬼·格拉斯普",
+   "place": "厄尔庇斯暗面"
+  },
   "map": "Viola_ElpisVile_P",
   "place": "Dark Side of Elpis",
   "location": "dlmd_viola_elpisvile_p_io_bossreplay_uaid_08bfb81672990adf02_1467087743",
@@ -474,6 +646,10 @@
  },
  {
   "boss": "Hybrid Thresher",
+  "cn_name": {
+   "boss": "混种打谷机",
+   "place": "厄尔庇斯暗面"
+  },
   "map": "Viola_ElpisVile_P",
   "place": "Dark Side of Elpis",
   "location": "dlmd_viola_elpisvile_p_io_bossreplay_uaid_e89c25105cfbbed802_1845570035",
@@ -485,6 +661,10 @@
  },
  {
   "boss": "The Reject Prototypes",
+  "cn_name": {
+   "boss": "废弃原型机",
+   "place": "努阿达海湾"
+  },
   "map": "Viola_P",
   "place": "Nuada Cove",
   "location": "dlmd_viola_p_io_bossreplay_uaid_e89c25105c77fede02_1343720636",
@@ -496,6 +676,10 @@
  },
  {
   "boss": "Lieutenant Harmony",
+  "cn_name": {
+   "boss": "哈莫妮中尉",
+   "place": "泰迪尔前沿基地布拉沃利马4.2"
+  },
   "map": "VolcanoFortress_P",
   "place": "Tediore FOB Bravo Lima 4.2",
   "location": "dlmd_volcanofortress_p_io_bossreplay_uaid_0050568bfc4dddc602_1917027486",
@@ -507,6 +691,10 @@
  },
  {
   "boss": "Experiment C-23",
+  "cn_name": {
+   "boss": "C-23号实验体",
+   "place": "泰迪尔前沿基地布拉沃利马4.2"
+  },
   "map": "VolcanoFortress_P",
   "place": "Tediore FOB Bravo Lima 4.2",
   "location": "dlmd_volcanofortress_p_io_bossreplay_uaid_74563cb78d1fb1d402_1796736550",
@@ -518,6 +706,10 @@
  },
  {
   "boss": "Kolavalin",
+  "cn_name": {
+   "boss": "科拉瓦林",
+   "place": "泰迪尔前沿基地布拉沃利马4.2"
+  },
   "map": "VolcanoFortress_P",
   "place": "Tediore FOB Bravo Lima 4.2",
   "location": "dlmd_volcanofortress_p_io_bossreplay_uaid_74563cb78d1ffcd402_2032827787",
@@ -529,6 +721,10 @@
  },
  {
   "boss": "Sludgemaw",
+  "cn_name": {
+   "boss": "淤泥巨口",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_04922658d4a79c2f02_1589462592",
@@ -540,6 +736,10 @@
  },
  {
   "boss": "Directive-0",
+  "cn_name": {
+   "boss": "零号指令",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_244bfe96422d31ff01_1907577065",
@@ -551,6 +751,10 @@
  },
  {
   "boss": "Axemaul",
+  "cn_name": {
+   "boss": "斧锤",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_244bfe96422d3aff01_2066486654",
@@ -562,6 +766,10 @@
  },
  {
   "boss": "Leader Willem",
+  "cn_name": {
+   "boss": "头目威廉",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_244bfe96422db21d02_1287181538",
@@ -573,6 +781,10 @@
  },
  {
   "boss": "Vile Ted & The Experiments",
+  "cn_name": {
+   "boss": "卑鄙鬼·泰德与实验体",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_2cf05d8c2ce9216402_1506167904",
@@ -584,6 +796,10 @@
  },
  {
   "boss": "Horace",
+  "cn_name": {
+   "boss": "霍勒斯",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_38d54710afc02cf601_1987519684",
@@ -595,6 +811,10 @@
  },
  {
   "boss": "Core Observer",
+  "cn_name": {
+   "boss": "核心观察者",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_38d54710afc03e0002_1714446409",
@@ -606,6 +826,10 @@
  },
  {
   "boss": "Fractis",
+  "cn_name": {
+   "boss": "弗拉克提斯",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_38d54710afc0720102_1085973631",
@@ -617,6 +841,10 @@
  },
  {
   "boss": "Mimicron",
+  "cn_name": {
+   "boss": "拟态怪",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_38d54710afc08a0002_1589927784",
@@ -628,6 +856,10 @@
  },
  {
   "boss": "The Backhive",
+  "cn_name": {
+   "boss": "背巢",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_54bf6467aefc1b0102_1273536307",
@@ -639,6 +871,10 @@
  },
  {
   "boss": "Bramblesong",
+  "cn_name": {
+   "boss": "荆棘之歌",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_54bf6467aefc530e02_1998308892",
@@ -650,6 +886,10 @@
  },
  {
   "boss": "Voraxis",
+  "cn_name": {
+   "boss": "沃拉克西斯",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_54bf6467aefc581402_1707512104",
@@ -661,6 +901,10 @@
  },
  {
   "boss": "Rocken Roller",
+  "cn_name": {
+   "boss": "摇滚滚石",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_54bf6467aefc7c0002_1893237322",
@@ -672,6 +916,10 @@
  },
  {
   "boss": "Battle Wagon",
+  "cn_name": {
+   "boss": "战车",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_54bf6467aefca81a02_1388992592",
@@ -683,6 +931,10 @@
  },
  {
   "boss": "Shadowpelt",
+  "cn_name": {
+   "boss": "暗影皮毛",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_54bf6467aefcbe1802_1726729284",
@@ -694,6 +946,10 @@
  },
  {
   "boss": "Skull Orchid",
+  "cn_name": {
+   "boss": "骷髅兰",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_54bf6467aefcd60002_1156551161",
@@ -705,6 +961,10 @@
  },
  {
   "boss": "Sidney Pointylegs",
+  "cn_name": {
+   "boss": "尖腿西德尼",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_74563cb78d1f8d0002_1977063315",
@@ -716,6 +976,10 @@
  },
  {
   "boss": "Bio-Bulkhead",
+  "cn_name": {
+   "boss": "生化壁垒",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_94f6d6f414de161202_2111909384",
@@ -727,6 +991,10 @@
  },
  {
   "boss": "Genone",
+  "cn_name": {
+   "boss": "杰诺恩",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_94f6d6f414deab3a02_1902783844",
@@ -738,6 +1006,10 @@
  },
  {
   "boss": "Bio-Thresher Omega",
+  "cn_name": {
+   "boss": "生化打谷机欧米伽",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_94f6d6f414ded05e02_1619776369",
@@ -749,6 +1021,10 @@
  },
  {
   "boss": "Callous Harbinger of Annihilating Death",
+  "cn_name": {
+   "boss": "冷酷的毁灭死亡先驱",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_b04f130574aa250102_1374902068",
@@ -760,6 +1036,10 @@
  },
  {
   "boss": "Oppressor",
+  "cn_name": {
+   "boss": "压迫者",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_b04f130574aa9e0402_1123078544",
@@ -771,6 +1051,10 @@
  },
  {
   "boss": "Skyspanner Kratch",
+  "cn_name": {
+   "boss": "天穹扳手克拉奇",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_cc96e51ab12544f401_1592664794",
@@ -782,6 +1066,10 @@
  },
  {
   "boss": "The Divisioner",
+  "cn_name": {
+   "boss": "分割者",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_io_bossreplay_uaid_d85ed3466c03ffee01_1901674368",
@@ -793,6 +1081,10 @@
  },
  {
   "boss": "Rippa Roadbirds",
+  "cn_name": {
+   "boss": "开颅者公路飞鸟",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_oakinteractiveobject_uaid_00d861c3a6aa7b2402_1523338173",
@@ -804,6 +1096,10 @@
  },
  {
   "boss": "Foundry Freaks",
+  "cn_name": {
+   "boss": "铸造厂怪人",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_oakinteractiveobject_uaid_907841cad8657d0102_1585489597",
@@ -815,6 +1111,10 @@
  },
  {
   "boss": "Meathead Riders",
+  "cn_name": {
+   "boss": "莽汉骑手",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_oakinteractiveobject_uaid_d843ae5fac6a7b0102_1648938215",
@@ -826,6 +1126,10 @@
  },
  {
   "boss": "Pango Bango",
+  "cn_name": {
+   "boss": "潘戈与班戈",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_oakinteractiveobject_uaid_e04f43e60d77881b02_1565726943",
@@ -837,6 +1141,10 @@
  },
  {
   "boss": "Vile Prototype",
+  "cn_name": {
+   "boss": "卑鄙原型机",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_oakinteractiveobject_uaid_e04f43e60d837fea01_1791653616",
@@ -848,6 +1156,10 @@
  },
  {
   "boss": "Splashzone",
+  "cn_name": {
+   "boss": "溅射区",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_oakinteractiveobject_uaid_e04f43e60d83840102_1427834786",
@@ -859,6 +1171,10 @@
  },
  {
   "boss": "Driller Hole",
+  "cn_name": {
+   "boss": "钻洞者",
+   "place": ""
+  },
   "map": "World_P",
   "place": "",
   "location": "dlmd_world_p_oakinteractiveobject_uaid_e04f43e60d83c70202_1344365639",

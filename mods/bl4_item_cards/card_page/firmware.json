@@ -1,7 +1,7 @@
 {
  "fw_action_fist": {
   "name": "Action Fist",
-  "cn_name": "主动之拳",
+  "cn_name": "动能之拳",
   "tiers": [
    {
     "count": 1,
@@ -159,7 +159,7 @@
  },
  "fw_atlas_infinum": {
   "name": "Atlas Infinum",
-  "cn_name": "阿特拉斯无尽",
+  "cn_name": "阿特拉斯无尽能量",
   "tiers": [
    {
     "count": 1,

@@ -5,6 +5,10 @@
    "sources": [
     {
      "boss": "Vile Lictor",
+     "cn_name": {
+      "boss": "卑鄙鬼·里克托",
+      "encore_map": "终点山脉堡垒"
+     },
      "encore": 0.0,
      "encore_id": 13,
      "encore_map": "Fortress Mountains",
@@ -21,6 +25,10 @@
    "sources": [
     {
      "boss": "Arjay",
+     "cn_name": {
+      "boss": "阿杰",
+      "encore_map": "上城区"
+     },
      "encore": 0.3,
      "encore_id": 36,
      "encore_map": "Upper City",
@@ -37,6 +45,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Radix",
+     "cn_name": {
+      "boss": "原始护卫者·根源",
+      "encore_map": "卡尔卡丹秘藏"
+     },
      "encore": 0.3,
      "encore_id": 40,
      "encore_map": "Vault Shattered Lands",
@@ -53,6 +65,9 @@
    "sources": [
     {
      "boss": "Horace",
+     "cn_name": {
+      "boss": "霍勒斯"
+     },
      "encore": 0.3,
      "encore_id": 53,
      "uvh0": 0.09,
@@ -68,6 +83,10 @@
    "sources": [
     {
      "boss": "Vile Grasp",
+     "cn_name": {
+      "boss": "卑鄙鬼·格拉斯普",
+      "encore_map": "厄尔庇斯暗面"
+     },
      "encore": 0.09,
      "encore_id": 42,
      "encore_map": "Dark Side of Elpis",
@@ -91,6 +110,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Radix",
+     "cn_name": {
+      "boss": "原始护卫者·根源",
+      "encore_map": "卡尔卡丹秘藏"
+     },
      "encore": 0.3,
      "encore_id": 40,
      "encore_map": "Vault Shattered Lands",
@@ -135,6 +158,10 @@
    "sources": [
     {
      "boss": "Brain Zane",
+     "cn_name": {
+      "boss": "脑型赞恩",
+      "encore_map": "曼陀林区1"
+     },
      "encore": 0.3,
      "encore_id": 33,
      "encore_map": "Mandolin 1",
@@ -151,6 +178,9 @@
    "sources": [
     {
      "boss": "The Oppressor",
+     "cn_name": {
+      "boss": "压迫者"
+     },
      "encore": 0.3,
      "encore_id": 69,
      "uvh0": 0.09,
@@ -166,6 +196,10 @@
    "sources": [
     {
      "boss": "Lieutenant Harmony",
+     "cn_name": {
+      "boss": "哈莫妮中尉",
+      "encore_map": "泰迪尔前沿基地布拉沃利马4.2"
+     },
      "encore": 0.09,
      "encore_id": 45,
      "encore_map": "Tediore FOB Bravo Lima 4.2",
@@ -182,6 +216,9 @@
    "sources": [
     {
      "boss": "Callous Harbinger of Annihilating Death",
+     "cn_name": {
+      "boss": "冷酷的毁灭死亡先驱"
+     },
      "encore": 0.3,
      "encore_id": 68,
      "uvh0": 0.09,
@@ -197,6 +234,9 @@
    "sources": [
     {
      "boss": "Rocken Roller",
+     "cn_name": {
+      "boss": "摇滚滚石"
+     },
      "encore": 0.3,
      "encore_id": 60,
      "uvh0": 0.09,
@@ -212,6 +252,10 @@
    "sources": [
     {
      "boss": "Vulkorr",
+     "cn_name": {
+      "boss": "沃尔科尔",
+      "encore_map": "普罗维登斯岛"
+     },
      "encore": 0.3,
      "encore_id": 16,
      "encore_map": "Providence Island",
@@ -228,6 +272,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Inceptus",
+     "cn_name": {
+      "boss": "原始护卫者·源始",
+      "encore_map": "隐没旷野秘藏"
+     },
      "encore": 0.3,
      "encore_id": 38,
      "encore_map": "Vault Grasslands"
@@ -242,6 +290,9 @@
    "sources": [
     {
      "boss": "Crazed Earl",
+     "cn_name": {
+      "boss": "疯子厄尔"
+     },
      "uvh0": 0.09,
      "uvh5": 0.19
     }
@@ -255,6 +306,10 @@
    "sources": [
     {
      "boss": "Idolator Sol",
+     "cn_name": {
+      "boss": "教主索尔",
+      "encore_map": "隐没旷野堡垒"
+     },
      "encore": 0.3,
      "encore_id": 12,
      "encore_map": "Fortress Grasslands"
@@ -269,6 +324,9 @@
    "sources": [
     {
      "boss": "Sludgemaw",
+     "cn_name": {
+      "boss": "淤泥巨口"
+     },
      "encore": 0.3,
      "encore_id": 48,
      "uvh0": 0.09,
@@ -284,6 +342,10 @@
    "sources": [
     {
      "boss": "Corporal Brennan",
+     "cn_name": {
+      "boss": "布伦南下士",
+      "encore_map": "低语冰川"
+     },
      "encore": 0.3,
      "encore_id": 9,
      "encore_map": "The Whispering Glacier",
@@ -300,6 +362,10 @@
    "sources": [
     {
      "boss": "Vile Lictor",
+     "cn_name": {
+      "boss": "卑鄙鬼·里克托",
+      "encore_map": "终点山脉堡垒"
+     },
      "encore": 0.3,
      "encore_id": 13,
      "encore_map": "Fortress Mountains"
@@ -314,6 +380,10 @@
    "sources": [
     {
      "boss": "Vile Lictor",
+     "cn_name": {
+      "boss": "卑鄙鬼·里克托",
+      "encore_map": "终点山脉堡垒"
+     },
      "encore": 0.3,
      "encore_id": 13,
      "encore_map": "Fortress Mountains",
@@ -330,6 +400,9 @@
    "sources": [
     {
      "boss": "The Oppressor",
+     "cn_name": {
+      "boss": "压迫者"
+     },
      "encore": 0.3,
      "encore_id": 69,
      "uvh0": 0.09,
@@ -345,6 +418,10 @@
    "sources": [
     {
      "boss": "Colonel Crash",
+     "cn_name": {
+      "boss": "克拉什上校",
+      "encore_map": "低语冰川"
+     },
      "encore": 0.3,
      "encore_id": 5,
      "encore_map": "The Whispering Glacier",
@@ -361,6 +438,9 @@
    "sources": [
     {
      "boss": "Sal the Engineer",
+     "cn_name": {
+      "boss": "工程师萨尔"
+     },
      "encore": 0.3,
      "encore_id": 73,
      "uvh0": 0.09,
@@ -376,6 +456,9 @@
    "sources": [
     {
      "boss": "Axemaul",
+     "cn_name": {
+      "boss": "斧锤"
+     },
      "encore": 0.3,
      "encore_id": 50,
      "uvh0": 0.09,
@@ -398,6 +481,9 @@
    "sources": [
     {
      "boss": "Directive-0",
+     "cn_name": {
+      "boss": "零号指令"
+     },
      "encore": 0.3,
      "encore_id": 49,
      "uvh0": 0.09,
@@ -420,6 +506,9 @@
    "sources": [
     {
      "boss": "Bramblesong",
+     "cn_name": {
+      "boss": "荆棘之歌"
+     },
      "encore": 0.3,
      "encore_id": 58,
      "uvh0": 0.09,
@@ -435,6 +524,10 @@
    "sources": [
     {
      "boss": "The Timekeeper",
+     "cn_name": {
+      "boss": "时间尊者",
+      "encore_map": "上城区"
+     },
      "encore": 0.3,
      "encore_id": 37,
      "encore_map": "Upper City",
@@ -451,6 +544,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Origo",
+     "cn_name": {
+      "boss": "原始护卫者·发端",
+      "encore_map": "终点山脉秘藏"
+     },
      "encore": 0.3,
      "encore_id": 39,
      "encore_map": "Vault Mountains",
@@ -467,6 +564,10 @@
    "sources": [
     {
      "boss": "Brain Zane",
+     "cn_name": {
+      "boss": "脑型赞恩",
+      "encore_map": "曼陀林区1"
+     },
      "encore": 0.3,
      "encore_id": 33,
      "encore_map": "Mandolin 1",
@@ -483,6 +584,10 @@
    "sources": [
     {
      "boss": "Stone Demon",
+     "cn_name": {
+      "boss": "石魔",
+      "encore_map": "恶魔领地"
+     },
      "encore": 0.3,
      "encore_id": 1,
      "encore_map": "The Demon's Domain",
@@ -499,6 +604,10 @@
    "sources": [
     {
      "boss": "Chiselbella",
+     "cn_name": {
+      "boss": "美凿",
+      "encore_map": "恶魔领地"
+     },
      "encore": 0.3,
      "encore_id": 2,
      "encore_map": "The Demon's Domain",
@@ -515,6 +624,9 @@
    "sources": [
     {
      "boss": "Bio-Bulkhead",
+     "cn_name": {
+      "boss": "生化壁垒"
+     },
      "encore": 0.3,
      "encore_id": 65,
      "uvh0": 0.09,
@@ -530,6 +642,9 @@
    "sources": [
     {
      "boss": "Bio-Thresher Omega",
+     "cn_name": {
+      "boss": "生化打谷机欧米伽"
+     },
      "encore": 0.3,
      "encore_id": 67,
      "uvh0": 0.09,
@@ -537,6 +652,9 @@
     },
     {
      "boss": "The Battle Wagon",
+     "cn_name": {
+      "boss": "战车"
+     },
      "encore": 0.3,
      "encore_id": 61,
      "uvh0": 0.09,
@@ -552,6 +670,9 @@
    "sources": [
     {
      "boss": "Core Observer",
+     "cn_name": {
+      "boss": "核心观察者"
+     },
      "encore": 0.3,
      "encore_id": 54,
      "uvh0": 0.09,
@@ -567,6 +688,9 @@
    "sources": [
     {
      "boss": "Voraxis",
+     "cn_name": {
+      "boss": "沃拉克西斯"
+     },
      "encore": 0.3,
      "encore_id": 59,
      "uvh0": 0.09,
@@ -582,6 +706,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Origo",
+     "cn_name": {
+      "boss": "原始护卫者·发端",
+      "encore_map": "终点山脉秘藏"
+     },
      "encore": 0.3,
      "encore_id": 39,
      "encore_map": "Vault Mountains"
@@ -596,6 +724,9 @@
    "sources": [
     {
      "boss": "Axemaul",
+     "cn_name": {
+      "boss": "斧锤"
+     },
      "encore": 0.3,
      "encore_id": 50,
      "uvh0": 0.09,
@@ -611,6 +742,9 @@
    "sources": [
     {
      "boss": "Horace",
+     "cn_name": {
+      "boss": "霍勒斯"
+     },
      "encore": 0.3,
      "encore_id": 53,
      "uvh0": 0.09,
@@ -626,6 +760,9 @@
    "sources": [
     {
      "boss": "Frank the Furnace",
+     "cn_name": {
+      "boss": "熔炉弗兰克"
+     },
      "encore": 0.3,
      "encore_id": 73,
      "uvh0": 0.09,
@@ -648,6 +785,9 @@
    "sources": [
     {
      "boss": "Hank the Welder",
+     "cn_name": {
+      "boss": "焊工汉克"
+     },
      "encore": 0.3,
      "encore_id": 73,
      "uvh0": 0.09,
@@ -655,6 +795,9 @@
     },
     {
      "boss": "Fractis",
+     "cn_name": {
+      "boss": "弗拉克提斯"
+     },
      "encore": 0.3,
      "encore_id": 55,
      "uvh0": 0.09,
@@ -670,6 +813,9 @@
    "sources": [
     {
      "boss": "The Backhive",
+     "cn_name": {
+      "boss": "背巢"
+     },
      "encore": 0.3,
      "encore_id": 57,
      "uvh0": 0.09,
@@ -685,6 +831,10 @@
    "sources": [
     {
      "boss": "Vile Grasp",
+     "cn_name": {
+      "boss": "卑鄙鬼·格拉斯普",
+      "encore_map": "厄尔庇斯暗面"
+     },
      "encore": 0.3,
      "encore_id": 42,
      "encore_map": "Dark Side of Elpis",
@@ -708,6 +858,10 @@
    "sources": [
     {
      "boss": "Subjugator the Invincible",
+     "cn_name": {
+      "boss": "无敌镇压者",
+      "encore_map": "镇压者巢穴"
+     },
      "encore": 0.15,
      "encore_id": 35,
      "encore_map": "Lair of the Subjugator",
@@ -724,6 +878,9 @@
    "sources": [
     {
      "boss": "The Battle Wagon",
+     "cn_name": {
+      "boss": "战车"
+     },
      "encore": 0.3,
      "encore_id": 61,
      "uvh0": 0.09,
@@ -739,6 +896,9 @@
    "sources": [
     {
      "boss": "Mimicron",
+     "cn_name": {
+      "boss": "拟态怪"
+     },
      "encore": 0.3,
      "encore_id": 56,
      "uvh0": 0.09,
@@ -761,26 +921,41 @@
    "sources": [
     {
      "boss": "Ten-Toes",
+     "cn_name": {
+      "boss": "十趾"
+     },
      "uvh0": 0.0,
      "uvh5": 0.0025
     },
     {
      "boss": "Slayowulf",
+     "cn_name": {
+      "boss": "斯莱奥武夫"
+     },
      "uvh0": 0.0,
      "uvh5": 0.0025
     },
     {
      "boss": "Theylob",
+     "cn_name": {
+      "boss": "瑟洛布"
+     },
      "uvh0": 0.0,
      "uvh5": 0.0025
     },
     {
      "boss": "Tiny Bigs",
+     "cn_name": {
+      "boss": "小大大"
+     },
      "uvh0": 0.0,
      "uvh5": 0.0025
     },
     {
      "boss": "King Crosis",
+     "cn_name": {
+      "boss": "克罗西斯王"
+     },
      "uvh0": 0.0,
      "uvh5": 0.0025
     }
@@ -794,6 +969,10 @@
    "sources": [
     {
      "boss": "Bloomreaper the Invincible",
+     "cn_name": {
+      "boss": "无敌采花贼",
+      "encore_map": "绽放区"
+     },
      "encore": 0.0,
      "encore_id": 34,
      "encore_map": "The Bloom",
@@ -810,6 +989,9 @@
    "sources": [
     {
      "boss": "Bramblesong",
+     "cn_name": {
+      "boss": "荆棘之歌"
+     },
      "encore": 0.3,
      "encore_id": 58,
      "uvh0": 0.09,
@@ -825,6 +1007,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Origo",
+     "cn_name": {
+      "boss": "原始护卫者·发端",
+      "encore_map": "终点山脉秘藏"
+     },
      "encore": 0.3,
      "encore_id": 39,
      "encore_map": "Vault Mountains"
@@ -839,6 +1025,10 @@
    "sources": [
     {
      "boss": "CL34n.R",
+     "cn_name": {
+      "boss": "清洁机器人",
+      "encore_map": "曼陀林区1"
+     },
      "encore": 0.3,
      "encore_id": 31,
      "encore_map": "Mandolin 1",
@@ -869,6 +1059,10 @@
    "sources": [
     {
      "boss": "Crazed Earl",
+     "cn_name": {
+      "boss": "疯子厄尔",
+      "encore_map": "低语冰川"
+     },
      "encore": 0.09,
      "encore_id": 10,
      "encore_map": "The Whispering Glacier",
@@ -885,6 +1079,10 @@
    "sources": [
     {
      "boss": "Logistics Manager Reyes",
+     "cn_name": {
+      "boss": "后勤经理雷耶斯",
+      "encore_map": "普罗维登斯岛"
+     },
      "encore": 0.3,
      "encore_id": 24,
      "encore_map": "Providence Island",
@@ -901,6 +1099,10 @@
    "sources": [
     {
      "boss": "Captain Willis",
+     "cn_name": {
+      "boss": "威利斯队长",
+      "encore_map": "大漩涡"
+     },
      "encore": 0.3,
      "encore_id": 41,
      "encore_map": "The Maelstrom",
@@ -924,6 +1126,10 @@
    "sources": [
     {
      "boss": "Idolator Sol",
+     "cn_name": {
+      "boss": "教主索尔",
+      "encore_map": "隐没旷野堡垒"
+     },
      "encore": 0.3,
      "encore_id": 12,
      "encore_map": "Fortress Grasslands"
@@ -938,6 +1144,9 @@
    "sources": [
     {
      "boss": "Voraxis",
+     "cn_name": {
+      "boss": "沃拉克西斯"
+     },
      "encore": 0.3,
      "encore_id": 59,
      "uvh0": 0.09,
@@ -953,6 +1162,10 @@
    "sources": [
     {
      "boss": "Blackgrin",
+     "cn_name": {
+      "boss": "黑色笑靥",
+      "encore_map": "普罗维登斯岛"
+     },
      "encore": 0.3,
      "encore_id": 19,
      "encore_map": "Providence Island",
@@ -969,6 +1182,9 @@
    "sources": [
     {
      "boss": "Core Observer",
+     "cn_name": {
+      "boss": "核心观察者"
+     },
      "encore": 0.3,
      "encore_id": 54,
      "uvh0": 0.09,
@@ -984,6 +1200,9 @@
    "sources": [
     {
      "boss": "Bramblesong",
+     "cn_name": {
+      "boss": "荆棘之歌"
+     },
      "encore": 0.3,
      "encore_id": 58,
      "uvh0": 0.09,
@@ -999,6 +1218,10 @@
    "sources": [
     {
      "boss": "Ducky",
+     "cn_name": {
+      "boss": "小黄鸭",
+      "encore_map": "普罗维登斯岛"
+     },
      "encore": 0.3,
      "encore_id": 21,
      "encore_map": "Providence Island",
@@ -1013,6 +1236,10 @@
    "sources": [
     {
      "boss": "Idolator Sol",
+     "cn_name": {
+      "boss": "教主索尔",
+      "encore_map": "隐没旷野堡垒"
+     },
      "encore": 0.3,
      "encore_id": 12,
      "encore_map": "Fortress Grasslands"
@@ -1027,6 +1254,9 @@
    "sources": [
     {
      "boss": "Sidney Pointylegs",
+     "cn_name": {
+      "boss": "尖腿西德尼"
+     },
      "encore": 0.3,
      "encore_id": 64,
      "uvh0": 0.09,
@@ -1042,6 +1272,10 @@
    "sources": [
     {
      "boss": "F1x.R",
+     "cn_name": {
+      "boss": "维修机器人",
+      "encore_map": "曼陀林区1"
+     },
      "encore": 0.3,
      "encore_id": 32,
      "encore_map": "Mandolin 1",
@@ -1058,6 +1292,9 @@
    "sources": [
     {
      "boss": "Core Observer",
+     "cn_name": {
+      "boss": "核心观察者"
+     },
      "encore": 0.3,
      "encore_id": 54,
      "uvh0": 0.09,
@@ -1080,6 +1317,10 @@
    "sources": [
     {
      "boss": "Bore-Tex",
+     "cn_name": {
+      "boss": "钻旋风",
+      "encore_map": "恶魔领地"
+     },
      "encore": 0.3,
      "encore_id": 3,
      "encore_map": "The Demon's Domain",
@@ -1103,6 +1344,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Origo",
+     "cn_name": {
+      "boss": "原始护卫者·发端",
+      "encore_map": "终点山脉秘藏"
+     },
      "encore": 0.3,
      "encore_id": 39,
      "encore_map": "Vault Mountains"
@@ -1117,26 +1362,41 @@
    "sources": [
     {
      "boss": "Ten-Toes",
+     "cn_name": {
+      "boss": "十趾"
+     },
      "uvh0": 0.0,
      "uvh5": 0.0025
     },
     {
      "boss": "Slayowulf",
+     "cn_name": {
+      "boss": "斯莱奥武夫"
+     },
      "uvh0": 0.0,
      "uvh5": 0.0025
     },
     {
      "boss": "Theylob",
+     "cn_name": {
+      "boss": "瑟洛布"
+     },
      "uvh0": 0.0,
      "uvh5": 0.0025
     },
     {
      "boss": "Tiny Bigs",
+     "cn_name": {
+      "boss": "小大大"
+     },
      "uvh0": 0.0,
      "uvh5": 0.0025
     },
     {
      "boss": "King Crosis",
+     "cn_name": {
+      "boss": "克罗西斯王"
+     },
      "uvh0": 0.0,
      "uvh5": 0.0025
     }
@@ -1150,6 +1410,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Inceptus",
+     "cn_name": {
+      "boss": "原始护卫者·源始",
+      "encore_map": "隐没旷野秘藏"
+     },
      "encore": 0.3,
      "encore_id": 38,
      "encore_map": "Vault Grasslands"
@@ -1164,6 +1428,10 @@
    "sources": [
     {
      "boss": "Test Zero",
+     "cn_name": {
+      "boss": "零号试验体",
+      "encore_map": "努阿达海湾"
+     },
      "encore": 0.3,
      "encore_id": 44,
      "encore_map": "Nuada Cove",
@@ -1187,6 +1455,10 @@
    "sources": [
     {
      "boss": "Callis, the Ripper Queen",
+     "cn_name": {
+      "boss": "开颅者女王凯莉丝",
+      "encore_map": "卡尔卡丹堡垒"
+     },
      "encore": 0.3,
      "encore_id": 14,
      "encore_map": "Fortress Shatteredlands"
@@ -1201,30 +1473,45 @@
    "sources": [
     {
      "boss": "Blackspot Vilethorn",
+     "cn_name": {
+      "boss": "黑斑恶棘"
+     },
      "encore": 0.3,
      "uvh0": 0.09,
      "uvh5": 0.19
     },
     {
      "boss": "Gutslinger",
+     "cn_name": {
+      "boss": "抛肠客"
+     },
      "encore": 0.3,
      "uvh0": 0.09,
      "uvh5": 0.19
     },
     {
      "boss": "Grimebag Gilbert",
+     "cn_name": {
+      "boss": "污秽者吉尔伯特"
+     },
      "encore": 0.3,
      "uvh0": 0.09,
      "uvh5": 0.19
     },
     {
      "boss": "Unreal Steel Jayson",
+     "cn_name": {
+      "boss": "虚幻之钢杰森"
+     },
      "encore": 0.3,
      "uvh0": 0.09,
      "uvh5": 0.19
     },
     {
      "boss": "Cosmicreep",
+     "cn_name": {
+      "boss": "宇宙怪客"
+     },
      "encore": 0.3,
      "uvh0": 0.09,
      "uvh5": 0.19
@@ -1239,6 +1526,10 @@
    "sources": [
     {
      "boss": "Drilla Killa",
+     "cn_name": {
+      "boss": "钻杀者",
+      "encore_map": "普罗维登斯岛"
+     },
      "encore": 0.3,
      "encore_id": 20,
      "encore_map": "Providence Island",
@@ -1255,61 +1546,97 @@
    "sources": [
     {
      "boss": "Ol' Thrash",
+     "cn_name": {
+      "boss": "老特拉什"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Kraggula",
+     "cn_name": {
+      "boss": "克拉古拉"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Fulgur",
+     "cn_name": {
+      "boss": "富尔格"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Krag'thulu",
+     "cn_name": {
+      "boss": "克拉格苏鲁"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Slithertongue",
+     "cn_name": {
+      "boss": "滑舌"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Skullfire",
+     "cn_name": {
+      "boss": "颅火"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Ice Maw",
+     "cn_name": {
+      "boss": "冰颚"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Bitterblight",
+     "cn_name": {
+      "boss": "苦疫"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Thresh O' War",
+     "cn_name": {
+      "boss": "战争打谷机"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Botpopper",
+     "cn_name": {
+      "boss": "机器人爆破手"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Bone Boogie",
+     "cn_name": {
+      "boss": "骨骼布吉"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Oldbeard Worldthroat",
+     "cn_name": {
+      "boss": "老胡子世界之喉"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     }
@@ -1323,6 +1650,9 @@
    "sources": [
     {
      "boss": "Skull Orchid",
+     "cn_name": {
+      "boss": "骷髅兰"
+     },
      "encore": 0.3,
      "encore_id": 63,
      "uvh0": 0.09,
@@ -1338,61 +1668,97 @@
    "sources": [
     {
      "boss": "Ol' Thrash",
+     "cn_name": {
+      "boss": "老特拉什"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Kraggula",
+     "cn_name": {
+      "boss": "克拉古拉"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Fulgur",
+     "cn_name": {
+      "boss": "富尔格"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Krag'thulu",
+     "cn_name": {
+      "boss": "克拉格苏鲁"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Slithertongue",
+     "cn_name": {
+      "boss": "滑舌"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Skullfire",
+     "cn_name": {
+      "boss": "颅火"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Ice Maw",
+     "cn_name": {
+      "boss": "冰颚"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Bitterblight",
+     "cn_name": {
+      "boss": "苦疫"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Thresh O' War",
+     "cn_name": {
+      "boss": "战争打谷机"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Botpopper",
+     "cn_name": {
+      "boss": "机器人爆破手"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Bone Boogie",
+     "cn_name": {
+      "boss": "骨骼布吉"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Oldbeard Worldthroat",
+     "cn_name": {
+      "boss": "老胡子世界之喉"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     }
@@ -1400,12 +1766,16 @@
    "world": false
   }
  ],
- "fil\u00e1ntropo": [
+ "filántropo": [
   {
    "item": "classmod_exo_soldier.comp_05_legendary_02",
    "sources": [
     {
      "boss": "Primordial Guardian Inceptus",
+     "cn_name": {
+      "boss": "原始护卫者·源始",
+      "encore_map": "隐没旷野秘藏"
+     },
      "encore": 0.3,
      "encore_id": 38,
      "encore_map": "Vault Grasslands"
@@ -1420,6 +1790,9 @@
    "sources": [
     {
      "boss": "The Battle Wagon",
+     "cn_name": {
+      "boss": "战车"
+     },
      "encore": 0.3,
      "encore_id": 61,
      "uvh0": 0.09,
@@ -1442,6 +1815,9 @@
    "sources": [
     {
      "boss": "Leader Willem",
+     "cn_name": {
+      "boss": "头目威廉"
+     },
      "encore": 0.3,
      "encore_id": 51,
      "uvh0": 0.09,
@@ -1457,6 +1833,9 @@
    "sources": [
     {
      "boss": "Splashzone",
+     "cn_name": {
+      "boss": "溅射区"
+     },
      "encore": 0.3,
      "encore_id": 77,
      "uvh0": 0.09,
@@ -1479,6 +1858,10 @@
    "sources": [
     {
      "boss": "Arjay",
+     "cn_name": {
+      "boss": "阿杰",
+      "encore_map": "上城区"
+     },
      "encore": 0.3,
      "encore_id": 36,
      "encore_map": "Upper City",
@@ -1502,6 +1885,10 @@
    "sources": [
     {
      "boss": "Thol the Invincible",
+     "cn_name": {
+      "boss": "无敌索尔",
+      "encore_map": "镇压者巢穴"
+     },
      "encore": 0.15,
      "encore_id": 35,
      "encore_map": "Lair of the Subjugator",
@@ -1518,6 +1905,9 @@
    "sources": [
     {
      "boss": "The Penitent Steel",
+     "cn_name": {
+      "boss": "忏悔之钢"
+     },
      "uvh0": 0.09,
      "uvh5": 0.19
     }
@@ -1538,6 +1928,10 @@
    "sources": [
     {
      "boss": "Stone Demon",
+     "cn_name": {
+      "boss": "石魔",
+      "encore_map": "恶魔领地"
+     },
      "encore": 0.3,
      "encore_id": 1,
      "encore_map": "The Demon's Domain",
@@ -1554,6 +1948,9 @@
    "sources": [
     {
      "boss": "Volcanus",
+     "cn_name": {
+      "boss": "伏尔坎努斯"
+     },
      "encore": 0.3,
      "uvh0": 0.09,
      "uvh5": 0.19
@@ -1568,6 +1965,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Radix",
+     "cn_name": {
+      "boss": "原始护卫者·根源",
+      "encore_map": "卡尔卡丹秘藏"
+     },
      "encore": 0.3,
      "encore_id": 40,
      "encore_map": "Vault Shattered Lands"
@@ -1589,6 +1990,10 @@
    "sources": [
     {
      "boss": "Lieutenant Bume",
+     "cn_name": {
+      "boss": "布姆中尉",
+      "encore_map": "普罗维登斯岛"
+     },
      "encore": 0.3,
      "encore_id": 25,
      "encore_map": "Providence Island",
@@ -1605,6 +2010,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Radix",
+     "cn_name": {
+      "boss": "原始护卫者·根源",
+      "encore_map": "卡尔卡丹秘藏"
+     },
      "encore": 0.3,
      "encore_id": 40,
      "encore_map": "Vault Shattered Lands"
@@ -1619,6 +2028,10 @@
    "sources": [
     {
      "boss": "Idolator Sol",
+     "cn_name": {
+      "boss": "教主索尔",
+      "encore_map": "隐没旷野堡垒"
+     },
      "encore": 0.3,
      "encore_id": 12,
      "encore_map": "Fortress Grasslands"
@@ -1633,6 +2046,9 @@
    "sources": [
     {
      "boss": "Driller Hole",
+     "cn_name": {
+      "boss": "钻洞者"
+     },
      "encore": 0.3,
      "encore_id": 78,
      "uvh0": 0.09,
@@ -1648,6 +2064,9 @@
    "sources": [
     {
      "boss": "Driller Hole",
+     "cn_name": {
+      "boss": "钻洞者"
+     },
      "encore": 0.3,
      "encore_id": 78,
      "uvh0": 0.09,
@@ -1670,6 +2089,10 @@
    "sources": [
     {
      "boss": "Moon-Maddened Callis",
+     "cn_name": {
+      "boss": "月狂凯莉丝",
+      "encore_map": "厄尔庇斯轨道碎片区"
+     },
      "encore": 0.3,
      "encore_id": 11,
      "encore_map": "Elpis Orbital Shatterfield",
@@ -1686,6 +2109,10 @@
    "sources": [
     {
      "boss": "Vile Lictor",
+     "cn_name": {
+      "boss": "卑鄙鬼·里克托",
+      "encore_map": "终点山脉堡垒"
+     },
      "encore": 0.3,
      "encore_id": 13,
      "encore_map": "Fortress Mountains"
@@ -1700,6 +2127,9 @@
    "sources": [
     {
      "boss": "Vile Ted",
+     "cn_name": {
+      "boss": "卑鄙鬼·泰德"
+     },
      "encore": 0.3,
      "encore_id": 52,
      "uvh0": 0.09,
@@ -1707,6 +2137,9 @@
     },
     {
      "boss": "Experiment 42",
+     "cn_name": {
+      "boss": "42号实验体"
+     },
      "encore": 0.3,
      "encore_id": 52,
      "uvh0": 0.09,
@@ -1714,6 +2147,9 @@
     },
     {
      "boss": "Experiment 1709",
+     "cn_name": {
+      "boss": "1709号实验体"
+     },
      "encore": 0.3,
      "encore_id": 52,
      "uvh0": 0.09,
@@ -1736,6 +2172,10 @@
    "sources": [
     {
      "boss": "Idolator Sol",
+     "cn_name": {
+      "boss": "教主索尔",
+      "encore_map": "隐没旷野堡垒"
+     },
      "encore": 0.3,
      "encore_id": 12,
      "encore_map": "Fortress Grasslands",
@@ -1752,6 +2192,10 @@
    "sources": [
     {
      "boss": "Thol the Invincible",
+     "cn_name": {
+      "boss": "无敌索尔",
+      "encore_map": "镇压者巢穴"
+     },
      "encore": 0.0,
      "encore_id": 35,
      "encore_map": "Lair of the Subjugator",
@@ -1768,6 +2212,10 @@
    "sources": [
     {
      "boss": "Idolator Sol",
+     "cn_name": {
+      "boss": "教主索尔",
+      "encore_map": "隐没旷野堡垒"
+     },
      "encore": 0.3,
      "encore_id": 12,
      "encore_map": "Fortress Grasslands",
@@ -1784,6 +2232,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Radix",
+     "cn_name": {
+      "boss": "原始护卫者·根源",
+      "encore_map": "卡尔卡丹秘藏"
+     },
      "encore": 0.3,
      "encore_id": 40,
      "encore_map": "Vault Shattered Lands"
@@ -1805,6 +2257,10 @@
    "sources": [
     {
      "boss": "Arjay",
+     "cn_name": {
+      "boss": "阿杰",
+      "encore_map": "上城区"
+     },
      "encore": 0.3,
      "encore_id": 36,
      "encore_map": "Upper City",
@@ -1821,6 +2277,10 @@
    "sources": [
     {
      "boss": "Sturm",
+     "cn_name": {
+      "boss": "狂飙",
+      "encore_map": "恶魔领地"
+     },
      "encore": 0.3,
      "encore_id": 4,
      "encore_map": "The Demon's Domain",
@@ -1829,6 +2289,10 @@
     },
     {
      "boss": "Drang",
+     "cn_name": {
+      "boss": "怒涛",
+      "encore_map": "恶魔领地"
+     },
      "encore": 0.3,
      "encore_id": 4,
      "encore_map": "The Demon's Domain",
@@ -1845,6 +2309,10 @@
    "sources": [
     {
      "boss": "RelaxMech",
+     "cn_name": {
+      "boss": "悠闲机甲",
+      "encore_map": "普罗维登斯岛"
+     },
      "encore": 0.3,
      "encore_id": 17,
      "encore_map": "Providence Island",
@@ -1861,6 +2329,10 @@
    "sources": [
     {
      "boss": "Stone Demon",
+     "cn_name": {
+      "boss": "石魔",
+      "encore_map": "恶魔领地"
+     },
      "encore": 0.09,
      "encore_id": 1,
      "encore_map": "The Demon's Domain",
@@ -1877,6 +2349,10 @@
    "sources": [
     {
      "boss": "CL34n.R",
+     "cn_name": {
+      "boss": "清洁机器人",
+      "encore_map": "曼陀林区1"
+     },
      "encore": 0.3,
      "encore_id": 31,
      "encore_map": "Mandolin 1",
@@ -1900,6 +2376,10 @@
    "sources": [
     {
      "boss": "Minister Screw",
+     "cn_name": {
+      "boss": "斯克鲁部长",
+      "encore_map": "文化部"
+     },
      "encore": 0.3,
      "encore_id": 0,
      "encore_map": "Ministry of Culture",
@@ -1908,6 +2388,9 @@
     },
     {
      "boss": "Donk",
+     "cn_name": {
+      "boss": "唐克"
+     },
      "encore": 0.3,
      "uvh0": 0.09,
      "uvh5": 0.19
@@ -1922,6 +2405,9 @@
    "sources": [
     {
      "boss": "Vile Prototype",
+     "cn_name": {
+      "boss": "卑鄙原型机"
+     },
      "encore": 0.3,
      "encore_id": 76,
      "uvh0": 0.09,
@@ -1937,6 +2423,10 @@
    "sources": [
     {
      "boss": "Captain Willis",
+     "cn_name": {
+      "boss": "威利斯队长",
+      "encore_map": "大漩涡"
+     },
      "encore": 0.3,
      "encore_id": 41,
      "encore_map": "The Maelstrom",
@@ -1953,6 +2443,9 @@
    "sources": [
     {
      "boss": "Skyspanner Kratch",
+     "cn_name": {
+      "boss": "天穹扳手克拉奇"
+     },
      "encore": 0.3,
      "encore_id": 70,
      "uvh0": 0.09,
@@ -1968,6 +2461,9 @@
    "sources": [
     {
      "boss": "Bramblesong",
+     "cn_name": {
+      "boss": "荆棘之歌"
+     },
      "encore": 0.3,
      "encore_id": 58,
      "uvh0": 0.09,
@@ -1983,6 +2479,9 @@
    "sources": [
     {
      "boss": "The Immortal Boneface",
+     "cn_name": {
+      "boss": "不朽骨面"
+     },
      "encore": 0.3,
      "encore_id": 74,
      "uvh0": 0.09,
@@ -1998,6 +2497,10 @@
    "sources": [
     {
      "boss": "Colonel Crash",
+     "cn_name": {
+      "boss": "克拉什上校",
+      "encore_map": "低语冰川"
+     },
      "encore": 0.3,
      "encore_id": 5,
      "encore_map": "The Whispering Glacier",
@@ -2014,6 +2517,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Inceptus",
+     "cn_name": {
+      "boss": "原始护卫者·源始",
+      "encore_map": "隐没旷野秘藏"
+     },
      "encore": 0.0,
      "encore_id": 38,
      "encore_map": "Vault Grasslands",
@@ -2030,6 +2537,10 @@
    "sources": [
     {
      "boss": "Kolavalin",
+     "cn_name": {
+      "boss": "科拉瓦林",
+      "encore_map": "泰迪尔前沿基地布拉沃利马4.2"
+     },
      "encore": 0.3,
      "encore_id": 47,
      "encore_map": "Tediore FOB Bravo Lima 4.2",
@@ -2046,6 +2557,9 @@
    "sources": [
     {
      "boss": "Skyspanner Kratch",
+     "cn_name": {
+      "boss": "天穹扳手克拉奇"
+     },
      "encore": 0.3,
      "encore_id": 70,
      "uvh0": 0.09,
@@ -2061,6 +2575,9 @@
    "sources": [
     {
      "boss": "Big Oil",
+     "cn_name": {
+      "boss": "大石油"
+     },
      "uvh0": 0.09,
      "uvh5": 0.19
     }
@@ -2074,6 +2591,10 @@
    "sources": [
     {
      "boss": "Megan",
+     "cn_name": {
+      "boss": "梅根",
+      "encore_map": "普罗维登斯岛"
+     },
      "encore": 0.3,
      "encore_id": 23,
      "encore_map": "Providence Island",
@@ -2097,6 +2618,10 @@
    "sources": [
     {
      "boss": "Stone Demon",
+     "cn_name": {
+      "boss": "石魔",
+      "encore_map": "恶魔领地"
+     },
      "encore": 0.3,
      "encore_id": 1,
      "encore_map": "The Demon's Domain",
@@ -2113,6 +2638,9 @@
    "sources": [
     {
      "boss": "Callous Harbinger of Annihilating Death",
+     "cn_name": {
+      "boss": "冷酷的毁灭死亡先驱"
+     },
      "encore": 0.3,
      "encore_id": 68,
      "uvh0": 0.09,
@@ -2128,6 +2656,10 @@
    "sources": [
     {
      "boss": "Vile Lictor",
+     "cn_name": {
+      "boss": "卑鄙鬼·里克托",
+      "encore_map": "终点山脉堡垒"
+     },
      "encore": 0.3,
      "encore_id": 13,
      "encore_map": "Fortress Mountains"
@@ -2142,6 +2674,10 @@
    "sources": [
     {
      "boss": "F1x.R",
+     "cn_name": {
+      "boss": "维修机器人",
+      "encore_map": "曼陀林区1"
+     },
      "encore": 0.3,
      "encore_id": 32,
      "encore_map": "Mandolin 1",
@@ -2158,6 +2694,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Inceptus",
+     "cn_name": {
+      "boss": "原始护卫者·源始",
+      "encore_map": "隐没旷野秘藏"
+     },
      "encore": 0.3,
      "encore_id": 38,
      "encore_map": "Vault Grasslands",
@@ -2174,6 +2714,9 @@
    "sources": [
     {
      "boss": "MAXXXSUPREMENOOLIVES",
+     "cn_name": {
+      "boss": "至尊无橄榄麦克斯"
+     },
      "uvh0": 0.3,
      "uvh5": 0.3
     }
@@ -2187,61 +2730,97 @@
    "sources": [
     {
      "boss": "Ol' Thrash",
+     "cn_name": {
+      "boss": "老特拉什"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Kraggula",
+     "cn_name": {
+      "boss": "克拉古拉"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Fulgur",
+     "cn_name": {
+      "boss": "富尔格"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Krag'thulu",
+     "cn_name": {
+      "boss": "克拉格苏鲁"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Slithertongue",
+     "cn_name": {
+      "boss": "滑舌"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Skullfire",
+     "cn_name": {
+      "boss": "颅火"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Ice Maw",
+     "cn_name": {
+      "boss": "冰颚"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Bitterblight",
+     "cn_name": {
+      "boss": "苦疫"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Thresh O' War",
+     "cn_name": {
+      "boss": "战争打谷机"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Botpopper",
+     "cn_name": {
+      "boss": "机器人爆破手"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Bone Boogie",
+     "cn_name": {
+      "boss": "骨骼布吉"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Oldbeard Worldthroat",
+     "cn_name": {
+      "boss": "老胡子世界之喉"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     }
@@ -2255,6 +2834,10 @@
    "sources": [
     {
      "boss": "Callis, the Ripper Queen",
+     "cn_name": {
+      "boss": "开颅者女王凯莉丝",
+      "encore_map": "卡尔卡丹堡垒"
+     },
      "encore": 0.3,
      "encore_id": 14,
      "encore_map": "Fortress Shatteredlands"
@@ -2269,6 +2852,10 @@
    "sources": [
     {
      "boss": "Lieutenant Harmony",
+     "cn_name": {
+      "boss": "哈莫妮中尉",
+      "encore_map": "泰迪尔前沿基地布拉沃利马4.2"
+     },
      "encore": 0.3,
      "encore_id": 45,
      "encore_map": "Tediore FOB Bravo Lima 4.2",
@@ -2285,6 +2872,9 @@
    "sources": [
     {
      "boss": "Divisioner",
+     "cn_name": {
+      "boss": "分割者"
+     },
      "encore": 0.3,
      "encore_id": 71,
      "uvh0": 0.09,
@@ -2300,6 +2890,10 @@
    "sources": [
     {
      "boss": "Minister Screw",
+     "cn_name": {
+      "boss": "斯克鲁部长",
+      "encore_map": "文化部"
+     },
      "encore": 0.3,
      "encore_id": 0,
      "encore_map": "Ministry of Culture",
@@ -2308,6 +2902,9 @@
     },
     {
      "boss": "Donk",
+     "cn_name": {
+      "boss": "唐克"
+     },
      "encore": 0.3,
      "uvh0": 0.09,
      "uvh5": 0.19
@@ -2322,6 +2919,10 @@
    "sources": [
     {
      "boss": "Vile Lictor",
+     "cn_name": {
+      "boss": "卑鄙鬼·里克托",
+      "encore_map": "终点山脉堡垒"
+     },
      "encore": 0.3,
      "encore_id": 13,
      "encore_map": "Fortress Mountains"
@@ -2336,6 +2937,9 @@
    "sources": [
     {
      "boss": "Child of Terramorphous",
+     "cn_name": {
+      "boss": "特拉莫弗斯之子"
+     },
      "uvh0": 0.15,
      "uvh5": 0.275
     }
@@ -2349,6 +2953,10 @@
    "sources": [
     {
      "boss": "Subjugator the Invincible",
+     "cn_name": {
+      "boss": "无敌镇压者",
+      "encore_map": "镇压者巢穴"
+     },
      "encore": 0.0,
      "encore_id": 35,
      "encore_map": "Lair of the Subjugator",
@@ -2357,6 +2965,10 @@
     },
     {
      "boss": "Thol the Invincible",
+     "cn_name": {
+      "boss": "无敌索尔",
+      "encore_map": "镇压者巢穴"
+     },
      "encore": 0.0,
      "encore_id": 35,
      "encore_map": "Lair of the Subjugator",
@@ -2373,6 +2985,9 @@
    "sources": [
     {
      "boss": "Splashzone",
+     "cn_name": {
+      "boss": "溅射区"
+     },
      "encore": 0.3,
      "encore_id": 77,
      "uvh0": 0.09,
@@ -2388,6 +3003,10 @@
    "sources": [
     {
      "boss": "Bloomreaper the Invincible",
+     "cn_name": {
+      "boss": "无敌采花贼",
+      "encore_map": "绽放区"
+     },
      "encore": 0.25,
      "encore_id": 34,
      "encore_map": "The Bloom",
@@ -2404,6 +3023,10 @@
    "sources": [
     {
      "boss": "Callis, the Ripper Queen",
+     "cn_name": {
+      "boss": "开颅者女王凯莉丝",
+      "encore_map": "卡尔卡丹堡垒"
+     },
      "encore": 0.0,
      "encore_id": 14,
      "encore_map": "Fortress Shatteredlands",
@@ -2420,6 +3043,9 @@
    "sources": [
     {
      "boss": "Callous Harbinger of Annihilating Death",
+     "cn_name": {
+      "boss": "冷酷的毁灭死亡先驱"
+     },
      "encore": 0.3,
      "encore_id": 68,
      "uvh0": 0.09,
@@ -2435,6 +3061,10 @@
    "sources": [
     {
      "boss": "Subjugator the Invincible",
+     "cn_name": {
+      "boss": "无敌镇压者",
+      "encore_map": "镇压者巢穴"
+     },
      "encore": 0.0,
      "encore_id": 35,
      "encore_map": "Lair of the Subjugator",
@@ -2451,6 +3081,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Origo",
+     "cn_name": {
+      "boss": "原始护卫者·发端",
+      "encore_map": "终点山脉秘藏"
+     },
      "encore": 0.3,
      "encore_id": 39,
      "encore_map": "Vault Mountains",
@@ -2467,6 +3101,9 @@
    "sources": [
     {
      "boss": "Driller Hole",
+     "cn_name": {
+      "boss": "钻洞者"
+     },
      "encore": 0.3,
      "encore_id": 78,
      "uvh0": 0.09,
@@ -2482,6 +3119,9 @@
    "sources": [
     {
      "boss": "Sludgemaw",
+     "cn_name": {
+      "boss": "淤泥巨口"
+     },
      "encore": 0.3,
      "encore_id": 48,
      "uvh0": 0.09,
@@ -2497,6 +3137,9 @@
    "sources": [
     {
      "boss": "Axemaul",
+     "cn_name": {
+      "boss": "斧锤"
+     },
      "encore": 0.3,
      "encore_id": 50,
      "uvh0": 0.09,
@@ -2512,6 +3155,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Origo",
+     "cn_name": {
+      "boss": "原始护卫者·发端",
+      "encore_map": "终点山脉秘藏"
+     },
      "encore": 0.3,
      "encore_id": 39,
      "encore_map": "Vault Mountains"
@@ -2526,6 +3173,9 @@
    "sources": [
     {
      "boss": "Vile Prototype",
+     "cn_name": {
+      "boss": "卑鄙原型机"
+     },
      "encore": 0.3,
      "encore_id": 76,
      "uvh0": 0.09,
@@ -2548,6 +3198,10 @@
    "sources": [
     {
      "boss": "Sturm",
+     "cn_name": {
+      "boss": "狂飙",
+      "encore_map": "恶魔领地"
+     },
      "encore": 0.3,
      "encore_id": 4,
      "encore_map": "The Demon's Domain",
@@ -2556,6 +3210,10 @@
     },
     {
      "boss": "Drang",
+     "cn_name": {
+      "boss": "怒涛",
+      "encore_map": "恶魔领地"
+     },
      "encore": 0.3,
      "encore_id": 4,
      "encore_map": "The Demon's Domain",
@@ -2572,6 +3230,10 @@
    "sources": [
     {
      "boss": "Corporal Brennan",
+     "cn_name": {
+      "boss": "布伦南下士",
+      "encore_map": "低语冰川"
+     },
      "encore": 0.3,
      "encore_id": 9,
      "encore_map": "The Whispering Glacier",
@@ -2588,6 +3250,9 @@
    "sources": [
     {
      "boss": "Splashzone",
+     "cn_name": {
+      "boss": "溅射区"
+     },
      "encore": 0.3,
      "encore_id": 77,
      "uvh0": 0.09,
@@ -2603,6 +3268,10 @@
    "sources": [
     {
      "boss": "Big Bada Boom Drone",
+     "cn_name": {
+      "boss": "大爆炸无人机",
+      "encore_map": "普罗维登斯岛"
+     },
      "encore": 0.3,
      "encore_id": 18,
      "encore_map": "Providence Island",
@@ -2626,6 +3295,9 @@
    "sources": [
     {
      "boss": "Skyspanner Kratch",
+     "cn_name": {
+      "boss": "天穹扳手克拉奇"
+     },
      "encore": 0.3,
      "encore_id": 70,
      "uvh0": 0.09,
@@ -2641,6 +3313,9 @@
    "sources": [
     {
      "boss": "Gilgathresh",
+     "cn_name": {
+      "boss": "吉尔加什"
+     },
      "uvh0": 0.06,
      "uvh5": 0.1475
     }
@@ -2661,6 +3336,10 @@
    "sources": [
     {
      "boss": "Thol the Invincible",
+     "cn_name": {
+      "boss": "无敌索尔",
+      "encore_map": "镇压者巢穴"
+     },
      "encore": 0.15,
      "encore_id": 35,
      "encore_map": "Lair of the Subjugator",
@@ -2677,6 +3356,10 @@
    "sources": [
     {
      "boss": "Infamous Dave",
+     "cn_name": {
+      "boss": "恶名戴夫",
+      "encore_map": "毒怒区"
+     },
      "encore": 0.3,
      "encore_id": 28,
      "encore_map": "The Toxic Scowl",
@@ -2693,6 +3376,10 @@
    "sources": [
     {
      "boss": "Dr. Elena Smith",
+     "cn_name": {
+      "boss": "埃琳娜·史密斯博士",
+      "encore_map": "普罗维登斯岛"
+     },
      "encore": 0.3,
      "encore_id": 15,
      "encore_map": "Providence Island",
@@ -2709,6 +3396,9 @@
    "sources": [
     {
      "boss": "Saddleback",
+     "cn_name": {
+      "boss": "鞍背兽"
+     },
      "encore": 0.3,
      "encore_id": 74,
      "uvh0": 0.09,
@@ -2716,6 +3406,9 @@
     },
     {
      "boss": "The Immortal Boneface",
+     "cn_name": {
+      "boss": "不朽骨面"
+     },
      "encore": 0.3,
      "encore_id": 74,
      "uvh0": 0.09,
@@ -2731,6 +3424,9 @@
    "sources": [
     {
      "boss": "Horace",
+     "cn_name": {
+      "boss": "霍勒斯"
+     },
      "encore": 0.3,
      "encore_id": 53,
      "uvh0": 0.09,
@@ -2746,6 +3442,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Inceptus",
+     "cn_name": {
+      "boss": "原始护卫者·源始",
+      "encore_map": "隐没旷野秘藏"
+     },
      "encore": 0.3,
      "encore_id": 38,
      "encore_map": "Vault Grasslands"
@@ -2760,6 +3460,9 @@
    "sources": [
     {
      "boss": "Mimicron",
+     "cn_name": {
+      "boss": "拟态怪"
+     },
      "encore": 0.3,
      "encore_id": 56,
      "uvh0": 0.09,
@@ -2775,6 +3478,10 @@
    "sources": [
     {
      "boss": "Bloomreaper the Invincible",
+     "cn_name": {
+      "boss": "无敌采花贼",
+      "encore_map": "绽放区"
+     },
      "encore": 0.25,
      "encore_id": 34,
      "encore_map": "The Bloom",
@@ -2791,6 +3498,9 @@
    "sources": [
     {
      "boss": "Crackclaw",
+     "cn_name": {
+      "boss": "裂爪"
+     },
      "uvh0": 0.06,
      "uvh5": 0.1475
     }
@@ -2825,6 +3535,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Origo",
+     "cn_name": {
+      "boss": "原始护卫者·发端",
+      "encore_map": "终点山脉秘藏"
+     },
      "encore": 0.3,
      "encore_id": 39,
      "encore_map": "Vault Mountains"
@@ -2846,6 +3560,10 @@
    "sources": [
     {
      "boss": "Chiselbella",
+     "cn_name": {
+      "boss": "美凿",
+      "encore_map": "恶魔领地"
+     },
      "encore": 0.3,
      "encore_id": 2,
      "encore_map": "The Demon's Domain",
@@ -2883,6 +3601,10 @@
    "sources": [
     {
      "boss": "Vile Lictor",
+     "cn_name": {
+      "boss": "卑鄙鬼·里克托",
+      "encore_map": "终点山脉堡垒"
+     },
      "encore": 0.3,
      "encore_id": 13,
      "encore_map": "Fortress Mountains"
@@ -2897,6 +3619,9 @@
    "sources": [
     {
      "boss": "Genone",
+     "cn_name": {
+      "boss": "杰诺恩"
+     },
      "encore": 0.3,
      "encore_id": 66,
      "uvh0": 0.09,
@@ -2912,6 +3637,9 @@
    "sources": [
     {
      "boss": "Sidney Pointylegs",
+     "cn_name": {
+      "boss": "尖腿西德尼"
+     },
      "encore": 0.3,
      "encore_id": 64,
      "uvh0": 0.09,
@@ -2927,6 +3655,9 @@
    "sources": [
     {
      "boss": "Skull Orchid",
+     "cn_name": {
+      "boss": "骷髅兰"
+     },
      "encore": 0.3,
      "encore_id": 63,
      "uvh0": 0.09,
@@ -2942,6 +3673,10 @@
    "sources": [
     {
      "boss": "Moon-Maddened Callis",
+     "cn_name": {
+      "boss": "月狂凯莉丝",
+      "encore_map": "厄尔庇斯轨道碎片区"
+     },
      "encore": 0.3,
      "encore_id": 11,
      "encore_map": "Elpis Orbital Shatterfield",
@@ -2958,6 +3693,9 @@
    "sources": [
     {
      "boss": "Sludgemaw",
+     "cn_name": {
+      "boss": "淤泥巨口"
+     },
      "encore": 0.3,
      "encore_id": 48,
      "uvh0": 0.09,
@@ -2973,6 +3711,10 @@
    "sources": [
     {
      "boss": "Idolator Sol",
+     "cn_name": {
+      "boss": "教主索尔",
+      "encore_map": "隐没旷野堡垒"
+     },
      "encore": 0.3,
      "encore_id": 12,
      "encore_map": "Fortress Grasslands",
@@ -2996,6 +3738,9 @@
    "sources": [
     {
      "boss": "Genone",
+     "cn_name": {
+      "boss": "杰诺恩"
+     },
      "encore": 0.3,
      "encore_id": 66,
      "uvh0": 0.09,
@@ -3011,6 +3756,10 @@
    "sources": [
     {
      "boss": "Vile Grasp",
+     "cn_name": {
+      "boss": "卑鄙鬼·格拉斯普",
+      "encore_map": "厄尔庇斯暗面"
+     },
      "encore": 0.3,
      "encore_id": 42,
      "encore_map": "Dark Side of Elpis",
@@ -3034,6 +3783,9 @@
    "sources": [
     {
      "boss": "MAXXXSUPREMENOOLIVES",
+     "cn_name": {
+      "boss": "至尊无橄榄麦克斯"
+     },
      "uvh0": 0.3,
      "uvh5": 0.3
     }
@@ -3054,6 +3806,10 @@
    "sources": [
     {
      "boss": "BETAMAXXX",
+     "cn_name": {
+      "boss": "贝塔麦克斯",
+      "encore_map": "毒怒区"
+     },
      "encore": 0.3,
      "encore_id": 27,
      "encore_map": "The Toxic Scowl",
@@ -3070,6 +3826,9 @@
    "sources": [
     {
      "boss": "Horace",
+     "cn_name": {
+      "boss": "霍勒斯"
+     },
      "encore": 0.3,
      "encore_id": 53,
      "uvh0": 0.09,
@@ -3085,6 +3844,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Radix",
+     "cn_name": {
+      "boss": "原始护卫者·根源",
+      "encore_map": "卡尔卡丹秘藏"
+     },
      "encore": 0.0,
      "encore_id": 40,
      "encore_map": "Vault Shattered Lands",
@@ -3101,6 +3864,10 @@
    "sources": [
     {
      "boss": "Idolator Sol",
+     "cn_name": {
+      "boss": "教主索尔",
+      "encore_map": "隐没旷野堡垒"
+     },
      "encore": 0.0,
      "encore_id": 12,
      "encore_map": "Fortress Grasslands",
@@ -3117,6 +3884,10 @@
    "sources": [
     {
      "boss": "Unreal Steel",
+     "cn_name": {
+      "boss": "虚幻之钢",
+      "encore_map": "普罗维登斯岛"
+     },
      "encore": 0.3,
      "encore_id": 26,
      "encore_map": "Providence Island",
@@ -3133,6 +3904,9 @@
    "sources": [
     {
      "boss": "Pango",
+     "cn_name": {
+      "boss": "潘戈"
+     },
      "encore": 0.3,
      "encore_id": 75,
      "uvh0": 0.09,
@@ -3140,6 +3914,9 @@
     },
     {
      "boss": "Bango",
+     "cn_name": {
+      "boss": "班戈"
+     },
      "encore": 0.3,
      "encore_id": 75,
      "uvh0": 0.09,
@@ -3169,6 +3946,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Timekeeper",
+     "cn_name": {
+      "boss": "原始护卫者·时间尊者",
+      "encore_map": "上城区"
+     },
      "encore": 0.3,
      "encore_id": 37,
      "encore_map": "Upper City",
@@ -3192,6 +3973,10 @@
    "sources": [
     {
      "boss": "Skank Eyes",
+     "cn_name": {
+      "boss": "臭眼",
+      "encore_map": "毒怒区"
+     },
      "encore": 0.3,
      "encore_id": 30,
      "encore_map": "The Toxic Scowl",
@@ -3208,6 +3993,9 @@
    "sources": [
     {
      "boss": "Divisioner",
+     "cn_name": {
+      "boss": "分割者"
+     },
      "encore": 0.3,
      "encore_id": 71,
      "uvh0": 0.09,
@@ -3223,6 +4011,9 @@
    "sources": [
     {
      "boss": "Voraxis",
+     "cn_name": {
+      "boss": "沃拉克西斯"
+     },
      "encore": 0.3,
      "encore_id": 59,
      "uvh0": 0.09,
@@ -3230,6 +4021,9 @@
     },
     {
      "boss": "Gruntabulous Vork",
+     "cn_name": {
+      "boss": "咕噜沃克"
+     },
      "encore": 0.3,
      "encore_id": 72,
      "uvh0": 0.09,
@@ -3237,6 +4031,9 @@
     },
     {
      "boss": "Li'l Grunt",
+     "cn_name": {
+      "boss": "小咕噜"
+     },
      "encore": 0.3,
      "encore_id": 72,
      "uvh0": 0.09,
@@ -3244,6 +4041,9 @@
     },
     {
      "boss": "Baby Grunt",
+     "cn_name": {
+      "boss": "小咕噜"
+     },
      "encore": 0.3,
      "encore_id": 72,
      "uvh0": 0.09,
@@ -3266,6 +4066,10 @@
    "sources": [
     {
      "boss": "Hybrid Thresher",
+     "cn_name": {
+      "boss": "混种打谷机",
+      "encore_map": "厄尔庇斯暗面"
+     },
      "encore": 0.3,
      "encore_id": 43,
      "encore_map": "Dark Side of Elpis",
@@ -3296,6 +4100,9 @@
    "sources": [
     {
      "boss": "Bango",
+     "cn_name": {
+      "boss": "班戈"
+     },
      "encore": 0.3,
      "encore_id": 75,
      "uvh0": 0.09,
@@ -3311,6 +4118,9 @@
    "sources": [
     {
      "boss": "Divisioner",
+     "cn_name": {
+      "boss": "分割者"
+     },
      "encore": 0.3,
      "encore_id": 71,
      "uvh0": 0.09,
@@ -3326,6 +4136,10 @@
    "sources": [
     {
      "boss": "BETAMAXXX",
+     "cn_name": {
+      "boss": "贝塔麦克斯",
+      "encore_map": "毒怒区"
+     },
      "encore": 0.09,
      "encore_id": 27,
      "encore_map": "The Toxic Scowl",
@@ -3349,6 +4163,9 @@
    "sources": [
     {
      "boss": "Fractis",
+     "cn_name": {
+      "boss": "弗拉克提斯"
+     },
      "encore": 0.3,
      "encore_id": 55,
      "uvh0": 0.09,
@@ -3364,6 +4181,9 @@
    "sources": [
     {
      "boss": "Air Raider Scremulous",
+     "cn_name": {
+      "boss": "空袭者斯克雷姆勒斯"
+     },
      "uvh0": 0.09,
      "uvh5": 0.19
     }
@@ -3384,30 +4204,45 @@
    "sources": [
     {
      "boss": "Blackspot Vilethorn",
+     "cn_name": {
+      "boss": "黑斑恶棘"
+     },
      "encore": 0.09,
      "uvh0": 0.0,
      "uvh5": 0.0125
     },
     {
      "boss": "Gutslinger",
+     "cn_name": {
+      "boss": "抛肠客"
+     },
      "encore": 0.09,
      "uvh0": 0.0,
      "uvh5": 0.0125
     },
     {
      "boss": "Grimebag Gilbert",
+     "cn_name": {
+      "boss": "污秽者吉尔伯特"
+     },
      "encore": 0.09,
      "uvh0": 0.0,
      "uvh5": 0.0125
     },
     {
      "boss": "Unreal Steel Jayson",
+     "cn_name": {
+      "boss": "虚幻之钢杰森"
+     },
      "encore": 0.09,
      "uvh0": 0.0,
      "uvh5": 0.0125
     },
     {
      "boss": "Cosmicreep",
+     "cn_name": {
+      "boss": "宇宙怪客"
+     },
      "encore": 0.09,
      "uvh0": 0.0,
      "uvh5": 0.0125
@@ -3422,6 +4257,10 @@
    "sources": [
     {
      "boss": "Callis, the Ripper Queen",
+     "cn_name": {
+      "boss": "开颅者女王凯莉丝",
+      "encore_map": "卡尔卡丹堡垒"
+     },
      "encore": 0.3,
      "encore_id": 14,
      "encore_map": "Fortress Shatteredlands",
@@ -3438,6 +4277,10 @@
    "sources": [
     {
      "boss": "Brain Zane",
+     "cn_name": {
+      "boss": "脑型赞恩",
+      "encore_map": "曼陀林区1"
+     },
      "encore": 0.09,
      "encore_id": 33,
      "encore_map": "Mandolin 1",
@@ -3454,6 +4297,9 @@
    "sources": [
     {
      "boss": "Leader Willem",
+     "cn_name": {
+      "boss": "头目威廉"
+     },
      "encore": 0.3,
      "encore_id": 51,
      "uvh0": 0.09,
@@ -3476,6 +4322,9 @@
    "sources": [
     {
      "boss": "Vile Prototype",
+     "cn_name": {
+      "boss": "卑鄙原型机"
+     },
      "encore": 0.3,
      "encore_id": 76,
      "uvh0": 0.09,
@@ -3491,6 +4340,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Inceptus",
+     "cn_name": {
+      "boss": "原始护卫者·源始",
+      "encore_map": "隐没旷野秘藏"
+     },
      "encore": 0.3,
      "encore_id": 38,
      "encore_map": "Vault Grasslands",
@@ -3508,7 +4361,7 @@
    "world": false
   }
  ],
- "reaparici\u00f3n": [
+ "reaparición": [
   {
    "item": "classmod_exo_soldier.comp_05_legendary_cowbell",
    "sources": [],
@@ -3521,6 +4374,9 @@
    "sources": [
     {
      "boss": "Genone",
+     "cn_name": {
+      "boss": "杰诺恩"
+     },
      "encore": 0.3,
      "encore_id": 66,
      "uvh0": 0.09,
@@ -3536,6 +4392,10 @@
    "sources": [
     {
      "boss": "Captain Willis",
+     "cn_name": {
+      "boss": "威利斯队长",
+      "encore_map": "大漩涡"
+     },
      "encore": 0.3,
      "encore_id": 41,
      "encore_map": "The Maelstrom",
@@ -3559,6 +4419,10 @@
    "sources": [
     {
      "boss": "Experiment C-23",
+     "cn_name": {
+      "boss": "C-23号实验体",
+      "encore_map": "泰迪尔前沿基地布拉沃利马4.2"
+     },
      "encore": 0.3,
      "encore_id": 46,
      "encore_map": "Tediore FOB Bravo Lima 4.2",
@@ -3575,6 +4439,9 @@
    "sources": [
     {
      "boss": "Skull Orchid",
+     "cn_name": {
+      "boss": "骷髅兰"
+     },
      "encore": 0.3,
      "encore_id": 63,
      "uvh0": 0.09,
@@ -3604,6 +4471,10 @@
    "sources": [
     {
      "boss": "Bore-Tex",
+     "cn_name": {
+      "boss": "钻旋风",
+      "encore_map": "恶魔领地"
+     },
      "encore": 0.3,
      "encore_id": 3,
      "encore_map": "The Demon's Domain",
@@ -3620,6 +4491,10 @@
    "sources": [
     {
      "boss": "Idolator Sol",
+     "cn_name": {
+      "boss": "教主索尔",
+      "encore_map": "隐没旷野堡垒"
+     },
      "encore": 0.3,
      "encore_id": 12,
      "encore_map": "Fortress Grasslands"
@@ -3634,6 +4509,9 @@
    "sources": [
     {
      "boss": "Directive-0",
+     "cn_name": {
+      "boss": "零号指令"
+     },
      "encore": 0.3,
      "encore_id": 49,
      "uvh0": 0.09,
@@ -3649,6 +4527,10 @@
    "sources": [
     {
      "boss": "Minister Screw",
+     "cn_name": {
+      "boss": "斯克鲁部长",
+      "encore_map": "文化部"
+     },
      "encore": 0.3,
      "encore_id": 0,
      "encore_map": "Ministry of Culture",
@@ -3657,6 +4539,9 @@
     },
     {
      "boss": "Donk",
+     "cn_name": {
+      "boss": "唐克"
+     },
      "encore": 0.3,
      "uvh0": 0.09,
      "uvh5": 0.19
@@ -3671,6 +4556,10 @@
    "sources": [
     {
      "boss": "Vile Lictor",
+     "cn_name": {
+      "boss": "卑鄙鬼·里克托",
+      "encore_map": "终点山脉堡垒"
+     },
      "encore": 0.3,
      "encore_id": 13,
      "encore_map": "Fortress Mountains",
@@ -3687,6 +4576,9 @@
    "sources": [
     {
      "boss": "Rocken Roller",
+     "cn_name": {
+      "boss": "摇滚滚石"
+     },
      "encore": 0.3,
      "encore_id": 60,
      "uvh0": 0.09,
@@ -3702,6 +4594,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Radix",
+     "cn_name": {
+      "boss": "原始护卫者·根源",
+      "encore_map": "卡尔卡丹秘藏"
+     },
      "encore": 0.3,
      "encore_id": 40,
      "encore_map": "Vault Shattered Lands"
@@ -3716,6 +4612,10 @@
    "sources": [
     {
      "boss": "Crazed Earl",
+     "cn_name": {
+      "boss": "疯子厄尔",
+      "encore_map": "低语冰川"
+     },
      "encore": 0.3,
      "encore_id": 10,
      "encore_map": "The Whispering Glacier",
@@ -3732,6 +4632,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Origo",
+     "cn_name": {
+      "boss": "原始护卫者·发端",
+      "encore_map": "终点山脉秘藏"
+     },
      "encore": 0.0,
      "encore_id": 39,
      "encore_map": "Vault Mountains",
@@ -3755,6 +4659,9 @@
    "sources": [
     {
      "boss": "Vile Ted",
+     "cn_name": {
+      "boss": "卑鄙鬼·泰德"
+     },
      "encore": 0.3,
      "encore_id": 52,
      "uvh0": 0.09,
@@ -3762,6 +4669,9 @@
     },
     {
      "boss": "Experiment 42",
+     "cn_name": {
+      "boss": "42号实验体"
+     },
      "encore": 0.3,
      "encore_id": 52,
      "uvh0": 0.09,
@@ -3769,6 +4679,9 @@
     },
     {
      "boss": "Experiment 1709",
+     "cn_name": {
+      "boss": "1709号实验体"
+     },
      "encore": 0.3,
      "encore_id": 52,
      "uvh0": 0.09,
@@ -3784,26 +4697,41 @@
    "sources": [
     {
      "boss": "Ten-Toes",
+     "cn_name": {
+      "boss": "十趾"
+     },
      "uvh0": 0.09,
      "uvh5": 0.19
     },
     {
      "boss": "Slayowulf",
+     "cn_name": {
+      "boss": "斯莱奥武夫"
+     },
      "uvh0": 0.09,
      "uvh5": 0.19
     },
     {
      "boss": "Theylob",
+     "cn_name": {
+      "boss": "瑟洛布"
+     },
      "uvh0": 0.09,
      "uvh5": 0.19
     },
     {
      "boss": "Tiny Bigs",
+     "cn_name": {
+      "boss": "小大大"
+     },
      "uvh0": 0.09,
      "uvh5": 0.19
     },
     {
      "boss": "King Crosis",
+     "cn_name": {
+      "boss": "克罗西斯王"
+     },
      "uvh0": 0.09,
      "uvh5": 0.19
     }
@@ -3817,6 +4745,10 @@
    "sources": [
     {
      "boss": "Subjugator the Invincible",
+     "cn_name": {
+      "boss": "无敌镇压者",
+      "encore_map": "镇压者巢穴"
+     },
      "encore": 0.15,
      "encore_id": 35,
      "encore_map": "Lair of the Subjugator",
@@ -3833,6 +4765,10 @@
    "sources": [
     {
      "boss": "Jr. Manager Warrant Baggett",
+     "cn_name": {
+      "boss": "初级经理沃伦特·巴吉特",
+      "encore_map": "普罗维登斯岛"
+     },
      "encore": 0.3,
      "encore_id": 22,
      "encore_map": "Providence Island",
@@ -3849,6 +4785,9 @@
    "sources": [
     {
      "boss": "Child of Terramorphous",
+     "cn_name": {
+      "boss": "特拉莫弗斯之子"
+     },
      "uvh0": 0.0,
      "uvh5": 0.0875
     }
@@ -3862,6 +4801,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Origo",
+     "cn_name": {
+      "boss": "原始护卫者·发端",
+      "encore_map": "终点山脉秘藏"
+     },
      "encore": 0.3,
      "encore_id": 39,
      "encore_map": "Vault Mountains"
@@ -3883,6 +4826,9 @@
    "sources": [
     {
      "boss": "Saddleback",
+     "cn_name": {
+      "boss": "鞍背兽"
+     },
      "encore": 0.3,
      "encore_id": 74,
      "uvh0": 0.09,
@@ -3898,6 +4844,9 @@
    "sources": [
     {
      "boss": "Bio-Bulkhead",
+     "cn_name": {
+      "boss": "生化壁垒"
+     },
      "encore": 0.3,
      "encore_id": 65,
      "uvh0": 0.09,
@@ -3913,6 +4862,9 @@
    "sources": [
     {
      "boss": "Child of Terramorphous",
+     "cn_name": {
+      "boss": "特拉莫弗斯之子"
+     },
      "uvh0": 0.15,
      "uvh5": 0.275
     }
@@ -3926,6 +4878,9 @@
    "sources": [
     {
      "boss": "Divisioner",
+     "cn_name": {
+      "boss": "分割者"
+     },
      "encore": 0.3,
      "encore_id": 71,
      "uvh0": 0.09,
@@ -3948,6 +4903,10 @@
    "sources": [
     {
      "boss": "BETAMAXXX",
+     "cn_name": {
+      "boss": "贝塔麦克斯",
+      "encore_map": "毒怒区"
+     },
      "encore": 0.3,
      "encore_id": 27,
      "encore_map": "The Toxic Scowl",
@@ -3964,6 +4923,10 @@
    "sources": [
     {
      "boss": "Callis, the Ripper Queen",
+     "cn_name": {
+      "boss": "开颅者女王凯莉丝",
+      "encore_map": "卡尔卡丹堡垒"
+     },
      "encore": 0.3,
      "encore_id": 14,
      "encore_map": "Fortress Shatteredlands"
@@ -3978,6 +4941,9 @@
    "sources": [
     {
      "boss": "The Immortal Boneface",
+     "cn_name": {
+      "boss": "不朽骨面"
+     },
      "encore": 0.3,
      "encore_id": 74,
      "uvh0": 0.09,
@@ -3993,6 +4959,9 @@
    "sources": [
     {
      "boss": "Shadowpelt",
+     "cn_name": {
+      "boss": "暗影皮毛"
+     },
      "encore": 0.3,
      "encore_id": 62,
      "uvh0": 0.09,
@@ -4008,6 +4977,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Timekeeper",
+     "cn_name": {
+      "boss": "原始护卫者·时间尊者",
+      "encore_map": "上城区"
+     },
      "encore": 0.0,
      "encore_id": 37,
      "encore_map": "Upper City",
@@ -4024,6 +4997,9 @@
    "sources": [
     {
      "boss": "The Penitent Steel",
+     "cn_name": {
+      "boss": "忏悔之钢"
+     },
      "uvh0": 0.0,
      "uvh5": 0.0025
     }
@@ -4037,6 +5013,9 @@
    "sources": [
     {
      "boss": "Shadowpelt",
+     "cn_name": {
+      "boss": "暗影皮毛"
+     },
      "encore": 0.3,
      "encore_id": 62,
      "uvh0": 0.09,
@@ -4059,6 +5038,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Timekeeper",
+     "cn_name": {
+      "boss": "原始护卫者·时间尊者",
+      "encore_map": "上城区"
+     },
      "encore": 0.3,
      "encore_id": 37,
      "encore_map": "Upper City",
@@ -4082,6 +5065,9 @@
    "sources": [
     {
      "boss": "The Backhive",
+     "cn_name": {
+      "boss": "背巢"
+     },
      "encore": 0.3,
      "encore_id": 57,
      "uvh0": 0.09,
@@ -4097,6 +5083,9 @@
    "sources": [
     {
      "boss": "Pango",
+     "cn_name": {
+      "boss": "潘戈"
+     },
      "encore": 0.3,
      "encore_id": 75,
      "uvh0": 0.09,
@@ -4112,6 +5101,9 @@
    "sources": [
     {
      "boss": "The Oppressor",
+     "cn_name": {
+      "boss": "压迫者"
+     },
      "encore": 0.3,
      "encore_id": 69,
      "uvh0": 0.09,
@@ -4127,6 +5119,9 @@
    "sources": [
     {
      "boss": "Big Oil",
+     "cn_name": {
+      "boss": "大石油"
+     },
      "uvh0": 0.09,
      "uvh5": 0.19
     }
@@ -4140,6 +5135,10 @@
    "sources": [
     {
      "boss": "Vile Lictor",
+     "cn_name": {
+      "boss": "卑鄙鬼·里克托",
+      "encore_map": "终点山脉堡垒"
+     },
      "encore": 0.3,
      "encore_id": 13,
      "encore_map": "Fortress Mountains",
@@ -4156,6 +5155,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Timekeeper",
+     "cn_name": {
+      "boss": "原始护卫者·时间尊者",
+      "encore_map": "上城区"
+     },
      "encore": 0.3,
      "encore_id": 37,
      "encore_map": "Upper City",
@@ -4172,6 +5175,9 @@
    "sources": [
     {
      "boss": "Tidebreaker",
+     "cn_name": {
+      "boss": "破潮者"
+     },
      "uvh0": 0.06,
      "uvh5": 0.1475
     }
@@ -4185,6 +5191,9 @@
    "sources": [
     {
      "boss": "Sidney Pointylegs",
+     "cn_name": {
+      "boss": "尖腿西德尼"
+     },
      "encore": 0.3,
      "encore_id": 64,
      "uvh0": 0.09,
@@ -4207,6 +5216,10 @@
    "sources": [
     {
      "boss": "The Timekeeper",
+     "cn_name": {
+      "boss": "时间尊者",
+      "encore_map": "上城区"
+     },
      "encore": 0.3,
      "encore_id": 37,
      "encore_map": "Upper City",
@@ -4223,6 +5236,9 @@
    "sources": [
     {
      "boss": "Rocken Roller",
+     "cn_name": {
+      "boss": "摇滚滚石"
+     },
      "encore": 0.3,
      "encore_id": 60,
      "uvh0": 0.09,
@@ -4252,6 +5268,10 @@
    "sources": [
     {
      "boss": "Idolator Sol",
+     "cn_name": {
+      "boss": "教主索尔",
+      "encore_map": "隐没旷野堡垒"
+     },
      "encore": 0.3,
      "encore_id": 12,
      "encore_map": "Fortress Grasslands"
@@ -4266,6 +5286,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Radix",
+     "cn_name": {
+      "boss": "原始护卫者·根源",
+      "encore_map": "卡尔卡丹秘藏"
+     },
      "encore": 0.3,
      "encore_id": 40,
      "encore_map": "Vault Shattered Lands"
@@ -4294,6 +5318,10 @@
    "sources": [
     {
      "boss": "Corporal Brennan",
+     "cn_name": {
+      "boss": "布伦南下士",
+      "encore_map": "低语冰川"
+     },
      "encore": 0.3,
      "encore_id": 9,
      "encore_map": "The Whispering Glacier",
@@ -4310,6 +5338,10 @@
    "sources": [
     {
      "boss": "The Timekeeper",
+     "cn_name": {
+      "boss": "时间尊者",
+      "encore_map": "上城区"
+     },
      "encore": 0.3,
      "encore_id": 37,
      "encore_map": "Upper City",
@@ -4318,6 +5350,10 @@
     },
     {
      "boss": "Primordial Guardian Timekeeper",
+     "cn_name": {
+      "boss": "原始护卫者·时间尊者",
+      "encore_map": "上城区"
+     },
      "encore": 0.3,
      "encore_id": 37,
      "encore_map": "Upper City",
@@ -4334,6 +5370,10 @@
    "sources": [
     {
      "boss": "Callis, the Ripper Queen",
+     "cn_name": {
+      "boss": "开颅者女王凯莉丝",
+      "encore_map": "卡尔卡丹堡垒"
+     },
      "encore": 0.3,
      "encore_id": 14,
      "encore_map": "Fortress Shatteredlands"
@@ -4362,6 +5402,9 @@
    "sources": [
     {
      "boss": "The Backhive",
+     "cn_name": {
+      "boss": "背巢"
+     },
      "encore": 0.3,
      "encore_id": 57,
      "uvh0": 0.09,
@@ -4377,6 +5420,10 @@
    "sources": [
     {
      "boss": "Test Zero",
+     "cn_name": {
+      "boss": "零号试验体",
+      "encore_map": "努阿达海湾"
+     },
      "encore": 0.3,
      "encore_id": 44,
      "encore_map": "Nuada Cove",
@@ -4400,6 +5447,9 @@
    "sources": [
     {
      "boss": "Bio-Thresher Omega",
+     "cn_name": {
+      "boss": "生化打谷机欧米伽"
+     },
      "encore": 0.3,
      "encore_id": 67,
      "uvh0": 0.09,
@@ -4415,6 +5465,9 @@
    "sources": [
     {
      "boss": "Mimicron",
+     "cn_name": {
+      "boss": "拟态怪"
+     },
      "encore": 0.3,
      "encore_id": 56,
      "uvh0": 0.09,
@@ -4422,6 +5475,9 @@
     },
     {
      "boss": "Fractis",
+     "cn_name": {
+      "boss": "弗拉克提斯"
+     },
      "encore": 0.3,
      "encore_id": 55,
      "uvh0": 0.09,
@@ -4444,6 +5500,10 @@
    "sources": [
     {
      "boss": "Vile Lictor",
+     "cn_name": {
+      "boss": "卑鄙鬼·里克托",
+      "encore_map": "终点山脉堡垒"
+     },
      "encore": 0.3,
      "encore_id": 13,
      "encore_map": "Fortress Mountains"
@@ -4458,6 +5518,10 @@
    "sources": [
     {
      "boss": "Bloomreaper the Invincible",
+     "cn_name": {
+      "boss": "无敌采花贼",
+      "encore_map": "绽放区"
+     },
      "encore": 0.25,
      "encore_id": 34,
      "encore_map": "The Bloom",
@@ -4474,61 +5538,97 @@
    "sources": [
     {
      "boss": "Ol' Thrash",
+     "cn_name": {
+      "boss": "老特拉什"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Kraggula",
+     "cn_name": {
+      "boss": "克拉古拉"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Fulgur",
+     "cn_name": {
+      "boss": "富尔格"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Krag'thulu",
+     "cn_name": {
+      "boss": "克拉格苏鲁"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Slithertongue",
+     "cn_name": {
+      "boss": "滑舌"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Skullfire",
+     "cn_name": {
+      "boss": "颅火"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Ice Maw",
+     "cn_name": {
+      "boss": "冰颚"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Bitterblight",
+     "cn_name": {
+      "boss": "苦疫"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Thresh O' War",
+     "cn_name": {
+      "boss": "战争打谷机"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Botpopper",
+     "cn_name": {
+      "boss": "机器人爆破手"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Bone Boogie",
+     "cn_name": {
+      "boss": "骨骼布吉"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     },
     {
      "boss": "Oldbeard Worldthroat",
+     "cn_name": {
+      "boss": "老胡子世界之喉"
+     },
      "uvh0": 0.135,
      "uvh5": 0.285
     }
@@ -4542,6 +5642,9 @@
    "sources": [
     {
      "boss": "The Battle Wagon",
+     "cn_name": {
+      "boss": "战车"
+     },
      "encore": 0.3,
      "encore_id": 61,
      "uvh0": 0.09,
@@ -4557,6 +5660,10 @@
    "sources": [
     {
      "boss": "Bloomreaper the Invincible",
+     "cn_name": {
+      "boss": "无敌采花贼",
+      "encore_map": "绽放区"
+     },
      "encore": 0.25,
      "encore_id": 34,
      "encore_map": "The Bloom",
@@ -4573,6 +5680,9 @@
    "sources": [
     {
      "boss": "Shadowpelt",
+     "cn_name": {
+      "boss": "暗影皮毛"
+     },
      "encore": 0.3,
      "encore_id": 62,
      "uvh0": 0.09,
@@ -4588,26 +5698,41 @@
    "sources": [
     {
      "boss": "Ten-Toes",
+     "cn_name": {
+      "boss": "十趾"
+     },
      "uvh0": 0.09,
      "uvh5": 0.19
     },
     {
      "boss": "Slayowulf",
+     "cn_name": {
+      "boss": "斯莱奥武夫"
+     },
      "uvh0": 0.09,
      "uvh5": 0.19
     },
     {
      "boss": "Theylob",
+     "cn_name": {
+      "boss": "瑟洛布"
+     },
      "uvh0": 0.09,
      "uvh5": 0.19
     },
     {
      "boss": "Tiny Bigs",
+     "cn_name": {
+      "boss": "小大大"
+     },
      "uvh0": 0.09,
      "uvh5": 0.19
     },
     {
      "boss": "King Crosis",
+     "cn_name": {
+      "boss": "克罗西斯王"
+     },
      "uvh0": 0.09,
      "uvh5": 0.19
     }
@@ -4621,6 +5746,10 @@
    "sources": [
     {
      "boss": "Callis, the Ripper Queen",
+     "cn_name": {
+      "boss": "开颅者女王凯莉丝",
+      "encore_map": "卡尔卡丹堡垒"
+     },
      "encore": 0.3,
      "encore_id": 14,
      "encore_map": "Fortress Shatteredlands"
@@ -4635,6 +5764,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Inceptus",
+     "cn_name": {
+      "boss": "原始护卫者·源始",
+      "encore_map": "隐没旷野秘藏"
+     },
      "encore": 0.3,
      "encore_id": 38,
      "encore_map": "Vault Grasslands"
@@ -4670,6 +5803,9 @@
    "sources": [
     {
      "boss": "Bio-Bulkhead",
+     "cn_name": {
+      "boss": "生化壁垒"
+     },
      "encore": 0.3,
      "encore_id": 65,
      "uvh0": 0.09,
@@ -4685,6 +5821,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Origo",
+     "cn_name": {
+      "boss": "原始护卫者·发端",
+      "encore_map": "终点山脉秘藏"
+     },
      "encore": 0.3,
      "encore_id": 39,
      "encore_map": "Vault Mountains",
@@ -4701,6 +5841,10 @@
    "sources": [
     {
      "boss": "Callis, the Ripper Queen",
+     "cn_name": {
+      "boss": "开颅者女王凯莉丝",
+      "encore_map": "卡尔卡丹堡垒"
+     },
      "encore": 0.3,
      "encore_id": 14,
      "encore_map": "Fortress Shatteredlands"
@@ -4715,6 +5859,9 @@
    "sources": [
     {
      "boss": "Directive-0",
+     "cn_name": {
+      "boss": "零号指令"
+     },
      "encore": 0.3,
      "encore_id": 49,
      "uvh0": 0.09,
@@ -4730,6 +5877,10 @@
    "sources": [
     {
      "boss": "Hybrid Thresher",
+     "cn_name": {
+      "boss": "混种打谷机",
+      "encore_map": "厄尔庇斯暗面"
+     },
      "encore": 0.3,
      "encore_id": 43,
      "encore_map": "Dark Side of Elpis",
@@ -4746,6 +5897,10 @@
    "sources": [
     {
      "boss": "Primordial Guardian Radix",
+     "cn_name": {
+      "boss": "原始护卫者·根源",
+      "encore_map": "卡尔卡丹秘藏"
+     },
      "encore": 0.3,
      "encore_id": 40,
      "encore_map": "Vault Shattered Lands"
@@ -4760,6 +5915,9 @@
    "sources": [
     {
      "boss": "Gruntabulous Vork",
+     "cn_name": {
+      "boss": "咕噜沃克"
+     },
      "encore": 0.3,
      "encore_id": 72,
      "uvh0": 0.09,
@@ -4767,6 +5925,9 @@
     },
     {
      "boss": "Li'l Grunt",
+     "cn_name": {
+      "boss": "小咕噜"
+     },
      "encore": 0.3,
      "encore_id": 72,
      "uvh0": 0.09,
@@ -4774,6 +5935,9 @@
     },
     {
      "boss": "Baby Grunt",
+     "cn_name": {
+      "boss": "小咕噜"
+     },
      "encore": 0.3,
      "encore_id": 72,
      "uvh0": 0.09,
@@ -4789,6 +5953,9 @@
    "sources": [
     {
      "boss": "Leader Willem",
+     "cn_name": {
+      "boss": "头目威廉"
+     },
      "encore": 0.3,
      "encore_id": 51,
      "uvh0": 0.09,
