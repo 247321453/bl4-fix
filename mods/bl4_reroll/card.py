@@ -40,7 +40,7 @@ from .i18n import item_name, stat_labels
 KEY = "reroll"
 UI_DIR = "OakGame/Content/uiresources/bl4reroll"
 SCRIPT_URL = "coui://uiresources/bl4reroll/card.js"
-UI_FILES = ("card.js", "card.css")
+UI_FILES = ("card.js", "card.css", "menu_reroll.js")
 PUBLISH_S = 1.0
 # The script repeats what it shows a few times a second; older than this and the card is gone
 HOVER_FRESH_S = 1.0
@@ -92,6 +92,7 @@ class S:
     keys: Callable[[], tuple[str | None, str | None]] = lambda: (None, None)
     costs: Callable[[], tuple[int, int, int]] = lambda: (0, 0, 0)  # (all, one, legendary), from the options
     blocked: Callable[[], str | None] = lambda: None
+    suspend_keys: Callable[[], bool] = lambda: False  # Mod Menu owns input while showing
     slow_at = 0.0  # the next SLOW_S look (tick)
     menu_up = False  # _polling() as of then
 
@@ -558,6 +559,10 @@ def tick() -> None:
             S.keys_down.clear()
         if time.monotonic() > S.pending["due"]:
             _apply()
+        return
+    if S.suspend_keys():
+        S.keys_down.clear()
+        _cancel_confirm()
         return
     hover = S.hover
     if S.confirm_handle is not None and not _confirming(hover):

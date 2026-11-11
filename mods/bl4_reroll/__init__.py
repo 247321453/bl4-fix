@@ -59,7 +59,7 @@ from mods_base import (
 )
 from unrealsdk import logging
 
-from . import card, frametick, game, legendary, pak, reroll
+from . import card, frametick, game, legendary, menu_reroll, pak, reroll
 from .i18n import item_label, item_name, rarity_name, stat_name
 
 try:
@@ -360,6 +360,23 @@ def reroll_legendary(handle: int, serial: str | None = None) -> None:
         tell(str(ex), error=True)
 
 
+def _quick_menu_reroll(handle: int, serial: str, done: Callable[[], None]) -> None:
+    """The same whole-item transaction as the button, without a second confirmation."""
+    try:
+        plan = plan_legendary(handle, serial)
+    except (Refused, game.RerollError):
+        done()  # unsupported, stale, blocked or unaffordable: no transaction
+        return
+
+    def completed(result: dict[str, Any]) -> None:
+        try:
+            _tell_result(result)
+        finally:
+            done()
+
+    apply_async(plan, completed)
+
+
 # endregion
 # region Menu
 
@@ -388,11 +405,13 @@ def _title(slot: game.Slot) -> str:
 
 def _legendary_button(slot: game.Slot, item: legendary.Legend, display_name: str) -> ButtonOption:
     handle, serial = slot.handle, slot.item.serial
+    menu_reroll.remember(handle, serial)
     return ButtonOption(
         "legendary",
         display_name=f"{display_name}（{cost_legendary()} 镒矿）",
         description=(
             f"保持 {item_name(item.name)} 的 {item.level} 级，像重新掉落一样整体重掷：元素、配件、授权部件、固件、技能和词条等所有可随机生成的内容，均按游戏原有概率重新生成，稀有部件仍然稀有。装备等级和已应用的外观保持不变。"
+            "背包打开且 Mod 菜单停留在本物品子界面时（包括按 Esc 隐藏菜单后），也可使用“子界面快速整件重掷”快捷键直接执行。"
         ),
         on_press=lambda _: reroll_legendary(handle, serial),
     )
@@ -449,7 +468,8 @@ def _balance_text(eridium: int) -> str:
 
 
 def _build() -> list[BaseOption]:
-    settings: list[BaseOption] = [reroll_key, pick_key, cost_all_option, cost_one_option, cost_legendary_option]
+    menu_reroll.clear_pages()
+    settings: list[BaseOption] = [reroll_key, pick_key, menu_reroll_key, cost_all_option, cost_one_option, cost_legendary_option]
     S.balance_option = S.balance = None
     if (why := _blocked()) is not None:
         return [_info(why), *settings]
@@ -540,16 +560,17 @@ def _menu_showing() -> bool:
 def _tick() -> None:
     try:
         card.tick()
+        menu_reroll.tick()
     except Exception as ex:  # noqa: BLE001 - never let our tick break the game's
         _report(ex)
-    # The item pages are only rebuilt while the mod menu's screen shows (right away when it opens,
-    # then every REFRESH_S); in gameplay nothing here reads the backpack
+    # Refresh visible pages or a hidden retained item page while inventory is open. The latter
+    # must also get the new serial after a reroll, so another press can reroll the same item.
     # Asked MENU_CHECK_S apart, not every frame (it looks through the Mod Menu's modules)
     now = time.monotonic()
     if now < S.menu_check_at:
         return
     S.menu_check_at = now + MENU_CHECK_S
-    showing = _menu_showing()
+    showing = _menu_showing() or menu_reroll.active()
     opened = showing and not S.showing
     S.showing = showing
     if not showing:
@@ -616,6 +637,15 @@ reroll_key = KeybindOption(
     display_name="重掷快捷键",
     description=(
         "将鼠标悬停在背包中的职业模组或强化装置上，按此键可重掷全部词条，或替换通过选择键选中的词条。对于传奇或珠光装备，会重掷整件装备。重掷全部内容前需要再次按键确认。"
+    ),
+)
+menu_reroll_key = KeybindOption(
+    "Menu whole-item reroll key",
+    "R",
+    display_name="子界面快速整件重掷",
+    description=(
+        "仅在角色背包打开，且 Mod 菜单停留在本 Mod 的物品子界面时生效。按 Esc 隐藏菜单后仍有效；关闭背包或离开该子界面后无效。按一次直接执行“重掷整件装备”，无需再次确认，消耗现有设置的整件重掷费用。"
+        "只处理数据表收录且该子界面提供整件重掷按钮的物品；其他页面、不支持的物品或正在改键时不处理。长按不会连续重掷。"
     ),
 )
 pick_key = KeybindOption(
@@ -688,12 +718,24 @@ card.S.costs = lambda: (cost_all(), cost_one(), cost_legendary())
 card.S.blocked = _blocked
 
 
+menu_reroll.S.key = lambda: menu_reroll_key.value
+menu_reroll.S.allowed = lambda: mod.is_enabled and _blocked() is None and card.S.pending is None
+menu_reroll.S.execute = _quick_menu_reroll
+# Preserve the old hover-card bindings when the overlay is hidden, unless a binding collides:
+# the retained-page shortcut then owns that key, rather than rerolling a different hovered item.
+card.S.suspend_keys = lambda: (menu_reroll.S.busy or _menu_showing()
+                             or (menu_reroll.active() and menu_reroll_key.value is not None
+                                 and menu_reroll_key.value in (reroll_key.value, pick_key.value)))
+
+
 def _enable() -> None:
     start_data_check()
     card.register(GAME_DIR)
+    menu_reroll.register()
 
 
 def _disable() -> None:
+    menu_reroll.unregister()
     card.unregister()
 
 
@@ -707,7 +749,7 @@ ensure_on(__name__)
 mod = build_mod(
     # The rest of the options are built from the backpack (_refresh); these are listed here so
     # their saved values load
-    options=[reroll_key, pick_key, cost_all_option, cost_one_option, cost_legendary_option],
+    options=[reroll_key, pick_key, menu_reroll_key, cost_all_option, cost_one_option, cost_legendary_option],
     hooks=[_tick],
     commands=[reroll_command],
     on_enable=_enable,
