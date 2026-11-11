@@ -3,7 +3,9 @@
 
 from __future__ import annotations
 
+import json
 from functools import cache
+from importlib import resources
 
 # Known modifier labels. Internal keys, part IDs, weights and serials remain untranslated.
 STAT_NAMES: dict[str, str] = {
@@ -94,6 +96,32 @@ _RARITIES = {
     "pearl": "珠光",
     "pearlescent": "珠光",
 }
+
+
+@cache
+def item_names() -> dict[str, str]:
+    """English item name -> Chinese display name, from loose files or an sdkmod ZIP."""
+    try:
+        text = resources.files(__package__).joinpath("i18n.json").read_text(encoding="utf-8-sig")
+        labels = json.loads(text)
+    except (OSError, UnicodeError, ValueError):
+        return {}
+    if not isinstance(labels, dict):
+        return {}
+    return {
+        name: label
+        for name, label in labels.items()
+        if isinstance(name, str) and isinstance(label, str) and label.strip()
+    }
+
+
+def item_name(name: str) -> str:
+    """Display only: keep Legend.name, item keys and card-matching aliases unchanged."""
+    labels = item_names()
+    if name in labels:
+        return labels[name]
+    # Some entries have alternate names, e.g. "Aegon's Dream / Buzzymuzz".
+    return " / ".join(labels.get(alias, alias) for alias in name.split(" / "))
 
 
 @cache

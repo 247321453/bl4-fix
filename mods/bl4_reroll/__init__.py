@@ -60,7 +60,7 @@ from mods_base import (
 from unrealsdk import logging
 
 from . import card, frametick, game, legendary, pak, reroll
-from .i18n import item_label, rarity_name, stat_name
+from .i18n import item_label, item_name, rarity_name, stat_name
 
 try:
     from bl4_direct import coop
@@ -256,12 +256,12 @@ def plan_legendary(handle: int, serial: str | None = None, seed: int | None = No
     try:
         new_serial = legendary.reroll(item, random.Random(seed), game.Values.resolve)
     except (ValueError, KeyError, IndexError) as ex:
-        raise Refused(f"无法重掷 {item.name}（{ex}），未进行任何更改。") from ex
+        raise Refused(f"无法重掷 {item_name(item.name)}（{ex}），未进行任何更改。") from ex
     after = game.decode(new_serial)
     if after is None:
-        raise Refused(f"无法重掷 {item.name}，未进行任何更改。")
+        raise Refused(f"无法重掷 {item_name(item.name)}，未进行任何更改。")
     kind = "pearl" if item.pearl else "legendary"
-    return Plan(slot, after, cost_legendary(), f"已重掷 {item.name}：重新生成了一件 {item.level} 级{'珠光' if kind == 'pearl' else '传奇'}装备。",
+    return Plan(slot, after, cost_legendary(), f"已重掷 {item_name(item.name)}：重新生成了一件 {item.level} 级{'珠光' if kind == 'pearl' else '传奇'}装备。",
                 "legendary", None, seed)  # fmt: skip
 
 
@@ -380,7 +380,7 @@ class S:
 def _title(slot: game.Slot) -> str:
     item = slot.item
     if isinstance(item, legendary.Legend):
-        text = f"{item.name}（{'珠光' if item.pearl else '传奇'} {item_label(item.label)}），{item.level} 级"
+        text = f"{item_name(item.name)}（{'珠光' if item.pearl else '传奇'} {item_label(item.label)}），{item.level} 级"
     else:
         text = f"{rarity_name(item.rarity)} {item_label(item.label)}，{item.level} 级".strip()
     return text + ("（已装备）" if slot.equipped else "")
@@ -392,7 +392,7 @@ def _legendary_button(slot: game.Slot, item: legendary.Legend, display_name: str
         "legendary",
         display_name=f"{display_name}（{cost_legendary()} 镒矿）",
         description=(
-            f"保持 {item.name} 的 {item.level} 级，像重新掉落一样整体重掷：元素、配件、授权部件、固件、技能和词条等所有可随机生成的内容，均按游戏原有概率重新生成，稀有部件仍然稀有。装备等级和已应用的外观保持不变。"
+            f"保持 {item_name(item.name)} 的 {item.level} 级，像重新掉落一样整体重掷：元素、配件、授权部件、固件、技能和词条等所有可随机生成的内容，均按游戏原有概率重新生成，稀有部件仍然稀有。装备等级和已应用的外观保持不变。"
         ),
         on_press=lambda _: reroll_legendary(handle, serial),
     )

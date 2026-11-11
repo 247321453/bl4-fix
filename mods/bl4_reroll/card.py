@@ -35,7 +35,7 @@ from typing import Any
 from unrealsdk import logging
 
 from . import game, health, legendary, reroll, uilink
-from .i18n import stat_labels
+from .i18n import item_name, stat_labels
 
 KEY = "reroll"
 UI_DIR = "OakGame/Content/uiresources/bl4reroll"
@@ -286,7 +286,7 @@ def _items_state() -> list[dict[str, Any]]:
                 "rarity": item.rarity,
                 "equipped": slot.equipped,
                 "aliases": _aliases(item),
-                "title": item.name,
+                "title": item_name(item.name),
                 "pearl": item.pearl,
                 "plain": [], "names": [], "locked": [], "skills": {},
             })  # fmt: skip
