@@ -2582,7 +2582,7 @@
    "max": 5,
    "stats": [
     {
-     "text": "[secondary]军械伤害：[/secondary] {0} {1}",
+     "text": "[secondary]炮械伤害：[/secondary] {0} {1}",
      "args": {
       "0": {
        "attribute": "Calc_CH_UI_Passive_90_ExplosiveMindset_BonusDamage",
@@ -3190,7 +3190,7 @@
      }
     },
     {
-     "text": "[secondary]军械冷却速率：[/secondary] {0} {1}",
+     "text": "[secondary]炮械冷却速率：[/secondary] {0} {1}",
      "args": {
       "0": {
        "attribute": "Att_Calc_Corpohacker_PSV_61_ViolentOutburst_OrdnanceCDR",
@@ -3233,7 +3233,7 @@
      }
     },
     {
-     "text": "[secondary]军械伤害：[/secondary] {0} {1} / [secondary]层[/secondary]",
+     "text": "[secondary]炮械伤害：[/secondary] {0} {1} / [secondary]层[/secondary]",
      "args": {
       "0": {
        "attribute": "Att_Calc_Corpohacker_PSV_58_WatchYourStep_OrdnanceDamage_ToolTip",
@@ -7294,7 +7294,7 @@
    "max": 5,
    "stats": [
     {
-     "text": "[secondary]军械伤害：[/secondary]，最高 {0} {1}",
+     "text": "[secondary]炮械伤害：[/secondary]，最高 {0} {1}",
      "args": {
       "0": {
        "attribute": "calc_ui_robo_passive_25_TheTurn_OrdnanceDamage",
@@ -8308,7 +8308,7 @@
    "max": 5,
    "stats": [
     {
-     "text": "[secondary]军械伤害：[/secondary] {0} {1}",
+     "text": "[secondary]炮械伤害：[/secondary] {0} {1}",
      "args": {
       "0": {
        "attribute": "Calc_Robo_03_Steam_OrdnanceDamage",
@@ -10412,7 +10412,7 @@
      }
     },
     {
-     "text": "[secondary]军械冷却速率：[/secondary] {0} {1}（满值时）[secondary]护盾[/secondary]",
+     "text": "[secondary]炮械冷却速率：[/secondary] {0} {1}（满值时）[secondary]护盾[/secondary]",
      "args": {
       "0": {
        "attribute": "Att_Calc_DS_P_SpiritCooling_OrdnanceCooldownRate_ToolTip",
@@ -10931,7 +10931,7 @@
      }
     },
     {
-     "text": "[secondary]军械冷却恢复：[/secondary] {0} {1}",
+     "text": "[secondary]炮械冷却恢复：[/secondary] {0} {1}",
      "args": {
       "0": {
        "attribute": "Att_Calc_DS_P_CryonicAttunement_OrdnanceCooldownRestoration_Tooltip",
@@ -11074,7 +11074,7 @@
    "max": 5,
    "stats": [
     {
-     "text": "[secondary]军械伤害：[/secondary] {0} {1}",
+     "text": "[secondary]炮械伤害：[/secondary] {0} {1}",
      "args": {
       "0": {
        "attribute": "Att_Calc_DS_P_ExplosiveFiends_GadgetDamage",
@@ -11092,7 +11092,7 @@
      }
     },
     {
-     "text": "[secondary]仆从伤害：[/secondary] {0} {1} × 全部加成：[secondary]军械伤害[/secondary] ",
+     "text": "[secondary]仆从伤害：[/secondary] {0} {1} × 全部加成：[secondary]炮械伤害[/secondary] ",
      "args": {
       "0": {
        "attribute": "Att_Calc_DS_P_ExplosiveFiends_GadgetDamage_To_CompanionDamage_Tooltip",
@@ -13328,7 +13328,7 @@
      }
     },
     {
-     "text": "[secondary]军械伤害：[/secondary] {0} {1}",
+     "text": "[secondary]炮械伤害：[/secondary] {0} {1}",
      "args": {
       "0": {
        "attribute": "Att_Calc_DS_P_ClawAndBang_OrdnanceDamage",
@@ -13999,7 +13999,7 @@
    "max": 5,
    "stats": [
     {
-     "text": "[secondary]军械冷却速率：[/secondary] {0} {1}",
+     "text": "[secondary]炮械冷却速率：[/secondary] {0} {1}",
      "args": {
       "0": {
        "attribute": "Calc_Exo_Passive_68_Artilleria_CDR",
@@ -14185,7 +14185,7 @@
    "max": 5,
    "stats": [
     {
-     "text": "[secondary]额外火焰军械伤害：[/secondary] {0} {1} × 造成伤害",
+     "text": "[secondary]额外火焰炮械伤害：[/secondary] {0} {1} × 造成伤害",
      "args": {
       "0": {
        "attribute": "Calc_Exo_Passive_73_ElDiabilito_BonusDamage",
@@ -14620,7 +14620,7 @@
    "max": 5,
    "stats": [
     {
-     "text": "[secondary]军械伤害：[/secondary] {0} {1}",
+     "text": "[secondary]炮械伤害：[/secondary] {0} {1}",
      "args": {
       "0": {
        "attribute": "att_ui_exo_passives_18_theRightTools_gadgetDamage_noStacks",
@@ -16095,7 +16095,7 @@
    "max": 5,
    "stats": [
     {
-     "text": "[secondary]军械冷却速率：[/secondary] {0} {1}",
+     "text": "[secondary]炮械冷却速率：[/secondary] {0} {1}",
      "args": {
       "0": {
        "attribute": "Calc_Exo_Passive_06_Arriba_OrdnanceCDR",
@@ -20289,7 +20289,7 @@
      }
     },
     {
-     "text": "[secondary]军械伤害：[/secondary] {0} {1}条件：[secondary]满值[/secondary]",
+     "text": "[secondary]炮械伤害：[/secondary] {0} {1}条件：[secondary]满值[/secondary]",
      "args": {
       "0": {
        "attribute": "Att_Calc_PLD_P_ShieldMatrix_OrdnanceDamage_ToolTip",
@@ -21048,7 +21048,7 @@
      }
     },
     {
-     "text": "[secondary]军械冷却恢复：[/secondary] {0} {1}",
+     "text": "[secondary]炮械冷却恢复：[/secondary] {0} {1}",
      "args": {
       "0": {
        "attribute": "Att_Calc_PLD_P_ElementalFont_OrdnanceRestoration",
@@ -21228,7 +21228,7 @@
    "max": 5,
    "stats": [
     {
-     "text": "[secondary]额外护盾：[/secondary] {0} {1} × [secondary]军械伤害[/secondary]造成",
+     "text": "[secondary]额外护盾：[/secondary] {0} {1} × [secondary]炮械伤害[/secondary]造成",
      "args": {
       "0": {
        "attribute": "Att_Calc_PLD_P_BallisticShielding_ToolTip",
@@ -22022,7 +22022,7 @@
      }
     },
     {
-     "text": "[secondary]军械几率：[/secondary] {0} {1}",
+     "text": "[secondary]炮械几率：[/secondary] {0} {1}",
      "args": {
       "0": {
        "attribute": "Att_PLD_P_WeakeningBlast_OrdnanceWeaknessApplicationChance_ToolTip",
@@ -22714,7 +22714,7 @@
    "max": 5,
    "stats": [
     {
-     "text": "[secondary]军械伤害：[/secondary] {0} {1}",
+     "text": "[secondary]炮械伤害：[/secondary] {0} {1}",
      "args": {
       "0": {
        "attribute": "Att_Calc_PLD_P_Demolitionist_OrdnanceDamage",
@@ -23010,7 +23010,7 @@
    "max": 3,
    "stats": [
     {
-     "text": "[secondary]军械冷却恢复：[/secondary] {0} {1}",
+     "text": "[secondary]炮械冷却恢复：[/secondary] {0} {1}",
      "args": {
       "0": {
        "attribute": "Att_Calc_PLD_P_Machinist_OrdnanceCooldown_ToolTip",

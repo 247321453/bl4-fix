@@ -21,7 +21,7 @@
      "key": "stat2_ordnance_cooldown",
      "group": "stat_group2",
      "name": "Ordnance Cooldown Rate",
-     "cn_name": "军械冷却速率",
+     "cn_name": "炮械冷却速率",
      "add": [
       "cm_stat_ordnance_cooldown"
      ],
@@ -35,7 +35,7 @@
      "key": "stat_ordnance_cooldown",
      "group": "stat_group1",
      "name": "Ordnance Cooldown Rate",
-     "cn_name": "军械冷却速率",
+     "cn_name": "炮械冷却速率",
      "add": [
       "cm_stat_ordnance_cooldown"
      ],
@@ -99,7 +99,7 @@
      "key": "stat_criticalhitchance_ordnance",
      "group": "stat_group1",
      "name": "Ordnance Critical Hit Chance",
-     "cn_name": "军械暴击率",
+     "cn_name": "炮械暴击率",
      "add": [
       "cm_stat_criticalhitchance_ordnance"
      ],
@@ -113,7 +113,7 @@
      "key": "stat2_criticalhitchance_ordnance",
      "group": "stat_group2",
      "name": "Ordnance Critical Hit Chance",
-     "cn_name": "军械暴击率",
+     "cn_name": "炮械暴击率",
      "add": [
       "cm_stat_criticalhitchance_ordnance"
      ],
@@ -211,7 +211,7 @@
      "key": "stat2_ordnance_damage",
      "group": "stat_group2",
      "name": "Ordnance Damage",
-     "cn_name": "军械伤害",
+     "cn_name": "炮械伤害",
      "add": [
       "cm_stat_grenade_damage"
      ],
@@ -225,7 +225,7 @@
      "key": "stat_ordnance_damage",
      "group": "stat_group1",
      "name": "Ordnance Damage",
-     "cn_name": "军械伤害",
+     "cn_name": "炮械伤害",
      "add": [
       "cm_stat_grenade_damage"
      ],

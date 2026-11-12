@@ -448,7 +448,7 @@
     "count": 1,
     "lines": [
      {
-      "text": "[secondary]军械冷却时间[/secondary]缩短[secondary]{mod}[/secondary]",
+      "text": "[secondary]炮械冷却时间[/secondary]缩短[secondary]{mod}[/secondary]",
       "args": {
        "mod": {
         "attribute": "Fw_GadgetAhoy1_Gadget_Cooldown",
@@ -465,7 +465,7 @@
     "count": 2,
     "lines": [
      {
-      "text": "[secondary]军械伤害[/secondary]提升[secondary]{mod}[/secondary]",
+      "text": "[secondary]炮械伤害[/secondary]提升[secondary]{mod}[/secondary]",
       "args": {
        "mod": {
         "attribute": "Fw_GadgetAhoy3_Damage",
@@ -482,7 +482,7 @@
     "count": 3,
     "lines": [
      {
-      "text": "[secondary]军械[/secondary]击杀后获得[secondary]{mod} 伤害[/secondary]加成，持续[secondary]{duration}秒[/secondary]",
+      "text": "[secondary]炮械[/secondary]击杀后获得[secondary]{mod} 伤害[/secondary]加成，持续[secondary]{duration}秒[/secondary]",
       "args": {
        "mod": {
         "attribute": "Fw_GadgetAhoy3_Damage",
