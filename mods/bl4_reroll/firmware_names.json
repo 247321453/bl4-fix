@@ -1,7 +1,7 @@
 {
  "fw_action_fist": {
   "name": "Action Fist",
-  "cn_name": "动能之拳"
+  "cn_name": "动能拳头"
  },
  "fw_airstrike": {
   "name": "Airstrike",
@@ -9,11 +9,11 @@
  },
  "fw_atlas_ex": {
   "name": "Atlas E.X.",
-  "cn_name": "阿特拉斯 E.X."
+  "cn_name": "阿特拉斯E.X."
  },
  "fw_atlas_infinum": {
   "name": "Atlas Infinum",
-  "cn_name": "阿特拉斯无尽能量"
+  "cn_name": "阿特拉斯无限量"
  },
  "fw_baker": {
   "name": "Baker",
@@ -21,23 +21,23 @@
  },
  "fw_bullets_to_spare": {
   "name": "Bullets To Spare",
-  "cn_name": "弹药充裕"
+  "cn_name": "备用子弹"
  },
  "fw_daeddy_o": {
   "name": "Daed-dy O'",
-  "cn_name": "代达老爹"
+  "cn_name": "大情圣"
  },
  "fw_deadeye": {
   "name": "Deadeye",
-  "cn_name": "神射手"
+  "cn_name": "神枪手"
  },
  "fw_gadget_ahoy": {
   "name": "Gadget Ahoy",
-  "cn_name": "装置出击"
+  "cn_name": "装置启动"
  },
  "fw_get_throwin": {
   "name": "Get Throwin'",
-  "cn_name": "尽情投掷"
+  "cn_name": "发球入场"
  },
  "fw_god_killer": {
   "name": "God Killer",
@@ -49,7 +49,7 @@
  },
  "fw_heating_up": {
   "name": "Heating Up",
-  "cn_name": "逐渐升温"
+  "cn_name": "加热升温"
  },
  "fw_high_caliber": {
   "name": "High Caliber",
@@ -57,15 +57,15 @@
  },
  "fw_jacked": {
   "name": "Jacked",
-  "cn_name": "强力强化"
+  "cn_name": "杰克式改造"
  },
  "fw_lifeblood": {
   "name": "Lifeblood",
-  "cn_name": "生命之血"
+  "cn_name": "命脉"
  },
  "fw_oscar_mike": {
   "name": "Oscar Mike",
-  "cn_name": "行动起来"
+  "cn_name": "正在行动"
  },
  "fw_raid1_skillcraft": {
   "name": "Skillcraft",
@@ -77,11 +77,11 @@
  },
  "fw_reel_big_fist": {
   "name": "Reel Big Fist",
-  "cn_name": "巨拳来袭"
+  "cn_name": "沙包大拳头"
  },
  "fw_risky_boots": {
   "name": "Risky Boots",
-  "cn_name": "冒险之靴"
+  "cn_name": "风险启用"
  },
  "fw_rubberband_man": {
   "name": "Rubberband Man",
@@ -93,6 +93,6 @@
  },
  "fw_tuba_bruiser": {
   "name": "Bruiser",
-  "cn_name": "打手"
+  "cn_name": "重击者"
  }
 }

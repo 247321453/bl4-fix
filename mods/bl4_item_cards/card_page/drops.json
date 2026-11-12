@@ -16,7 +16,9 @@
      "uvh5": 0.0025
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Abyss",
+   "cn_name": "深渊"
   }
  ],
  "acey may": [
@@ -36,7 +38,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Acey May",
+   "cn_name": "艾西·梅"
   }
  ],
  "adrenaline pump": [
@@ -56,7 +60,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Adrenaline Pump",
+   "cn_name": "肾上腺素泵"
   }
  ],
  "aegon's dream": [
@@ -74,7 +80,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Aegon's Dream",
+   "cn_name": "伊耿的梦想"
   }
  ],
  "aerodramatic": [
@@ -94,14 +102,18 @@
      "uvh5": 0.0025
     }
    ],
-   "world": false
+   "world": false,
+   "name": "AeroDramatic",
+   "cn_name": "空中戏剧"
   }
  ],
  "alignment": [
   {
    "item": "ord_grenade_gadget.comp_05_legendary_alignment",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Alignment",
+   "cn_name": "协调一致"
   }
  ],
  "anarchy": [
@@ -121,35 +133,45 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Anarchy",
+   "cn_name": "无政府主义"
   }
  ],
  "anchor": [
   {
    "item": "ord_turret_gadget.comp_05_legendary_anchor",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Anchor",
+   "cn_name": "铁锚"
   }
  ],
  "ancient": [
   {
    "item": "ord_grenade_gadget.comp_05_legendary_alignment",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Ancient",
+   "cn_name": "古老"
   }
  ],
  "arc-tan": [
   {
    "item": "tor_sg.comp_05_legendary_arctic",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "ARC-TAN",
+   "cn_name": "正反切"
   }
  ],
  "artificer": [
   {
    "item": "classmod_paladin.comp_05_legendary_raid2",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Artificer",
+   "cn_name": "军工技师"
   }
  ],
  "artillery sphere": [
@@ -169,7 +191,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Artillery Sphere",
+   "cn_name": "火炮球体"
   }
  ],
  "asher's rise": [
@@ -187,7 +211,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Asher's Rise",
+   "cn_name": "亚瑟的崛起"
   }
  ],
  "astonisher": [
@@ -207,7 +233,9 @@
      "uvh5": 0.0125
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Astonisher",
+   "cn_name": "惊奇者"
   }
  ],
  "atling gun": [
@@ -225,7 +253,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Atling Gun",
+   "cn_name": "阿特林机枪"
   }
  ],
  "augmenter af1000": [
@@ -243,7 +273,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Augmenter AF1000",
+   "cn_name": "义体AF1000"
   }
  ],
  "avarice": [
@@ -263,7 +295,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Avarice",
+   "cn_name": "贪婪"
   }
  ],
  "avatar": [
@@ -281,7 +315,9 @@
      "encore_map": "Vault Grasslands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Avatar",
+   "cn_name": "神通"
   }
  ],
  "barb'ara": [
@@ -297,7 +333,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Barb'ara",
+   "cn_name": "芭芭拉"
   }
  ],
  "bio-robot": [
@@ -315,7 +353,9 @@
      "encore_map": "Fortress Grasslands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Bio-Robot",
+   "cn_name": "生化机器"
   }
  ],
  "birt's bees": [
@@ -333,7 +373,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Birt's Bees",
+   "cn_name": "伯特的蜜蜂"
   }
  ],
  "bismuth-tipped dagger": [
@@ -353,7 +395,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Bismuth-Tipped Dagger",
+   "cn_name": "铋尖匕首"
   }
  ],
  "blacksmith": [
@@ -371,7 +415,9 @@
      "encore_map": "Fortress Mountains"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Blacksmith",
+   "cn_name": "铁匠"
   }
  ],
  "blockbuster": [
@@ -391,7 +437,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Blockbuster",
+   "cn_name": "一鸣惊人"
   }
  ],
  "blood analyzer": [
@@ -409,7 +457,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Blood Analyzer",
+   "cn_name": "血液分析仪"
   }
  ],
  "blood moon": [
@@ -429,7 +479,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Blood Moon",
+   "cn_name": "血月"
   }
  ],
  "bloody lumberjack": [
@@ -447,7 +499,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Bloody Lumberjack",
+   "cn_name": "血腥伐木工"
   }
  ],
  "bod": [
@@ -465,14 +519,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Bod",
+   "cn_name": "生化"
   }
  ],
  "bombastic": [
   {
    "item": "classmod_exo_soldier.comp_05_legendary_raid2",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Bombastic",
+   "cn_name": "夸夸其谈"
   }
  ],
  "bonnie and clyde": [
@@ -490,14 +548,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Bonnie and Clyde",
+   "cn_name": "雌雄大盗"
   }
  ],
  "boomer": [
   {
    "item": "classmod_corpohacker.comp_05_legendary_raid1",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Boomer",
+   "cn_name": "爆破手"
   }
  ],
  "boomslang": [
@@ -515,7 +577,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Boomslang",
+   "cn_name": "树蛇"
   }
  ],
  "borstel ballista": [
@@ -535,7 +599,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Borstel Ballista",
+   "cn_name": "博斯特尔弩炮"
   }
  ],
  "bottled lightning": [
@@ -555,7 +621,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Bottled Lightning",
+   "cn_name": "瓶装闪电"
   }
  ],
  "brickhouse": [
@@ -575,7 +643,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Brickhouse",
+   "cn_name": "砖屋"
   }
  ],
  "broken wings": [
@@ -595,7 +665,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Broken Wings",
+   "cn_name": "折翼"
   }
  ],
  "bubbles": [
@@ -615,7 +687,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Bubbles",
+   "cn_name": "泡泡"
   }
  ],
  "budget deity": [
@@ -633,7 +707,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Budget Deity",
+   "cn_name": "预算之神"
   }
  ],
  "bugbear": [
@@ -661,7 +737,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Bugbear",
+   "cn_name": "熊熊虫"
   }
  ],
  "bully": [
@@ -679,7 +757,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Bully",
+   "cn_name": "霸凌"
   }
  ],
  "buoy": [
@@ -697,7 +777,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Buoy",
+   "cn_name": "浮标"
   }
  ],
  "buster": [
@@ -715,7 +797,9 @@
      "encore_map": "Vault Mountains"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Buster",
+   "cn_name": "破坏分子"
   }
  ],
  "buzz axe": [
@@ -733,7 +817,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Buzz Axe",
+   "cn_name": "震颤斧"
   }
  ],
  "buzzymuzz": [
@@ -751,7 +837,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Buzzymuzz",
+   "cn_name": "嗡嗡枪口"
   }
  ],
  "chaumurky": [
@@ -769,14 +857,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Chaumurky",
+   "cn_name": "乔穆尔基"
   }
  ],
  "chirurgeon": [
   {
    "item": "classmod_gravitar.comp_05_legendary_tuba",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Chirurgeon",
+   "cn_name": "外科医生"
   }
  ],
  "chuck": [
@@ -804,7 +896,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Chuck",
+   "cn_name": "查克"
   }
  ],
  "cindershelly": [
@@ -822,7 +916,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Cindershelly",
+   "cn_name": "灰烬壳"
   }
  ],
  "clarity": [
@@ -842,14 +938,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Clarity",
+   "cn_name": "克拉里蒂"
   }
  ],
  "cold shoulder": [
   {
    "item": "tor_ar.comp_05_legendary_coldshoulder",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Cold Shoulder",
+   "cn_name": "冷屁股"
   }
  ],
  "collector": [
@@ -869,7 +969,9 @@
      "uvh5": 0.25
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Collector",
+   "cn_name": "收藏家"
   }
  ],
  "compleation": [
@@ -887,7 +989,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Compleation",
+   "cn_name": "完成"
   }
  ],
  "complex root": [
@@ -905,14 +1009,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Complex Root",
+   "cn_name": "复杂根须"
   }
  ],
  "configuration": [
   {
    "item": "classmod_dark_siren.comp_05_legendary_cowbell",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Configuration",
+   "cn_name": "配置"
   }
  ],
  "conflux": [
@@ -960,7 +1068,9 @@
      "uvh5": 0.0025
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Conflux",
+   "cn_name": "汇流"
   }
  ],
  "constable": [
@@ -980,7 +1090,9 @@
      "uvh5": 0.025
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Constable",
+   "cn_name": "康斯特布尔"
   }
  ],
  "convergence": [
@@ -998,7 +1110,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Convergence",
+   "cn_name": "汇聚"
   }
  ],
  "cooler": [
@@ -1016,7 +1130,9 @@
      "encore_map": "Vault Mountains"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Cooler",
+   "cn_name": "冷却器"
   }
  ],
  "cooper duper": [
@@ -1036,21 +1152,27 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Cooper Duper",
+   "cn_name": "库珀欺诈者"
   }
  ],
  "cormano": [
   {
    "item": "tor_sg.comp_05_legendary_cormano",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Cormano",
+   "cn_name": "科尔马诺"
   }
  ],
  "countermeasure": [
   {
    "item": "tor_grenade_gadget.comp_05_legendary_flare",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Countermeasure",
+   "cn_name": "反制措施"
   }
  ],
  "crazed earl": [
@@ -1070,7 +1192,9 @@
      "uvh5": 0.0025
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Crazed Earl",
+   "cn_name": "疯狂厄尔"
   }
  ],
  "critical decay": [
@@ -1090,7 +1214,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Critical Decay",
+   "cn_name": "暴击衰减"
   }
  ],
  "crow-sourced": [
@@ -1110,14 +1236,18 @@
      "uvh5": 0.0025
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Crow-Sourced",
+   "cn_name": "大众协作"
   }
  ],
  "damned": [
   {
    "item": "classmod_paladin.comp_05_legendary_tuba",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Damned",
+   "cn_name": "诅咒"
   }
  ],
  "dancer": [
@@ -1135,7 +1265,9 @@
      "encore_map": "Fortress Grasslands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Dancer",
+   "cn_name": "舞者"
   }
  ],
  "darkbeast": [
@@ -1153,7 +1285,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Darkbeast",
+   "cn_name": "暗兽"
   }
  ],
  "decompiler": [
@@ -1173,7 +1307,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Decompiler",
+   "cn_name": "反编译器"
   }
  ],
  "defibrillator": [
@@ -1191,7 +1327,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Defibrillator",
+   "cn_name": "除颤仪"
   }
  ],
  "destructo disco": [
@@ -1209,7 +1347,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Destructo Disco",
+   "cn_name": "毁灭迪斯科"
   }
  ],
  "devourer": [
@@ -1229,7 +1369,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Devourer",
+   "cn_name": "吞噬者"
   },
   {
    "item": "classmod_corpohacker.comp_05_legendary_01",
@@ -1245,7 +1387,9 @@
      "encore_map": "Fortress Grasslands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Devourer",
+   "cn_name": "吞噬者"
   }
  ],
  "disc jockey": [
@@ -1263,7 +1407,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Disc Jockey",
+   "cn_name": "唱片骑师"
   }
  ],
  "discy business": [
@@ -1283,7 +1429,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Discy Business",
+   "cn_name": "盘子生意"
   }
  ],
  "divided focus": [
@@ -1301,14 +1449,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Divided Focus",
+   "cn_name": "焦点分散"
   }
  ],
  "divided glow": [
   {
    "item": "ord_ar.comp_05_legendary_testament",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Divided Glow",
+   "cn_name": "分裂光芒"
   }
  ],
  "doeshot": [
@@ -1328,14 +1480,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Doeshot",
+   "cn_name": "一命呼呼"
   }
  ],
  "draupner": [
   {
    "item": "bor_hw.comp_05_legendary_draupner",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Draupner",
+   "cn_name": "德劳普纳"
   }
  ],
  "driver": [
@@ -1353,7 +1509,9 @@
      "encore_map": "Vault Mountains"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Driver",
+   "cn_name": "司机"
   }
  ],
  "eigenburst": [
@@ -1401,7 +1559,9 @@
      "uvh5": 0.0025
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Eigenburst",
+   "cn_name": "特征爆发"
   }
  ],
  "elementalist": [
@@ -1419,7 +1579,9 @@
      "encore_map": "Vault Grasslands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Elementalist",
+   "cn_name": "元素使者"
   }
  ],
  "enumeration": [
@@ -1439,14 +1601,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Enumeration",
+   "cn_name": "枚举"
   }
  ],
  "eradication": [
   {
    "item": "vla_ar.comp_05_legendary_extinction",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Eradication",
+   "cn_name": "根除"
   }
  ],
  "esgrimidor": [
@@ -1464,7 +1630,9 @@
      "encore_map": "Fortress Shatteredlands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Esgrimidor",
+   "cn_name": "击剑手"
   }
  ],
  "exfoliatrix": [
@@ -1517,7 +1685,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Exfoliatrix",
+   "cn_name": "前任剥皮姬"
   }
  ],
  "exhibition": [
@@ -1537,7 +1707,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Exhibition",
+   "cn_name": "展览"
   }
  ],
  "falke": [
@@ -1641,7 +1813,9 @@
      "uvh5": 0.285
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Falke",
+   "cn_name": "猎鹰"
   }
  ],
  "faulty detonator": [
@@ -1659,7 +1833,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Faulty Detonator",
+   "cn_name": "雷管故障"
   }
  ],
  "fearstalker": [
@@ -1763,7 +1939,9 @@
      "uvh5": 0.285
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Fearstalker",
+   "cn_name": "恐惧追猎者"
   }
  ],
  "filántropo": [
@@ -1781,7 +1959,9 @@
      "encore_map": "Vault Grasslands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Filántropo",
+   "cn_name": "慈善家"
   }
  ],
  "finnity xxx-l": [
@@ -1799,14 +1979,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Finnity XXX-L",
+   "cn_name": "芬妮迪XXX-L"
   }
  ],
  "firebreak": [
   {
    "item": "bor_shield.comp_05_legendary_firewall",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Firebreak",
+   "cn_name": "防火线"
   }
  ],
  "firepot": [
@@ -1824,7 +2008,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Firepot",
+   "cn_name": "火锅"
   }
  ],
  "firewerks": [
@@ -1842,14 +2028,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Firewerks",
+   "cn_name": "烟火表演"
   }
  ],
  "first impression": [
   {
    "item": "dad_ar.comp_05_legendary_firstimpression",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "First Impression",
+   "cn_name": "第一印象"
   }
  ],
  "fisheye": [
@@ -1869,14 +2059,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Fisheye",
+   "cn_name": "鱼眼"
   }
  ],
  "fishward": [
   {
    "item": "jak_ar.comp_05_legendary_fishward",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Fishward",
+   "cn_name": "鱼群"
   }
  ],
  "flak cannon": [
@@ -1896,7 +2090,9 @@
      "uvh5": 0.25
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Flak Cannon",
+   "cn_name": "高射炮"
   }
  ],
  "flash cyclone": [
@@ -1912,14 +2108,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Flash Cyclone",
+   "cn_name": "闪电旋风"
   }
  ],
  "flash fuel": [
   {
    "item": "jak_ar.comp_05_legendary_flashfuel",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Flash Fuel",
+   "cn_name": "闪光燃料"
   }
  ],
  "fleabag": [
@@ -1939,7 +2139,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Fleabag",
+   "cn_name": "跳蚤袋"
   }
  ],
  "font of life": [
@@ -1956,7 +2158,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Font of Life",
+   "cn_name": "生命源泉"
   }
  ],
  "forge master": [
@@ -1974,14 +2178,18 @@
      "encore_map": "Vault Shattered Lands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Forge Master",
+   "cn_name": "锻造大师"
   }
  ],
  "forsaken chaos": [
   {
    "item": "ted_sg.comp_05_legendary_commbd",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Forsaken Chaos",
+   "cn_name": "遗弃之混沌"
   }
  ],
  "fourier's malady": [
@@ -2001,7 +2209,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Fourier's Malady",
+   "cn_name": "傅里叶综合症"
   }
  ],
  "functional human": [
@@ -2019,7 +2229,9 @@
      "encore_map": "Vault Shattered Lands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Functional Human",
+   "cn_name": "功能性人类"
   }
  ],
  "furnace": [
@@ -2037,7 +2249,9 @@
      "encore_map": "Fortress Grasslands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Furnace",
+   "cn_name": "熔炉"
   }
  ],
  "fuse": [
@@ -2055,7 +2269,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Fuse",
+   "cn_name": "导火索"
   }
  ],
  "g.m.r.": [
@@ -2073,14 +2289,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "G.M.R.",
+   "cn_name": "G.M.R."
   }
  ],
  "gamer": [
   {
    "item": "classmod_robodealer.comp_05_legendary_dlc1",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Gamer",
+   "cn_name": "玩家"
   }
  ],
  "gamma void": [
@@ -2100,7 +2320,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Gamma Void",
+   "cn_name": "伽马虚空"
   }
  ],
  "generator": [
@@ -2118,7 +2340,9 @@
      "encore_map": "Fortress Mountains"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Generator",
+   "cn_name": "发电机"
   }
  ],
  "goalkeeper": [
@@ -2156,14 +2380,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Goalkeeper",
+   "cn_name": "门将"
   }
  ],
  "goat": [
   {
    "item": "classmod_dark_siren.comp_05_legendary_harmonica",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "GOAT",
+   "cn_name": "史上最强"
   }
  ],
  "golden god": [
@@ -2183,7 +2411,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Golden God",
+   "cn_name": "黄金之神"
   }
  ],
  "gomie": [
@@ -2203,7 +2433,9 @@
      "uvh5": 0.025
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Gomie",
+   "cn_name": "老铁"
   }
  ],
  "goremaster": [
@@ -2223,7 +2455,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Goremaster",
+   "cn_name": "血腥大师"
   }
  ],
  "grenazerker": [
@@ -2241,14 +2475,18 @@
      "encore_map": "Vault Shattered Lands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Grenazerker",
+   "cn_name": "掷弹狂战士"
   }
  ],
  "grim sister": [
   {
    "item": "classmod_dark_siren.comp_05_legendary_raid2",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Grim Sister",
+   "cn_name": "冷酷姐姐"
   }
  ],
  "guardian angel": [
@@ -2268,7 +2506,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Guardian Angel",
+   "cn_name": "守护天使"
   }
  ],
  "hair trigger": [
@@ -2300,7 +2540,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Hair Trigger",
+   "cn_name": "一触即发"
   }
  ],
  "hand frag": [
@@ -2320,7 +2562,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Hand Frag",
+   "cn_name": "破片手雷"
   }
  ],
  "handcannon": [
@@ -2340,7 +2584,9 @@
      "uvh5": 0.0025
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Handcannon",
+   "cn_name": "手铳"
   }
  ],
  "hard dark": [
@@ -2360,14 +2606,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Hard Dark",
+   "cn_name": "黑暗能量"
   }
  ],
  "hardpoint": [
   {
    "item": "tor_ps.comp_05_legendary_breadth",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Hardpoint",
+   "cn_name": "承力点"
   }
  ],
  "healthraiser": [
@@ -2396,7 +2646,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Healthraiser",
+   "cn_name": "生命值提升器"
   }
  ],
  "heavyweight": [
@@ -2414,7 +2666,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Heavyweight",
+   "cn_name": "重量级"
   }
  ],
  "heimdahl": [
@@ -2434,7 +2688,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Heimdahl",
+   "cn_name": "海姆达尔"
   }
  ],
  "hellfire": [
@@ -2452,7 +2708,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Hellfire",
+   "cn_name": "地狱火"
   }
  ],
  "hellhound": [
@@ -2470,7 +2728,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Hellhound",
+   "cn_name": "地狱猎犬"
   }
  ],
  "hellwalker": [
@@ -2488,7 +2748,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Hellwalker",
+   "cn_name": "地狱行者"
   }
  ],
  "hemorrhage": [
@@ -2508,7 +2770,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Hemorrhage",
+   "cn_name": "出血"
   }
  ],
  "herald": [
@@ -2528,7 +2792,9 @@
      "uvh5": 0.0025
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Herald",
+   "cn_name": "赫拉德"
   }
  ],
  "hippo gun": [
@@ -2548,7 +2814,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Hippo Gun",
+   "cn_name": "河马枪"
   }
  ],
  "hoarder": [
@@ -2566,7 +2834,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Hoarder",
+   "cn_name": "囤积者"
   }
  ],
  "honey badger": [
@@ -2582,7 +2852,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Honey Badger",
+   "cn_name": "蜜獾"
   }
  ],
  "honeymooner": [
@@ -2602,14 +2874,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Honeymooner",
+   "cn_name": "蜜月期"
   }
  ],
  "hooligan": [
   {
    "item": "classmod_robodealer.comp_05_legendary_raid1",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Hooligan",
+   "cn_name": "街头混混"
   }
  ],
  "hopscotch": [
@@ -2629,7 +2905,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Hopscotch",
+   "cn_name": "跳房子"
   }
  ],
  "hot slugger": [
@@ -2647,7 +2925,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Hot Slugger",
+   "cn_name": "强力重击手"
   }
  ],
  "hotshot": [
@@ -2665,7 +2945,9 @@
      "encore_map": "Fortress Mountains"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Hotshot",
+   "cn_name": "能人"
   }
  ],
  "hugger": [
@@ -2685,7 +2967,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Hugger",
+   "cn_name": "拥抱者"
   }
  ],
  "husky friend": [
@@ -2705,7 +2989,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Husky Friend",
+   "cn_name": "哈士奇好友"
   }
  ],
  "hydrowerks": [
@@ -2721,7 +3007,9 @@
      "uvh5": 0.3
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Hydrowerks",
+   "cn_name": "水力机械"
   }
  ],
  "ichor": [
@@ -2825,7 +3113,9 @@
      "uvh5": 0.285
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Ichor",
+   "cn_name": "灵液"
   }
  ],
  "illusionist": [
@@ -2843,7 +3133,9 @@
      "encore_map": "Fortress Shatteredlands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Illusionist",
+   "cn_name": "幻术师"
   }
  ],
  "infection": [
@@ -2863,7 +3155,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Infection",
+   "cn_name": "感染"
   }
  ],
  "inkling": [
@@ -2881,7 +3175,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Inkling",
+   "cn_name": "迹象"
   }
  ],
  "inscriber": [
@@ -2910,7 +3206,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Inscriber",
+   "cn_name": "记录器"
   }
  ],
  "instigator": [
@@ -2928,7 +3226,9 @@
      "encore_map": "Fortress Mountains"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Instigator",
+   "cn_name": "煽动者"
   }
  ],
  "ishmael": [
@@ -2944,7 +3244,9 @@
      "uvh5": 0.275
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Ishmael",
+   "cn_name": "以实玛利"
   }
  ],
  "jail-broken gatling": [
@@ -2976,7 +3278,9 @@
      "uvh5": 0.1
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Jail-Broken Gatling",
+   "cn_name": "越狱加特林"
   }
  ],
  "jelly": [
@@ -2994,7 +3298,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Jelly",
+   "cn_name": "果冻"
   }
  ],
  "jetsetter": [
@@ -3014,7 +3320,9 @@
      "uvh5": 0.25
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Jetsetter",
+   "cn_name": "环球旅行家"
   }
  ],
  "juliet's sparkle": [
@@ -3034,7 +3342,9 @@
      "uvh5": 0.0025
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Juliet's Sparkle",
+   "cn_name": "朱丽叶之光"
   }
  ],
  "kaleidosplode": [
@@ -3052,7 +3362,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Kaleidosplode",
+   "cn_name": "万花爆炸"
   }
  ],
  "kaos": [
@@ -3072,7 +3384,9 @@
      "uvh5": 0.025
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Kaos",
+   "cn_name": "混沌"
   }
  ],
  "kaoson": [
@@ -3092,7 +3406,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Kaoson",
+   "cn_name": "考森"
   }
  ],
  "katagawa's revenge": [
@@ -3110,7 +3426,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Katagawa's Revenge",
+   "cn_name": "片川的复仇"
   }
  ],
  "kickballer": [
@@ -3128,7 +3446,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Kickballer",
+   "cn_name": "踢球者"
   }
  ],
  "kill spring": [
@@ -3146,7 +3466,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Kill Spring",
+   "cn_name": "杀戮之春"
   }
  ],
  "kindread spirits": [
@@ -3164,7 +3486,9 @@
      "encore_map": "Vault Mountains"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Kindread Spirits",
+   "cn_name": "契合知音"
   }
  ],
  "king's gambit": [
@@ -3182,14 +3506,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "King's Gambit",
+   "cn_name": "国王的策略"
   }
  ],
  "lamplighter": [
   {
    "item": "classmod_paladin.comp_05_legendary_raid1",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Lamplighter",
+   "cn_name": "点灯行者"
   }
  ],
  "laser disker": [
@@ -3221,7 +3549,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Laser Disker",
+   "cn_name": "激光飞盘"
   }
  ],
  "laser-cutter": [
@@ -3241,7 +3571,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Laser-Cutter",
+   "cn_name": "激光切割器"
   }
  ],
  "lead balloon": [
@@ -3259,7 +3591,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Lead Balloon",
+   "cn_name": "铅气球"
   }
  ],
  "li'l brudder": [
@@ -3279,14 +3613,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Li'l Brudder",
+   "cn_name": "小老弟"
   }
  ],
  "light gun": [
   {
    "item": "vla_sr.comp_05_legendary_lightgun",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Light Gun",
+   "cn_name": "轻型枪械"
   }
  ],
  "linebacker": [
@@ -3304,7 +3642,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Linebacker",
+   "cn_name": "钢铁后卫"
   }
  ],
  "little sister": [
@@ -3320,14 +3660,18 @@
      "uvh5": 0.1475
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Little Sister",
+   "cn_name": "小妹妹"
   }
  ],
  "living weapon": [
   {
    "item": "classmod_dark_siren.comp_05_legendary_tuba",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Living Weapon",
+   "cn_name": "活体武器"
   }
  ],
  "lockjaw": [
@@ -3347,7 +3691,9 @@
      "uvh5": 0.25
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Lockjaw",
+   "cn_name": "锁喉"
   }
  ],
  "loiter sploiter": [
@@ -3367,7 +3713,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Loiter Sploiter",
+   "cn_name": "徘徊剥削者"
   }
  ],
  "lovelorn": [
@@ -3387,7 +3735,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Lovelorn",
+   "cn_name": "失恋者"
   }
  ],
  "lucian's flank": [
@@ -3415,7 +3765,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Lucian's Flank",
+   "cn_name": "卢西恩的侧攻"
   }
  ],
  "lucky clover": [
@@ -3433,7 +3785,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Lucky Clover",
+   "cn_name": "幸运四叶草"
   }
  ],
  "ludopath": [
@@ -3451,7 +3805,9 @@
      "encore_map": "Vault Grasslands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Ludopath",
+   "cn_name": "嗜赌如命"
   }
  ],
  "luty madlad": [
@@ -3469,7 +3825,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Luty Madlad",
+   "cn_name": "疯小子卢迪"
   }
  ],
  "mantra": [
@@ -3489,7 +3847,9 @@
      "uvh5": 0.25
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Mantra",
+   "cn_name": "真言"
   }
  ],
  "marshall's claw": [
@@ -3505,28 +3865,36 @@
      "uvh5": 0.1475
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Marshall's Claw",
+   "cn_name": "马歇尔之爪"
   }
  ],
  "martyr": [
   {
    "item": "classmod_corpohacker.comp_05_legendary_dlc1",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Martyr",
+   "cn_name": "殉道者"
   }
  ],
  "masochist": [
   {
    "item": "classmod_exo_soldier.comp_05_legendary_harmonica",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Masochist",
+   "cn_name": "受虐狂"
   }
  ],
  "matador's match": [
   {
    "item": "mal_sm.comp_05_legendary_firework",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Matador's Match",
+   "cn_name": "斗牛大赛"
   }
  ],
  "memory hoarder": [
@@ -3544,14 +3912,18 @@
      "encore_map": "Vault Mountains"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Memory Hoarder",
+   "cn_name": "记忆囤积者"
   }
  ],
  "mercredi": [
   {
    "item": "dad_ar.comp_05_legendary_mercredi",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Mercredi",
+   "cn_name": "星期三"
   }
  ],
  "mercurious": [
@@ -3571,28 +3943,36 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Mercurious",
+   "cn_name": "水银好奇者"
   }
  ],
  "midnight defiance": [
   {
    "item": "vla_sr.comp_05_legendary_crowdsourced",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Midnight Defiance",
+   "cn_name": "午夜之反抗"
   }
  ],
  "misericorde": [
   {
    "item": "classmod_dark_siren.comp_05_legendary_raid1",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Misericorde",
+   "cn_name": "慈悲为怀"
   }
  ],
  "missilaser": [
   {
    "item": "dad_sg.comp_05_legendary_misslaser",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Missilaser",
+   "cn_name": "导弹激光"
   }
  ],
  "montage maker": [
@@ -3610,7 +3990,9 @@
      "encore_map": "Fortress Mountains"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Montage Maker",
+   "cn_name": "蒙太奇大师"
   }
  ],
  "murmur": [
@@ -3628,7 +4010,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Murmur",
+   "cn_name": "轻柔低语"
   }
  ],
  "noisy cricket": [
@@ -3646,7 +4030,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Noisy Cricket",
+   "cn_name": "吵闹蟋蟀"
   }
  ],
  "oak-aged cask": [
@@ -3664,7 +4050,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Oak-Aged Cask",
+   "cn_name": "陈年橡木桶"
   }
  ],
  "ohm i got": [
@@ -3684,7 +4072,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Ohm I Got",
+   "cn_name": "我的天呐"
   }
  ],
  "onion": [
@@ -3702,7 +4092,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Onion",
+   "cn_name": "洋葱"
   }
  ],
  "onslaught": [
@@ -3722,14 +4114,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Onslaught",
+   "cn_name": "猛攻"
   }
  ],
  "ordinance": [
   {
    "item": "ted_grenade_gadget.comp_05_legendary_ordinance",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Ordinance",
+   "cn_name": "条例"
   }
  ],
  "oscar mike": [
@@ -3747,7 +4143,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Oscar Mike",
+   "cn_name": "正在行动"
   }
  ],
  "outburst": [
@@ -3767,14 +4165,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Outburst",
+   "cn_name": "爆发"
   }
  ],
  "over swarm": [
   {
    "item": "bor_shield.comp_05_legendary_overswarm",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Over Swarm",
+   "cn_name": "蜂群过境"
   }
  ],
  "overconsumption": [
@@ -3790,14 +4192,18 @@
      "uvh5": 0.3
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Overconsumption",
+   "cn_name": "过度消耗"
   }
  ],
  "overdriver": [
   {
    "item": "classmod_exo_soldier.comp_05_legendary_raid1",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Overdriver",
+   "cn_name": "超速驾驶"
   }
  ],
  "oxidation": [
@@ -3817,7 +4223,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Oxidation",
+   "cn_name": "氧化"
   }
  ],
  "pacemaker": [
@@ -3835,7 +4243,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Pacemaker",
+   "cn_name": "起搏器"
   }
  ],
  "pachonk": [
@@ -3855,7 +4265,9 @@
      "uvh5": 0.0025
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Pachonk",
+   "cn_name": "帕琼克"
   }
  ],
  "parasite": [
@@ -3875,7 +4287,9 @@
      "uvh5": 0.0025
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Parasite",
+   "cn_name": "寄生体"
   }
  ],
  "petanque": [
@@ -3895,7 +4309,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Petanque",
+   "cn_name": "地滚球"
   }
  ],
  "phantom flame": [
@@ -3923,21 +4339,27 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Phantom Flame",
+   "cn_name": "幻影火焰"
   }
  ],
  "phlebotomist": [
   {
    "item": "classmod_gravitar.comp_05_legendary_cowbell",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Phlebotomist",
+   "cn_name": "抽血师"
   }
  ],
  "plague engineer": [
   {
    "item": "classmod_corpohacker.comp_05_legendary_raid2",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Plague Engineer",
+   "cn_name": "瘟疫工程师"
   }
  ],
  "plasma coil": [
@@ -3957,14 +4379,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Plasma Coil",
+   "cn_name": "等离子线圈"
   }
  ],
  "plasmaphile": [
   {
    "item": "classmod_gravitar.comp_05_legendary_raid2",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Plasmaphile",
+   "cn_name": "血浆爱好者"
   }
  ],
  "plumb bob": [
@@ -3984,7 +4410,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Plumb Bob",
+   "cn_name": "铅垂线"
   }
  ],
  "pocketshot": [
@@ -4002,7 +4430,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Pocketshot",
+   "cn_name": "微型射击"
   }
  ],
  "potato thrower iv": [
@@ -4050,14 +4480,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Potato Thrower IV",
+   "cn_name": "土豆投掷者IV"
   }
  ],
  "power-puncher": [
   {
    "item": "classmod_exo_soldier.comp_05_legendary_tuba",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Power-Puncher",
+   "cn_name": "强力拳击手"
   }
  ],
  "pragmate": [
@@ -4077,21 +4511,27 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Pragmate",
+   "cn_name": "务实"
   }
  ],
  "pressure kettle": [
   {
    "item": "dad_grenade_gadget.comp_05_legendary_pressurecooker",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Pressure Kettle",
+   "cn_name": "高压锅"
   }
  ],
  "prestidigitator": [
   {
    "item": "classmod_robodealer.comp_05_legendary_raid2",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Prestidigitator",
+   "cn_name": "魔术师"
   }
  ],
  "prince harming": [
@@ -4109,7 +4549,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Prince Harming",
+   "cn_name": "死马王子"
   }
  ],
  "principal": [
@@ -4127,7 +4569,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Principal",
+   "cn_name": "首要"
   }
  ],
  "prism": [
@@ -4147,14 +4591,18 @@
      "uvh5": 0.0025
     }
    ],
-   "world": false
+   "world": false,
+   "name": "PRISM",
+   "cn_name": "棱镜"
   }
  ],
  "programmer": [
   {
    "item": "classmod_corpohacker.comp_05_legendary_dlc2",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Programmer",
+   "cn_name": "程序员"
   }
  ],
  "protean cell": [
@@ -4172,7 +4620,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Protean Cell",
+   "cn_name": "变形细胞"
   }
  ],
  "prowler": [
@@ -4188,14 +4638,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Prowler",
+   "cn_name": "徘徊者"
   }
  ],
  "puppetmaster": [
   {
    "item": "classmod_corpohacker.comp_05_legendary_tuba",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Puppetmaster",
+   "cn_name": "傀儡师"
   }
  ],
  "quadratus": [
@@ -4248,7 +4702,9 @@
      "uvh5": 0.0125
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Quadratus",
+   "cn_name": "四方肌"
   }
  ],
  "queen's rest": [
@@ -4268,7 +4724,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Queen's Rest",
+   "cn_name": "女王后宫"
   }
  ],
  "raiden": [
@@ -4288,7 +4746,9 @@
      "uvh5": 0.0025
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Raiden",
+   "cn_name": "雷电"
   }
  ],
  "rainbow vomit": [
@@ -4306,14 +4766,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Rainbow Vomit",
+   "cn_name": "彩虹呕吐物"
   }
  ],
  "rainmaker": [
   {
    "item": "bor_sr.comp_05_legendary_rainmaker",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Rainmaker",
+   "cn_name": "造雨师"
   }
  ],
  "rangefinder": [
@@ -4331,7 +4795,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Rangefinder",
+   "cn_name": "测距仪"
   }
  ],
  "ravenfire": [
@@ -4351,21 +4817,27 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Ravenfire",
+   "cn_name": "渡鸦之火"
   }
  ],
  "reactor": [
   {
    "item": "classmod_gravitar.comp_05_legendary_02",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Reactor",
+   "cn_name": "反应堆"
   }
  ],
  "reaparición": [
   {
    "item": "classmod_exo_soldier.comp_05_legendary_cowbell",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Reaparición",
+   "cn_name": "重新显现"
   }
  ],
  "recursive": [
@@ -4383,7 +4855,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Recursive",
+   "cn_name": "递归"
   }
  ],
  "reminisce": [
@@ -4403,14 +4877,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Reminisce",
+   "cn_name": "追忆"
   }
  ],
  "rhythm": [
   {
    "item": "ord_ps.comp_05_legendary_rhythm",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Rhythm",
+   "cn_name": "韵律"
   }
  ],
  "ripple": [
@@ -4430,7 +4908,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Ripple",
+   "cn_name": "涟漪"
   }
  ],
  "roach": [
@@ -4448,21 +4928,27 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Roach",
+   "cn_name": "蟑螂"
   }
  ],
  "roil": [
   {
    "item": "bor_sm.comp_05_legendary_roil",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Roil",
+   "cn_name": "激怒"
   }
  ],
  "rooker": [
   {
    "item": "ord_sr.comp_05_legendary_seamstress",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Rooker",
+   "cn_name": "浪子"
   }
  ],
  "roulette": [
@@ -4482,7 +4968,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Roulette",
+   "cn_name": "轮盘赌"
   }
  ],
  "rounder": [
@@ -4500,7 +4988,9 @@
      "encore_map": "Fortress Grasslands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Rounder",
+   "cn_name": "巡回者"
   }
  ],
  "rowan's charge": [
@@ -4518,7 +5008,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Rowan's Charge",
+   "cn_name": "罗恩的冲锋"
   }
  ],
  "rowdy rider": [
@@ -4547,7 +5039,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Rowdy Rider",
+   "cn_name": "暴走骑士"
   }
  ],
  "ruby's grasp": [
@@ -4567,7 +5061,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Ruby's Grasp",
+   "cn_name": "红宝石的触碰"
   }
  ],
  "san saba songbird": [
@@ -4585,7 +5081,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "San Saba Songbird",
+   "cn_name": "圣萨巴鸣鸟"
   }
  ],
  "scientist": [
@@ -4603,7 +5101,9 @@
      "encore_map": "Vault Shattered Lands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Scientist",
+   "cn_name": "科学家"
   }
  ],
  "scoot'n'shoot": [
@@ -4623,7 +5123,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Scoot'n'Shoot",
+   "cn_name": "疾行射击"
   }
  ],
  "screwstonian": [
@@ -4643,14 +5145,18 @@
      "uvh5": 0.0025
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Screwstonian",
+   "cn_name": "糟糕烂人"
   }
  ],
  "seeker": [
   {
    "item": "ord_grenade_gadget.comp_05_legendary_alignment",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Seeker",
+   "cn_name": "探索者"
   }
  ],
  "seventh sense": [
@@ -4688,7 +5194,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Seventh Sense",
+   "cn_name": "第七感"
   }
  ],
  "shalashaska": [
@@ -4736,7 +5244,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Shalashaska",
+   "cn_name": "沙拉沙斯卡"
   }
  ],
  "shammy kablammy": [
@@ -4756,7 +5266,9 @@
      "uvh5": 0.25
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Shammy Kablammy",
+   "cn_name": "诈爆轰轰"
   }
  ],
  "shardenfreude": [
@@ -4776,7 +5288,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Shardenfreude",
+   "cn_name": "碎片狂欢"
   }
  ],
  "sharkbait": [
@@ -4792,7 +5306,9 @@
      "uvh5": 0.0875
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Sharkbait",
+   "cn_name": "鲨鱼饵"
   }
  ],
  "shatterwight": [
@@ -4810,14 +5326,18 @@
      "encore_map": "Vault Mountains"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Shatterwight",
+   "cn_name": "碎尸者"
   }
  ],
  "shield overflow": [
   {
    "item": "dad_ps.comp_05_legendary_blackout",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Shield Overflow",
+   "cn_name": "护盾泛滥"
   }
  ],
  "shiny war paint": [
@@ -4835,7 +5355,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Shiny War Paint",
+   "cn_name": "闪亮战妆"
   }
  ],
  "sho kunai": [
@@ -4853,7 +5375,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Sho Kunai",
+   "cn_name": "翔苦无"
   }
  ],
  "shoals": [
@@ -4869,7 +5393,9 @@
      "uvh5": 0.275
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Shoals",
+   "cn_name": "浅滩"
   }
  ],
  "sideshow": [
@@ -4887,14 +5413,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Sideshow",
+   "cn_name": "余兴节目"
   }
  ],
  "sidewinder": [
   {
    "item": "tor_hw.comp_05_legendary_sidewinder",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Sidewinder",
+   "cn_name": "响尾蛇"
   }
  ],
  "silver sliver": [
@@ -4914,7 +5444,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Silver Sliver",
+   "cn_name": "银色碎片"
   }
  ],
  "skeptic": [
@@ -4932,7 +5464,9 @@
      "encore_map": "Fortress Shatteredlands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Skeptic",
+   "cn_name": "怀疑论者"
   }
  ],
  "skully": [
@@ -4950,7 +5484,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Skully",
+   "cn_name": "骷髅"
   }
  ],
  "slippy": [
@@ -4968,7 +5504,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Slippy",
+   "cn_name": "滑溜溜"
   }
  ],
  "solar temper": [
@@ -4988,7 +5526,9 @@
      "uvh5": 0.00375
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Solar Temper",
+   "cn_name": "太阳怒焰"
   }
  ],
  "soul survivor": [
@@ -5004,7 +5544,9 @@
      "uvh5": 0.0025
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Soul Survivor",
+   "cn_name": "灵魂幸存者"
   }
  ],
  "sparky shield": [
@@ -5022,14 +5564,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Sparky Shield",
+   "cn_name": "电光护盾"
   }
  ],
  "sprezzatura": [
   {
    "item": "tor_hw.comp_05_legendary_javelin",
    "sources": [],
-   "world": true
+   "world": true,
+   "name": "Sprezzatura",
+   "cn_name": "风流倜傥"
   }
  ],
  "star helix": [
@@ -5049,14 +5595,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Star Helix",
+   "cn_name": "恒星螺旋"
   }
  ],
  "stealth & seek": [
   {
    "item": "mal_sr.comp_05_legendary_stealth",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Stealth & Seek",
+   "cn_name": "潜行与追踪"
   }
  ],
  "stop gap": [
@@ -5074,7 +5624,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Stop Gap",
+   "cn_name": "权宜之计"
   }
  ],
  "stray": [
@@ -5092,7 +5644,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Stray",
+   "cn_name": "偏离"
   }
  ],
  "streamer": [
@@ -5110,7 +5664,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Streamer",
+   "cn_name": "直播网红"
   }
  ],
  "sunspot": [
@@ -5126,7 +5682,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Sunspot",
+   "cn_name": "太阳黑子"
   }
  ],
  "super soldier": [
@@ -5146,7 +5704,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Super Soldier",
+   "cn_name": "超级士兵"
   }
  ],
  "superconducting plasma coil": [
@@ -5166,7 +5726,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Superconducting Plasma Coil",
+   "cn_name": "超导等离子线圈"
   }
  ],
  "swan song": [
@@ -5182,7 +5744,9 @@
      "uvh5": 0.1475
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Swan Song",
+   "cn_name": "天鹅之歌"
   }
  ],
  "swarm": [
@@ -5200,14 +5764,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Swarm",
+   "cn_name": "蜂群"
   }
  ],
  "sweet embrace": [
   {
    "item": "mal_sg.comp_05_legendary_sweet_embrace",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Sweet Embrace",
+   "cn_name": "甜蜜拥抱"
   }
  ],
  "symmetry": [
@@ -5227,7 +5795,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Symmetry",
+   "cn_name": "对称"
   }
  ],
  "t.k's wave": [
@@ -5245,21 +5815,27 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "T.K's Wave",
+   "cn_name": "尊者波动"
   }
  ],
  "table hopper": [
   {
    "item": "classmod_robodealer.comp_05_legendary_harmonica",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Table Hopper",
+   "cn_name": "换桌客"
   }
  ],
  "tankbuster": [
   {
    "item": "bor_sr.comp_05_legendary_tankbuster",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Tankbuster",
+   "cn_name": "反坦克炮"
   }
  ],
  "technomancer": [
@@ -5277,7 +5853,9 @@
      "encore_map": "Fortress Grasslands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Technomancer",
+   "cn_name": "科技术士"
   }
  ],
  "teen witch": [
@@ -5295,21 +5873,27 @@
      "encore_map": "Vault Shattered Lands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Teen Witch",
+   "cn_name": "少女巫师"
   }
  ],
  "tempered essence": [
   {
    "item": "vla_sm.comp_05_legendary_aura",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Tempered Essence",
+   "cn_name": "淬炼精髓"
   }
  ],
  "tempest": [
   {
    "item": "classmod_paladin.comp_05_legendary_cowbell",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Tempest",
+   "cn_name": "风暴"
   }
  ],
  "throwing knife": [
@@ -5329,7 +5913,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Throwing Knife",
+   "cn_name": "飞刀"
   }
  ],
  "timekeeper's new shield": [
@@ -5361,7 +5947,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Timekeeper's New Shield",
+   "cn_name": "时间尊者新护盾"
   }
  ],
  "trackstar": [
@@ -5379,21 +5967,27 @@
      "encore_map": "Fortress Shatteredlands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Trackstar",
+   "cn_name": "田径明星"
   }
  ],
  "trainer": [
   {
    "item": "classmod_robodealer.comp_05_legendary_tuba",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Trainer",
+   "cn_name": "训练师"
   }
  ],
  "transmitter": [
   {
    "item": "borg_grenade_gadget.comp_05_legendary_transmission",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Transmitter",
+   "cn_name": "发射器"
   }
  ],
  "triple bypass": [
@@ -5411,7 +6005,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Triple Bypass",
+   "cn_name": "三重旁通"
   }
  ],
  "triplicate": [
@@ -5431,14 +6027,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Triplicate",
+   "cn_name": "三重复制"
   }
  ],
  "trooper": [
   {
    "item": "classmod_gravitar.comp_05_legendary_raid1",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Trooper",
+   "cn_name": "超级战士"
   }
  ],
  "truck": [
@@ -5456,7 +6056,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Truck",
+   "cn_name": "卡车"
   }
  ],
  "uav": [
@@ -5484,14 +6086,18 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "UAV",
+   "cn_name": "无人机"
   }
  ],
  "ultracapacitor": [
   {
    "item": "classmod_gravitar.comp_05_legendary_harmonica",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Ultracapacitor",
+   "cn_name": "超级电容"
   }
  ],
  "undead eye": [
@@ -5509,7 +6115,9 @@
      "encore_map": "Fortress Mountains"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Undead Eye",
+   "cn_name": "亡灵之眼"
   }
  ],
  "undershield": [
@@ -5529,7 +6137,9 @@
      "uvh5": 0.25
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Undershield",
+   "cn_name": "下部护盾"
   }
  ],
  "unstable kor": [
@@ -5633,7 +6243,9 @@
      "uvh5": 0.285
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Unstable Kor",
+   "cn_name": "不稳核心"
   }
  ],
  "upgraded finnity xxx-l": [
@@ -5651,7 +6263,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Upgraded Finnity XXX-L",
+   "cn_name": "升级版芬妮迪XXX-L"
   }
  ],
  "urchin": [
@@ -5671,7 +6285,9 @@
      "uvh5": 0.25
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Urchin",
+   "cn_name": "海胆"
   }
  ],
  "vamoose": [
@@ -5689,7 +6305,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Vamoose",
+   "cn_name": "闪人"
   }
  ],
  "verce": [
@@ -5737,7 +6355,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Verce",
+   "cn_name": "诗篇"
   }
  ],
  "viking": [
@@ -5755,7 +6375,9 @@
      "encore_map": "Fortress Shatteredlands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Viking",
+   "cn_name": "维京人"
   }
  ],
  "virophile": [
@@ -5773,28 +6395,36 @@
      "encore_map": "Vault Grasslands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Virophile",
+   "cn_name": "嗜毒者"
   }
  ],
  "virtue": [
   {
    "item": "ord_ps.comp_05_legendary_patience",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Virtue",
+   "cn_name": "美德"
   }
  ],
  "vitae": [
   {
    "item": "jak_repair_kit.comp_05_legendary_vitae",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Vitae",
+   "cn_name": "鲜血"
   }
  ],
  "wastelander": [
   {
    "item": "classmod_paladin.comp_05_legendary_harmonica",
    "sources": [],
-   "world": false
+   "world": false,
+   "name": "Wastelander",
+   "cn_name": "废土客"
   }
  ],
  "waterfall": [
@@ -5812,7 +6442,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Waterfall",
+   "cn_name": "瀑布"
   }
  ],
  "watts 4 dinner": [
@@ -5832,7 +6464,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Watts 4 Dinner",
+   "cn_name": "通电晚餐"
   }
  ],
  "whale": [
@@ -5850,7 +6484,9 @@
      "encore_map": "Fortress Shatteredlands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Whale",
+   "cn_name": "鲸鱼"
   }
  ],
  "whiskey foxtrot": [
@@ -5868,7 +6504,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Whiskey Foxtrot",
+   "cn_name": "旺德发"
   }
  ],
  "wind skimmer": [
@@ -5888,7 +6526,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Wind Skimmer",
+   "cn_name": "风中飘舞"
   }
  ],
  "windrider": [
@@ -5906,7 +6546,9 @@
      "encore_map": "Vault Shattered Lands"
     }
    ],
-   "world": false
+   "world": false,
+   "name": "Windrider",
+   "cn_name": "驭风者"
   }
  ],
  "wombo combo": [
@@ -5944,7 +6586,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Wombo Combo",
+   "cn_name": "超杀连击"
   }
  ],
  "zipper": [
@@ -5962,7 +6606,9 @@
      "uvh5": 0.19
     }
    ],
-   "world": true
+   "world": true,
+   "name": "Zipper",
+   "cn_name": "拉链"
   }
  ]
 }

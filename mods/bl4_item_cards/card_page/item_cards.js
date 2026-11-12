@@ -445,19 +445,69 @@
         return icon;
     }
 
-    // The card shows the full name, with rolled prefixes in front ("Jobbed Down-Bad Ripple",
-    // "Electric Avatar"), so try dropping leading words. A name can belong to a weapon and a class mod.
-    function dropEntries(data) {
-        var name = String(data.name || "").trim().toLowerCase();
-        if (!name || !ns.drops) return null;
-        var classMod = data.itemtype === "classmod";
-        var words = name.split(/\s+/);
-        for (var i = 0; i < words.length; i++) {
-            var list = ns.drops[words.slice(i).join(" ")];
-            if (list) {
-                var matching = list.filter(function (e) { return (e.item.indexOf("classmod") === 0) === classMod; });
-                if (matching.length) return matching;
+    // The card name is localized. Keep the English data keys/IDs and source records intact;
+    // entry.cn_name adds Chinese aliases, including names with a prefix and no separating space.
+    var dropAliasSource = null;
+    var dropAliasIndex = null;
+    var dropAliasSuffixes = [];
+    var CJK_NAME = /[\u3400-\u9fff\uf900-\ufaff]/;
+
+    function normalizedDropName(value) {
+        return String(value || "").trim().toLowerCase().replace(/[\u2018\u2019]/g, "'").replace(/\s+/g, " ");
+    }
+
+    function dropAliases() {
+        if (dropAliasSource === ns.drops && dropAliasIndex) return dropAliasIndex;
+        var index = Object.create(null);
+        function add(name, entry) {
+            var alias = normalizedDropName(name);
+            if (!alias) return;
+            var list = index[alias] || (index[alias] = []);
+            // A named item may have several English aliases: don't duplicate its source rows.
+            for (var i = 0; i < list.length; i++) if (list[i].item === entry.item) return;
+            list.push(entry);
+        }
+        for (var key in ns.drops) {
+            if (!Object.prototype.hasOwnProperty.call(ns.drops, key) || !Array.isArray(ns.drops[key])) continue;
+            for (var i = 0; i < ns.drops[key].length; i++) {
+                var entry = ns.drops[key][i];
+                if (!entry || typeof entry.item !== "string") continue;
+                add(key, entry);
+                if (typeof entry.name === "string") add(entry.name, entry);
+                if (typeof entry.cn_name === "string") add(entry.cn_name, entry);
             }
+        }
+        dropAliasSource = ns.drops;
+        dropAliasIndex = index;
+        dropAliasSuffixes = Object.keys(index).sort(function (a, b) { return b.length - a.length; });
+        return index;
+    }
+
+    function matchingDropEntries(list, classMod) {
+        return list ? list.filter(function (e) { return (e.item.indexOf("classmod") === 0) === classMod; }) : [];
+    }
+
+    function dropEntries(data) {
+        var name = normalizedDropName(data.name);
+        if (!name || !ns.drops) return null;
+        var index = dropAliases();
+        var classMod = data.itemtype === "classmod";
+        // Preserve the original English prefix behavior and exact matches in either language.
+        var words = name.split(" ");
+        for (var i = 0; i < words.length; i++) {
+            var matching = matchingDropEntries(index[words.slice(i).join(" ")], classMod);
+            if (matching.length) return matching;
+        }
+        // Chinese prefixes need not have spaces. Longest suffix wins (e.g. avoid matching a
+        // short known name inside a longer known name). English suffixes still need a boundary.
+        for (var j = 0; j < dropAliasSuffixes.length; j++) {
+            var alias = dropAliasSuffixes[j];
+            var start = name.length - alias.length;
+            if (start <= 0 || name.slice(start) !== alias) continue;
+            var before = name.charAt(start - 1);
+            if (!CJK_NAME.test(alias) && before !== " " && !CJK_NAME.test(before)) continue;
+            var entries = matchingDropEntries(index[alias], classMod);
+            if (entries.length) return entries;
         }
         return null;
     }

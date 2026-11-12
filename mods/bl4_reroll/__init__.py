@@ -565,11 +565,13 @@ def _firmware_option(slot: game.Slot) -> BaseOption:
     if choices is None or not choices.choices:
         return FirmwareUnavailable("firmware_unavailable", "无法修改", display_name="随机固件", description=reason)
     handle, serial = slot.handle, slot.item.serial
+    candidates = "、".join(dict.fromkeys(firmware.part_name(choices.base, index) for index in choices.choices))
     return ButtonOption(
         "firmware",
-        display_name=f"随机固件（{cost_legendary()} 镒矿）",
+        display_name=f"固件: {current}（{cost_legendary()} 镒矿）",
         description=(
-            detail + "仅更换手雷、炮械、修复套件、职业模组、护盾或强化组件的固件。"
+            detail + f"可随机到的固件：{candidates}。"
+            "仅更换手雷、炮械、修复套件、职业模组、护盾或强化组件的固件。"
             "从其他有效候选中随机选择，不会选回当前固件。原本没有固件时，在规则允许的空槽中添加。"
             "等级、种子、外观、技能、词条和其他部件保持不变。费用与整件重掷共用设置，替换失败不扣费。"
         ),

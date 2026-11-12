@@ -1,7 +1,7 @@
 {
  "fw_action_fist": {
   "name": "Action Fist",
-  "cn_name": "动能之拳",
+  "cn_name": "动能拳头",
   "tiers": [
    {
     "count": 1,
@@ -110,7 +110,7 @@
  },
  "fw_atlas_ex": {
   "name": "Atlas E.X.",
-  "cn_name": "阿特拉斯 E.X.",
+  "cn_name": "阿特拉斯E.X.",
   "tiers": [
    {
     "count": 1,
@@ -159,7 +159,7 @@
  },
  "fw_atlas_infinum": {
   "name": "Atlas Infinum",
-  "cn_name": "阿特拉斯无尽能量",
+  "cn_name": "阿特拉斯无限量",
   "tiers": [
    {
     "count": 1,
@@ -264,7 +264,7 @@
  },
  "fw_bullets_to_spare": {
   "name": "Bullets To Spare",
-  "cn_name": "弹药充裕",
+  "cn_name": "备用子弹",
   "tiers": [
    {
     "count": 1,
@@ -320,7 +320,7 @@
  },
  "fw_daeddy_o": {
   "name": "Daed-dy O'",
-  "cn_name": "代达老爹",
+  "cn_name": "大情圣",
   "tiers": [
    {
     "count": 1,
@@ -379,7 +379,7 @@
  },
  "fw_deadeye": {
   "name": "Deadeye",
-  "cn_name": "神射手",
+  "cn_name": "神枪手",
   "tiers": [
    {
     "count": 1,
@@ -442,7 +442,7 @@
  },
  "fw_gadget_ahoy": {
   "name": "Gadget Ahoy",
-  "cn_name": "装置出击",
+  "cn_name": "装置启动",
   "tiers": [
    {
     "count": 1,
@@ -502,7 +502,7 @@
  },
  "fw_get_throwin": {
   "name": "Get Throwin'",
-  "cn_name": "尽情投掷",
+  "cn_name": "发球入场",
   "tiers": [
    {
     "count": 1,
@@ -617,7 +617,7 @@
  },
  "fw_goojfc": {
   "name": "Goojfc",
-  "cn_name": "脱困王牌",
+  "cn_name": "保命王牌",
   "tiers": [
    {
     "count": 1,
@@ -674,7 +674,7 @@
  },
  "fw_heating_up": {
   "name": "Heating Up",
-  "cn_name": "逐渐升温",
+  "cn_name": "加热升温",
   "tiers": [
    {
     "count": 1,
@@ -781,7 +781,7 @@
  },
  "fw_jacked": {
   "name": "Jacked",
-  "cn_name": "强力强化",
+  "cn_name": "杰克式改造",
   "tiers": [
    {
     "count": 1,
@@ -837,7 +837,7 @@
  },
  "fw_lifeblood": {
   "name": "Lifeblood",
-  "cn_name": "生命之血",
+  "cn_name": "命脉",
   "tiers": [
    {
     "count": 1,
@@ -892,7 +892,7 @@
  },
  "fw_oscar_mike": {
   "name": "Oscar Mike",
-  "cn_name": "行动起来",
+  "cn_name": "正在行动",
   "tiers": [
    {
     "count": 1,
@@ -1079,7 +1079,7 @@
  },
  "fw_reel_big_fist": {
   "name": "Reel Big Fist",
-  "cn_name": "巨拳来袭",
+  "cn_name": "沙包大拳头",
   "tiers": [
    {
     "count": 1,
@@ -1133,7 +1133,7 @@
  },
  "fw_risky_boots": {
   "name": "Risky Boots",
-  "cn_name": "冒险之靴",
+  "cn_name": "风险启用",
   "tiers": [
    {
     "count": 1,
@@ -1301,7 +1301,7 @@
  },
  "fw_tuba_bruiser": {
   "name": "Bruiser",
-  "cn_name": "打手",
+  "cn_name": "重击者",
   "tiers": [
    {
     "count": 1,
