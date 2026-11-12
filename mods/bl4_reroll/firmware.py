@@ -197,7 +197,23 @@ def reroll(serial: str, rng: random.Random, resolve: serialgen.Resolve) -> str:
     choice = options(serial, resolve)
     if not choice.choices:
         raise ValueError(choice.reason or "没有其他可用固件。")
-    index = rng.choice(choice.choices)
+    return _replace(choice, rng.choice(choice.choices))
+
+
+def set_firmware(serial: str, index: int, resolve: serialgen.Resolve) -> str:
+    """Select one currently valid non-current firmware; never force an unsupported part."""
+    if type(index) is not int:
+        raise ValueError("固件编号无效。")
+    choice = options(serial, resolve)
+    if not choice.choices:
+        raise ValueError(choice.reason or "没有其他可用固件。")
+    if index not in choice.choices:
+        raise ValueError("目标固件不在该装备当前可用的候选列表中。")
+    return _replace(choice, index)
+
+
+def _replace(choice: Options, index: int) -> str:
+    """Shared serial edit for random and targeted firmware replacement."""
     parsed = choice.parsed
     if choice.location is None:
         first = next((i for i, t in enumerate(parsed.tokens) if isinstance(t, sn.Part)), None)

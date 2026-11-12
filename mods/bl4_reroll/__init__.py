@@ -75,6 +75,7 @@ FEATURE = "reroll"
 SERVICE = "reroll.apply"
 SYNC_LEVEL_SERVICE = "reroll.sync_level"
 FIRMWARE_SERVICE = "reroll.firmware"
+TARGET_FIRMWARE_SERVICE = "reroll.firmware_target"
 
 GAME_DIR = SETTINGS_DIR.parent.parent
 REFRESH_S = 0.5
@@ -177,6 +178,7 @@ class Plan:
     kind: str = "all"
     line: int | None = None
     seed: int = field(default_factory=lambda: random.getrandbits(48))
+    firmware_target: int | None = None  # actual child part ID, never a display-list index
 
 
 @dataclass
@@ -289,6 +291,26 @@ def plan_firmware(handle: int, serial: str | None = None, seed: int | None = Non
                 "firmware", None, seed)
 
 
+def plan_firmware_target(handle: int, target: int, serial: str | None = None) -> Plan:
+    """Pick a permitted firmware explicitly for ten times the random firmware fee."""
+    slot = _slot(handle, serial)
+    cost = cost_firmware_target()
+    _check(cost)
+    try:
+        new_serial = firmware.set_firmware(slot.item.serial, target, game.Values.resolve)
+        after = game.decode(new_serial)
+        before_fw = firmware.options(slot.item.serial, game.Values.resolve)
+        before_name = firmware.part_name(before_fw.base, before_fw.current)
+        after_name = firmware.part_name(before_fw.base, target)
+    except (ValueError, KeyError, IndexError) as ex:
+        raise Refused(f"无法定向修改固件：{ex}") from ex
+    if after is None:
+        raise Refused("无法读取更换固件后的装备，未进行任何更改。")
+    return Plan(slot, after, cost,
+                f"已定向修改固件：{before_name} → {after_name}，装备等级及其他部件保持不变。",
+                kind="firmware_target", firmware_target=target)
+
+
 def plan_sync_level(handle: int, serial: str | None = None) -> Plan | None:
     """Raise this item's level to its owner's character level; never lower or reroll it."""
     slot = _slot(handle, serial)
@@ -317,6 +339,12 @@ def apply(plan: Plan) -> Outcome:
             raise Refused("玩家等级或装备已发生变化，请重新查看后再试。")
     elif plan.kind == "firmware" and plan.cost != cost_legendary():
         raise Refused("整件重掷费用已发生变化，请重新查看后再试。")
+    elif plan.kind == "firmware_target":
+        # Recheck the live candidate rules and price immediately before replacement, including
+        # on the host. A stale menu or forged target/result must never install an invalid part.
+        expected = plan_firmware_target(slot.handle, plan.firmware_target, slot.item.serial)
+        if expected.cost != plan.cost or expected.after.serial != plan.after.serial:
+            raise Refused("固件候选、费用或装备已发生变化，请重新查看后再试。")
     _check(plan.cost)
     handle, equipped = game.replace(slot, plan.after.serial)
     left = game.set_balance(game.ERIDIUM, game.balance() - plan.cost)
@@ -348,14 +376,20 @@ def apply_async(plan: Plan, done: Callable[[dict[str, Any]], None]) -> None:
     # matches, then pays from our Eridium and swaps our item
     # Separate services fail safely on older hosts without level sync or firmware-only rerolls.
     service = (SYNC_LEVEL_SERVICE if plan.kind == "sync_level" else
+               TARGET_FIRMWARE_SERVICE if plan.kind == "firmware_target" else
                FIRMWARE_SERVICE if plan.kind == "firmware" else SERVICE)
-    coop.request(service, {
+    payload = {
         "kind": plan.kind,
         "line": plan.line,
         "serial": plan.slot.item.serial,
         "seed": plan.seed,
         "after": plan.after.serial,
-    }, lambda reply: (game.invalidate(plan.slot.handle), done(reply)), timeout=15.0)  # fmt: skip
+    }
+    if plan.kind == "firmware_target":
+        payload["firmware_target"] = plan.firmware_target
+        payload["cost"] = plan.cost
+    coop.request(service, payload,
+                 lambda reply: (game.invalidate(plan.slot.handle), done(reply)), timeout=15.0)
 
 
 def _serve(req: Any) -> dict[str, Any]:
@@ -375,6 +409,10 @@ def _serve(req: Any) -> dict[str, Any]:
                 plan = plan_legendary(slot.handle, slot.item.serial, seed)
             elif data.get("kind") == "firmware":
                 plan = plan_firmware(slot.handle, slot.item.serial, seed)
+            elif data.get("kind") == "firmware_target":
+                plan = plan_firmware_target(slot.handle, data["firmware_target"], slot.item.serial)
+                if type(data.get("cost")) is not int or data["cost"] != plan.cost:
+                    raise Refused("房主的定向修改费用与当前显示不同，请同步费用设置后再试。")
             elif data.get("kind") == "sync_level":
                 plan = plan_sync_level(slot.handle, slot.item.serial)
                 if plan is None:
@@ -449,6 +487,29 @@ def randomize_firmware(handle: int, serial: str) -> None:
         return
     try:
         plan = plan_firmware(handle, serial)
+        token = object()
+        S.sync_pending = token
+
+        def completed(result: dict[str, Any]) -> None:
+            if S.sync_pending is token:
+                S.sync_pending = None
+                _tell_result(result)
+
+        try:
+            apply_async(plan, completed)
+        except Exception:
+            if S.sync_pending is token:
+                S.sync_pending = None
+            raise
+    except (Refused, game.RerollError) as ex:
+        tell(str(ex), error=True)
+
+
+def select_firmware(handle: int, serial: str, target: int) -> None:
+    if not mod.is_enabled or S.sync_pending is not None or menu_reroll.S.busy or card.S.pending is not None:
+        return
+    try:
+        plan = plan_firmware_target(handle, target, serial)
         token = object()
         S.sync_pending = token
 
@@ -579,10 +640,44 @@ def _firmware_option(slot: game.Slot) -> BaseOption:
     )
 
 
+def _target_firmware_option(slot: game.Slot) -> NestedOption | None:
+    try:
+        choices = firmware.options(slot.item.serial, game.Values.resolve)
+    except (ValueError, KeyError, IndexError, game.RerollError):
+        return None
+    if not choices.choices:
+        return None
+    current = firmware.part_name(choices.base, choices.current)
+    cost = cost_firmware_target()
+    handle, serial = slot.handle, slot.item.serial
+    children = []
+    for target in choices.choices:
+        name = firmware.part_name(choices.base, target)
+        children.append(ButtonOption(
+            f"firmware_target_{target}",
+            display_name=f"{name}（{cost} 镒矿）",
+            description=(
+                f"将固件从“{current}”定向修改为“{name}”，消耗 {cost} 镒矿。"
+                "费用为随机固件的 10 倍，随整件重掷费用设置变化。"
+                "等级、种子、外观、技能、词条和其他部件保持不变。"
+                "执行时重新检查候选及费用；目标不可用或替换失败时不扣费。联机时以房主设置为准。"
+            ),
+            on_press=lambda _, target=target: select_firmware(handle, serial, target),
+        ))
+    return NestedOption(
+        "firmware_target", children,
+        display_name=f"定向修改固件（{cost} 镒矿）",
+        description=(f"当前固件：{current}。选择一个可用固件直接替换，费用为随机固件的 10 倍。"
+                     "只列出这件装备当前有效且不同于现有固件的候选，点击目标后执行修改。"),
+    )
+
+
 def _legendary_page(slot: game.Slot, item: legendary.Legend) -> NestedOption:
     kind = "pearl" if item.pearl else "legendary"
     children: list[BaseOption] = [_legendary_button(slot, item, f"重掷这件{'珠光' if kind == 'pearl' else '传奇'}装备"),
                                   _sync_level_button(slot), _firmware_option(slot)]
+    if (target_option := _target_firmware_option(slot)) is not None:
+        children.append(target_option)
     return NestedOption(f"item{slot.handle}", children, display_name=_title(slot),
                         description=f"{item.maker} {item_label(item.label)}。重掷以重新随机生成该装备的部件。".strip())  # fmt: skip
 
@@ -620,6 +715,8 @@ def _item_page(slot: game.Slot) -> NestedOption:
         children.append(_legendary_button(slot, whole, "重掷整件装备"))
     children.append(_sync_level_button(slot))
     children.append(_firmware_option(slot))
+    if (target_option := _target_firmware_option(slot)) is not None:
+        children.append(target_option)
     names = "、".join(stat_name(line.name) for line in item.lines) or "无"
     return NestedOption(f"item{handle}", children, display_name=_title(slot), description=f"词条：{names}。")
 
@@ -874,6 +971,10 @@ def cost_legendary() -> int:
     return int(cost_legendary_option.value)
 
 
+def cost_firmware_target() -> int:
+    return cost_legendary() * 10
+
+
 card.S.plan_all = plan_all
 card.S.plan_one = plan_one
 card.S.plan_legendary = plan_legendary
@@ -929,3 +1030,4 @@ if coop is not None:
     coop.handle(SERVICE, _serve)
     coop.handle(SYNC_LEVEL_SERVICE, _serve)
     coop.handle(FIRMWARE_SERVICE, _serve)
+    coop.handle(TARGET_FIRMWARE_SERVICE, _serve)
