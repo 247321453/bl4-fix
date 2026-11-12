@@ -27,8 +27,12 @@ import random
 from dataclasses import dataclass
 from functools import cache, lru_cache
 from importlib import resources
+from typing import TYPE_CHECKING
 
 from . import serial as sn
+
+if TYPE_CHECKING:
+    from .legendary import Legend
 
 STAT_GROUPS = ("stat_group1", "stat_group2", "stat_group3")
 
@@ -180,3 +184,17 @@ def reroll_one(item: Item, index: int, rng: random.Random | None = None) -> str 
     if not pool:
         return None
     return _with_parts(item, {index: rng.choice(pool)})
+
+
+def set_item_level(item: Item | Legend, target_level: int) -> str | None:
+    """An upgraded serial, or None for an equal/lower level. Never mutate a cached Item."""
+    if type(target_level) is not int or not 1 <= target_level <= 0xFFFF:
+        raise ValueError("item level must be an integer between 1 and 65535")
+    parsed = sn.decode(item.serial)
+    if target_level <= parsed.level:
+        return None
+    parsed.set_level(target_level)
+    result = sn.encode(parsed)
+    if sn.decode(result).level != target_level:
+        raise ValueError("the upgraded serial did not read back the same level")
+    return result

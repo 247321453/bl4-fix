@@ -72,6 +72,7 @@ __version_info__ = (0, 2, 0)
 
 FEATURE = "reroll"
 SERVICE = "reroll.apply"
+SYNC_LEVEL_SERVICE = "reroll.sync_level"
 
 GAME_DIR = SETTINGS_DIR.parent.parent
 REFRESH_S = 0.5
@@ -265,9 +266,32 @@ def plan_legendary(handle: int, serial: str | None = None, seed: int | None = No
                 "legendary", None, seed)  # fmt: skip
 
 
+def plan_sync_level(handle: int, serial: str | None = None) -> Plan | None:
+    """Raise this item's level to its owner's character level; never lower or reroll it."""
+    slot = _slot(handle, serial)
+    level = game.player_level()
+    if level <= slot.item.level:
+        return None
+    cost = cost_legendary()
+    _check(cost)
+    try:
+        new_serial = reroll.set_item_level(slot.item, level)
+        after = game.decode(new_serial) if new_serial else None
+    except (ValueError, KeyError, IndexError) as ex:
+        raise Refused(f"无法同步装备等级（{ex}），未进行任何更改。") from ex
+    if after is None or after.level != level:
+        raise Refused("无法重新读取升级后的装备，未进行任何更改。")
+    return Plan(slot, after, cost, f"已同步玩家等级：装备从 {slot.item.level} 级提升至 {level} 级。",
+                "sync_level")
+
+
 def apply(plan: Plan) -> Outcome:
     """Pays for and makes a planned reroll. Raises Refused or game.RerollError if it can't."""
     slot = _slot(plan.slot.handle, plan.slot.item.serial)
+    if plan.kind == "sync_level":
+        level = game.player_level()
+        if plan.cost != cost_legendary() or level <= slot.item.level or plan.after.level != level:
+            raise Refused("玩家等级或装备已发生变化，请重新查看后再试。")
     _check(plan.cost)
     handle, equipped = game.replace(slot, plan.after.serial)
     left = game.set_balance(game.ERIDIUM, game.balance() - plan.cost)
@@ -297,7 +321,9 @@ def apply_async(plan: Plan, done: Callable[[dict[str, Any]], None]) -> None:
         return
     # Nothing is charged or changed here: the host rolls the same again from the seed, checks it
     # matches, then pays from our Eridium and swaps our item
-    coop.request(SERVICE, {
+    # A separate service fails safely on older hosts which do not support level synchronization.
+    service = SYNC_LEVEL_SERVICE if plan.kind == "sync_level" else SERVICE
+    coop.request(service, {
         "kind": plan.kind,
         "line": plan.line,
         "serial": plan.slot.item.serial,
@@ -321,6 +347,10 @@ def _serve(req: Any) -> dict[str, Any]:
                 plan = plan_one(slot.handle, int(data["line"]), slot.item.serial, seed)
             elif data.get("kind") == "legendary":
                 plan = plan_legendary(slot.handle, slot.item.serial, seed)
+            elif data.get("kind") == "sync_level":
+                plan = plan_sync_level(slot.handle, slot.item.serial)
+                if plan is None:
+                    raise Refused("玩家等级不高于装备等级，无需同步。")
             else:
                 plan = plan_all(slot.handle, slot.item.serial, seed)
             if plan.after.serial != data.get("after"):
@@ -360,6 +390,32 @@ def reroll_legendary(handle: int, serial: str | None = None) -> None:
         tell(str(ex), error=True)
 
 
+def sync_item_level(handle: int, serial: str) -> None:
+    if not mod.is_enabled or S.sync_pending is not None or menu_reroll.S.busy or card.S.pending is not None:
+        return
+    try:
+        plan = plan_sync_level(handle, serial)
+        if plan is None:
+            return
+        token = object()
+        S.sync_pending = token
+
+        def completed(result: dict[str, Any]) -> None:
+            if S.sync_pending is token:
+                S.sync_pending = None
+                _tell_result(result)
+
+        try:
+            apply_async(plan, completed)
+        except Exception:
+            # Scheduling can fail before a callback exists; do not leave the button locked.
+            if S.sync_pending is token:
+                S.sync_pending = None
+            raise
+    except (Refused, game.RerollError) as ex:
+        tell(str(ex), error=True)
+
+
 def _quick_menu_reroll(handle: int, serial: str, done: Callable[[], None]) -> None:
     """The same whole-item transaction as the button, without a second confirmation."""
     try:
@@ -383,6 +439,7 @@ def _quick_menu_reroll(handle: int, serial: str, done: Callable[[], None]) -> No
 
 class S:
     signature: Any = None
+    sync_pending: object | None = None  # suppress duplicate clicks while a host request is pending
     refreshed_at = 0.0
     errors: set[str] = set()  # noqa: RUF012
     # Whether the mod menu's screen was showing last tick (the options are only rebuilt then)
@@ -417,9 +474,24 @@ def _legendary_button(slot: game.Slot, item: legendary.Legend, display_name: str
     )
 
 
+def _sync_level_button(slot: game.Slot) -> ButtonOption:
+    handle, serial = slot.handle, slot.item.serial
+    return ButtonOption(
+        "sync_level",
+        display_name=f"同步玩家等级（{cost_legendary()} 镒矿）",
+        description=(
+            "仅在玩家等级高于此装备时，将装备等级提升至玩家当前等级；相等或更低时不处理。"
+            "成功升级时消耗与整件重掷相同的镒矿费用；未升级时不扣费。"
+            "不重新随机部件、固件、技能或词条，已应用的外观保持不变。装备数值由游戏按新等级重新计算。"
+        ),
+        on_press=lambda _: sync_item_level(handle, serial),
+    )
+
+
 def _legendary_page(slot: game.Slot, item: legendary.Legend) -> NestedOption:
     kind = "pearl" if item.pearl else "legendary"
-    children: list[BaseOption] = [_legendary_button(slot, item, f"重掷这件{'珠光' if kind == 'pearl' else '传奇'}装备")]
+    children: list[BaseOption] = [_legendary_button(slot, item, f"重掷这件{'珠光' if kind == 'pearl' else '传奇'}装备"),
+                                  _sync_level_button(slot)]
     return NestedOption(f"item{slot.handle}", children, display_name=_title(slot),
                         description=f"{item.maker} {item_label(item.label)}。重掷以重新随机生成该装备的部件。".strip())  # fmt: skip
 
@@ -455,6 +527,7 @@ def _item_page(slot: game.Slot) -> NestedOption:
     if (whole := legendary.read(serial)) is not None:
         # A legendary class mod: its skills, modifiers and firmware can also roll again together
         children.append(_legendary_button(slot, whole, "重掷整件装备"))
+    children.append(_sync_level_button(slot))
     names = "、".join(stat_name(line.name) for line in item.lines) or "无"
     return NestedOption(f"item{handle}", children, display_name=_title(slot), description=f"词条：{names}。")
 
@@ -719,11 +792,12 @@ card.S.blocked = _blocked
 
 
 menu_reroll.S.key = lambda: menu_reroll_key.value
-menu_reroll.S.allowed = lambda: mod.is_enabled and _blocked() is None and card.S.pending is None
+menu_reroll.S.allowed = lambda: (mod.is_enabled and _blocked() is None and card.S.pending is None
+                               and S.sync_pending is None)
 menu_reroll.S.execute = _quick_menu_reroll
 # Preserve the old hover-card bindings when the overlay is hidden, unless a binding collides:
 # the retained-page shortcut then owns that key, rather than rerolling a different hovered item.
-card.S.suspend_keys = lambda: (menu_reroll.S.busy or _menu_showing()
+card.S.suspend_keys = lambda: (S.sync_pending is not None or menu_reroll.S.busy or _menu_showing()
                              or (menu_reroll.active() and menu_reroll_key.value is not None
                                  and menu_reroll_key.value in (reroll_key.value, pick_key.value)))
 
@@ -735,6 +809,7 @@ def _enable() -> None:
 
 
 def _disable() -> None:
+    S.sync_pending = None
     menu_reroll.unregister()
     card.unregister()
 
@@ -760,3 +835,4 @@ mod = build_mod(
 if coop is not None:
     coop.feature(FEATURE, lambda: mod.is_enabled)
     coop.handle(SERVICE, _serve)
+    coop.handle(SYNC_LEVEL_SERVICE, _serve)

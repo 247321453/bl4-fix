@@ -140,6 +140,18 @@ def _player_state() -> Any:
 _kismet: Any = None
 
 
+def player_level() -> int:
+    """Character level for the local player, or the requesting player inside acting_for()."""
+    try:
+        value = _player_state().ExperienceState[0].ExperienceLevel
+        level = int(value)
+    except (AttributeError, IndexError, TypeError, ValueError, OverflowError) as ex:
+        raise RerollError("无法读取玩家等级，请先进入游戏后重试。") from ex
+    if isinstance(value, bool) or level != value or not 1 <= level <= 0xFFFF:
+        raise RerollError("玩家等级无效，未修改装备。")
+    return level
+
+
 def is_host() -> bool:
     global _kismet
     world = ENGINE.GameViewport.World if ENGINE.GameViewport else None

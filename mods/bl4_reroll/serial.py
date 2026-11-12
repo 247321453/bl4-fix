@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Borderlands 4 item serials ("@Ug..."): decode to tokens and encode back, bit for bit.
 
@@ -148,6 +149,34 @@ class Serial:
     def level(self) -> int:
         # An item without a level field is level 1 in game
         return self.header().get(LEVEL_FIELD, 1)
+
+    def set_level(self, target_level: int) -> None:
+        """Change the actual level token, not the temporary dict returned by header()."""
+        if type(target_level) is not int or not 1 <= target_level <= 0xFFFF:
+            raise ValueError("item level must be an integer between 1 and 65535")
+        nums = []
+        for i, token in enumerate(self.tokens):
+            if isinstance(token, Part):
+                break
+            if isinstance(token, Num):
+                nums.append(i)
+        if len(nums) < 2 or (len(nums) - 2) % 2:
+            raise ValueError("invalid item header")
+        levels = [nums[k + 1] for k in range(2, len(nums) - 1, 2)
+                  if self.tokens[nums[k]].value == LEVEL_FIELD]
+        if len(levels) > 1:
+            raise ValueError("duplicate item level fields")
+        if levels:
+            at = levels[0]
+            old = self.tokens[at]
+            if old.value != target_level:
+                self.tokens[at] = Num(target_level, varbit=old.varbit)
+        elif len(nums) > 2:
+            # A missing level is implicitly 1. Insert it before the other numbered fields.
+            self.tokens[nums[2]:nums[2]] = [Num(LEVEL_FIELD), Sep(False), Num(target_level), Sep(True)]
+        else:
+            at = nums[1] + 1
+            self.tokens[at:at] = [Sep(False), Num(LEVEL_FIELD), Sep(False), Num(target_level)]
 
     def parts(self) -> list[Part]:
         return [t for t in self.tokens if isinstance(t, Part)]
