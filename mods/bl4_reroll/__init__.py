@@ -54,12 +54,13 @@ from mods_base import (
     KeybindOption,
     NestedOption,
     SliderOption,
+    ValueOption,
     build_mod,
     command,
 )
 from unrealsdk import logging
 
-from . import card, frametick, game, legendary, menu_reroll, pak, reroll
+from . import card, firmware, frametick, game, legendary, menu_reroll, pak, reroll
 from .i18n import item_label, item_name, rarity_name, stat_name
 
 try:
@@ -73,6 +74,7 @@ __version_info__ = (0, 2, 0)
 FEATURE = "reroll"
 SERVICE = "reroll.apply"
 SYNC_LEVEL_SERVICE = "reroll.sync_level"
+FIRMWARE_SERVICE = "reroll.firmware"
 
 GAME_DIR = SETTINGS_DIR.parent.parent
 REFRESH_S = 0.5
@@ -266,6 +268,27 @@ def plan_legendary(handle: int, serial: str | None = None, seed: int | None = No
                 "legendary", None, seed)  # fmt: skip
 
 
+def plan_firmware(handle: int, serial: str | None = None, seed: int | None = None) -> Plan:
+    """Replace just the firmware with another valid candidate, never reroll the other parts."""
+    slot = _slot(handle, serial)
+    seed = random.getrandbits(48) if seed is None else seed
+    try:
+        new_serial = firmware.reroll(slot.item.serial, random.Random(seed), game.Values.resolve)
+        after = game.decode(new_serial)
+    except (ValueError, KeyError, IndexError) as ex:
+        raise Refused(f"无法随机固件：{ex}") from ex
+    if after is None:
+        raise Refused("无法读取更换固件后的装备，未进行任何更改。")
+    cost = cost_legendary()
+    _check(cost)
+    before_fw = firmware.options(slot.item.serial, game.Values.resolve)
+    after_fw = firmware.options(after.serial, game.Values.resolve)
+    before_name = firmware.part_name(before_fw.base, before_fw.current)
+    after_name = firmware.part_name(after_fw.base, after_fw.current)
+    return Plan(slot, after, cost, f"已随机更换固件：{before_name} → {after_name}，装备等级及其他部件保持不变。",
+                "firmware", None, seed)
+
+
 def plan_sync_level(handle: int, serial: str | None = None) -> Plan | None:
     """Raise this item's level to its owner's character level; never lower or reroll it."""
     slot = _slot(handle, serial)
@@ -292,6 +315,8 @@ def apply(plan: Plan) -> Outcome:
         level = game.player_level()
         if plan.cost != cost_legendary() or level <= slot.item.level or plan.after.level != level:
             raise Refused("玩家等级或装备已发生变化，请重新查看后再试。")
+    elif plan.kind == "firmware" and plan.cost != cost_legendary():
+        raise Refused("整件重掷费用已发生变化，请重新查看后再试。")
     _check(plan.cost)
     handle, equipped = game.replace(slot, plan.after.serial)
     left = game.set_balance(game.ERIDIUM, game.balance() - plan.cost)
@@ -321,8 +346,9 @@ def apply_async(plan: Plan, done: Callable[[dict[str, Any]], None]) -> None:
         return
     # Nothing is charged or changed here: the host rolls the same again from the seed, checks it
     # matches, then pays from our Eridium and swaps our item
-    # A separate service fails safely on older hosts which do not support level synchronization.
-    service = SYNC_LEVEL_SERVICE if plan.kind == "sync_level" else SERVICE
+    # Separate services fail safely on older hosts without level sync or firmware-only rerolls.
+    service = (SYNC_LEVEL_SERVICE if plan.kind == "sync_level" else
+               FIRMWARE_SERVICE if plan.kind == "firmware" else SERVICE)
     coop.request(service, {
         "kind": plan.kind,
         "line": plan.line,
@@ -347,6 +373,8 @@ def _serve(req: Any) -> dict[str, Any]:
                 plan = plan_one(slot.handle, int(data["line"]), slot.item.serial, seed)
             elif data.get("kind") == "legendary":
                 plan = plan_legendary(slot.handle, slot.item.serial, seed)
+            elif data.get("kind") == "firmware":
+                plan = plan_firmware(slot.handle, slot.item.serial, seed)
             elif data.get("kind") == "sync_level":
                 plan = plan_sync_level(slot.handle, slot.item.serial)
                 if plan is None:
@@ -409,6 +437,29 @@ def sync_item_level(handle: int, serial: str) -> None:
             apply_async(plan, completed)
         except Exception:
             # Scheduling can fail before a callback exists; do not leave the button locked.
+            if S.sync_pending is token:
+                S.sync_pending = None
+            raise
+    except (Refused, game.RerollError) as ex:
+        tell(str(ex), error=True)
+
+
+def randomize_firmware(handle: int, serial: str) -> None:
+    if not mod.is_enabled or S.sync_pending is not None or menu_reroll.S.busy or card.S.pending is not None:
+        return
+    try:
+        plan = plan_firmware(handle, serial)
+        token = object()
+        S.sync_pending = token
+
+        def completed(result: dict[str, Any]) -> None:
+            if S.sync_pending is token:
+                S.sync_pending = None
+                _tell_result(result)
+
+        try:
+            apply_async(plan, completed)
+        except Exception:
             if S.sync_pending is token:
                 S.sync_pending = None
             raise
@@ -488,10 +539,48 @@ def _sync_level_button(slot: game.Slot) -> ButtonOption:
     )
 
 
+@dataclass
+class FirmwareUnavailable(ValueOption[str]):
+    """A read-only value: Mod Menu renders it as text, with no Execute/Open control."""
+
+    def _to_json(self) -> Any:
+        return ...  # derived UI text, not a persistent setting
+
+    def _from_json(self, value: Any) -> None:
+        pass  # derived from the live item, never restored from saved settings
+
+    def reset(self) -> None:
+        pass
+
+
+def _firmware_option(slot: game.Slot) -> BaseOption:
+    try:
+        choices = firmware.options(slot.item.serial, game.Values.resolve)
+        current = firmware.part_name(choices.base, choices.current) if choices.base is not None else ""
+        detail = f"当前固件：{current}。" if current else ""
+        reason = detail + choices.reason
+    except (ValueError, KeyError, IndexError, game.RerollError):
+        choices = None
+        reason = "无法读取固件候选表，未进行任何修改。"
+    if choices is None or not choices.choices:
+        return FirmwareUnavailable("firmware_unavailable", "无法修改", display_name="随机固件", description=reason)
+    handle, serial = slot.handle, slot.item.serial
+    return ButtonOption(
+        "firmware",
+        display_name=f"随机固件（{cost_legendary()} 镒矿）",
+        description=(
+            detail + "仅更换手雷、炮械、修复套件、职业模组、护盾或强化组件的固件。"
+            "从其他有效候选中随机选择，不会选回当前固件。原本没有固件时，在规则允许的空槽中添加。"
+            "等级、种子、外观、技能、词条和其他部件保持不变。费用与整件重掷共用设置，替换失败不扣费。"
+        ),
+        on_press=lambda _: randomize_firmware(handle, serial),
+    )
+
+
 def _legendary_page(slot: game.Slot, item: legendary.Legend) -> NestedOption:
     kind = "pearl" if item.pearl else "legendary"
     children: list[BaseOption] = [_legendary_button(slot, item, f"重掷这件{'珠光' if kind == 'pearl' else '传奇'}装备"),
-                                  _sync_level_button(slot)]
+                                  _sync_level_button(slot), _firmware_option(slot)]
     return NestedOption(f"item{slot.handle}", children, display_name=_title(slot),
                         description=f"{item.maker} {item_label(item.label)}。重掷以重新随机生成该装备的部件。".strip())  # fmt: skip
 
@@ -528,6 +617,7 @@ def _item_page(slot: game.Slot) -> NestedOption:
         # A legendary class mod: its skills, modifiers and firmware can also roll again together
         children.append(_legendary_button(slot, whole, "重掷整件装备"))
     children.append(_sync_level_button(slot))
+    children.append(_firmware_option(slot))
     names = "、".join(stat_name(line.name) for line in item.lines) or "无"
     return NestedOption(f"item{handle}", children, display_name=_title(slot), description=f"词条：{names}。")
 
@@ -836,3 +926,4 @@ if coop is not None:
     coop.feature(FEATURE, lambda: mod.is_enabled)
     coop.handle(SERVICE, _serve)
     coop.handle(SYNC_LEVEL_SERVICE, _serve)
+    coop.handle(FIRMWARE_SERVICE, _serve)
