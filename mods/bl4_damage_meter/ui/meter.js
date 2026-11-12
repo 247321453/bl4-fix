@@ -222,6 +222,7 @@
         root.appendChild(el("div", "bl4cm_shade"));
         root.appendChild(el("div", "bl4cm_lines"));
         var frame = el("div", "bl4cm_frame");
+        ui.frame = frame;
 
         var header = el("div", "bl4cm_header");
         ui.bossPic = el("div", "bl4cm_boss_pic bl4cm_hidden");
@@ -560,6 +561,25 @@
     // endregion
     // region Render
 
+    function layoutPlayers() {
+        var cards = ui.players.children;
+        if (!cards.length) return;
+        var available = ui.frame.getBoundingClientRect().width;
+        if (available <= 0) return;
+        var style = getComputedStyle(cards[0]);
+        function px(value) { return parseFloat(value) || 0; }
+        // max-width is the existing solo width. Account for either game-wide box-sizing rule.
+        var outer = px(style.marginLeft) + px(style.marginRight);
+        if (style.boxSizing !== "border-box") {
+            outer += px(style.paddingLeft) + px(style.paddingRight) + px(style.borderLeftWidth) + px(style.borderRightWidth);
+        }
+        var rem = px(getComputedStyle(document.documentElement).fontSize) || 10;
+        var width = Math.max(1, Math.min(px(style.maxWidth) || 58 * rem, available / cards.length - outer));
+        // Grow with the team until the available screen width is used; then share it equally.
+        for (var i = 0; i < cards.length; i++) cards[i].style.width = width + "px";
+        ui.players.style.width = Math.min(available, cards.length * (width + outer)) + "px";
+    }
+
     function render() {
         if (!ui.root || !view.open || !state) return;
         try {
@@ -654,6 +674,7 @@
                 delete ui.cards[id];
             }
         });
+        layoutPlayers();
     }
 
     // endregion

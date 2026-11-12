@@ -210,19 +210,24 @@
 /* endregion */
 /* region Player cards */
 
+/* Grow the row with the team; when it reaches the screen edges, share its width equally. */
 .bl4cm_players {
-    flex: 1 1;
+    flex: 1 1 0;
+    align-self: center;
+    min-width: 0;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: stretch;
     min-height: 0;
 }
 
 .bl4cm_card {
     position: relative;
-    flex: 1 1 0;
+    flex: 0 0 auto;
+    width: 58rem;
     max-width: 58rem;
+    min-width: 0;
     margin: 0 1rem;
     display: flex;
     flex-direction: column;
