@@ -1,0 +1,9 @@
+[project]
+name = "golden_chest_repeat"
+cn_name = "黄金箱不需要钥匙"
+version = "0.3.0"
+description = "游戏中需要骷髅钥匙的黄金箱现在不需要钥匙也可以打开"
+
+[tool.sdkmod]
+name = "Golden Chest Repeat"
+supported_games = ["BL4"]
