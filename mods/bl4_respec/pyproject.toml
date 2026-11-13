@@ -2,7 +2,7 @@
 name = "BL4 Easy Respec"
 cn_name = "BL4 随时洗点"
 version = "0.2.4"
-description = "Right-click any skill in the Skills menu to take a point back out, as long as the tree stays valid."
+description = "在技能菜单中右键点击技能，即可在满足技能树解锁和前置条件的前提下退还一点技能点；也可一键重置全部技能。"
 authors = [{ name = "flame" }]
 
 [tool.sdkmod]

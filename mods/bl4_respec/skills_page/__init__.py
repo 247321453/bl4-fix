@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 The Skills page's right-click respec: our loose page files, and the check that they still fit the
 game's Skills menu.
@@ -195,8 +196,8 @@ def _retire(path: Path) -> str:
         return ""
     removal.write_bytes(b"")
     if _apply_after_exit(path):
-        return f" The old Skills page pak ({path.name}) goes when the game exits."
-    return f" Couldn't remove the old {path.name} while the game is running."
+        return f" 旧版技能页面补丁包（{path.name}）将在退出游戏后移除。"
+    return f" 游戏运行期间无法移除旧补丁包 {path.name}。"
 
 
 def check_page(game_dir: Path) -> bool:
@@ -218,9 +219,9 @@ def sync(game_dir: Path, enabled: bool) -> str:
     note = _retire(pak_path(game_dir))
     if not enabled:
         remove_loose_files(game_dir)
-        return "Easy Respec is off." + note
+        return "随时洗点已关闭。" + note
     if not check_page(game_dir):
         remove_loose_files(game_dir)
-        return "Easy Respec paused: this game version changed the Skills menu, so the mod needs an update." + note
+        return "随时洗点已暂停：当前游戏版本更改了技能菜单，需要更新本模组。" + note
     write_loose_files(game_dir)
-    return "Easy Respec is on: right-click a skill to take a point out." + note
+    return "随时洗点已开启：右键点击技能即可退还一点技能点。" + note

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Easy respec for Borderlands 4: right-click any skill in the Skills menu to take one point back out.
 
@@ -251,13 +252,13 @@ def _find_node(graph_hash: int, row: int, slot: int) -> tuple[UObject, int, str]
 def remove_point(graph_hash: int, row: int, slot: int) -> None:
     target = _find_node(graph_hash, row, slot)
     if target is None:
-        log(f"couldn't find skill row {row + 1} slot {slot + 1} (graph {graph_hash:06x})")
+        log(f"找不到第 {row + 1} 行、第 {slot + 1} 个技能（技能图 {graph_hash:06x}）")
         return
     graph, index, label = target
     if graph.nodes[index].ProgressPointsSpent <= 0:
         return
     graph.Server_SpendProgressPoints(index, -1)
-    logging.dev_warning(f"[Easy Respec] removed a point from {label}")
+    logging.dev_warning(f"[Easy Respec] 已从 {label} 退还一点技能点")
 
 
 def unspec_all() -> None:
@@ -271,7 +272,7 @@ def unspec_all() -> None:
             # Their rows lock again with no points in the tree
             if any(node.bIsActivated for node in graph.nodes):
                 graph.Server_ResetActivations()
-    log("unspecced all skills")
+    log("已重置全部技能")
 
 
 @hook(CHANNEL_FUNC, Type.PRE)
@@ -322,7 +323,7 @@ def sync_page(enabled: bool) -> None:
     try:
         status = skills_page.sync(GAME_DIR, enabled)
     except Exception as ex:  # noqa: BLE001 - never let a file problem break the mod
-        status = f"Easy Respec: couldn't update the Skills page ({ex})."
+        status = f"随时洗点：无法更新技能页面（{ex}）。"
     log(status)
     if enabled and skills_page.page_current:
         uilink.register(LINK_KEY, LINK_SCRIPT, dict, lambda _action: None, views=(uilink.MENUS,), mod=__name__)

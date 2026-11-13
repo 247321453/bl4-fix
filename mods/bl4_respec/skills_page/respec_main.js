@@ -65,7 +65,7 @@
     const tierInUse = (tier) => tier.nodes.some((node) => spentIn(node) > 0 || (isModifier(node) && node.isactivated));
     const segmentPoints = (segment) => segment.tiers.reduce((sum, tier) => sum + tierPoints(tier), 0);
     const segmentInUse = (segment) => segment.tiers.some(tierInUse);
-    const skillName = (node) => node.displayname || "that skill";
+    const skillName = (node) => node.displayname || "该技能";
 
     function sameNode(link, s, t, n) {
         return link.segmentindex === s && link.tierindex === t && link.nodeindex === n;
@@ -76,10 +76,10 @@
     function blockReason(tree, s, t, n) {
         const segment = tree.segments[s];
         const node = segment && segment.tiers[t] && segment.tiers[t].nodes[n];
-        if (!node || node.nodetype === NodeType.None) return "Nothing to remove here.";
-        if (isModifier(node)) return "Augments and capstones don't cost skill points.";
+        if (!node || node.nodetype === NodeType.None) return "此处没有可退还的技能点。";
+        if (isModifier(node)) return "强化技能和终极技能不消耗技能点。";
         if (node.progresspointsspent <= 0) {
-            return node.bonuspoints > 0 ? "Those points come from your class mod." : "No points in this skill.";
+            return node.bonuspoints > 0 ? "这些额外技能点来自职业模组，无法退还。" : "尚未向该技能投入技能点。";
         }
 
         // Each row unlocks at a number of points spent in the rows above it, within this trunk or branch
@@ -88,7 +88,7 @@
             const tier = segment.tiers[row];
             const after = above - (row > t ? 1 : 0);
             if (row > t && tierInUse(tier) && after < tier.progresspoints) {
-                return `Row ${row + 1} needs ${tier.progresspoints} points in the rows above it. Remove points from row ${row + 1} first.`;
+                return `解锁第 ${row + 1} 行需要在上方各行投入 ${tier.progresspoints} 点。请先退还第 ${row + 1} 行的技能点。`;
             }
             above += tierPoints(tier);
         }
@@ -99,7 +99,7 @@
             for (let b = 1; b < tree.segments.length; b++) {
                 const branch = tree.segments[b];
                 if (segmentInUse(branch) && trunkAfter < branch.progresspoints) {
-                    return `The branches need ${branch.progresspoints} points in the trunk. Remove points from the branches first.`;
+                    return `解锁分支需要在主干投入 ${branch.progresspoints} 点。请先退还分支中的技能点。`;
                 }
             }
         }
@@ -120,7 +120,7 @@
                             return spentIn(parent) > 0;
                         });
                         if (!otherParent) {
-                            return `${skillName(child)} needs a point in this skill. Remove points from ${skillName(child)} first.`;
+                            return `“${skillName(child)}”需要本技能至少投入一点。请先退还“${skillName(child)}”中的技能点。`;
                         }
                     }
                 }
@@ -132,7 +132,7 @@
     // endregion
     // region Messages
 
-    function showMessage(widget, text, title = "Can't remove that point") {
+    function showMessage(widget, text, title = "无法退还技能点") {
         let box = widget.Bl4Respec_Box;
         if (!box) {
             box = document.createElement("div");
@@ -205,7 +205,7 @@
 
     function addUnspecButton(widget) {
         if (widget.Bl4Respec_Unspec || !widget.WidgetDiv) return;
-        widget.Bl4Respec_Unspec = button(widget.WidgetDiv, "bl4respec_unspec", "Unspec All", () => openConfirm(widget));
+        widget.Bl4Respec_Unspec = button(widget.WidgetDiv, "bl4respec_unspec", "全部洗点", () => openConfirm(widget));
     }
 
     const confirmOpen = (widget) => !!widget.Bl4Respec_Confirm && !widget.Bl4Respec_Confirm.classList.contains("bl4respec_hidden");
@@ -219,7 +219,7 @@
         const spent = model ? Array.from(model.trees).reduce((sum, tree) => sum + tree.pointsspent, 0) : 0;
         if (spent <= 0) {
             widget.PlaySound("InsufficientPoints");
-            showMessage(widget, "You haven't spent any skill points.", "Nothing to unspec");
+            showMessage(widget, "你尚未投入任何技能点。", "没有可重置的技能");
             return;
         }
         hideMessage(widget);
@@ -234,14 +234,14 @@
             panel.appendChild(document.createElement("div")).className = "bl4respec_panel_text";
             const buttons = panel.appendChild(document.createElement("div"));
             buttons.className = "bl4respec_panel_buttons";
-            button(buttons, "bl4respec_cancel", "Cancel", () => closeConfirm(widget));
-            button(buttons, "bl4respec_confirm", "Unspec All", () => unspecAll(widget));
+            button(buttons, "bl4respec_cancel", "取消", () => closeConfirm(widget));
+            button(buttons, "bl4respec_confirm", "全部洗点", () => unspecAll(widget));
             widget.WidgetDiv.appendChild(overlay);
             widget.Bl4Respec_Confirm = overlay;
         }
-        overlay.querySelector(".bl4respec_panel_title").textContent = "Unspec all skills?";
+        overlay.querySelector(".bl4respec_panel_title").textContent = "重置全部技能？";
         overlay.querySelector(".bl4respec_panel_text").textContent =
-            `This refunds all ${spent} skill points in all three trees. Augments and capstones get unequipped.`;
+            `将退还三棵技能树中已投入的全部 ${spent} 点技能点，并卸下强化技能和终极技能。`;
         overlay.classList.toggle("bl4respec_hidden", false);
     }
 
@@ -349,8 +349,8 @@
                 if (name === "Event_OnHintBarEntriesReceived" && Array.isArray(entries)) {
                     entries = entries.filter((entry) => !entry || entry.input_action !== UNDO_ACTION);
                     const at = entries.findIndex((entry) => entry && entry.input_action === STATS_ACTION);
-                    if (!entries.some((entry) => entry && entry.loc_text === "Remove Point")) {
-                        const hint = OakUtils.SetupHintEntry("rightmousebutton", "Remove Point", true, false, false);
+                    if (!entries.some((entry) => entry && entry.loc_text === "退还技能点")) {
+                        const hint = OakUtils.SetupHintEntry("rightmousebutton", "退还技能点", true, false, false);
                         entries.splice(at < 0 ? 0 : at, 0, hint);
                     }
                 }
