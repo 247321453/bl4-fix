@@ -4,7 +4,8 @@ Moxxi's Big Encore from item cards: hover a legendary that a boss drops and pres
 
 - the waypoint key: the game's own custom waypoint (with its route on the map and compass) and a
   map pin go to the Big Encore machine for that boss;
-- the travel key: the same, then you're taken there. On the same map that's a short teleport next
+- the travel key: opens a confirmation dialog on the card page; after confirmation, the same,
+  then you're taken there. On the same map that's a short teleport next
   to the machine; on another map we use the game's fast travel to the nearest station on that map,
   then teleport to the machine once the game has put the player on the station (a few seconds
   after the map loads; a hop made before that was undone; how the wait works:
@@ -100,6 +101,8 @@ class _Key:
 
 _waypoint_key = _Key()
 _travel_key = _Key()
+_confirm_key = _Key()
+_cancel_key = _Key()
 _machines: list[dict] | None = None
 _pinned: dict[str, Any] | None = None
 _travel: dict[str, Any] | None = None
@@ -130,6 +133,8 @@ def virtual_key(name: str | None) -> int | None:
     """Windows key code for an Unreal key name: letters, number row ("One"), F1-F12."""
     if not name:
         return None
+    if name in ("Enter", "Escape"):
+        return 0x0D if name == "Enter" else 0x1B
     digits = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
     if len(name) == 1 and name.isalnum():
         return ord(name.upper())
@@ -149,6 +154,8 @@ def _write_status(game_dir: Path) -> None:
         "presses": _waypoint_key.presses,
         "travel_key": _travel_key.name,
         "travel_presses": _travel_key.presses,
+        "confirm_presses": _confirm_key.presses,
+        "cancel_presses": _cancel_key.presses,
         "pinned": _pinned,
         "travel": _travel,
     }
@@ -173,7 +180,14 @@ def _poll(key: _Key, name: str | None) -> bool:
 
 def poll_keys(game_dir: Path, waypoint_key: str | None, travel_key: str | None) -> None:
     """Call every frame or so: counts key presses for the card's script, and finishes trips."""
-    if _poll(_waypoint_key, waypoint_key) | _poll(_travel_key, travel_key):
+    # Count Enter/Esc through the same focused game-input path as J/K. The page ignores
+    # them unless a travel dialog was already open before that status update.
+    if (
+        _poll(_waypoint_key, waypoint_key)
+        | _poll(_travel_key, travel_key)
+        | _poll(_confirm_key, "Enter")
+        | _poll(_cancel_key, "Escape")
+    ):
         _write_status(game_dir)
     if _pending:
         _continue_trip(game_dir)

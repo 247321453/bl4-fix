@@ -87,6 +87,7 @@
     if (!ns) {
         ns = window.bl4dItemCards = { live: null, loadedAt: 0, loading: false, waiting: [], cards: [], generation: 0 };
     }
+    if (ns.closeTravelConfirm) ns.closeTravelConfirm();
     var generation = ++ns.generation;
     ns.off = false;
 
@@ -630,7 +631,7 @@
         var status = ns.hotkey || {};
         var has = machine !== null;
         promptEntry(wrapper, "bl4d_glyph", status.key, has && (pinnedHere(machine) ? "已设置返场导航点" : "返场导航点"));
-        promptEntry(wrapper, "bl4d_glyph_travel", status.travel_key, has && "传送至返场机器");
+        promptEntry(wrapper, "bl4d_glyph_travel", status.travel_key, has && "传送至返场机器（需确认）");
     }
 
     function send(op, arg, value) {
@@ -663,6 +664,67 @@
             return firstMachine(data);
         }
         return null;
+    }
+
+    // Capture the destination before the pointer leaves the card to click the dialog.
+    function travelDestination(machine) {
+        for (var i = ns.cards.length - 1; i >= 0; i--) {
+            var entries = dropEntries(ns.cards[i].DataModel || {}) || [];
+            for (var j = 0; j < entries.length; j++) {
+                for (var k = 0; k < entries[j].sources.length; k++) {
+                    var source = entries[j].sources[k];
+                    if (source.encore_id === machine) {
+                        return sourceName(source, "boss") + (sourceName(source, "encore_map") ? "（" + sourceName(source, "encore_map") + "）" : "");
+                    }
+                }
+            }
+        }
+        return "莫西的大返场机器";
+    }
+
+    function closeTravelConfirm() {
+        var pending = ns.travelConfirm;
+        ns.travelConfirm = null;
+        if (pending && pending.overlay.parentNode) pending.overlay.parentNode.removeChild(pending.overlay);
+    }
+    ns.closeTravelConfirm = closeTravelConfirm;
+
+    function acceptTravel(pending) {
+        // Ignore repeated clicks and handlers left behind by a cancelled/reloaded dialog.
+        if (!current() || ns.travelConfirm !== pending) return;
+        closeTravelConfirm();
+        send(OP_TRAVEL, pending.target, pending.seq);
+    }
+
+    function requestTravel(machine, seq) {
+        if (!current() || ns.travelConfirm || machine === null) return;
+        var overlay = element("div", "bl4d_travel_overlay");
+        overlay.id = "bl4d_travel_confirm";
+        var panel = element("div", "bl4d_travel_panel");
+        panel.setAttribute("role", "dialog");
+        panel.setAttribute("aria-modal", "true");
+        panel.setAttribute("aria-label", "确认传送");
+        panel.appendChild(element("div", "bl4d_travel_title", "确认传送？"));
+        panel.appendChild(element("div", "bl4d_travel_destination", travelDestination(machine)));
+        panel.appendChild(element("div", "bl4d_travel_note", "将前往此首领的莫西大返场机器。若位于其他地图，会先进行快速旅行。"));
+        var buttons = element("div", "bl4d_travel_buttons");
+        var pending = { target: machine, seq: seq, overlay: overlay };
+        function button(className, text, action) {
+            var control = element("div", "bl4d_travel_button " + className, text);
+            buttons.appendChild(control);
+            // Gameface routes pointer input through CursorHandler, not just DOM click events.
+            if (typeof CursorHandler !== "undefined") new CursorHandler({ element: control, onClick: action });
+            else control.addEventListener("click", action);
+        }
+        button("bl4d_travel_cancel", "取消（Esc）", function () {
+            if (ns.travelConfirm === pending) closeTravelConfirm();
+        });
+        button("bl4d_travel_accept", "确认传送（Enter）", function () { acceptTravel(pending); });
+        panel.appendChild(buttons);
+        overlay.appendChild(panel);
+        overlay.addEventListener("click", function (event) { event.stopPropagation(); });
+        document.body.appendChild(overlay);
+        ns.travelConfirm = pending;
     }
 
     function playSound(id) {
@@ -735,16 +797,26 @@
             if (status) {
                 var before = ns.hotkey;
                 ns.hotkey = status;
-                if (before && status.presses !== before.presses) {
-                    var machine = shownMachine();
-                    if (machine !== null) {
-                        send(OP_PIN_MACHINE, machine, status.presses);
-                        ns.sentSeq = status.presses;
+                // Keyboard input comes from Python's game-key poll: DOM key events aren't
+                // delivered reliably on every Gameface page (notably the ground-loot HUD).
+                var pending = ns.travelConfirm;
+                var cancelled = before && status.cancel_presses !== before.cancel_presses;
+                if (pending) {
+                    // Cancel wins if both keys changed. K/J while open do not queue another trip.
+                    if (cancelled) closeTravelConfirm();
+                    else if (before && status.confirm_presses !== before.confirm_presses) acceptTravel(pending);
+                } else if (before && !cancelled) {
+                    if (status.presses !== before.presses) {
+                        var machine = shownMachine();
+                        if (machine !== null) {
+                            send(OP_PIN_MACHINE, machine, status.presses);
+                            ns.sentSeq = status.presses;
+                        }
                     }
-                }
-                if (before && status.travel_presses !== before.travel_presses) {
-                    var target = shownMachine();
-                    if (target !== null) send(OP_TRAVEL, target, status.travel_presses);
+                    if (status.travel_presses !== before.travel_presses) {
+                        var target = shownMachine();
+                        if (target !== null) requestTravel(target, status.travel_presses);
+                    }
                 }
                 // Confirm in the page that asked, once Python says it's done (a trip has its own
                 // popups, below)
@@ -1371,6 +1443,7 @@
     // an older copy installed calls ns.refresh, so that becomes a no-op too.
     function teardown() {
         if (ns.generation !== generation) return;  // a newer copy runs: it's that one's job
+        closeTravelConfirm();
         ns.off = true;
         ns.generation++;
         ns.refresh = function () {};

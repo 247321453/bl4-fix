@@ -469,6 +469,75 @@
     margin: 0.4rem 0rem 0rem 0rem;
 }
 
+/* A page-level dialog: independent of the item card's scale, clipping and mouse hover. */
+.bl4d_travel_overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.72);
+    pointer-events: auto;
+}
+
+.bl4d_travel_panel {
+    width: 54rem;
+    max-width: 80%;
+    padding: 2.4rem;
+    background-color: rgba(8, 14, 20, 0.98);
+    border: 0.2rem solid #2d95ca;
+    font-family: Industry-Medium;
+    color: #d6e0e2;
+}
+
+.bl4d_travel_title {
+    font-family: Industry-DemiBold;
+    font-size: 2.6rem;
+    color: #4fb8ec;
+    margin-bottom: 1.4rem;
+}
+
+.bl4d_travel_destination {
+    font-size: 2rem;
+    line-height: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.bl4d_travel_note {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: #a0aeb1;
+    margin-bottom: 2rem;
+}
+
+.bl4d_travel_buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bl4d_travel_button {
+    font-size: 1.7rem;
+    padding: 0.9rem 1.6rem;
+    margin-left: 1.2rem;
+    background-color: #1a303d;
+    border: 0.15rem solid #526c7a;
+    pointer-events: auto;
+}
+
+.bl4d_travel_accept {
+    border-color: #4fb8ec;
+    color: #4fb8ec;
+}
+
+.bl4d_travel_button:hover {
+    background-color: #285068;
+    color: #fff;
+}
+
 /* Legendary name above the gun in the inventory's weapon slots (item_cards.js renderSlotNames).
    It sits in the slot's upright picture frame (15.5 x 12 rem), in the empty band the 2:1 thumbnail
    leaves at its top, so it scales with the menu and stays clear of the slot's own icons */
