@@ -625,11 +625,17 @@
         if (label.textContent !== text) label.textContent = text;
     }
 
+    // Ground-loot cards live on the HUD page. Keep their drop/skill information, but no
+    // Encore key hints or actions; menu cards (inventory, bank, etc.) keep the original keys.
+    function encoreKeysAllowed() {
+        return !/[?&]view=HUD(?:[&#]|$)/i.test(location.href);
+    }
+
     function renderPrompt(card, machine) {
         var wrapper = card.querySelector(".item_card_glyph_wrapper");
         if (!wrapper) return;
         var status = ns.hotkey || {};
-        var has = machine !== null;
+        var has = encoreKeysAllowed() && machine !== null;
         promptEntry(wrapper, "bl4d_glyph", status.key, has && (pinnedHere(machine) ? "已设置返场导航点" : "返场导航点"));
         promptEntry(wrapper, "bl4d_glyph_travel", status.travel_key, has && "传送至返场机器（需确认）");
     }
@@ -654,6 +660,7 @@
 
     // The machine to send the waypoint to: the first Big Encore source on the card being shown
     function shownMachine() {
+        if (!encoreKeysAllowed()) return null;
         for (var i = ns.cards.length - 1; i >= 0; i--) {
             var card = ns.cards[i];
             var data = card.DataModel;
@@ -692,12 +699,16 @@
     function acceptTravel(pending) {
         // Ignore repeated clicks and handlers left behind by a cancelled/reloaded dialog.
         if (!current() || ns.travelConfirm !== pending) return;
+        if (!encoreKeysAllowed()) {
+            closeTravelConfirm();
+            return;
+        }
         closeTravelConfirm();
         send(OP_TRAVEL, pending.target, pending.seq);
     }
 
     function requestTravel(machine, seq) {
-        if (!current() || ns.travelConfirm || machine === null) return;
+        if (!current() || !encoreKeysAllowed() || ns.travelConfirm || machine === null) return;
         var overlay = element("div", "bl4d_travel_overlay");
         overlay.id = "bl4d_travel_confirm";
         var panel = element("div", "bl4d_travel_panel");
