@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Build Presets for Borderlands 4: five build slots per character, right in the inventory.
 
@@ -38,6 +39,7 @@ from mods_base import SETTINGS_DIR, BoolOption, GroupedOption, KeybindOption, bu
 from unrealsdk import logging
 
 from . import builds, frametick, hotkeys, page
+from .i18n import translate, equipment
 
 __version__ = "0.2.1"
 __version_info__ = (0, 2, 1)
@@ -46,27 +48,31 @@ GAME_DIR = SETTINGS_DIR.parent.parent
 
 
 def log(msg: str) -> None:
-    logging.info(f"[Build Presets] {msg}")
+    logging.info(f"[配装预设] {translate(msg)}")
 
 
 skills_option = BoolOption(
     "Load skills",
     True,
-    description="Loading a build also puts back its skill points, action skill, augments and capstone.",
+    display_name="加载技能",
+    description="加载配装时，同时恢复技能点、主动技能、强化技能和终极技能。",
+    true_text="开启", false_text="关闭",
 )
 specs_option = BoolOption(
     "Load specializations",
     True,
-    description="Loading a build also puts back its specialization points and perks.",
+    display_name="加载专精",
+    description="加载配装时，同时恢复专精点数和专精天赋。",
+    true_text="开启", false_text="关闭",
 )
 
 load_keys = [
-    KeybindOption(f"Load build {n}", None, description=f"Loads build {n} (in gameplay or in the game's menus).")
+    KeybindOption(f"Load build {n}", None, display_name=f"加载配装 {n}", description=f"加载配装 {n}，在游玩及游戏菜单中均可使用。")
     for n in range(1, builds.presets.SLOTS + 1)
 ]
-next_key = KeybindOption("Next build", None, description="Loads the next saved build after the one you're wearing.")
-previous_key = KeybindOption("Previous build", None, description="Loads the saved build before the one you're wearing.")
-hotkey_group = GroupedOption("Hotkeys", [*load_keys, next_key, previous_key])
+next_key = KeybindOption("Next build", None, display_name="下一个配装", description="切换到当前配装之后的下一个已保存配装。")
+previous_key = KeybindOption("Previous build", None, display_name="上一个配装", description="切换到当前配装之前的上一个已保存配装。")
+hotkey_group = GroupedOption("Hotkeys", [*load_keys, next_key, previous_key], display_name="快捷键")
 
 
 def _options() -> tuple[bool, bool]:
@@ -119,28 +125,28 @@ def _tick() -> None:
             logging.error("".join(traceback.format_exception(ex)))
 
 
-@command("build", description="List, save, load or clear your build presets.")
+@command("build", description="列出、保存、加载或清空配装预设。")
 def build_command(args: argparse.Namespace) -> None:
     try:
         if args.action == "list":
             for square in builds.summaries():
                 if square["empty"]:
-                    log(f"{square['n']}. (empty)")
+                    log(f"{square['n']}.（空）")
                     continue
                 title = " · ".join(x for x in (square["name"], square.get("action"), square["tree_text"]) if x)
-                log(f"{square['n']}. {title} · saved {square['saved']}")
+                log(f"{square['n']}. {title} · 保存于 {square['saved']}")
                 for gear in square["gear"]:
-                    log(f"     {gear['slot']}: {gear['label']}{'' if gear['have'] else ' (not in your backpack)'}")
+                    log(f"     {translate(gear['slot'])}：{equipment(gear['label'])}{'' if gear['have'] else '（不在背包中）'}")
             return
         if args.n is None or not 1 <= args.n <= builds.presets.SLOTS:
-            log(f"Give a slot from 1 to {builds.presets.SLOTS}.")
+            log(f"请输入 1 到 {builds.presets.SLOTS} 之间的槽位编号。")
             return
         if args.action == "save":
             log(builds.save(args.n))
         elif args.action == "load":
             headline, details = builds.load(args.n, skills=skills_option.value,
                                             specializations=skills_option.value and specs_option.value)  # fmt: skip
-            log(" ".join([headline, *details]))
+            log(" ".join([translate(headline), *map(translate, details)]))
         elif args.action == "clear":
             log(builds.clear(args.n))
         elif args.action == "rename":
@@ -150,8 +156,8 @@ def build_command(args: argparse.Namespace) -> None:
 
 
 build_command.add_argument("action", nargs="?", default="list", choices=("list", "save", "load", "clear", "rename"))
-build_command.add_argument("n", type=int, nargs="?", help="build slot (1-5)")
-build_command.add_argument("name", nargs="*", help="rename: the new name (nothing clears it)")
+build_command.add_argument("n", type=int, nargs="?", help="配装槽位（1—5）")
+build_command.add_argument("name", nargs="*", help="重命名：输入新名称，留空则清除名称。")
 
 
 def _enable() -> None:

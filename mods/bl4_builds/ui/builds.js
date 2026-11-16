@@ -448,16 +448,16 @@
     // square, and sliding along it never crosses another square
     function actionBar() {
         var bar = element("div", "bl4b_actions bl4b_hidden");
-        barButton(bar, "bl4b_chip_save", "Save", function (n, info) {
+        barButton(bar, "bl4b_chip_save", "保存", function (n, info) {
             if (info.empty || confirmed(n, "save")) send("save", n);
         });
-        barButton(bar, "bl4b_chip_name", "Name", function (n, info) {
+        barButton(bar, "bl4b_chip_name", "命名", function (n, info) {
             if (!info.empty) {
                 hurry();
                 ext.send(KEY, { do: "name", n: n });
             }
         });
-        barButton(bar, "bl4b_chip_clear", "Clear", function (n, info) {
+        barButton(bar, "bl4b_chip_clear", "清空", function (n, info) {
             if (!info.empty && confirmed(n, "clear")) send("clear", n);
         });
         bar.addEventListener("mouseenter", onPointer);
@@ -482,8 +482,8 @@
         bar.bl4bKey = key;
         var save = bar.querySelector(".bl4b_chip_save");
         var clear = bar.querySelector(".bl4b_chip_clear");
-        setText(save, asking && confirm.what === "save" ? "Sure? Save over it" : "Save");
-        setText(clear, asking && confirm.what === "clear" ? "Sure? Clear it" : "Clear");
+        setText(save, asking && confirm.what === "save" ? "确认覆盖？" : "保存");
+        setText(clear, asking && confirm.what === "clear" ? "确认清空？" : "清空");
         save.classList.toggle("bl4b_asking", asking && confirm.what === "save");
         clear.classList.toggle("bl4b_asking", asking && confirm.what === "clear");
         var sq = box.querySelector('.bl4b_square[data-n="' + n + '"]');
@@ -501,8 +501,8 @@
         box.appendChild(element("p", "bl4b_prompt_title"));
         box.appendChild(element("p", "bl4b_prompt_text"));
         var buttons = element("div", "bl4b_prompt_buttons");
-        var yes = element("div", "bl4b_chip bl4b_prompt_yes", "Save over it");
-        var no = element("div", "bl4b_chip bl4b_prompt_no", "Cancel");
+        var yes = element("div", "bl4b_chip bl4b_prompt_yes", "覆盖保存");
+        var no = element("div", "bl4b_chip bl4b_prompt_no", "取消");
         buttons.appendChild(yes);
         buttons.appendChild(no);
         box.appendChild(buttons);
@@ -532,10 +532,10 @@
         }
         prompting = n;
         var prompt = box.querySelector(".bl4b_prompt");
-        prompt.querySelector(".bl4b_prompt_title").textContent = "Save over " + (info.name ? info.name + " (Build " + n + ")" : "Build " + n) + "?";
+        prompt.querySelector(".bl4b_prompt_title").textContent = "覆盖保存到 " + (info.name ? info.name + "（配装 " + n + "）" : "配装 " + n) + "？";
         prompt.querySelector(".bl4b_prompt_text").textContent =
-            "What you have equipped now, your skills and your specializations replace what's saved in it" +
-            (info.name ? ". It keeps its name." : ".");
+            "将使用当前装备、技能和专精覆盖该槽位原有的配装" +
+            (info.name ? "，名称保持不变。" : ".");
         sound(prompt, "ElementFocused");
         render();
     }
@@ -602,8 +602,8 @@
 
     function caption(info) {
         if (!info) return "";
-        if (info.empty) return "Empty";
-        return info.name || info.action || ("Build " + info.n);
+        if (info.empty) return "空";
+        return info.name || info.cn_action || info.action || ("配装 " + info.n);
     }
 
     // The strip at the bottom of a square: its points per tree, in the trees' colors
@@ -638,7 +638,7 @@
             var typing = namingN() === n;
             sq.classList.toggle("bl4b_naming", typing);
             sq.classList.toggle("bl4b_selected", chipsFor === n && !hovered);
-            setText(sq.querySelector(".bl4b_caption"), busy === n ? "..." : typing ? state.naming.text || "Name?" : caption(info));
+            setText(sq.querySelector(".bl4b_caption"), busy === n ? "..." : typing ? state.naming.text || "输入名称" : caption(info));
             renderTrees(sq.querySelector(".bl4b_trees"), info);
         }
         renderBar(box);
@@ -676,53 +676,53 @@
         if (naming) {
             titleBox.appendChild(element("p", "bl4b_panel_title bl4b_typing", (state.naming.text || "") + caret));
         } else {
-            titleBox.appendChild(element("p", "bl4b_panel_title", info.name || "Build " + info.n));
+            titleBox.appendChild(element("p", "bl4b_panel_title", info.name || "配装 " + info.n));
         }
         var sub = [];
-        if (info.name || naming) sub.push("Build " + info.n);
-        if (info.action) sub.push(info.action);
+        if (info.name || naming) sub.push("配装 " + info.n);
+        if (info.action) sub.push(info.cn_action || info.action);
         if (sub.length && !info.empty) titleBox.appendChild(element("p", "bl4b_panel_sub", sub.join(" · ")));
         head.appendChild(titleBox);
-        if (!info.empty) head.appendChild(element("p", "bl4b_panel_saved", (info.current ? "Equipped now · " : "") + "Saved " + info.saved));
+        if (!info.empty) head.appendChild(element("p", "bl4b_panel_saved", (info.current ? "当前已装备 · " : "") + "保存于 " + info.saved));
         panel.appendChild(head);
-        if (naming) line(panel, "bl4b_panel_note bl4b_naming_note", "Type a name. Enter: keep · Esc: cancel · Delete: clear it");
+        if (naming) line(panel, "bl4b_panel_note bl4b_naming_note", "输入名称。Enter：保存 · Esc：取消 · Delete：清空输入");
         if (state && state.blocked) {
             line(panel, "bl4b_panel_note bl4b_bad", state.blocked);
             return;
         }
         if (info.empty) {
-            line(panel, "bl4b_panel_note", "Click to save what you have equipped, your skills and your specializations here.");
+            line(panel, "bl4b_panel_note", "点击此处，将当前装备、技能和专精保存到此槽位。");
             return;
         }
         var gear = element("div", "bl4b_gear");
         list(info.gear).forEach(function (g) {
             var r = element("div", "bl4b_gear_row" + (g.have ? "" : " bl4b_gone") + (g.on ? " bl4b_on" : ""));
-            r.appendChild(element("p", "bl4b_gear_slot", g.slot));
-            var name = element("p", "bl4b_gear_name bl4b_rarity_" + (g.rarity || "none"), g.label);
+            r.appendChild(element("p", "bl4b_gear_slot", g.cn_slot || g.slot));
+            var name = element("p", "bl4b_gear_name bl4b_rarity_" + (g.rarity || "none"), g.cn_label || g.label);
             r.appendChild(name);
             // Builds saved before names were read only have "Legendary Jakobs Shotgun": no need to repeat it
-            if (g.desc && g.label.indexOf(g.desc) < 0) r.appendChild(element("p", "bl4b_gear_desc", g.desc));
-            if (!g.have) r.appendChild(element("p", "bl4b_gear_flag", "not in backpack"));
+            if (g.desc && g.label.indexOf(g.desc) < 0) r.appendChild(element("p", "bl4b_gear_desc", g.cn_desc || g.desc));
+            if (!g.have) r.appendChild(element("p", "bl4b_gear_flag", "不在背包中"));
             gear.appendChild(r);
         });
         panel.appendChild(gear);
         var trees = list(info.trees);
         if (trees.length) {
-            line(panel, "bl4b_panel_label", "Skills");
+            line(panel, "bl4b_panel_label", "技能");
             var text = line(panel, "bl4b_panel_text", "");
             trees.forEach(function (t, i) {
                 if (i) text.appendChild(element("span", "bl4b_sep", " · "));
-                text.appendChild(element("span", "bl4b_tree_text_" + (t.color || "none"), t.name + " " + t.points));
+                text.appendChild(element("span", "bl4b_tree_text_" + (t.color || "none"), (t.cn_name || t.name) + " " + t.points));
             });
         }
         if (info.specs) {
-            line(panel, "bl4b_panel_label", "Specializations");
-            line(panel, "bl4b_panel_text", info.specs);
+            line(panel, "bl4b_panel_label", "专精");
+            line(panel, "bl4b_panel_text", info.cn_specs || info.specs);
         }
         var hint = info.missing > 0
-            ? "Click to load. Missing items are skipped; their slots stay as they are."
-            : "Click to load.";
-        line(panel, "bl4b_panel_hint", hint + " Right-click: save over it. Buttons under the row: Save · Name · Clear");
+            ? "点击加载。缺失的装备会跳过，对应槽位保持不变。"
+            : "点击加载。";
+        line(panel, "bl4b_panel_hint", hint + " 右键：覆盖保存。下方按钮：保存 · 命名 · 清空。");
     }
 
     function toast(t) {

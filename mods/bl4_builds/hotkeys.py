@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Loading builds from hotkeys: one per build, plus next / previous saved build. None are bound by
 default; set them in the mod's options (the BL4 Mod Menu, F7).
@@ -16,6 +17,7 @@ from mods_base import get_pc
 
 from . import builds, page, uilink
 from .notice import Notice
+from .i18n import translate
 
 NEXT, PREVIOUS = "next", "previous"
 
@@ -59,6 +61,8 @@ def _target(action: str) -> int | None:
 
 
 def _tell(title: str, details: list[str] | None = None, *, error: bool = False) -> None:
+    title = translate(title)
+    details = [translate(detail) for detail in (details or [])]
     page.say(title, details, error=error)
     # With the inventory open, its own notice shows it; otherwise ours, over the game
     if not uilink.page_open(page.KEY):

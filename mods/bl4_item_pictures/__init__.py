@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Instant Item Pictures for Borderlands 4: your backpack's item pictures are ready before you open it.
 
@@ -72,10 +73,12 @@ def _option_changed(_option: Any, _value: Any) -> None:
 bank_option = BoolOption(
     "Bank pictures too",
     False,
+    display_name="同时缓存仓库图片",
+    true_text="开启",
+    false_text="关闭",
     description=(
-        "Also keeps the pictures of everything in your bank ready. Each picture takes about 0.5 MB"
-        " of video memory, so a bank of 300 items is about 150 MB more. Off: only what you carry"
-        " (equipped and backpack)."
+        "同时提前缓存仓库中所有物品的图片。每张图片约占用 0.5 MB 显存，"
+        "300 件仓库物品约额外占用 150 MB。关闭时只缓存随身物品（已装备及背包中的物品）。"
     ),
     on_change=_option_changed,
 )
@@ -83,9 +86,12 @@ bank_option = BoolOption(
 fast_option = BoolOption(
     "Draw faster in menus",
     True,
+    display_name="在菜单中加快生成图片",
+    true_text="开启",
+    false_text="关闭",
     description=(
-        "While a menu is open, the game draws a missing picture every frame instead of 15 a second,"
-        " so new loot and the bank fill in quicker. Off: the game's own pace."
+        "打开菜单时，每帧生成一张缺失的图片，而不是每秒 15 张，"
+        "让新获得的战利品及仓库图片更快加载完成。关闭时使用游戏原本的速度。"
     ),
     on_change=_option_changed,
 )
@@ -105,7 +111,7 @@ def tick() -> None:
         health.tick()  # "needs an update" statuses for all our mods (shared/health)
         _tick()
     except Exception as ex:  # noqa: BLE001 - never let our tick break the game's
-        logging.error(f"[Instant Item Pictures] {ex!r}")
+        logging.error(f"[物品图片缓存] {ex!r}")
 
 
 @frametick.tick(LINK_KEY)
@@ -114,7 +120,7 @@ def link_tick() -> None:
     try:
         page.uilink.tick()
     except Exception as ex:  # noqa: BLE001
-        logging.error(f"[Instant Item Pictures] {ex!r}")
+        logging.error(f"[物品图片缓存] {ex!r}")
 
 
 def _tick() -> None:
@@ -232,21 +238,21 @@ def status() -> str:
     present = S.present or set()
     ours = len(S.wanted_set & present)
     text = (
-        f"{ours}/{len(S.wanted)} of your items have a picture ready"
-        f" (backpack {len(S.backpack.serials)}, bank {len(S.bank.serials) if bank_option.value else 'off'})."
+        f"已准备好 {ours}/{len(S.wanted)} 件物品的图片"
+        f"（背包 {len(S.backpack.serials)} 件，仓库 {len(S.bank.serials) if bank_option.value else '未开启'}）。"
     )
     if counts is not None:
         mb = counts.pictures * pictures.TARGET_BYTES / (1 << 20)
         text += (
-            f" The game holds {counts.pictures} pictures (~{mb:.0f} MB of video memory), {counts.loading} loading,"
-            f" {counts.queued} queued. Asked {S.stats['requests']}, quiet sweeps {S.stats['sweeps']}."
+            f" 游戏当前保留 {counts.pictures} 张图片（约 {mb:.0f} MB 显存），{counts.loading} 张正在加载，"
+            f"{counts.queued} 张排队中。累计请求 {S.stats['requests']} 次，后台清理 {S.stats['sweeps']} 次。"
         )
     if pictures.Native.why:
-        text += f" Not drawing ahead: {pictures.Native.why}."
+        text += f" 未启用提前生成：{pictures.Native.why}。"
     return text
 
 
-@command("pictures", description="Instant Item Pictures: how many of your items' pictures are ready.")
+@command("pictures", description="物品图片缓存：查看已准备好的物品图片数量。")
 def pictures_command(_args: argparse.Namespace) -> None:
     pictures.log(status())
 
@@ -260,11 +266,11 @@ def _disable() -> None:
         page.unregister()  # the page script goes and lets every picture go
         page.set_paths([])
     except Exception as ex:  # noqa: BLE001
-        logging.error(f"[Instant Item Pictures] {ex!r}")
+        logging.error(f"[物品图片缓存] {ex!r}")
     try:
         pictures.restore_cvars()
     except Exception as ex:  # noqa: BLE001
-        logging.error(f"[Instant Item Pictures] {ex!r}")
+        logging.error(f"[物品图片缓存] {ex!r}")
     _reset()
 
 

@@ -1,7 +1,8 @@
 [project]
 name = "BL4 Build Presets"
+cn_name = "BL4 配装预设"
 version = "0.2.4"
-description = "Five build slots per character in the inventory: save and load your equipped gear, skills and specializations with a click. No other mod needed."
+description = "在背包界面为每个角色提供 5 个配装槽，一键保存或加载装备、技能和专精。支持快捷键切换，无需安装其他 Mod；联机客户端加载配装时，房主也需安装本 Mod。"
 authors = [{ name = "flame" }]
 
 [tool.sdkmod]

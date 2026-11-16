@@ -875,7 +875,7 @@ reroll_command.add_argument("modifier", type=int, nargs="?", help="仅替换指�
 
 reroll_key = KeybindOption(
     "Reroll key",
-    "T",
+    None,
     display_name="重掷快捷键",
     description=(
         "将鼠标悬停在背包中的职业模组或强化装置上，按此键可重掷全部词条，或替换通过选择键选中的词条。对于传奇或珠光装备，会重掷整件装备。重掷全部内容前需要再次按键确认。"
@@ -883,7 +883,7 @@ reroll_key = KeybindOption(
 )
 pick_key = KeybindOption(
     "Pick modifier key",
-    "G",
+    None,
     display_name="选择词条快捷键",
     description=(
         "将鼠标悬停在职业模组或强化装置上，按此键可选择要替换的词条，再按重掷键执行。重复按下可选择下一条，越过最后一条后恢复为重掷全部词条。"

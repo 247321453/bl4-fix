@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Reading a build off the character and putting one back. Call everything here on the game thread.
 

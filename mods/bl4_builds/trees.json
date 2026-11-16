@@ -1,290 +1,362 @@
 {
  "Progress_Corpohacker_Branch_HackAndSlash_01": {
   "color": "blue",
-  "tree": "Hack / Slash"
+  "tree": "Hack / Slash",
+  "cn_name": "破解/劈砍"
  },
  "Progress_Corpohacker_Branch_HackAndSlash_02": {
   "color": "blue",
-  "tree": "Hack / Slash"
+  "tree": "Hack / Slash",
+  "cn_name": "破解/劈砍"
  },
  "Progress_Corpohacker_Branch_HackAndSlash_03": {
   "color": "blue",
-  "tree": "Hack / Slash"
+  "tree": "Hack / Slash",
+  "cn_name": "破解/劈砍"
  },
  "Progress_Corpohacker_Branch_Virology_01": {
   "color": "green",
-  "tree": "Virology"
+  "tree": "Virology",
+  "cn_name": "病毒学"
  },
  "Progress_Corpohacker_Branch_Virology_02": {
   "color": "green",
-  "tree": "Virology"
+  "tree": "Virology",
+  "cn_name": "病毒学"
  },
  "Progress_Corpohacker_Branch_Virology_03": {
   "color": "green",
-  "tree": "Virology"
+  "tree": "Virology",
+  "cn_name": "病毒学"
  },
  "Progress_Corpohacker_Trunk_Assimilation": {
   "color": "red",
-  "tree": "Manifestation"
+  "tree": "Manifestation",
+  "cn_name": "化身"
  },
  "Progress_Corpohacker_Trunk_HackAndSlash": {
   "color": "blue",
-  "tree": "Hack / Slash"
+  "tree": "Hack / Slash",
+  "cn_name": "破解/劈砍"
  },
  "Progress_Corpohacker_Trunk_Virology": {
   "color": "green",
-  "tree": "Virology"
+  "tree": "Virology",
+  "cn_name": "病毒学"
  },
  "Progress_DS_Branch_Death_01": {
   "color": "green",
-  "tree": "Vexcalation"
+  "tree": "Vexcalation",
+  "cn_name": "愤怒升级"
  },
  "Progress_DS_Branch_Death_02": {
   "color": "green",
-  "tree": "Vexcalation"
+  "tree": "Vexcalation",
+  "cn_name": "愤怒升级"
  },
  "Progress_DS_Branch_Death_03": {
   "color": "green",
-  "tree": "Vexcalation"
+  "tree": "Vexcalation",
+  "cn_name": "愤怒升级"
  },
  "Progress_DS_Branch_Domination_01": {
   "color": "red",
-  "tree": "Here Comes Trouble"
+  "tree": "Here Comes Trouble",
+  "cn_name": "麻烦来了"
  },
  "Progress_DS_Branch_Domination_02": {
   "color": "red",
-  "tree": "Here Comes Trouble"
+  "tree": "Here Comes Trouble",
+  "cn_name": "麻烦来了"
  },
  "Progress_DS_Branch_Domination_03": {
   "color": "red",
-  "tree": "Here Comes Trouble"
+  "tree": "Here Comes Trouble",
+  "cn_name": "麻烦来了"
  },
  "Progress_DS_Branch_Duplicate_01": {
   "color": "blue",
-  "tree": "The Fourth Seal"
+  "tree": "The Fourth Seal",
+  "cn_name": "第四封印"
  },
  "Progress_DS_Branch_Duplicate_02": {
   "color": "blue",
-  "tree": "The Fourth Seal"
+  "tree": "The Fourth Seal",
+  "cn_name": "第四封印"
  },
  "Progress_DS_Branch_Duplicate_03": {
   "color": "blue",
-  "tree": "The Fourth Seal"
+  "tree": "The Fourth Seal",
+  "cn_name": "第四封印"
  },
  "Progress_DS_Trunk_Death": {
   "color": "green",
-  "tree": "Vexcalation"
+  "tree": "Vexcalation",
+  "cn_name": "愤怒升级"
  },
  "Progress_DS_Trunk_Domination": {
   "color": "red",
-  "tree": "Here Comes Trouble"
+  "tree": "Here Comes Trouble",
+  "cn_name": "麻烦来了"
  },
  "Progress_DS_Trunk_Duplicate": {
   "color": "blue",
-  "tree": "The Fourth Seal"
+  "tree": "The Fourth Seal",
+  "cn_name": "第四封印"
  },
  "Progress_EXO_Branch_Gimmick_01": {
   "color": "green",
-  "tree": "This Year's Gimmick"
+  "tree": "This Year's Gimmick",
+  "cn_name": "今年噱头"
  },
  "Progress_EXO_Branch_Gimmick_02": {
   "color": "green",
-  "tree": "This Year's Gimmick"
+  "tree": "This Year's Gimmick",
+  "cn_name": "今年噱头"
  },
  "Progress_EXO_Branch_Gimmick_03": {
   "color": "green",
-  "tree": "This Year's Gimmick"
+  "tree": "This Year's Gimmick",
+  "cn_name": "今年噱头"
  },
  "Progress_EXO_Branch_PeoplePerson_01": {
   "color": "blue",
-  "tree": "People Person"
+  "tree": "People Person",
+  "cn_name": "社交达人"
  },
  "Progress_EXO_Branch_PeoplePerson_02": {
   "color": "blue",
-  "tree": "People Person"
+  "tree": "People Person",
+  "cn_name": "社交达人"
  },
  "Progress_EXO_Branch_PeoplePerson_03": {
   "color": "blue",
-  "tree": "People Person"
+  "tree": "People Person",
+  "cn_name": "社交达人"
  },
  "Progress_EXO_Branch_RemoteAgent_01": {
   "color": "red",
-  "tree": "Remote Agent"
+  "tree": "Remote Agent",
+  "cn_name": "远程代理"
  },
  "Progress_EXO_Branch_RemoteAgent_02": {
   "color": "red",
-  "tree": "Remote Agent"
+  "tree": "Remote Agent",
+  "cn_name": "远程代理"
  },
  "Progress_EXO_Branch_RemoteAgent_03": {
   "color": "red",
-  "tree": "Remote Agent"
+  "tree": "Remote Agent",
+  "cn_name": "远程代理"
  },
  "Progress_EXO_Trunk_Gimmick": {
   "color": "green",
-  "tree": "This Year's Gimmick"
+  "tree": "This Year's Gimmick",
+  "cn_name": "今年噱头"
  },
  "Progress_EXO_Trunk_PeoplePerson": {
   "color": "blue",
-  "tree": "People Person"
+  "tree": "People Person",
+  "cn_name": "社交达人"
  },
  "Progress_EXO_Trunk_RemoteAgent": {
   "color": "red",
-  "tree": "Remote Agent"
+  "tree": "Remote Agent",
+  "cn_name": "远程代理"
  },
  "Progress_Grav_Branch_ExodusShard_01": {
   "color": "red",
-  "tree": "Creative Bursts"
+  "tree": "Creative Bursts",
+  "cn_name": "创意爆发"
  },
  "Progress_Grav_Branch_ExodusShard_02": {
   "color": "red",
-  "tree": "Creative Bursts"
+  "tree": "Creative Bursts",
+  "cn_name": "创意爆发"
  },
  "Progress_Grav_Branch_ExodusShard_03": {
   "color": "red",
-  "tree": "Creative Bursts"
+  "tree": "Creative Bursts",
+  "cn_name": "创意爆发"
  },
  "Progress_Grav_Branch_StasisShard_01": {
   "color": "blue",
-  "tree": "Seize the Day"
+  "tree": "Seize the Day",
+  "cn_name": "把握光阴"
  },
  "Progress_Grav_Branch_StasisShard_02": {
   "color": "blue",
-  "tree": "Seize the Day"
+  "tree": "Seize the Day",
+  "cn_name": "把握光阴"
  },
  "Progress_Grav_Branch_StasisShard_03": {
   "color": "blue",
-  "tree": "Seize the Day"
+  "tree": "Seize the Day",
+  "cn_name": "把握光阴"
  },
  "Progress_Grav_Branch_TerminalShard_01": {
   "color": "green",
-  "tree": "Cosmic Brilliance"
+  "tree": "Cosmic Brilliance",
+  "cn_name": "宇宙光辉"
  },
  "Progress_Grav_Branch_TerminalShard_02": {
   "color": "green",
-  "tree": "Cosmic Brilliance"
+  "tree": "Cosmic Brilliance",
+  "cn_name": "宇宙光辉"
  },
  "Progress_Grav_Branch_TerminalShard_03": {
   "color": "green",
-  "tree": "Cosmic Brilliance"
+  "tree": "Cosmic Brilliance",
+  "cn_name": "宇宙光辉"
  },
  "Progress_Grav_Trunk_ExodusShard": {
   "color": "red",
-  "tree": "Creative Bursts"
+  "tree": "Creative Bursts",
+  "cn_name": "创意爆发"
  },
  "Progress_Grav_Trunk_StasisShard": {
   "color": "blue",
-  "tree": "Seize the Day"
+  "tree": "Seize the Day",
+  "cn_name": "把握光阴"
  },
  "Progress_Grav_Trunk_TerminalShard": {
   "color": "green",
-  "tree": "Cosmic Brilliance"
+  "tree": "Cosmic Brilliance",
+  "cn_name": "宇宙光辉"
  },
  "Progress_PLD_Branch_Calamity_01": {
   "color": "red",
-  "tree": "Calamity"
+  "tree": "Calamity",
+  "cn_name": "灾祸"
  },
  "Progress_PLD_Branch_Calamity_02": {
   "color": "red",
-  "tree": "Calamity"
+  "tree": "Calamity",
+  "cn_name": "灾祸"
  },
  "Progress_PLD_Branch_Calamity_03": {
   "color": "red",
-  "tree": "Calamity"
+  "tree": "Calamity",
+  "cn_name": "灾祸"
  },
  "Progress_PLD_Branch_Cybernetics_01": {
   "color": "green",
-  "tree": "Cybernetics"
+  "tree": "Cybernetics",
+  "cn_name": "神经机械"
  },
  "Progress_PLD_Branch_Cybernetics_02": {
   "color": "green",
-  "tree": "Cybernetics"
+  "tree": "Cybernetics",
+  "cn_name": "神经机械"
  },
  "Progress_PLD_Branch_Cybernetics_03": {
   "color": "green",
-  "tree": "Cybernetics"
+  "tree": "Cybernetics",
+  "cn_name": "神经机械"
  },
  "Progress_PLD_Branch_Vengeance_01": {
   "color": "blue",
-  "tree": "Vengeance"
+  "tree": "Vengeance",
+  "cn_name": "复仇怒火"
  },
  "Progress_PLD_Branch_Vengeance_02": {
   "color": "blue",
-  "tree": "Vengeance"
+  "tree": "Vengeance",
+  "cn_name": "复仇怒火"
  },
  "Progress_PLD_Branch_Vengeance_03": {
   "color": "blue",
-  "tree": "Vengeance"
+  "tree": "Vengeance",
+  "cn_name": "复仇怒火"
  },
  "Progress_PLD_Trunk_Calamity": {
   "color": "red",
-  "tree": "Calamity"
+  "tree": "Calamity",
+  "cn_name": "灾祸"
  },
  "Progress_PLD_Trunk_Cybernetics": {
   "color": "green",
-  "tree": "Cybernetics"
+  "tree": "Cybernetics",
+  "cn_name": "神经机械"
  },
  "Progress_PLD_Trunk_Vengeance": {
   "color": "blue",
-  "tree": "Vengeance"
+  "tree": "Vengeance",
+  "cn_name": "复仇怒火"
  },
  "Progress_robo_branch_cleromancy_1": {
   "color": "green",
-  "tree": "Roll the Bones"
+  "tree": "Roll the Bones",
+  "cn_name": "骨注一掷"
  },
  "Progress_robo_branch_cleromancy_2": {
   "color": "green",
-  "tree": "Roll the Bones"
+  "tree": "Roll the Bones",
+  "cn_name": "骨注一掷"
  },
  "Progress_robo_branch_cleromancy_3": {
   "color": "green",
-  "tree": "Roll the Bones"
+  "tree": "Roll the Bones",
+  "cn_name": "骨注一掷"
  },
  "Progress_robo_branch_crossFire_1": {
   "color": "red",
-  "tree": "Chaos Walking"
+  "tree": "Chaos Walking",
+  "cn_name": "混沌行走"
  },
  "Progress_robo_branch_crossFire_2": {
   "color": "red",
-  "tree": "Chaos Walking"
+  "tree": "Chaos Walking",
+  "cn_name": "混沌行走"
  },
  "Progress_robo_branch_crossFire_3": {
   "color": "red",
-  "tree": "Chaos Walking"
+  "tree": "Chaos Walking",
+  "cn_name": "混沌行走"
  },
  "Progress_robo_branch_sleightOfHand_1": {
   "color": "blue",
-  "tree": "Luck of the Draw"
+  "tree": "Luck of the Draw",
+  "cn_name": "抽签好运"
  },
  "Progress_robo_branch_sleightOfHand_2": {
   "color": "blue",
-  "tree": "Luck of the Draw"
+  "tree": "Luck of the Draw",
+  "cn_name": "抽签好运"
  },
  "Progress_robo_branch_sleightOfHand_3": {
   "color": "blue",
-  "tree": "Luck of the Draw"
+  "tree": "Luck of the Draw",
+  "cn_name": "抽签好运"
  },
  "Progress_robo_trunk_cleromancy": {
   "color": "green",
-  "tree": "Roll the Bones"
+  "tree": "Roll the Bones",
+  "cn_name": "骨注一掷"
  },
  "Progress_robo_trunk_crossFire": {
   "color": "red",
-  "tree": "Chaos Walking"
+  "tree": "Chaos Walking",
+  "cn_name": "混沌行走"
  },
  "Progress_robo_trunk_sleightOfHand": {
   "color": "blue",
-  "tree": "Luck of the Draw"
+  "tree": "Luck of the Draw",
+  "cn_name": "抽签好运"
  },
  "progress_corpohacker_branch_Assimilation_01": {
   "color": "red",
-  "tree": "Manifestation"
+  "tree": "Manifestation",
+  "cn_name": "化身"
  },
  "progress_corpohacker_branch_Assimilation_02": {
   "color": "red",
-  "tree": "Manifestation"
+  "tree": "Manifestation",
+  "cn_name": "化身"
  },
  "progress_corpohacker_branch_Assimilation_03": {
   "color": "red",
-  "tree": "Manifestation"
+  "tree": "Manifestation",
+  "cn_name": "化身"
  }
 }

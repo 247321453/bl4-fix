@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Putting a player on the nearest place the game would respawn them.
 
@@ -96,7 +97,7 @@ def _put(pc: UObject, pawn: UObject, spot: tuple[float, float, float, float]) ->
         else:
             pc.ClientSetRotation(facing, True)
     except Exception as ex:  # noqa: BLE001 - facing is a nicety
-        logging.dev_warning(f"[Unstuck] facing: {ex!r}")
+        logging.dev_warning(f"[角色脱困] 设置朝向失败： {ex!r}")
     return True
 
 

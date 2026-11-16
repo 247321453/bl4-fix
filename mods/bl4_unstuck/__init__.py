@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Unstuck for Borderlands 4: frees a character stuck floating and puts them on the nearest respawn
 station.
@@ -49,8 +50,17 @@ _char_class = unrealsdk.find_class("OakCharacter")
 _statics = unrealsdk.find_class("GameplayStatics").ClassDefaultObject
 
 
+def _ui_label(value: Any) -> str:
+    # Display only: co-op request/reply IDs and native names are left unchanged.
+    return {
+        "Stuck": "检测到角色卡住", "Stuck again": "角色再次卡住", "Unstuck now": "立即脱困",
+        "no character": "没有可用的角色", "no respawn station": "未找到重生点",
+        "Unstuck is off on the host": "房主未启用角色脱困 Mod",
+    }.get(str(value), str(value))
+
+
 def log(msg: str) -> None:
-    logging.info(f"[Unstuck] {msg}")
+    logging.info(f"[角色脱困] {msg}")
 
 
 class S:
@@ -71,9 +81,12 @@ class S:
 auto_option = BoolOption(
     "Unstuck by itself",
     True,
+    display_name="自动脱困",
+    true_text="开启",
+    false_text="关闭",
     description=(
-        "When your character hangs in the air and can't move for a while (a teleport the game never"
-        " finished), it's freed and put on the nearest fast travel or respawn station."
+        "当角色悬浮在空中且持续无法移动（通常是游戏未能完成传送）时，"
+        "自动解除移动限制，并将角色移至最近的快速旅行站或重生点。"
     ),
 )
 delay_option = SliderOption(
@@ -83,7 +96,8 @@ delay_option = SliderOption(
     30,
     1,
     is_integer=True,
-    description="How long your character has to be stuck before Unstuck steps in by itself.",
+    display_name="卡住多久后脱困（秒）",
+    description="角色持续卡住达到此时间后，自动执行脱困。",
 )
 
 
@@ -99,7 +113,8 @@ def _press(_: ButtonOption) -> None:
 
 now_button = ButtonOption(
     "Unstuck now",
-    description="Frees your character and puts them on the nearest fast travel or respawn station.",
+    display_name="立即脱困",
+    description="解除角色的移动限制，并将其移至最近的快速旅行站或重生点。",
     on_press=_press,
 )
 
@@ -143,21 +158,21 @@ def unstuck(why: str, move: bool = True) -> None:
     pc = get_pc()
     pawn = _character(pc)
     if pawn is None:
-        log("No character to free (loading, driving or down).")
+        log("没有可以脱困的角色（正在加载、驾驶载具或处于倒地状态）。")
         return
     released = hold.release(pc, pawn)  # our own copy, also as a client (the movement runs here too)
     _watch_after(pawn)
     if not move:
-        log(f"{why}: released {released or 'nothing'}")
+        log(f"{_ui_label(why)}：已解除 {released or '无需解除'}")
         return
     S.last_move = time.monotonic()
 
     def done(reply: dict[str, Any]) -> None:
         if reply.get("ok"):
-            how = "the game's trip to" if reply.get("how") == "trip" else "landed at"
-            log(f"{why}: {how} {reply.get('station')} (released {released or reply.get('released') or 'nothing'})")
+            how = "由游戏传送至" if reply.get("how") == "trip" else "已移至"
+            log(f"{_ui_label(why)}：{how} {reply.get('station')}（已解除 {released or reply.get('released') or '无需解除'}）")
         else:
-            log(f"{why}: couldn't move you ({reply.get('error')})")
+            log(f"{_ui_label(why)}：无法移动角色（{_ui_label(reply.get('error'))}）")
 
     if coop is not None:
         if coop.run(KIND, {}, done, feature_name=FEATURE):
@@ -261,7 +276,7 @@ def _menus_up() -> bool:
 # endregion
 
 
-@command("unstuck", description="Frees your character and puts them on the nearest fast travel or respawn station.")
+@command("unstuck", description="解除角色的移动限制，并将其移至最近的快速旅行站或重生点。")
 def unstuck_command(_: argparse.Namespace) -> None:
     S.manual_at = time.monotonic() + 0.3  # next tick, with the console closed
 

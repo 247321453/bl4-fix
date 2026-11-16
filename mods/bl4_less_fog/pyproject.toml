@@ -1,7 +1,8 @@
 [project]
 name = "BL4 Less Fog"
+cn_name = "BL4 减少雾气"
 version = "0.1.4"
-description = "Remove the fog and the distance haze (the default), or thin them out and push them further away, live."
+description = "实时移除雾气与远景薄雾（默认），也可减少雾气浓度并增加雾气的起始距离。"
 authors = [{ name = "flame" }]
 
 [tool.sdkmod]

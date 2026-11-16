@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Gearbox's arrival hold: gravity 0 and move input ignored, which sometimes never lets go.
 
@@ -103,7 +104,7 @@ def flag_offset(pc: UObject) -> int | None:
         try:
             _find(pc)
         except Exception as ex:  # noqa: BLE001 - a game patch: gravity only
-            logging.warning(f"[Unstuck] can't find the movement hold in this game build ({ex}): gravity only")
+            logging.warning(f"[角色脱困] 无法定位当前游戏版本的移动限制标志（{ex}）：仅恢复重力")
     return _Found.flag or None
 
 

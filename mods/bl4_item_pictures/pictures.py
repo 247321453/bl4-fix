@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 The game's item pictures (inventory thumbnails), kept ready.
 
@@ -89,7 +90,7 @@ _REQUEST_TYPE = ctypes.CFUNCTYPE(ctypes.c_void_p, ctypes.c_void_p, ctypes.c_void
 
 
 def log(msg: str) -> None:
-    logging.info(f"[Instant Item Pictures] {msg}")
+    logging.info(f"[物品图片缓存] {msg}")
 
 
 def _read(address: int, size: int) -> bytes | None:
@@ -138,7 +139,7 @@ def set_cvar(name: str, value: float) -> bool:
     original(name)
     if not _execute(name, value):
         Cvars.failed.add((name, value))  # not tried again this session (a console command per tick)
-        log(f"couldn't set {CVAR}{name} to {value}")
+        log(f"无法将 {CVAR}{name} 设置为 {value}")
         return False
     Cvars.ours[name] = value
     return True
@@ -159,9 +160,9 @@ def restore_cvars() -> None:
         del Cvars.ours[name]
         try:
             if not _execute(name, Cvars.original[name]):
-                logging.error(f"[Instant Item Pictures] couldn't put {CVAR}{name} back")
+                logging.error(f"[物品图片缓存] 无法恢复 {CVAR}{name}")
         except Exception as ex:  # noqa: BLE001
-            logging.error(f"[Instant Item Pictures] couldn't put {CVAR}{name} back: {ex!r}")
+            logging.error(f"[物品图片缓存] 无法恢复 {CVAR}{name}: {ex!r}")
 
 
 # endregion
@@ -181,14 +182,14 @@ class Native:
 def _check() -> str | None:
     base = int(_k32.GetModuleHandleW(None) or 0)
     if not base:
-        return "no game image"
+        return "无法找到游戏主模块"
     if _read(base + REQUEST_RVA, len(REQUEST_HEAD)) != REQUEST_HEAD:
-        return "the thumbnail request isn't where this build had it (game patched?)"
+        return "缩略图请求函数的位置已变化（游戏可能已更新）"
     if _read(base + CALLER_RVA, len(CALLER_HEAD)) != CALLER_HEAD:
-        return "the card's thumbnail call isn't where this build had it (game patched?)"
+        return "物品卡的缩略图调用位置已变化（游戏可能已更新）"
     size = _read(base + SIZE_RVA, 8)
     if size is None or struct.unpack("<ii", size) != (int(cvar("TextureSizeX")), int(cvar("TextureSizeY"))):
-        return "the thumbnail size isn't where this build had it (game patched?)"
+        return "缩略图尺寸数据的位置已变化（游戏可能已更新）"
     Native.base = base
     Native.request = _REQUEST_TYPE(base + REQUEST_RVA)
     return None
@@ -200,7 +201,7 @@ def native_problem() -> str | None:
         Native.checked = True
         Native.why = _check()
         if Native.why:
-            log(f"no warming: {Native.why}")
+            log(f"无法预生成图片：{Native.why}")
     return Native.why
 
 
@@ -217,7 +218,7 @@ def manager() -> Any:
     if found is None:
         return None
     if Native.base and _read(found._get_address(), 8) != struct.pack("<Q", Native.base + MANAGER_VTABLE_RVA):  # noqa: SLF001
-        Native.why = "the thumbnail manager isn't the class this build had"
+        Native.why = "缩略图管理器的类型与预期不符"
         return None
     Native.manager = WeakPointer(found)
     return found

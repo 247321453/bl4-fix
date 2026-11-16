@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 The game's own "equip this backpack item into that slot" call.
 

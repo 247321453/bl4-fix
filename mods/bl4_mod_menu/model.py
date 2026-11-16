@@ -129,7 +129,8 @@ def value_text(option: ValueOption[Any], value: Any) -> str:
         return fmt_number(option, value)
     if isinstance(option, KeybindOption):
         return keys.display_name(value)
-    return str(value)
+    labels = getattr(option, "cn_choices", {})
+    return labels.get(value, str(value)) if isinstance(labels, dict) else str(value)
 
 
 def slider_value(option: SliderOption, value: float) -> float:
@@ -173,6 +174,10 @@ def option_json(option: BaseOption) -> dict[str, Any] | None:
         case DropdownOption() | SpinnerOption():
             node.update(kind="choice", value=option.value, choices=list(option.choices),
                         wrap=isinstance(option, DropdownOption) or option.wrap_enabled)  # fmt: skip
+            labels = getattr(option, "cn_choices", {})
+            if isinstance(labels, dict) and labels:
+                node["cn_choices"] = {choice: labels[choice] for choice in option.choices
+                                      if isinstance(labels.get(choice), str)}
         case KeybindOption():
             node.update(kind="keybind", value=option.value, text=keys.display_name(option.value),
                         rebindable=option.is_rebindable)  # fmt: skip

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 A short notice at the top of the screen ("Build 2 loaded."), for loads from a hotkey during
 gameplay, where the inventory's page (and its notices) isn't running.

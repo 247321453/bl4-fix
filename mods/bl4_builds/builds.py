@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Saving and loading builds, and describing them for the page. Call these on the game thread.
 
@@ -108,7 +109,7 @@ def _skill_names_data() -> dict[str, list[str | None]]:
         _skill_names = {}
         try:
             raw = json.loads((resources.files("bl4_item_cards") / "card_page" / "skills.json").read_text(encoding="utf-8"))
-            _skill_names = {graph: [(node or {}).get("name") for node in nodes] for graph, nodes in raw.items()}
+            _skill_names = {graph: [((node or {}).get("cn_name") or (node or {}).get("name")) for node in nodes] for graph, nodes in raw.items()}
         except Exception:  # noqa: BLE001 - names are a nicety
             pass
     return _skill_names
@@ -142,7 +143,7 @@ def _tree_of(graph: str) -> tuple[str, str] | None:
     """(tree name, color) of a skill tree graph (trunk or branch), or None for other graphs."""
     info = _tree_data().get(graph)
     if info:
-        return info["tree"], info["color"]
+        return info.get("cn_name") or info["tree"], info["color"]
     if match := _TREE.search(graph):
         return match.group(1), ""
     return None
@@ -644,7 +645,7 @@ def _build_summaries(char: str, items: list[game.Item], current_skills: dict[str
             "n": n,
             "empty": False,
             "name": build.get("name") or "",
-            "saved": time.strftime("%b %d, %H:%M", time.localtime(build.get("saved", 0))),
+            "saved": time.strftime("%m-%d %H:%M", time.localtime(build.get("saved", 0))),
             "gear": gear,
             "missing": sum(1 for g in gear if not g["have"]),
             "current": wearing,

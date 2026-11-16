@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 The map's fog and distance haze, and thinning them out.
 

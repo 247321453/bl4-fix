@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 The menu page's script: keeps every item picture the game holds loaded in the page.
 
@@ -106,4 +107,4 @@ def publish(*, force: bool = False) -> None:
             tmp.replace(target)
         except OSError as ex:
             S.published.pop(name, None)
-            logging.dev_warning(f"[Instant Item Pictures] couldn't publish {name}: {ex}")
+            logging.dev_warning(f"[物品图片缓存] 无法发布 {name}: {ex}")

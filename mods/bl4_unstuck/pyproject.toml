@@ -1,7 +1,8 @@
 [project]
 name = "BL4 Unstuck"
+cn_name = "BL4 角色脱困"
 version = "0.1.3"
-description = "Frees a character stuck floating after a teleport and puts them on the nearest fast travel or respawn station. Also by hand: Unstuck now / the unstuck command."
+description = "当角色在传送后卡在空中时，自动解除移动限制并移至最近的快速旅行站或重生点。也可点击“立即脱困”，或使用 unstuck 控制台命令手动脱困。"
 authors = [{ name = "flame" }]
 
 [tool.sdkmod]

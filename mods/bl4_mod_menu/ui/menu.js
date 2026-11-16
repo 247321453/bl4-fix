@@ -1181,7 +1181,7 @@
             // mods_base wraps a mod's own options in an "Options" group: no name to show or match
             var named = !(node.kind === "group" && at.depth === 0 && at.nested.length === 0 && node.name === "Options");
             var names = named ? at.names.concat([node.name]) : at.names;
-            var own = [norm(node.name), norm(node.title), norm(node.desc)].concat((node.choices || []).map(norm)).join("|");
+            var own = [norm(node.name), norm(node.title), norm(node.desc)].concat((node.choices || []).map(function (value) { return norm(value) + "|" + norm(node.cn_choices && node.cn_choices[value]); })).join("|");
             if (node.kind !== "group" && matchesAll(at.text + "|" + own, words)) {
                 hits.push({ node: node, path: path, label: names.join("  /  "), nested: at.nested, start: at.start });
             }
@@ -2418,7 +2418,7 @@
         var choices = node.choices || [];
         var index = choices.indexOf(node.value);
         var value = q(s, ".stepper_value");
-        if (value) value.textContent = tr(node.value);
+        if (value) value.textContent = (node.cn_choices && node.cn_choices[node.value]) || tr(node.value);
         var pips = q(s, ".stepper_indicator_container");
         if (pips) {
             var pipTemplate = q(pips, ".stepper_inner_cntr");

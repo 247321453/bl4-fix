@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 The five build squares in the inventory, under the Reward Center button.
 
@@ -33,6 +34,7 @@ from typing import Any
 from unrealsdk import logging
 
 from . import builds, health, uilink
+from .i18n import translate, squares
 
 KEY = "builds"
 UI_DIR = "OakGame/Content/uiresources/bl4builds"
@@ -65,6 +67,8 @@ def _changed() -> None:
 
 
 def say(title: str, details: list[str] | None = None, *, error: bool = False) -> None:
+    title = translate(title)
+    details = [translate(detail) for detail in (details or [])]
     S.toast = {"id": S.toast["id"] + 1, "title": title, "details": details or [], "error": error}
     (logging.error if error else logging.info)(f"[Build Presets] {title} {' '.join(details or [])}".strip())
     _changed()
@@ -73,7 +77,7 @@ def say(title: str, details: list[str] | None = None, *, error: bool = False) ->
 def state() -> dict[str, Any]:
     """What the page shows. Cheap: the squares come from builds' cache (see builds.watch)."""
     naming = {"n": S.naming, "text": S.typing.text} if S.typing is not None else None
-    return {"blocked": builds.blocked(cached=True), "squares": builds.summaries(cached=True), "toast": S.toast,
+    return {"blocked": translate(builds.blocked(cached=True)), "squares": squares(builds.summaries(cached=True)), "toast": S.toast,
             "naming": naming, "prompt": S.prompt}
 
 

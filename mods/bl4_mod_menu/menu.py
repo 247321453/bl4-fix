@@ -55,7 +55,7 @@ from mods_base import (
 from unrealsdk import logging
 from unrealsdk.unreal import WeakPointer
 
-from . import errors, frametick, health, keys, names, reporting, uilink, web
+from . import errors, frametick, health, keys, model, names, reporting, uilink, web
 from .i18n import text as localize
 from .widgets import DESIGN_H, DESIGN_W, Canvas, Color, Hint, call, make_overlay, viewport_scale, widget_lib
 
@@ -485,7 +485,7 @@ def _draw_choice(c: Canvas, mod: Mod, option: DropdownOption | SpinnerOption, x:
 
     back, forward = step(-1), step(1)
     c.button("<", x, y, 48, h, back, fill=BUTTON if back else DISABLED, hover=BUTTON_HOVER, size=18, hint=hint)
-    c.button(str(option.value)[:34], x + 54, y, CONTROL_W - 108, h, forward,
+    c.button(model.value_text(option, option.value)[:34], x + 54, y, CONTROL_W - 108, h, forward,
              fill=UNCHOSEN, hover=ROW_HOVER, size=16, hint=hint)  # fmt: skip
     c.button(">", x + CONTROL_W - 48, y, 48, h, forward,
              fill=BUTTON if forward else DISABLED, hover=BUTTON_HOVER, size=18, hint=hint)  # fmt: skip

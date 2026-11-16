@@ -51,7 +51,7 @@
 }
 
 .bl4b_caption {
-    font-family: Industry-Normal;
+    font-family: Industry-Normal, "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-size: 1.45rem;
     line-height: 1.7rem;
     color: #8fb4c4;
@@ -131,7 +131,7 @@
 }
 
 .bl4b_actions_label {
-    font-family: Industry-DemiBold;
+    font-family: Industry-DemiBold, "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-size: 1.3rem;
     color: #8fb4c4;
     margin: 0 0.8rem 0 0;
@@ -147,7 +147,7 @@
 }
 
 .bl4b_chip {
-    font-family: Industry-DemiBold;
+    font-family: Industry-DemiBold, "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-size: 1.3rem;
     line-height: 2.2rem;
     height: 2.2rem;
@@ -265,7 +265,7 @@
 }
 
 .bl4b_panel_title {
-    font-family: Industry-DemiBold;
+    font-family: Industry-DemiBold, "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-size: 2.2rem;
     color: #e4d9ce;
     margin: 0;
@@ -278,7 +278,7 @@
 }
 
 .bl4b_panel_sub {
-    font-family: Industry-Normal;
+    font-family: Industry-Normal, "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-size: 1.35rem;
     color: #8fb4c4;
     margin: 0.2rem 0 0 0;
@@ -290,7 +290,7 @@
 }
 
 .bl4b_panel_saved {
-    font-family: Industry-Normal;
+    font-family: Industry-Normal, "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-size: 1.3rem;
     color: #8fb4c4;
     margin: 0;
@@ -310,7 +310,7 @@
 }
 
 .bl4b_gear_slot {
-    font-family: Industry-Normal;
+    font-family: Industry-Normal, "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-size: 1.35rem;
     color: #6f9db1;
     width: 11rem;
@@ -319,7 +319,7 @@
 }
 
 .bl4b_gear_name {
-    font-family: Industry-DemiBold;
+    font-family: Industry-DemiBold, "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-size: 1.55rem;
     color: #d8e4e8;
     margin: 0;
@@ -330,7 +330,7 @@
 }
 
 .bl4b_gear_desc {
-    font-family: Industry-Normal;
+    font-family: Industry-Normal, "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-size: 1.25rem;
     color: #6f9db1;
     margin: 0 0 0 0.8rem;
@@ -339,7 +339,7 @@
 }
 
 .bl4b_gear_flag {
-    font-family: Industry-Normal;
+    font-family: Industry-Normal, "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-size: 1.25rem;
     color: #e0a35c;
     margin: 0 0 0 1rem;
@@ -378,7 +378,7 @@
 }
 
 .bl4b_panel_label {
-    font-family: Industry-DemiBold;
+    font-family: Industry-DemiBold, "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-size: 1.25rem;
     color: #6f9db1;
     text-transform: uppercase;
@@ -386,14 +386,14 @@
 }
 
 .bl4b_panel_text {
-    font-family: Industry-Normal;
+    font-family: Industry-Normal, "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-size: 1.5rem;
     color: #d8e4e8;
     margin: 0;
 }
 
 .bl4b_panel_note {
-    font-family: Industry-Normal;
+    font-family: Industry-Normal, "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-size: 1.5rem;
     color: #d8e4e8;
     margin: 0;
@@ -404,7 +404,7 @@
 }
 
 .bl4b_panel_hint {
-    font-family: Industry-Normal;
+    font-family: Industry-Normal, "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-size: 1.25rem;
     color: #8fb4c4;
     margin: 1rem 0 0 0;
@@ -437,14 +437,14 @@
 }
 
 .bl4b_toast_title {
-    font-family: Industry-DemiBold;
+    font-family: Industry-DemiBold, "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-size: 1.8rem;
     color: #e4d9ce;
     margin: 0;
 }
 
 .bl4b_toast_line {
-    font-family: Industry-Normal;
+    font-family: Industry-Normal, "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-size: 1.35rem;
     color: #e0a35c;
     margin: 0.3rem 0 0 0;
@@ -467,14 +467,14 @@
 }
 
 .bl4b_prompt_title {
-    font-family: Industry-DemiBold;
+    font-family: Industry-DemiBold, "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-size: 2.2rem;
     color: #e4d9ce;
     margin: 0 0 0.6rem 0;
 }
 
 .bl4b_prompt_text {
-    font-family: Industry-Normal;
+    font-family: Industry-Normal, "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-size: 1.5rem;
     color: #d8e4e8;
     margin: 0 0 1.4rem 0;

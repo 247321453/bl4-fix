@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 The saved builds: five per character, in the SDK's settings folder (settings/build_presets.json),
 keyed by the character's id (PlayerState.ActiveCharGuid):

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Less Fog for Borderlands 4: remove the fog and the blue haze over the world ("No fog", the default
 since 2026-10-29), or thin them out.
@@ -70,16 +71,24 @@ def _haze_changed(_option: SliderOption, value: float) -> None:
         preset_option.value = _match_preset(density_option.value, start_option.value, value)
 
 
-preset_option = SpinnerOption(
+class _PresetOption(SpinnerOption):
+    # Presentation labels only: choices/value and saved settings keep the original English IDs.
+    cn_choices = {
+        "Vanilla": "原版", "Light": "轻度减少", "Balanced": "均衡", "Clear": "清晰",
+        "Very clear": "非常清晰", "No fog": "无雾", "Custom": "自定义",
+    }
+
+
+preset_option = _PresetOption(
     "Preset",
     DEFAULT_PRESET,
     [*PRESETS, CUSTOM],
+    display_name="雾气预设",
     wrap_enabled=True,
     description=(
-        "How much fog to keep. Vanilla is the game's own fog; each step down is thinner and starts"
-        " further away. No fog removes it completely: the fog, local fog patches and the blue"
-        " distance haze. Some places (Dominion, coasts that end at the edge of the map) lean on the"
-        " fog for their look or to hide the world's edge; pick a lighter preset if that bothers you."
+        "选择保留多少雾气。“原版”使用游戏原本的雾气；减少程度越高，雾气越淡、起始位置越远。"
+        "“无雾”会完全移除雾气、局部雾团及蓝色远景薄雾。某些区域（如统治城和地图边缘的海岸）"
+        "依靠雾气营造氛围或遮挡地图边界；如果移除后观感不佳，可以改用保留少量雾气的预设。"
     ),
     on_change_anytime=_preset_changed,
 )
@@ -89,7 +98,8 @@ density_option = SliderOption(
     0,
     100,
     5,
-    description="How thick the fog is (and local fog patches), as a percentage of the game's. 0 = no fog.",
+    display_name="雾气浓度",
+    description="雾气（包括局部雾团）的浓度，按游戏原本浓度的百分比设置。0 表示无雾。",
     on_change_anytime=_density_changed,
 )
 start_option = SliderOption(
@@ -99,9 +109,10 @@ start_option = SliderOption(
     5.0,
     0.25,
     is_integer=False,
+    display_name="雾气起始距离",
     description=(
-        "How far away the fog begins, as a multiple of the game's distance. Places where the game"
-        " starts fog right at the camera aren't affected."
+        "雾气开始出现的距离，按游戏原本距离的倍数设置。"
+        "如果某个区域的雾气原本就从镜头位置开始，则此选项对该区域无效。"
     ),
     on_change_anytime=_start_changed,
 )
@@ -111,9 +122,10 @@ haze_option = SliderOption(
     0,
     100,
     5,
+    display_name="远景薄雾",
     description=(
-        "The sky's blue haze over far-away ground, which stays even with the fog at 0, as a"
-        " percentage of the game's. 0 = none: distant hills look as clear as near ones."
+        "远处地面上方的蓝色薄雾，即使雾气浓度为 0 也可能保留。按游戏原本强度的百分比设置。"
+        "0 表示移除，让远处山丘像近处一样清晰。"
     ),
     on_change_anytime=_haze_changed,
 )
@@ -141,7 +153,7 @@ def tick() -> None:
         text = repr(ex)[:300]
         if text not in _logged_errors and len(_logged_errors) < 20:  # noqa: PLR2004
             _logged_errors.add(text)
-            logging.error(f"[Less Fog] {text} (logged once)")
+            logging.error(f"[减少雾气] {text}（仅记录一次）")
 
 
 _logged_errors: set[str] = set()

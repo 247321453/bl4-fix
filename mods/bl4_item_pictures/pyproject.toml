@@ -1,7 +1,8 @@
 [project]
 name = "BL4 Instant Item Pictures"
+cn_name = "BL4 物品图片缓存"
 version = "0.1.2"
-description = "Your items' pictures are ready before you open the backpack: keeps the game's own item pictures instead of redrawing them, and draws missing ones in the background (bank too, optional)."
+description = "提前准备物品缩略图：保留游戏已生成的图片，并在后台补齐缺失的图片，减少打开或滚动背包时图片消失、重新加载的现象。可选同时缓存仓库物品。"
 authors = [{ name = "flame" }]
 
 [tool.sdkmod]
