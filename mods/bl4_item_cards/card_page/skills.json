@@ -573,7 +573,7 @@
   {
    "id": "augment_1",
    "name": "Malignant Construct",
-   "cn_name": "恶性构造体",
+   "cn_name": "恶性构造",
    "max": 0,
    "stats": [
     {
@@ -653,7 +653,7 @@
   {
    "id": "augment_2",
    "name": "Malignant Construct",
-   "cn_name": "恶性构造体",
+   "cn_name": "恶性构造",
    "max": 0,
    "stats": [
     {
@@ -733,7 +733,7 @@
   {
    "id": "augment_3",
    "name": "Malignant Construct",
-   "cn_name": "恶性构造体",
+   "cn_name": "恶性构造",
    "max": 0,
    "stats": [
     {
@@ -813,7 +813,7 @@
   {
    "id": "augment_4",
    "name": "Malignant Construct",
-   "cn_name": "恶性构造体",
+   "cn_name": "恶性构造",
    "max": 0,
    "stats": [
     {
@@ -893,7 +893,7 @@
   {
    "id": "augment_5",
    "name": "Malignant Construct",
-   "cn_name": "恶性构造体",
+   "cn_name": "恶性构造",
    "max": 0,
    "stats": [
     {
@@ -973,7 +973,7 @@
   {
    "id": "capstone_1",
    "name": "Malignant Construct",
-   "cn_name": "恶性构造体",
+   "cn_name": "恶性构造",
    "max": 0,
    "stats": [
     {
@@ -1053,7 +1053,7 @@
   {
    "id": "capstone_2",
    "name": "Malignant Construct",
-   "cn_name": "恶性构造体",
+   "cn_name": "恶性构造",
    "max": 0,
    "stats": [
     {
@@ -1133,7 +1133,7 @@
   {
    "id": "capstone_3",
    "name": "Malignant Construct",
-   "cn_name": "恶性构造体",
+   "cn_name": "恶性构造",
    "max": 0,
    "stats": [
     {
@@ -1215,7 +1215,7 @@
   {
    "id": "augment_1",
    "name": "Visual Paradox Nexus",
-   "cn_name": "视觉悖论枢纽",
+   "cn_name": "视觉悖论结点",
    "max": 0,
    "stats": [
     {
@@ -1290,7 +1290,7 @@
   {
    "id": "augment_2",
    "name": "Visual Paradox Nexus",
-   "cn_name": "视觉悖论枢纽",
+   "cn_name": "视觉悖论结点",
    "max": 0,
    "stats": [
     {
@@ -1365,7 +1365,7 @@
   {
    "id": "augment_3",
    "name": "Visual Paradox Nexus",
-   "cn_name": "视觉悖论枢纽",
+   "cn_name": "视觉悖论结点",
    "max": 0,
    "stats": [
     {
@@ -1440,7 +1440,7 @@
   {
    "id": "augment_4",
    "name": "Visual Paradox Nexus",
-   "cn_name": "视觉悖论枢纽",
+   "cn_name": "视觉悖论结点",
    "max": 0,
    "stats": [
     {
@@ -1515,7 +1515,7 @@
   {
    "id": "augment_5",
    "name": "Visual Paradox Nexus",
-   "cn_name": "视觉悖论枢纽",
+   "cn_name": "视觉悖论结点",
    "max": 0,
    "stats": [
     {
@@ -1590,7 +1590,7 @@
   {
    "id": "capstone_1",
    "name": "Visual Paradox Nexus",
-   "cn_name": "视觉悖论枢纽",
+   "cn_name": "视觉悖论结点",
    "max": 0,
    "stats": [
     {
@@ -1665,7 +1665,7 @@
   {
    "id": "capstone_2",
    "name": "Visual Paradox Nexus",
-   "cn_name": "视觉悖论枢纽",
+   "cn_name": "视觉悖论结点",
    "max": 0,
    "stats": [
     {
@@ -1740,7 +1740,7 @@
   {
    "id": "capstone_3",
    "name": "Visual Paradox Nexus",
-   "cn_name": "视觉悖论枢纽",
+   "cn_name": "视觉悖论结点",
    "max": 0,
    "stats": [
     {
@@ -1888,7 +1888,7 @@
   {
    "id": "action_skill_1",
    "name": "Visual Paradox Nexus",
-   "cn_name": "视觉悖论枢纽",
+   "cn_name": "视觉悖论结点",
    "max": 0,
    "stats": [
     {
@@ -1963,7 +1963,7 @@
   {
    "id": "action_skill_2",
    "name": "Malignant Construct",
-   "cn_name": "恶性构造体",
+   "cn_name": "恶性构造",
    "max": 0,
    "stats": [
     {
@@ -2059,7 +2059,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Storage Upgrade",
-   "cn_name": "存储升级",
+   "cn_name": "储物升级",
    "max": 5,
    "stats": [
     {
@@ -2162,7 +2162,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Power Overwhelming",
-   "cn_name": "压倒性力量",
+   "cn_name": "力量压制",
    "max": 5,
    "stats": [
     {
@@ -2275,7 +2275,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Fusion Friends-y",
-   "cn_name": "融合狂欢",
+   "cn_name": "友谊聚变",
    "max": 5,
    "stats": [
     {
@@ -2325,7 +2325,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Great Wyrm",
-   "cn_name": "巨龙",
+   "cn_name": "巨型蛇龙",
    "max": 5,
    "stats": [
     {
@@ -2363,7 +2363,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "In Memoriam",
-   "cn_name": "追思",
+   "cn_name": "缅怀纪念",
    "max": 5,
    "stats": [
     {
@@ -2441,7 +2441,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Host Privileges",
-   "cn_name": "主机权限",
+   "cn_name": "宿主特权",
    "max": 1,
    "stats": [
     {
@@ -2489,7 +2489,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "UUDDLRLRBAS",
-   "cn_name": "上上下下左右左右 BA 开始",
+   "cn_name": "续命秘籍",
    "max": 1,
    "stats": [
     {
@@ -2649,7 +2649,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Glass 'Em!",
-   "cn_name": "把他们烧成玻璃！",
+   "cn_name": "把他们变成玻璃！",
    "max": 5,
    "stats": [
     {
@@ -2671,7 +2671,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Second Impact",
-   "cn_name": "第二次冲击",
+   "cn_name": "二次冲击",
    "max": 5,
    "stats": [
     {
@@ -2725,7 +2725,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Biathlon",
-   "cn_name": "两项全能",
+   "cn_name": "冬季两项",
    "max": 5,
    "stats": [
     {
@@ -2777,7 +2777,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Retribution",
-   "cn_name": "惩戒",
+   "cn_name": "复仇",
    "max": 5,
    "stats": [
     {
@@ -2828,7 +2828,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Infinite Murder Hack",
-   "cn_name": "无限杀戮外挂",
+   "cn_name": "无限杀戮黑客",
    "max": 5,
    "stats": [
     {
@@ -2977,7 +2977,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "The Sweet Science",
-   "cn_name": "拳击艺术",
+   "cn_name": "甜蜜科学",
    "max": 5,
    "stats": [
     {
@@ -3025,7 +3025,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Siliconventional Warfare",
-   "cn_name": "硅基常规战争",
+   "cn_name": "硅基常规战",
    "max": 5,
    "stats": [
     {
@@ -3169,7 +3169,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Hard Reset",
-   "cn_name": "硬重置",
+   "cn_name": "强行重启",
    "max": 5,
    "stats": [
     {
@@ -3220,7 +3220,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Tripwire",
-   "cn_name": "绊线",
+   "cn_name": "绊网",
    "max": 5,
    "stats": [
     {
@@ -3285,7 +3285,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Wrap Around",
-   "cn_name": "环绕",
+   "cn_name": "回绕",
    "max": 5,
    "stats": [
     {
@@ -3320,7 +3320,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Immunoppressant",
-   "cn_name": "免疫压制",
+   "cn_name": "免疫抑制剂",
    "max": 3,
    "stats": [
     {
@@ -3366,7 +3366,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Depletion Load",
-   "cn_name": "耗尽负载",
+   "cn_name": "耗竭载荷",
    "max": 5,
    "stats": [
     {
@@ -3400,7 +3400,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Conservation of Life",
-   "cn_name": "生命守恒",
+   "cn_name": "生命守恒定律",
    "max": 3,
    "stats": [
     {
@@ -3571,7 +3571,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Unsupported Peripheral",
-   "cn_name": "不支持的外设",
+   "cn_name": "不支持外设",
    "max": 1,
    "stats": [
     {
@@ -3591,7 +3591,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "System Restore",
-   "cn_name": "系统还原",
+   "cn_name": "系统恢复",
    "max": 5,
    "stats": [
     {
@@ -3617,7 +3617,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Wide Net",
-   "cn_name": "广域网络",
+   "cn_name": "天罗地网",
    "max": 5,
    "stats": [
     {
@@ -3748,7 +3748,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Conservation of Volatility",
-   "cn_name": "易爆性守恒",
+   "cn_name": "爆炸守恒定律",
    "max": 3,
    "stats": [
     {
@@ -3919,7 +3919,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Conservation of Malice",
-   "cn_name": "恶意守恒",
+   "cn_name": "恶意守恒定律",
    "max": 5,
    "stats": [
     {
@@ -3990,7 +3990,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "When it Rains",
-   "cn_name": "屋漏偏逢",
+   "cn_name": "落雨之时",
    "max": 3,
    "stats": [
     {
@@ -4034,7 +4034,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Blackhat",
-   "cn_name": "黑帽黑客",
+   "cn_name": "黑帽",
    "max": 3,
    "stats": [
     {
@@ -4061,7 +4061,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "It Pours",
-   "cn_name": "连夜暴雨",
+   "cn_name": "倾盆大雨",
    "max": 1,
    "stats": [
     {
@@ -4107,7 +4107,7 @@
   {
    "id": "Trunk - Row 1 - 1",
    "name": "Drift Compatible",
-   "cn_name": "漂移兼容",
+   "cn_name": "通感相容",
    "max": 5,
    "stats": [
     {
@@ -4204,7 +4204,7 @@
   {
    "id": "Trunk - Row 1 - 5",
    "name": "Antivirus",
-   "cn_name": "杀毒软件",
+   "cn_name": "抗病毒",
    "max": 5,
    "stats": [
     {
@@ -4243,7 +4243,7 @@
   {
    "id": "Trunk - Row 2 - 1",
    "name": "IDDQD",
-   "cn_name": "无敌模式（IDDQD）",
+   "cn_name": "无敌秘籍",
    "max": 5,
    "stats": [
     {
@@ -4283,7 +4283,7 @@
   {
    "id": "Trunk - Row 2 - 3",
    "name": "Overclock",
-   "cn_name": "超频",
+   "cn_name": "超频运行",
    "max": 5,
    "stats": [
     {
@@ -4329,7 +4329,7 @@
   {
    "id": "Trunk - Row 2 - 5",
    "name": "Finisher",
-   "cn_name": "终结者",
+   "cn_name": "终结技",
    "max": 5,
    "stats": [
     {
@@ -4377,7 +4377,7 @@
   {
    "id": "Trunk - Row 3 - 1",
    "name": "IDKFA",
-   "cn_name": "全副武装（IDKFA）",
+   "cn_name": "装备秘籍",
    "max": 3,
    "stats": [
     {
@@ -4490,7 +4490,7 @@
   {
    "id": "Trunk - Row 3 - 4",
    "name": "Optimization",
-   "cn_name": "优化",
+   "cn_name": "优化手段",
    "max": 5,
    "stats": [
     {
@@ -4527,7 +4527,7 @@
   {
    "id": "Trunk - Row 3 - 5",
    "name": "Critically Acclaimed",
-   "cn_name": "广受好评",
+   "cn_name": "备受好评",
    "max": 5,
    "stats": [
     {
@@ -4573,7 +4573,7 @@
   {
    "id": "Trunk - Row 1 - 1",
    "name": "Disdain",
-   "cn_name": "蔑视",
+   "cn_name": "轻蔑",
    "max": 5,
    "stats": [
     {
@@ -4599,7 +4599,7 @@
   {
    "id": "Trunk - Row 1 - 3",
    "name": "Flurry",
-   "cn_name": "疾风骤雨",
+   "cn_name": "疾风",
    "max": 5,
    "stats": [
     {
@@ -4703,7 +4703,7 @@
   {
    "id": "Trunk - Row 1 - 5",
    "name": "Ratio Technique",
-   "cn_name": "比例术式",
+   "cn_name": "比例法",
    "max": 5,
    "stats": [
     {
@@ -4745,7 +4745,7 @@
   {
    "id": "Trunk - Row 2 - 1",
    "name": "Odium",
-   "cn_name": "憎恶",
+   "cn_name": "仇恨",
    "max": 3,
    "stats": [
     {
@@ -4779,7 +4779,7 @@
   {
    "id": "Trunk - Row 2 - 3",
    "name": "Death Begets Death",
-   "cn_name": "死亡滋生死亡",
+   "cn_name": "以杀止杀",
    "max": 5,
    "stats": [
     {
@@ -4805,7 +4805,7 @@
   {
    "id": "Trunk - Row 2 - 5",
    "name": "notarget",
-   "cn_name": "无视目标（notarget）",
+   "cn_name": "无目标",
    "max": 5,
    "stats": [
     {
@@ -4848,7 +4848,7 @@
   {
    "id": "Trunk - Row 3 - 2",
    "name": "Mushroom Crowd",
-   "cn_name": "蘑菇人群",
+   "cn_name": "蘑菇云集",
    "max": 5,
    "stats": [
     {
@@ -4901,7 +4901,7 @@
   {
    "id": "Trunk - Row 3 - 3",
    "name": "Neutral Special",
-   "cn_name": "普通必杀技",
+   "cn_name": "中立特典",
    "max": 1,
    "stats": [
     {
@@ -4977,7 +4977,7 @@
   {
    "id": "Trunk - Row 3 - 5",
    "name": "Target Practice",
-   "cn_name": "打靶练习",
+   "cn_name": "目标练习",
    "max": 1,
    "stats": [
     {
@@ -5001,7 +5001,7 @@
   {
    "id": "Trunk - Row 1 - 1",
    "name": "High Data Rate",
-   "cn_name": "高速数据传输",
+   "cn_name": "高数据速率",
    "max": 5,
    "stats": [
     {
@@ -5028,7 +5028,7 @@
   {
    "id": "Trunk - Row 1 - 2",
    "name": "Established Gameplay Loop",
-   "cn_name": "成熟的玩法循环",
+   "cn_name": "成熟游戏循环",
    "max": 5,
    "stats": [
     {
@@ -5128,7 +5128,7 @@
   {
    "id": "Trunk - Row 1 - 5",
    "name": "Toxic Chat",
-   "cn_name": "恶毒聊天",
+   "cn_name": "毒性聊天",
    "max": 5,
    "stats": [
     {
@@ -5223,7 +5223,7 @@
   {
    "id": "Trunk - Row 2 - 3",
    "name": "Contaminant",
-   "cn_name": "污染物",
+   "cn_name": "污染源",
    "max": 5,
    "stats": [
     {
@@ -5287,7 +5287,7 @@
   {
    "id": "Trunk - Row 3 - 1",
    "name": "Cat 5",
-   "cn_name": "五级风暴",
+   "cn_name": "五类线",
    "max": 5,
    "stats": [
     {
@@ -5331,7 +5331,7 @@
   {
    "id": "Trunk - Row 3 - 2",
    "name": "Transmission Vector",
-   "cn_name": "传播媒介",
+   "cn_name": "传输矢量",
    "max": 5,
    "stats": [
     {
@@ -5367,7 +5367,7 @@
   {
    "id": "Trunk - Row 3 - 3",
    "name": "Kaleidoscontaminant",
-   "cn_name": "万花污染筒",
+   "cn_name": "万花筒污染源",
    "max": 3,
    "stats": [
     {
@@ -5389,7 +5389,7 @@
   {
    "id": "Trunk - Row 3 - 4",
    "name": "E2 Pulse",
-   "cn_name": "E2 脉冲",
+   "cn_name": "E2脉冲",
    "max": 5,
    "stats": [
     {
@@ -5445,7 +5445,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Can't Stop Winning",
-   "cn_name": "赢到停不下来",
+   "cn_name": "彻底赢麻",
    "max": 5,
    "stats": [
     {
@@ -5515,7 +5515,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "High Stakes",
-   "cn_name": "豪赌",
+   "cn_name": "高风险",
    "max": 5,
    "stats": [
     {
@@ -5580,7 +5580,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Fortune's Favor",
-   "cn_name": "幸运眷顾",
+   "cn_name": "好运的眷顾",
    "max": 3,
    "stats": [
     {
@@ -5624,7 +5624,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Let it Ride",
-   "cn_name": "继续下注",
+   "cn_name": "任逍遥",
    "max": 1,
    "stats": [
     {
@@ -5650,7 +5650,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "The Wilds",
-   "cn_name": "荒野",
+   "cn_name": "狂野风范",
    "max": 5,
    "stats": [
     {
@@ -5677,7 +5677,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Potent Posse",
-   "cn_name": "强力同伙",
+   "cn_name": "强大团队",
    "max": 5,
    "stats": [
     {
@@ -5721,7 +5721,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Restless Remains",
-   "cn_name": "不息遗骸",
+   "cn_name": "焦躁遗骸",
    "max": 5,
    "stats": [
     {
@@ -5746,7 +5746,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Sorcerer",
-   "cn_name": "术士",
+   "cn_name": "幽暗术士",
    "max": 3,
    "stats": [
     {
@@ -5768,7 +5768,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Tooth and Nail",
-   "cn_name": "爪牙之争",
+   "cn_name": "全力以赴",
    "max": 1,
    "stats": [
     {
@@ -5811,7 +5811,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Serendipity",
-   "cn_name": "意外好运",
+   "cn_name": "机缘巧合",
    "max": 3,
    "stats": [
     {
@@ -5851,7 +5851,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Sidekick's Revenge",
-   "cn_name": "伙伴复仇",
+   "cn_name": "仆从的复仇",
    "max": 5,
    "stats": [
     {
@@ -5905,7 +5905,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "The Glorious Dead",
-   "cn_name": "光荣亡者",
+   "cn_name": "死得光荣",
    "max": 3,
    "stats": [
     {
@@ -5969,7 +5969,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Accursed Bones",
-   "cn_name": "诅咒之骨",
+   "cn_name": "诅咒骸骨",
    "max": 5,
    "stats": [
     {
@@ -6026,7 +6026,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Tormented",
-   "cn_name": "备受折磨",
+   "cn_name": "无尽折磨",
    "max": 5,
    "stats": [
     {
@@ -6069,7 +6069,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Graveyard Shift",
-   "cn_name": "墓地夜班",
+   "cn_name": "墓地轮班",
    "max": 5,
    "stats": [
     {
@@ -6096,7 +6096,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Snake Eyes",
-   "cn_name": "蛇眼",
+   "cn_name": "两点",
    "max": 1,
    "stats": [
     {
@@ -6142,7 +6142,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "Call",
-   "cn_name": "跟注",
+   "cn_name": "呼唤",
    "max": 1,
    "stats": [
     {
@@ -6161,7 +6161,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Brimstone",
-   "cn_name": "硫磺烈火",
+   "cn_name": "硫磺",
    "max": 5,
    "stats": [
     {
@@ -6207,7 +6207,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Fast C4SH",
-   "cn_name": "快速来财",
+   "cn_name": "快速老钱",
    "max": 5,
    "stats": [
     {
@@ -6258,7 +6258,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Burn the House Down",
-   "cn_name": "烧尽庄家",
+   "cn_name": "扳倒庄家",
    "max": 3,
    "stats": [
     {
@@ -6299,7 +6299,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "High Noon",
-   "cn_name": "正午时分",
+   "cn_name": "正午",
    "max": 5,
    "stats": [
     {
@@ -6347,7 +6347,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Bloodstained Moon",
-   "cn_name": "染血之月",
+   "cn_name": "血污之月",
    "max": 1,
    "stats": [
     {
@@ -6474,7 +6474,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Truck Full of Nitro",
-   "cn_name": "满车硝化甘油",
+   "cn_name": "氮气卡车",
    "max": 5,
    "stats": [
     {
@@ -6505,7 +6505,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "War Wagon",
-   "cn_name": "战斗马车",
+   "cn_name": "战车",
    "max": 3,
    "stats": [
     {
@@ -6590,7 +6590,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Nothing Beats Lead",
-   "cn_name": "铅弹至上",
+   "cn_name": "子弹无敌",
    "max": 5,
    "stats": [
     {
@@ -6636,7 +6636,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Mr. Pocket",
-   "cn_name": "口袋先生",
+   "cn_name": "掏袋先生",
    "max": 5,
    "stats": [
     {
@@ -6659,7 +6659,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Unshaken",
-   "cn_name": "岿然不动",
+   "cn_name": "绝不动摇",
    "max": 5,
    "stats": [
     {
@@ -6703,7 +6703,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "From Gloam to Glow",
-   "cn_name": "暮色化辉光",
+   "cn_name": "从昏暗到光明",
    "max": 5,
    "stats": [
     {
@@ -6784,7 +6784,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Dusty Trail",
-   "cn_name": "尘土小径",
+   "cn_name": "尘土踪迹",
    "max": 5,
    "stats": [
     {
@@ -6867,7 +6867,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "Bleed the Bad",
-   "cn_name": "恶人放血",
+   "cn_name": "痛宰恶霸",
    "max": 1,
    "stats": [
     {
@@ -6897,7 +6897,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "High Roller",
-   "cn_name": "豪客",
+   "cn_name": "豪赌之王",
    "max": 5,
    "stats": [
     {
@@ -6923,7 +6923,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Take the Pot",
-   "cn_name": "赢取底池",
+   "cn_name": "碰运气",
    "max": 5,
    "stats": [
     {
@@ -6946,7 +6946,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Stack the Deck",
-   "cn_name": "操纵牌局",
+   "cn_name": "送牌",
    "max": 5,
    "stats": [
     {
@@ -7019,7 +7019,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Legerdemain",
-   "cn_name": "障眼法",
+   "cn_name": "巧妙花招",
    "max": 3,
    "stats": [
     {
@@ -7056,7 +7056,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Vigorish",
-   "cn_name": "庄家抽水",
+   "cn_name": "活力满满",
    "max": 5,
    "stats": [
     {
@@ -7090,7 +7090,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Dealer's Bluff",
-   "cn_name": "庄家诈唬",
+   "cn_name": "庄家把戏",
    "max": 3,
    "stats": [
     {
@@ -7119,7 +7119,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Ace in the Hole",
-   "cn_name": "底牌王牌",
+   "cn_name": "手中王牌",
    "max": 5,
    "stats": [
     {
@@ -7147,7 +7147,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Around the Corner",
-   "cn_name": "转角之后",
+   "cn_name": "近在咫尺",
    "max": 5,
    "stats": [
     {
@@ -7186,7 +7186,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "C4SH Game",
-   "cn_name": "现金牌局",
+   "cn_name": "老钱游戏",
    "max": 5,
    "stats": [
     {
@@ -7209,7 +7209,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "No Limit",
-   "cn_name": "无限注额",
+   "cn_name": "毫无限制",
    "max": 5,
    "stats": [
     {
@@ -7244,7 +7244,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "Ante Up",
-   "cn_name": "加注入局",
+   "cn_name": "加大赌注",
    "max": 5,
    "stats": [
     {
@@ -7290,7 +7290,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Kill Button",
-   "cn_name": "击杀按钮",
+   "cn_name": "杀戮按钮",
    "max": 5,
    "stats": [
     {
@@ -7342,7 +7342,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Boom or Bust",
-   "cn_name": "大赚或破产",
+   "cn_name": "要么暴富，要么破产",
    "max": 1,
    "stats": [
     {
@@ -7359,7 +7359,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Tender Hearts",
-   "cn_name": "柔软之心",
+   "cn_name": "温柔之心",
    "max": 5,
    "stats": [
     {
@@ -7403,7 +7403,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Card Sharp",
-   "cn_name": "纸牌高手",
+   "cn_name": "千王之王",
    "max": 5,
    "stats": [
     {
@@ -7426,7 +7426,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Hot Streak",
-   "cn_name": "连胜手气",
+   "cn_name": "连战连胜",
    "max": 1,
    "stats": [
     {
@@ -7455,7 +7455,7 @@
   {
    "id": "Trunk - Row 1 - 1",
    "name": "Luck Be a Robot",
-   "cn_name": "幸运机器人",
+   "cn_name": "运气是机器人",
    "max": 5,
    "stats": [
     {
@@ -7482,7 +7482,7 @@
   {
    "id": "Trunk - Row 1 - 3",
    "name": "Sweet Roll",
-   "cn_name": "甜蜜一掷",
+   "cn_name": "甜卷面包",
    "max": 5,
    "stats": [
     {
@@ -7526,7 +7526,7 @@
   {
    "id": "Trunk - Row 1 - 5",
    "name": "Charm Bracelet",
-   "cn_name": "幸运手链",
+   "cn_name": "魔法手链",
    "max": 5,
    "stats": [
     {
@@ -7634,7 +7634,7 @@
   {
    "id": "Trunk - Row 2 - 3",
    "name": "Red Moon Rising",
-   "cn_name": "红月初升",
+   "cn_name": "赤月高升",
    "max": 5,
    "stats": [
     {
@@ -7659,7 +7659,7 @@
   {
    "id": "Trunk - Row 2 - 5",
    "name": "Ready to Roll",
-   "cn_name": "准备开局",
+   "cn_name": "掷骰准备",
    "max": 5,
    "stats": [
     {
@@ -7707,7 +7707,7 @@
   {
    "id": "Trunk - Row 3 - 1",
    "name": "Riding High",
-   "cn_name": "春风得意",
+   "cn_name": "乘势而上",
    "max": 5,
    "stats": [
     {
@@ -7733,7 +7733,7 @@
   {
    "id": "Trunk - Row 3 - 2",
    "name": "Bonemeal Ticket",
-   "cn_name": "骨粉饭票",
+   "cn_name": "骨粉票券",
    "max": 5,
    "stats": [
     {
@@ -7777,7 +7777,7 @@
   {
    "id": "Trunk - Row 3 - 3",
    "name": "Devil's Tines - CL",
-   "cn_name": "恶魔之叉·CL",
+   "cn_name": "恶魔之齿",
    "max": 1,
    "stats": [
     {
@@ -7789,7 +7789,7 @@
   {
    "id": "Trunk - Row 3 - 4",
    "name": "Before She Knows You're Dead",
-   "cn_name": "趁她尚未知你已死",
+   "cn_name": "赶在她知道你死掉之前",
    "max": 5,
    "stats": [
     {
@@ -7833,7 +7833,7 @@
   {
    "id": "Trunk - Row 3 - 5",
    "name": "Luckless",
-   "cn_name": "霉运缠身",
+   "cn_name": "坏运气",
    "max": 1,
    "stats": [
     {
@@ -7875,7 +7875,7 @@
   {
    "id": "Trunk - Row 1 - 1",
    "name": "Unleashed",
-   "cn_name": "解除束缚",
+   "cn_name": "彻底释放",
    "max": 5,
    "stats": [
     {
@@ -7902,7 +7902,7 @@
   {
    "id": "Trunk - Row 1 - 3",
    "name": "Your Huckleberry",
-   "cn_name": "我奉陪到底",
+   "cn_name": "最佳人选",
    "max": 5,
    "stats": [
     {
@@ -7928,7 +7928,7 @@
   {
    "id": "Trunk - Row 1 - 4",
    "name": "The Determinator",
-   "cn_name": "坚定不移",
+   "cn_name": "终结者",
    "max": 5,
    "stats": [
     {
@@ -7955,7 +7955,7 @@
   {
    "id": "Trunk - Row 1 - 5",
    "name": "Hard-Boiled",
-   "cn_name": "冷硬派",
+   "cn_name": "冷硬作风",
    "max": 5,
    "stats": [
     {
@@ -7981,7 +7981,7 @@
   {
    "id": "Trunk - Row 2 - 3",
    "name": "Shootist",
-   "cn_name": "神枪手",
+   "cn_name": "射手",
    "max": 5,
    "stats": [
     {
@@ -8007,7 +8007,7 @@
   {
    "id": "Trunk - Row 2 - 5",
    "name": "Stand and Bleed",
-   "cn_name": "站稳流血",
+   "cn_name": "挺身流血",
    "max": 5,
    "stats": [
     {
@@ -8032,7 +8032,7 @@
   {
    "id": "Trunk - Row 3 - 1",
    "name": "Hot Hand",
-   "cn_name": "手气火热",
+   "cn_name": "手感火辣",
    "max": 5,
    "stats": [
     {
@@ -8057,7 +8057,7 @@
   {
    "id": "Trunk - Row 3 - 2",
    "name": "Trick Shot",
-   "cn_name": "花式射击",
+   "cn_name": "特技射击",
    "max": 3,
    "stats": [
     {
@@ -8111,7 +8111,7 @@
   {
    "id": "Trunk - Row 3 - 3",
    "name": "Devil's Tine - CR",
-   "cn_name": "恶魔之叉·CR",
+   "cn_name": "恶魔之齿",
    "max": 1,
    "stats": []
   },
@@ -8125,7 +8125,7 @@
   {
    "id": "Trunk - Row 3 - 5",
    "name": "A Blur of Fingers and Brass",
-   "cn_name": "指尖铜壳疾影",
+   "cn_name": "铜管交响曲",
    "max": 5,
    "stats": [
     {
@@ -8304,7 +8304,7 @@
   {
    "id": "Trunk - Row 1 - 4",
    "name": "Splash the Pot",
-   "cn_name": "大举加注",
+   "cn_name": "溅锅水",
    "max": 5,
    "stats": [
     {
@@ -8390,7 +8390,7 @@
   {
    "id": "Trunk - Row 2 - 3",
    "name": "Sounds of Rain",
-   "cn_name": "雨声",
+   "cn_name": "雨声滴滴",
    "max": 5,
    "stats": [
     {
@@ -8416,7 +8416,7 @@
   {
    "id": "Trunk - Row 2 - 5",
    "name": "Trick-Taker",
-   "cn_name": "赢墩高手",
+   "cn_name": "抽牌",
    "max": 5,
    "stats": [
     {
@@ -8443,14 +8443,14 @@
   {
    "id": "Trunk - Row 3 - 2",
    "name": "Late Scratch",
-   "cn_name": "临时退场",
+   "cn_name": "意外退赛",
    "max": 1,
    "stats": []
   },
   {
    "id": "Trunk - Row 3 - 3",
    "name": "Devil's Tines - SoH",
-   "cn_name": "恶魔之叉·SoH",
+   "cn_name": "恶魔之齿",
    "max": 1,
    "stats": [
     {
@@ -8487,7 +8487,7 @@
   {
    "id": "Trunk - Row 3 - 5",
    "name": "Wretched Shadows",
-   "cn_name": "悲惨暗影",
+   "cn_name": "可悲身影",
    "max": 1,
    "stats": [
     {
@@ -9988,7 +9988,7 @@
   {
    "id": "capstone_2",
    "name": "Grim Reaper",
-   "cn_name": "死神",
+   "cn_name": "镰刀死神",
    "max": 0,
    "stats": []
   },
@@ -10180,7 +10180,7 @@
   {
    "id": "action_skill_2",
    "name": "Phase Echo",
-   "cn_name": "相位回响",
+   "cn_name": "死亡分身",
    "max": 0,
    "stats": []
   },
@@ -10203,7 +10203,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Radiant Attunement",
-   "cn_name": "辐光调谐",
+   "cn_name": "辐射调和",
    "max": 5,
    "stats": [
     {
@@ -10259,7 +10259,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Conjunction",
-   "cn_name": "汇合",
+   "cn_name": "结合",
    "max": 5,
    "stats": [
     {
@@ -10353,7 +10353,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Restorative Tonic",
-   "cn_name": "复原补剂",
+   "cn_name": "恢复补品",
    "max": 3,
    "stats": [
     {
@@ -10434,7 +10434,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Havoc",
-   "cn_name": "浩劫",
+   "cn_name": "末日浩劫",
    "max": 5,
    "stats": [
     {
@@ -10481,7 +10481,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Drink Full",
-   "cn_name": "畅饮",
+   "cn_name": "满饮一杯",
    "max": 5,
    "stats": [
     {
@@ -10527,7 +10527,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Keen Mind",
-   "cn_name": "敏锐心智",
+   "cn_name": "敏锐思维",
    "max": 5,
    "stats": [
     {
@@ -10624,7 +10624,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Grave Elements",
-   "cn_name": "墓地元素",
+   "cn_name": "悲冥元素",
    "max": 5,
    "stats": [
     {
@@ -10671,7 +10671,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "Strike Me Down",
-   "cn_name": "击倒我吧",
+   "cn_name": "向我开炮",
    "max": 1,
    "stats": [
     {
@@ -10717,7 +10717,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Grave Vitality",
-   "cn_name": "墓地活力",
+   "cn_name": "悲冥活力",
    "max": 5,
    "stats": [
     {
@@ -10783,7 +10783,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Ars Arcana",
-   "cn_name": "奥术秘典",
+   "cn_name": "奥法秘术",
    "max": 5,
    "stats": [
     {
@@ -10809,7 +10809,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "A Deeper Grave",
-   "cn_name": "更深的坟墓",
+   "cn_name": "深邃墓穴",
    "max": 3,
    "stats": [
     {
@@ -10833,7 +10833,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Blood Shot",
-   "cn_name": "鲜血射击",
+   "cn_name": "血腥弹药",
    "max": 5,
    "stats": [
     {
@@ -10857,7 +10857,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Essence Leech",
-   "cn_name": "精华汲取",
+   "cn_name": "精髓吸取",
    "max": 5,
    "stats": [
     {
@@ -10883,7 +10883,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "Blood Is Power",
-   "cn_name": "鲜血即力量",
+   "cn_name": "血即力量",
    "max": 3,
    "stats": [
     {
@@ -10910,7 +10910,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Icy Attunement",
-   "cn_name": "冰寒调谐",
+   "cn_name": "寒冰调和",
    "max": 5,
    "stats": [
     {
@@ -10964,7 +10964,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Blast Rites",
-   "cn_name": "爆破仪式",
+   "cn_name": "爆炸仪式",
    "max": 5,
    "stats": [
     {
@@ -11019,7 +11019,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Overspirited",
-   "cn_name": "灵力充盈",
+   "cn_name": "亢奋爆发",
    "max": 5,
    "stats": [
     {
@@ -11070,7 +11070,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Blasted Fiends",
-   "cn_name": "爆破魔仆",
+   "cn_name": "爆裂恶魔",
    "max": 5,
    "stats": [
     {
@@ -11113,7 +11113,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Corporeal",
-   "cn_name": "实体化",
+   "cn_name": "实体",
    "max": 3,
    "stats": [
     {
@@ -11175,7 +11175,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Shiver",
-   "cn_name": "战栗",
+   "cn_name": "颤抖",
    "max": 5,
    "stats": [
     {
@@ -11222,7 +11222,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Elemental Essence",
-   "cn_name": "元素精华",
+   "cn_name": "元素精髓",
    "max": 5,
    "stats": [
     {
@@ -11248,7 +11248,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Keen Fiends",
-   "cn_name": "敏锐魔仆",
+   "cn_name": "敏锐恶魔",
    "max": 5,
    "stats": [
     {
@@ -11274,7 +11274,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Infernal Sum",
-   "cn_name": "地狱总和",
+   "cn_name": "炼狱汇聚",
    "max": 5,
    "stats": [
     {
@@ -11300,7 +11300,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Sacrificial Essence",
-   "cn_name": "献祭精华",
+   "cn_name": "献祭精髓",
    "max": 5,
    "stats": [
     {
@@ -11363,7 +11363,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Reawakening",
-   "cn_name": "再度苏醒",
+   "cn_name": "再次觉醒",
    "max": 5,
    "stats": [
     {
@@ -11497,7 +11497,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Shocking Attunement",
-   "cn_name": "电击调谐",
+   "cn_name": "电击调和",
    "max": 5,
    "stats": [
     {
@@ -11553,7 +11553,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Grave Current",
-   "cn_name": "墓地电流",
+   "cn_name": "悲冥电流",
    "max": 5,
    "stats": [
     {
@@ -11597,7 +11597,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Deadwire",
-   "cn_name": "亡者电线",
+   "cn_name": "死线",
    "max": 5,
    "stats": [
     {
@@ -11643,7 +11643,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Grave Thirst",
-   "cn_name": "墓地饥渴",
+   "cn_name": "悲冥渴望",
    "max": 5,
    "stats": [
     {
@@ -11792,7 +11792,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Blight Attunement",
-   "cn_name": "疫病调谐",
+   "cn_name": "枯萎调和",
    "max": 5,
    "stats": [
     {
@@ -11853,7 +11853,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Prismatic Ichor",
-   "cn_name": "棱彩灵血",
+   "cn_name": "光棱灵液",
    "max": 5,
    "stats": [
     {
@@ -11887,7 +11887,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Keen Suffering",
-   "cn_name": "剧烈苦痛",
+   "cn_name": "敏锐痛楚",
    "max": 5,
    "stats": [
     {
@@ -11913,7 +11913,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Ghasterbait",
-   "cn_name": "幽魂诱饵",
+   "cn_name": "恶灵诱饵",
    "max": 3,
    "stats": [
     {
@@ -11953,7 +11953,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Shot To Go!",
-   "cn_name": "来一发就走！",
+   "cn_name": "一击即中！",
    "max": 3,
    "stats": [
     {
@@ -11979,7 +11979,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Necrosis",
-   "cn_name": "坏死",
+   "cn_name": "死灵术",
    "max": 5,
    "stats": [
     {
@@ -12026,7 +12026,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Burning Attunement",
-   "cn_name": "烈焰调谐",
+   "cn_name": "焚烧调和",
    "max": 5,
    "stats": [
     {
@@ -12082,7 +12082,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Recurrence",
-   "cn_name": "复现",
+   "cn_name": "复发",
    "max": 5,
    "stats": [
     {
@@ -12148,7 +12148,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Reverburnations",
-   "cn_name": "燃烧回响",
+   "cn_name": "回响灼烧",
    "max": 5,
    "stats": [
     {
@@ -12183,7 +12183,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Death Follows Closer",
-   "cn_name": "死亡如影随形",
+   "cn_name": "死神将至",
    "max": 3,
    "stats": [
     {
@@ -12211,7 +12211,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Haruspex",
-   "cn_name": "脏卜术士",
+   "cn_name": "占卜僧人",
    "max": 5,
    "stats": [
     {
@@ -12245,7 +12245,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Burnt Offering",
-   "cn_name": "焚烧祭品",
+   "cn_name": "燔祭",
    "max": 5,
    "stats": [
     {
@@ -12289,7 +12289,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "Haruspex",
-   "cn_name": "脏卜术士",
+   "cn_name": "占卜僧人",
    "max": 1,
    "stats": [
     {
@@ -12325,7 +12325,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Prismatic Weaponry",
-   "cn_name": "棱彩武装",
+   "cn_name": "光棱武器",
    "max": 5,
    "stats": [
     {
@@ -12361,7 +12361,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Obedient Fiends",
-   "cn_name": "顺从魔仆",
+   "cn_name": "顺从恶魔",
    "max": 5,
    "stats": [
     {
@@ -12463,7 +12463,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Ancient Rites",
-   "cn_name": "古老仪式",
+   "cn_name": "远古仪式",
    "max": 5,
    "stats": [
     {
@@ -12509,7 +12509,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Death Follows Closer",
-   "cn_name": "死亡如影随形",
+   "cn_name": "死神将至",
    "max": 3,
    "stats": [
     {
@@ -12537,7 +12537,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Diener",
-   "cn_name": "殓尸者",
+   "cn_name": "医学助手",
    "max": 1,
    "stats": []
   },
@@ -12573,7 +12573,7 @@
   {
    "id": "Trunk - Row 1 - 2",
    "name": "Volatile Essence",
-   "cn_name": "不稳定精华",
+   "cn_name": "易爆精髓",
    "max": 5,
    "stats": [
     {
@@ -12601,7 +12601,7 @@
   {
    "id": "Trunk - Row 1 - 3",
    "name": "Leeching Attunement",
-   "cn_name": "汲取调谐",
+   "cn_name": "吸血调和",
    "max": 5,
    "stats": [
     {
@@ -12660,7 +12660,7 @@
   {
    "id": "Trunk - Row 1 - 5",
    "name": "Grave Sights",
-   "cn_name": "墓地瞄具",
+   "cn_name": "悲冥视线",
    "max": 5,
    "stats": [
     {
@@ -12724,7 +12724,7 @@
   {
    "id": "Trunk - Row 2 - 1",
    "name": "Fiendish Invigoration",
-   "cn_name": "魔仆激励",
+   "cn_name": "恶魔活力",
    "max": 5,
    "stats": [
     {
@@ -12780,7 +12780,7 @@
   {
    "id": "Trunk - Row 2 - 3",
    "name": "Bloodletter",
-   "cn_name": "放血者",
+   "cn_name": "血书",
    "max": 5,
    "stats": [
     {
@@ -12842,7 +12842,7 @@
   {
    "id": "Trunk - Row 2 - 5",
    "name": "Grave Implements",
-   "cn_name": "墓地器具",
+   "cn_name": "悲冥法器",
    "max": 5,
    "stats": [
     {
@@ -12887,7 +12887,7 @@
   {
    "id": "Trunk - Row 3 - 2",
    "name": "Channeling",
-   "cn_name": "引导",
+   "cn_name": "沟道效应",
    "max": 5,
    "stats": [
     {
@@ -12931,7 +12931,7 @@
   {
    "id": "Trunk - Row 3 - 3",
    "name": "Material Components",
-   "cn_name": "施法材料",
+   "cn_name": "材料成分",
    "max": 5,
    "stats": [
     {
@@ -12975,7 +12975,7 @@
   {
    "id": "Trunk - Row 3 - 4",
    "name": "Grave Power",
-   "cn_name": "墓地之力",
+   "cn_name": "悲冥力量",
    "max": 3,
    "stats": [
     {
@@ -12999,7 +12999,7 @@
   {
    "id": "Trunk - Row 3 - 5",
    "name": "Target Prescience",
-   "cn_name": "目标预知",
+   "cn_name": "目标预判",
    "max": 5,
    "stats": [
     {
@@ -13027,7 +13027,7 @@
   {
    "id": "Trunk - Row 1 - 1",
    "name": "Grave Sustenance",
-   "cn_name": "墓地滋养",
+   "cn_name": "悲冥滋养",
    "max": 5,
    "stats": [
     {
@@ -13052,7 +13052,7 @@
   {
    "id": "Trunk - Row 1 - 2",
    "name": "Enchantment",
-   "cn_name": "附魔",
+   "cn_name": "迷咒",
    "max": 5,
    "stats": [
     {
@@ -13107,7 +13107,7 @@
   {
    "id": "Trunk - Row 1 - 5",
    "name": "Hasty Fiends",
-   "cn_name": "迅捷魔仆",
+   "cn_name": "急躁恶魔",
    "max": 3,
    "stats": [
     {
@@ -13154,7 +13154,7 @@
   {
    "id": "Trunk - Row 2 - 1",
    "name": "Grave Command",
-   "cn_name": "墓地号令",
+   "cn_name": "悲冥命令",
    "max": 3,
    "stats": [
     {
@@ -13198,7 +13198,7 @@
   {
    "id": "Trunk - Row 2 - 3",
    "name": "Overprotective",
-   "cn_name": "过度保护",
+   "cn_name": "极致保护",
    "max": 5,
    "stats": [
     {
@@ -13224,7 +13224,7 @@
   {
    "id": "Trunk - Row 2 - 5",
    "name": "Yowl and Bay",
-   "cn_name": "嚎叫与长鸣",
+   "cn_name": "嚎叫与咆哮",
    "max": 5,
    "stats": [
     {
@@ -13306,7 +13306,7 @@
   {
    "id": "Trunk - Row 3 - 2",
    "name": "Claw and Bang",
-   "cn_name": "爪击与枪响",
+   "cn_name": "利爪与爆炸",
    "max": 5,
    "stats": [
     {
@@ -13350,7 +13350,7 @@
   {
    "id": "Trunk - Row 3 - 3",
    "name": "Overheal",
-   "cn_name": "过量治疗",
+   "cn_name": "超能治疗",
    "max": 3,
    "stats": [
     {
@@ -13378,7 +13378,7 @@
   {
    "id": "Trunk - Row 3 - 5",
    "name": "Vorpal Fiends",
-   "cn_name": "斩首魔仆",
+   "cn_name": "致命恶魔",
    "max": 5,
    "stats": [
     {
@@ -13406,7 +13406,7 @@
   {
    "id": "Trunk - Row 1 - 1",
    "name": "Sanguine Fiends",
-   "cn_name": "鲜血魔仆",
+   "cn_name": "血腥恶魔",
    "max": 5,
    "stats": [
     {
@@ -13432,7 +13432,7 @@
   {
    "id": "Trunk - Row 1 - 2",
    "name": "Idle Hands",
-   "cn_name": "无事之手",
+   "cn_name": "空闲之手",
    "max": 3,
    "stats": [
     {
@@ -13504,7 +13504,7 @@
   {
    "id": "Trunk - Row 1 - 4",
    "name": "Fell Inscriptions",
-   "cn_name": "凶邪铭文",
+   "cn_name": "邪恶铭文",
    "max": 5,
    "stats": [
     {
@@ -13548,7 +13548,7 @@
   {
    "id": "Trunk - Row 1 - 5",
    "name": "Fell Inscriptions",
-   "cn_name": "凶邪铭文",
+   "cn_name": "邪恶铭文",
    "max": 5,
    "stats": [
     {
@@ -13592,7 +13592,7 @@
   {
    "id": "Trunk - Row 2 - 1",
    "name": "Grave Assault",
-   "cn_name": "墓地突袭",
+   "cn_name": "悲冥袭击",
    "max": 5,
    "stats": [
     {
@@ -13638,7 +13638,7 @@
   {
    "id": "Trunk - Row 2 - 3",
    "name": "Portents of Suffering",
-   "cn_name": "痛苦预兆",
+   "cn_name": "苦难预兆",
    "max": 5,
    "stats": [
     {
@@ -13695,14 +13695,14 @@
   {
    "id": "Trunk - Row 3 - 1",
    "name": "Blood Sacrifice",
-   "cn_name": "鲜血献祭",
+   "cn_name": "血腥献祭",
    "max": 1,
    "stats": []
   },
   {
    "id": "Trunk - Row 3 - 2",
    "name": "Grave Fiends",
-   "cn_name": "墓地魔仆",
+   "cn_name": "悲冥恶魔",
    "max": 5,
    "stats": [
     {
@@ -13749,7 +13749,7 @@
   {
    "id": "Trunk - Row 3 - 4",
    "name": "Grave Quickening",
-   "cn_name": "墓地加速",
+   "cn_name": "悲冥加速",
    "max": 5,
    "stats": [
     {
@@ -13828,7 +13828,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Blowout",
-   "cn_name": "大爆发",
+   "cn_name": "爆裂",
    "max": 5,
    "stats": [
     {
@@ -13868,7 +13868,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "El Paraguas",
-   "cn_name": "雨伞",
+   "cn_name": "挡雨之伞",
    "max": 5,
    "stats": [
     {
@@ -13912,7 +13912,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Protecto-Pulse",
-   "cn_name": "防护脉冲",
+   "cn_name": "守护脉冲",
    "max": 5,
    "stats": [
     {
@@ -13937,7 +13937,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Shock Market",
-   "cn_name": "电击市场",
+   "cn_name": "刺激市场",
    "max": 5,
    "stats": [
     {
@@ -13961,7 +13961,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Liquidation",
-   "cn_name": "清算",
+   "cn_name": "液化",
    "max": 1,
    "stats": [
     {
@@ -13994,7 +13994,7 @@
  "Progress_EXO_Branch_Gimmick_02": [
   {
    "id": "Branch - Row 1 - 1",
-   "name": "Artiller\u00eda",
+   "name": "Artillería",
    "cn_name": "炮兵",
    "max": 5,
    "stats": [
@@ -14047,7 +14047,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Booming Business",
-   "cn_name": "生意兴隆",
+   "cn_name": "蓬勃发展",
    "max": 5,
    "stats": [
     {
@@ -14091,7 +14091,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Sinergia",
-   "cn_name": "协同效应",
+   "cn_name": "协同作用",
    "max": 3,
    "stats": [
     {
@@ -14153,7 +14153,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Hemolitions",
-   "cn_name": "血腥爆破",
+   "cn_name": "血怒爆裂",
    "max": 1,
    "stats": [
     {
@@ -14181,7 +14181,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "El Diablito",
-   "cn_name": "小恶魔",
+   "cn_name": "恐怖恶魔",
    "max": 5,
    "stats": [
     {
@@ -14208,7 +14208,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "El Borracho",
-   "cn_name": "醉汉",
+   "cn_name": "纯纯醉汉",
    "max": 5,
    "stats": [
     {
@@ -14243,7 +14243,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Empuje",
-   "cn_name": "推动力",
+   "cn_name": "高能推力",
    "max": 5,
    "stats": [
     {
@@ -14297,7 +14297,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Motivar ",
-   "cn_name": "激励",
+   "cn_name": "鼓舞士气",
    "max": 5,
    "stats": [
     {
@@ -14371,7 +14371,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Brain Dump",
-   "cn_name": "思维倾泻",
+   "cn_name": "大脑转存",
    "max": 5,
    "stats": [
     {
@@ -14397,7 +14397,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Conductivo",
-   "cn_name": "导电",
+   "cn_name": "传导力",
    "max": 5,
    "stats": [
     {
@@ -14441,8 +14441,8 @@
   null,
   {
    "id": "Branch - Row 2 - 2",
-   "name": "El Catr\u00edn",
-   "cn_name": "花花公子",
+   "name": "El Catrín",
+   "cn_name": "贵族男子",
    "max": 5,
    "stats": [
     {
@@ -14494,7 +14494,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Awe",
-   "cn_name": "震慑",
+   "cn_name": "敬畏",
    "max": 1,
    "stats": [
     {
@@ -14517,7 +14517,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "Fiesta",
-   "cn_name": "狂欢",
+   "cn_name": "嘉年华",
    "max": 5,
    "stats": [
     {
@@ -14589,7 +14589,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "El Soldado",
-   "cn_name": "士兵",
+   "cn_name": "英勇士兵",
    "max": 5,
    "stats": [
     {
@@ -14616,7 +14616,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "The Right Tools",
-   "cn_name": "合适的工具",
+   "cn_name": "正确工具",
    "max": 5,
    "stats": [
     {
@@ -14660,7 +14660,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Debtonation",
-   "cn_name": "债务引爆",
+   "cn_name": "内燃爆鸣",
    "max": 5,
    "stats": [
     {
@@ -14736,7 +14736,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Drone Assault",
-   "cn_name": "无人机突袭",
+   "cn_name": "无人机突击",
    "max": 1,
    "stats": []
   },
@@ -14746,7 +14746,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Jaque",
-   "cn_name": "将军",
+   "cn_name": "将死",
    "max": 5,
    "stats": [
     {
@@ -14827,7 +14827,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Mate",
-   "cn_name": "将死",
+   "cn_name": "逼近",
    "max": 5,
    "stats": [
     {
@@ -14911,7 +14911,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "Per My Last",
-   "cn_name": "如前所述",
+   "cn_name": "遵照指示",
    "max": 5,
    "stats": [
     {
@@ -14939,7 +14939,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Asymmetric Warfare",
-   "cn_name": "非对称作战",
+   "cn_name": "非对称战争",
    "max": 5,
    "stats": [
     {
@@ -14991,7 +14991,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Hostile Acquisition",
-   "cn_name": "恶意收购",
+   "cn_name": "敌意收购",
    "max": 5,
    "stats": [
     {
@@ -15017,7 +15017,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Rolling Stone",
-   "cn_name": "滚石",
+   "cn_name": "滚滚落石",
    "max": 5,
    "stats": [
     {
@@ -15043,7 +15043,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Proprietary Incendiary",
-   "cn_name": "专利燃烧",
+   "cn_name": "专利燃烧弹",
    "max": 1,
    "stats": [
     {
@@ -15073,7 +15073,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "Lateral Plinking",
-   "cn_name": "侧向点射",
+   "cn_name": "横向射击",
    "max": 1,
    "stats": [
     {
@@ -15099,7 +15099,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Confeti",
-   "cn_name": "彩纸",
+   "cn_name": "五彩纸屑",
    "max": 5,
    "stats": [
     {
@@ -15125,7 +15125,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Vitriol",
-   "cn_name": "强酸",
+   "cn_name": "硫酸盐",
    "max": 5,
    "stats": [
     {
@@ -15151,7 +15151,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Pain Reaction",
-   "cn_name": "痛觉反应",
+   "cn_name": "疼痛反应",
    "max": 5,
    "stats": [
     {
@@ -15178,7 +15178,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Concentrated Build Up",
-   "cn_name": "集中蓄积",
+   "cn_name": "集中建设",
    "max": 5,
    "stats": [
     {
@@ -15232,8 +15232,8 @@
   },
   {
    "id": "Branch - Row 3 - 1",
-   "name": "El Alacr\u00e1n",
-   "cn_name": "蝎子",
+   "name": "El Alacrán",
+   "cn_name": "阴险毒蝎",
    "max": 1,
    "stats": [
     {
@@ -15266,7 +15266,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "Inspirado",
-   "cn_name": "灵感迸发",
+   "cn_name": "突发灵感",
    "max": 3,
    "stats": [
     {
@@ -15332,7 +15332,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Barrage",
-   "cn_name": "弹幕",
+   "cn_name": "狂轰滥炸",
    "max": 5,
    "stats": [
     {
@@ -15358,7 +15358,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Everdrive",
-   "cn_name": "永恒驱动",
+   "cn_name": "永恒动力",
    "max": 5,
    "stats": [
     {
@@ -15384,7 +15384,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Devil-May-Care",
-   "cn_name": "无所顾忌",
+   "cn_name": "鬼才在乎",
    "max": 5,
    "stats": [
     {
@@ -15467,7 +15467,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Temerario",
-   "cn_name": "鲁莽",
+   "cn_name": "大胆鲁莽",
    "max": 5,
    "stats": [
     {
@@ -15521,7 +15521,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Soltado",
-   "cn_name": "释放",
+   "cn_name": "彻底放手",
    "max": 1,
    "stats": [
     {
@@ -15566,7 +15566,7 @@
   {
    "id": "Trunk - Row 1 - 1",
    "name": "Handshake Deal",
-   "cn_name": "握手成交",
+   "cn_name": "握手协议",
    "max": 5,
    "stats": [
     {
@@ -15611,7 +15611,7 @@
   {
    "id": "Trunk - Row 1 - 3",
    "name": "Midnight Oil",
-   "cn_name": "挑灯夜战",
+   "cn_name": "午夜精油",
    "max": 5,
    "stats": [
     {
@@ -15647,7 +15647,7 @@
   {
    "id": "Trunk - Row 1 - 5",
    "name": "Expedite",
-   "cn_name": "加速办理",
+   "cn_name": "加速过程",
    "max": 5,
    "stats": [
     {
@@ -15673,7 +15673,7 @@
   {
    "id": "Trunk - Row 2 - 1",
    "name": "Dial In",
-   "cn_name": "精准调校",
+   "cn_name": "拨入",
    "max": 5,
    "stats": [
     {
@@ -15706,8 +15706,8 @@
   },
   {
    "id": "Trunk - Row 2 - 3",
-   "name": "El Coraz\u00f3n",
-   "cn_name": "心脏",
+   "name": "El Corazón",
+   "cn_name": "跳动之心",
    "max": 5,
    "stats": [
     {
@@ -15786,7 +15786,7 @@
   {
    "id": "Trunk - Row 3 - 1",
    "name": "Saldar",
-   "cn_name": "结清",
+   "cn_name": "彻底清算",
    "max": 5,
    "stats": [
     {
@@ -15812,7 +15812,7 @@
   {
    "id": "Trunk - Row 3 - 2",
    "name": "In the Zone",
-   "cn_name": "进入状态",
+   "cn_name": "专注时刻",
    "max": 3,
    "stats": [
     {
@@ -15835,7 +15835,7 @@
   {
    "id": "Trunk - Row 3 - 3",
    "name": "To the Last",
-   "cn_name": "直到最后",
+   "cn_name": "抗争到底",
    "max": 5,
    "stats": [
     {
@@ -15879,7 +15879,7 @@
   {
    "id": "Trunk - Row 3 - 4",
    "name": "Hard Sell",
-   "cn_name": "强力推销",
+   "cn_name": "强硬推销",
    "max": 5,
    "stats": [
     {
@@ -15908,7 +15908,7 @@
   {
    "id": "Trunk - Row 1 - 1",
    "name": "Rinse",
-   "cn_name": "冲洗",
+   "cn_name": "彻底冲洗",
    "max": 5,
    "stats": [
     {
@@ -15937,7 +15937,7 @@
   {
    "id": "Trunk - Row 1 - 3",
    "name": "Las Jaras",
-   "cn_name": "箭矢",
+   "cn_name": "标枪",
    "max": 5,
    "stats": [
     {
@@ -15966,7 +15966,7 @@
   {
    "id": "Trunk - Row 1 - 5",
    "name": "The Thrill",
-   "cn_name": "刺激快感",
+   "cn_name": "真实刺激",
    "max": 5,
    "stats": [
     {
@@ -16010,7 +16010,7 @@
   {
    "id": "Trunk - Row 2 - 1",
    "name": "Preparado ",
-   "cn_name": "准备就绪",
+   "cn_name": "提前准备",
    "max": 5,
    "stats": [
     {
@@ -16054,7 +16054,7 @@
   {
    "id": "Trunk - Row 2 - 3",
    "name": "Pa' Dentro",
-   "cn_name": "喝下去",
+   "cn_name": "融入",
    "max": 5,
    "stats": [
     {
@@ -16091,7 +16091,7 @@
   {
    "id": "Trunk - Row 2 - 5",
    "name": "Arriba ",
-   "cn_name": "向上",
+   "cn_name": "上升之风",
    "max": 5,
    "stats": [
     {
@@ -16152,7 +16152,7 @@
   {
    "id": "Trunk - Row 3 - 2",
    "name": "Al Centro",
-   "cn_name": "居中",
+   "cn_name": "向心力",
    "max": 5,
    "stats": [
     {
@@ -16202,7 +16202,7 @@
   {
    "id": "Trunk - Row 3 - 5",
    "name": "Abajo",
-   "cn_name": "向下",
+   "cn_name": "坠落之力",
    "max": 5,
    "stats": [
     {
@@ -16239,7 +16239,7 @@
   {
    "id": "Trunk - Row 1 - 1",
    "name": "Sitiar",
-   "cn_name": "围攻",
+   "cn_name": "四面楚歌",
    "max": 5,
    "stats": [
     {
@@ -16293,7 +16293,7 @@
   {
    "id": "Trunk - Row 1 - 5",
    "name": "Shield Barriest",
-   "cn_name": "最强护盾",
+   "cn_name": "持盾者",
    "max": 5,
    "stats": [
     {
@@ -16337,7 +16337,7 @@
   {
    "id": "Trunk - Row 2 - 1",
    "name": "Juerga",
-   "cn_name": "纵情狂欢",
+   "cn_name": "狂欢时刻",
    "max": 5,
    "stats": [
     {
@@ -16371,7 +16371,7 @@
   {
    "id": "Trunk - Row 2 - 3",
    "name": "Field Repairs",
-   "cn_name": "战地修复",
+   "cn_name": "现场维修",
    "max": 3,
    "stats": [
     {
@@ -16396,7 +16396,7 @@
   {
    "id": "Trunk - Row 2 - 5",
    "name": "CYA",
-   "cn_name": "明哲保身",
+   "cn_name": "万全防护",
    "max": 5,
    "stats": [
     {
@@ -16422,7 +16422,7 @@
   {
    "id": "Trunk - Row 3 - 1",
    "name": "Resiliencia",
-   "cn_name": "韧性",
+   "cn_name": "复原能力",
    "max": 5,
    "stats": [
     {
@@ -16451,7 +16451,7 @@
   {
    "id": "Trunk - Row 3 - 2",
    "name": "Maestro",
-   "cn_name": "大师",
+   "cn_name": "巨匠大师",
    "max": 3,
    "stats": [
     {
@@ -16477,7 +16477,7 @@
   {
    "id": "Trunk - Row 3 - 3",
    "name": "Venganza",
-   "cn_name": "复仇",
+   "cn_name": "复仇反击",
    "max": 1,
    "stats": []
   },
@@ -16485,7 +16485,7 @@
   {
    "id": "Trunk - Row 3 - 5",
    "name": "El Valiente",
-   "cn_name": "勇者",
+   "cn_name": "无畏斗士",
    "max": 3,
    "stats": [
     {
@@ -16526,28 +16526,28 @@
   {
    "id": "action_skill_0",
    "name": "Peacebreaker Cannons",
-   "cn_name": "破和平火炮",
+   "cn_name": "和平破坏者火炮",
    "max": 0,
    "stats": []
   },
   {
    "id": "action_skill_1",
    "name": "APOPHIS Lance",
-   "cn_name": "阿波菲斯长枪",
+   "cn_name": "阿波菲斯长矛",
    "max": 0,
    "stats": []
   },
   {
    "id": "action_skill_2",
    "name": "Type IX Arc-Knives",
-   "cn_name": "IX 型电弧短刀",
+   "cn_name": "电弧匕首",
    "max": 0,
    "stats": []
   },
   {
    "id": "Trait",
    "name": "Overdrive",
-   "cn_name": "超频",
+   "cn_name": "超速过载",
    "max": 0,
    "stats": []
   },
@@ -16563,28 +16563,28 @@
   {
    "id": "action_skill_0",
    "name": "Exodus",
-   "cn_name": "出埃及记",
+   "cn_name": "铬合金加速器",
    "max": 0,
    "stats": []
   },
   {
    "id": "action_skill_1",
    "name": "Stasis",
-   "cn_name": "停滞",
+   "cn_name": "零点",
    "max": 0,
    "stats": []
   },
   {
    "id": "action_skill_2",
    "name": "Terminal",
-   "cn_name": "终端",
+   "cn_name": "通量生成器",
    "max": 0,
    "stats": []
   },
   {
    "id": "Trait",
    "name": "Entanglement",
-   "cn_name": "纠缠",
+   "cn_name": "量子纠缠",
    "max": 0,
    "stats": [
     {
@@ -16646,7 +16646,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Carry the One",
-   "cn_name": "进一位",
+   "cn_name": "随身携带",
    "max": 5,
    "stats": [
     {
@@ -16696,7 +16696,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Break the Ice",
-   "cn_name": "破冰",
+   "cn_name": "打破冰封",
    "max": 1,
    "stats": [
     {
@@ -16709,7 +16709,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Opposing Force",
-   "cn_name": "对抗力",
+   "cn_name": "对抗力量",
    "max": 3,
    "stats": [
     {
@@ -16753,7 +16753,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "Cold Welding",
-   "cn_name": "冷焊",
+   "cn_name": "冰冷焊接",
    "max": 3,
    "stats": [
     {
@@ -16786,7 +16786,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Poisoned Sun",
-   "cn_name": "剧毒太阳",
+   "cn_name": "中毒烈日",
    "max": 5,
    "stats": [
     {
@@ -16855,7 +16855,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Fissile Launcher",
-   "cn_name": "裂变发射器",
+   "cn_name": "裂隙火箭炮",
    "max": 3,
    "stats": [
     {
@@ -16887,7 +16887,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Chain Reactor",
-   "cn_name": "链式反应堆",
+   "cn_name": "连锁反应堆",
    "max": 3,
    "stats": [
     {
@@ -16977,7 +16977,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Highly Efficient",
-   "cn_name": "高效运作",
+   "cn_name": "高效率",
    "max": 5,
    "stats": [
     {
@@ -17002,7 +17002,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Mechanical Brilliance",
-   "cn_name": "机械奇才",
+   "cn_name": "机械才华",
    "max": 5,
    "stats": [
     {
@@ -17047,7 +17047,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Eureka!",
-   "cn_name": "我发现了！",
+   "cn_name": "见证奇迹！",
    "max": 1,
    "stats": [
     {
@@ -17078,7 +17078,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Rounding Up",
-   "cn_name": "向上取整",
+   "cn_name": "迎风上升",
    "max": 5,
    "stats": [
     {
@@ -17122,7 +17122,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Alternative Fuel Source",
-   "cn_name": "替代燃料源",
+   "cn_name": "备用燃料来源",
    "max": 5,
    "stats": [
     {
@@ -17147,7 +17147,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "QED",
-   "cn_name": "证毕",
+   "cn_name": "量子电动力学",
    "max": 1,
    "stats": [
     {
@@ -17180,7 +17180,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Concurrence",
-   "cn_name": "并发",
+   "cn_name": "并行发生",
    "max": 5,
    "stats": [
     {
@@ -17208,7 +17208,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Force of Will",
-   "cn_name": "意志之力",
+   "cn_name": "意志力",
    "max": 5,
    "stats": [
     {
@@ -17244,7 +17244,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Control Group",
-   "cn_name": "对照组",
+   "cn_name": "控制组",
    "max": 5,
    "stats": [
     {
@@ -17322,7 +17322,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Freeze Frame",
-   "cn_name": "定格",
+   "cn_name": "定格动画",
    "max": 1,
    "stats": [
     {
@@ -17389,7 +17389,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Unstable Ice-otope",
-   "cn_name": "不稳定冰同位素",
+   "cn_name": "不稳冰位素",
    "max": 5,
    "stats": [
     {
@@ -17423,7 +17423,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Keep Ice On That",
-   "cn_name": "持续冰敷",
+   "cn_name": "保持冷静",
    "max": 5,
    "stats": [
     {
@@ -17529,7 +17529,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Flash Freeze",
-   "cn_name": "瞬间冻结",
+   "cn_name": "闪现冻结",
    "max": 1,
    "stats": [
     {
@@ -17598,7 +17598,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Triple Point",
-   "cn_name": "三相点",
+   "cn_name": "三倍点数",
    "max": 1,
    "stats": [
     {
@@ -17752,7 +17752,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "Gordian Knot",
-   "cn_name": "戈尔迪之结",
+   "cn_name": "戈耳迪之结",
    "max": 5,
    "stats": [
     {
@@ -17779,7 +17779,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Blue Shift",
-   "cn_name": "蓝移",
+   "cn_name": "蓝光偏移",
    "max": 5,
    "stats": [
     {
@@ -17819,7 +17819,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Decoherence",
-   "cn_name": "退相干",
+   "cn_name": "量子退散",
    "max": 5,
    "stats": [
     {
@@ -17859,7 +17859,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Latent Charge",
-   "cn_name": "潜伏电荷",
+   "cn_name": "潜伏充能",
    "max": 5,
    "stats": [
     {
@@ -17883,7 +17883,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Feedback Loop",
-   "cn_name": "反馈回路",
+   "cn_name": "反馈循环",
    "max": 5,
    "stats": [
     {
@@ -17955,7 +17955,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Gamma Ray Burst",
-   "cn_name": "伽马射线暴",
+   "cn_name": "伽马射线爆发",
    "max": 5,
    "stats": [
     {
@@ -17980,7 +17980,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Harlowe's Certainty Principle",
-   "cn_name": "哈洛确定性原理",
+   "cn_name": "哈洛的确定性原则",
    "max": 5,
    "stats": [
     {
@@ -18024,7 +18024,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Jaunt",
-   "cn_name": "短途跃迁",
+   "cn_name": "逍遥",
    "max": 1,
    "stats": [
     {
@@ -18036,7 +18036,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Critical Funding",
-   "cn_name": "关键经费",
+   "cn_name": "关键资金",
    "max": 5,
    "stats": [
     {
@@ -18157,7 +18157,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Excited State",
-   "cn_name": "激发态",
+   "cn_name": "兴奋状态",
    "max": 5,
    "stats": [
     {
@@ -18183,7 +18183,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Accretion",
-   "cn_name": "吸积",
+   "cn_name": "冲积层",
    "max": 5,
    "stats": [
     {
@@ -18234,7 +18234,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Pencils Down",
-   "cn_name": "停笔",
+   "cn_name": "放下铅笔",
    "max": 3,
    "stats": [
     {
@@ -18327,7 +18327,7 @@
   {
    "id": "Trunk - Row 1 - 2",
    "name": "PPE",
-   "cn_name": "个人防护装备",
+   "cn_name": "个人防护",
    "max": 5,
    "stats": [
     {
@@ -18398,7 +18398,7 @@
   {
    "id": "Trunk - Row 1 - 5",
    "name": "Field-Ready Prototype",
-   "cn_name": "实战原型",
+   "cn_name": "战地原型",
    "max": 5,
    "stats": [
     {
@@ -18424,7 +18424,7 @@
   {
    "id": "Trunk - Row 2 - 1",
    "name": "Bleeding Edge",
-   "cn_name": "尖端科技",
+   "cn_name": "极端前沿",
    "max": 5,
    "stats": [
     {
@@ -18453,7 +18453,7 @@
   {
    "id": "Trunk - Row 2 - 5",
    "name": "Elementary",
-   "cn_name": "基本粒子",
+   "cn_name": "元素",
    "max": 5,
    "stats": [
     {
@@ -18497,7 +18497,7 @@
   {
    "id": "Trunk - Row 3 - 1",
    "name": "Test Subjects",
-   "cn_name": "试验对象",
+   "cn_name": "实验对象",
    "max": 5,
    "stats": [
     {
@@ -18532,7 +18532,7 @@
   {
    "id": "Trunk - Row 3 - 2",
    "name": "Get Up and Go",
-   "cn_name": "活力充沛",
+   "cn_name": "积极主动",
    "max": 5,
    "stats": [
     {
@@ -18567,7 +18567,7 @@
   {
    "id": "Trunk - Row 3 - 3",
    "name": "Elephant's Foot",
-   "cn_name": "象足",
+   "cn_name": "象脚",
    "max": 1,
    "stats": [
     {
@@ -18598,7 +18598,7 @@
   {
    "id": "Trunk - Row 3 - 4",
    "name": "Great Red DoT",
-   "cn_name": "大红持续伤害",
+   "cn_name": "红色瞄准点",
    "max": 3,
    "stats": [
     {
@@ -18624,7 +18624,7 @@
   {
    "id": "Trunk - Row 3 - 5",
    "name": "Enriched",
-   "cn_name": "浓缩",
+   "cn_name": "丰富",
    "max": 3,
    "stats": [
     {
@@ -18652,7 +18652,7 @@
   {
    "id": "Trunk - Row 1 - 1",
    "name": "Quantum Immortality",
-   "cn_name": "量子永生",
+   "cn_name": "量子不朽",
    "max": 5,
    "stats": [
     {
@@ -18749,7 +18749,7 @@
   {
    "id": "Trunk - Row 1 - 5",
    "name": "Make Extraordinary",
-   "cn_name": "化凡为奇",
+   "cn_name": "创造非凡",
    "max": 5,
    "stats": [
     {
@@ -18871,7 +18871,7 @@
   {
    "id": "Trunk - Row 2 - 5",
    "name": "Periodic Table Flip",
-   "cn_name": "掀翻元素周期表",
+   "cn_name": "周期表翻转",
    "max": 5,
    "stats": [
     {
@@ -18982,7 +18982,7 @@
   {
    "id": "Trunk - Row 3 - 4",
    "name": "Too Coolant For Schoolant",
-   "cn_name": "冷却液优等生",
+   "cn_name": "对学霸来说太酷",
    "max": 5,
    "stats": [
     {
@@ -19017,7 +19017,7 @@
   {
    "id": "Trunk - Row 3 - 5",
    "name": "Cryodynamics",
-   "cn_name": "低温动力学",
+   "cn_name": "冰冻动力学",
    "max": 3,
    "stats": [
     {
@@ -19045,7 +19045,7 @@
   {
    "id": "Trunk - Row 1 - 1",
    "name": "Mains Hum",
-   "cn_name": "电网嗡鸣",
+   "cn_name": "主流低频",
    "max": 5,
    "stats": [
     {
@@ -19088,7 +19088,7 @@
   {
    "id": "Trunk - Row 1 - 2",
    "name": "Personal Observation",
-   "cn_name": "亲身观察",
+   "cn_name": "个人观察",
    "max": 5,
    "stats": [
     {
@@ -19130,7 +19130,7 @@
   {
    "id": "Trunk - Row 1 - 3",
    "name": "Action at a Distance",
-   "cn_name": "超距作用",
+   "cn_name": "远距离行动",
    "max": 5,
    "stats": [
     {
@@ -19157,7 +19157,7 @@
   {
    "id": "Trunk - Row 1 - 5",
    "name": "Momentum",
-   "cn_name": "动量",
+   "cn_name": "冲量",
    "max": 5,
    "stats": [
     {
@@ -19261,7 +19261,7 @@
   {
    "id": "Trunk - Row 2 - 5",
    "name": "Heat Death",
-   "cn_name": "热寂",
+   "cn_name": "热寂说",
    "max": 5,
    "stats": [
     {
@@ -19286,7 +19286,7 @@
   {
    "id": "Trunk - Row 3 - 1",
    "name": "Creative Overflow",
-   "cn_name": "创意溢出",
+   "cn_name": "创意泛滥",
    "max": 3,
    "stats": [
     {
@@ -19356,7 +19356,7 @@
   {
    "id": "Trunk - Row 3 - 4",
    "name": "Confirmative Reality",
-   "cn_name": "确认现实",
+   "cn_name": "既定现实",
    "max": 3,
    "stats": [
     {
@@ -19408,56 +19408,56 @@
   {
    "id": "augment_1",
    "name": "SkillDef_Paladin_ActionSkill_Scourge",
-   "cn_name": "天灾",
+   "cn_name": "鞭笞",
    "max": 0,
    "stats": []
   },
   {
    "id": "augment_2",
    "name": "SkillDef_Paladin_ActionSkill_Scourge",
-   "cn_name": "天灾",
+   "cn_name": "鞭笞",
    "max": 0,
    "stats": []
   },
   {
    "id": "augment_3",
    "name": "SkillDef_Paladin_ActionSkill_Scourge",
-   "cn_name": "天灾",
+   "cn_name": "鞭笞",
    "max": 0,
    "stats": []
   },
   {
    "id": "augment_4",
    "name": "SkillDef_Paladin_ActionSkill_Scourge",
-   "cn_name": "天灾",
+   "cn_name": "鞭笞",
    "max": 0,
    "stats": []
   },
   {
    "id": "augment_5",
    "name": "SkillDef_Paladin_ActionSkill_Scourge",
-   "cn_name": "天灾",
+   "cn_name": "鞭笞",
    "max": 0,
    "stats": []
   },
   {
    "id": "capstone_1",
    "name": "SkillDef_Paladin_ActionSkill_Scourge",
-   "cn_name": "天灾",
+   "cn_name": "鞭笞",
    "max": 0,
    "stats": []
   },
   {
    "id": "capstone_2",
    "name": "SkillDef_Paladin_ActionSkill_Scourge",
-   "cn_name": "天灾",
+   "cn_name": "鞭笞",
    "max": 0,
    "stats": []
   },
   {
    "id": "capstone_3",
    "name": "SkillDef_Paladin_ActionSkill_Scourge",
-   "cn_name": "天灾",
+   "cn_name": "鞭笞",
    "max": 0,
    "stats": []
   }
@@ -19466,56 +19466,56 @@
   {
    "id": "augment_1",
    "name": "SkillDef_Paladin_ActionSkill_Warforge",
-   "cn_name": "战争熔炉",
+   "cn_name": "严酷熔炉",
    "max": 0,
    "stats": []
   },
   {
    "id": "augment_2",
    "name": "SkillDef_Paladin_ActionSkill_Warforge",
-   "cn_name": "战争熔炉",
+   "cn_name": "严酷熔炉",
    "max": 0,
    "stats": []
   },
   {
    "id": "augment_3",
    "name": "SkillDef_Paladin_ActionSkill_Warforge",
-   "cn_name": "战争熔炉",
+   "cn_name": "严酷熔炉",
    "max": 0,
    "stats": []
   },
   {
    "id": "augment_4",
    "name": "SkillDef_Paladin_ActionSkill_Warforge",
-   "cn_name": "战争熔炉",
+   "cn_name": "严酷熔炉",
    "max": 0,
    "stats": []
   },
   {
    "id": "augment_5",
    "name": "SkillDef_Paladin_ActionSkill_Warforge",
-   "cn_name": "战争熔炉",
+   "cn_name": "严酷熔炉",
    "max": 0,
    "stats": []
   },
   {
    "id": "capstone_1",
    "name": "SkillDef_Paladin_ActionSkill_Warforge",
-   "cn_name": "战争熔炉",
+   "cn_name": "严酷熔炉",
    "max": 0,
    "stats": []
   },
   {
    "id": "capstone_2",
    "name": "SkillDef_Paladin_ActionSkill_Warforge",
-   "cn_name": "战争熔炉",
+   "cn_name": "严酷熔炉",
    "max": 0,
    "stats": []
   },
   {
    "id": "capstone_3",
    "name": "SkillDef_Paladin_ActionSkill_Warforge",
-   "cn_name": "战争熔炉",
+   "cn_name": "严酷熔炉",
    "max": 0,
    "stats": []
   }
@@ -19582,14 +19582,14 @@
   {
    "id": "action_skill_0",
    "name": "Scourge",
-   "cn_name": "天灾",
+   "cn_name": "鞭笞",
    "max": 0,
    "stats": []
   },
   {
    "id": "action_skill_1",
    "name": "Warforge",
-   "cn_name": "战争熔炉",
+   "cn_name": "严酷熔炉",
    "max": 0,
    "stats": []
   },
@@ -19603,7 +19603,7 @@
   {
    "id": "Trait",
    "name": "Forgefist",
-   "cn_name": "锻造之拳",
+   "cn_name": "锻造技艺",
    "max": 0,
    "stats": []
   },
@@ -19737,7 +19737,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Rimebreak",
-   "cn_name": "破霜",
+   "cn_name": "霜破",
    "max": 3,
    "stats": [
     {
@@ -19784,7 +19784,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Brimming Vigor",
-   "cn_name": "活力充盈",
+   "cn_name": "满满活力",
    "max": 5,
    "stats": [
     {
@@ -19826,7 +19826,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "My Touch Is Death",
-   "cn_name": "死亡之触",
+   "cn_name": "死亡触碰",
    "max": 3,
    "stats": [
     {
@@ -19853,7 +19853,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Into The Fray",
-   "cn_name": "投身战场",
+   "cn_name": "投入战斗",
    "max": 5,
    "stats": [
     {
@@ -19897,7 +19897,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Burning Ramparts",
-   "cn_name": "燃烧壁垒",
+   "cn_name": "焚烧壁垒",
    "max": 5,
    "stats": [
     {
@@ -19939,7 +19939,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Harbinger",
-   "cn_name": "先驱",
+   "cn_name": "先兆",
    "max": 5,
    "stats": [
     {
@@ -20101,7 +20101,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "Mortal Flare",
-   "cn_name": "致命闪焰",
+   "cn_name": "致命耀斑",
    "max": 3,
    "stats": [
     {
@@ -20134,7 +20134,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Catastrophe",
-   "cn_name": "灾变",
+   "cn_name": "大灾难",
    "max": 5,
    "stats": [
     {
@@ -20194,7 +20194,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Dragon's Breath",
-   "cn_name": "龙息",
+   "cn_name": "龙之吐息",
    "max": 5,
    "stats": [
     {
@@ -20244,7 +20244,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Fists of Stone",
-   "cn_name": "磐石之拳",
+   "cn_name": "岩石拳头",
    "max": 5,
    "stats": [
     {
@@ -20268,7 +20268,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Crackling Aegis",
-   "cn_name": "噼啪神盾",
+   "cn_name": "爆裂神盾",
    "max": 3,
    "stats": [
     {
@@ -20310,7 +20310,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Electrical Fire",
-   "cn_name": "电火",
+   "cn_name": "电子火焰",
    "max": 1,
    "stats": [
     {
@@ -20371,7 +20371,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Cacophany",
-   "cn_name": "喧嚣",
+   "cn_name": "杂音",
    "max": 5,
    "stats": [
     {
@@ -20415,7 +20415,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Masterwork",
-   "cn_name": "大师之作",
+   "cn_name": "大师杰作",
    "max": 5,
    "stats": [
     {
@@ -20501,7 +20501,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Stoked",
-   "cn_name": "添柴加火",
+   "cn_name": "激动振奋",
    "max": 5,
    "stats": [
     {
@@ -20589,7 +20589,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Blast Furnace",
-   "cn_name": "鼓风炉",
+   "cn_name": "高炉",
    "max": 5,
    "stats": [
     {
@@ -20676,7 +20676,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Armor of Contempt",
-   "cn_name": "蔑视之甲",
+   "cn_name": "蔑视护甲",
    "max": 5,
    "stats": [
     {
@@ -20749,7 +20749,7 @@
   {
    "id": "Branch - Row 2 - 3",
    "name": "Escalation",
-   "cn_name": "逐步升级",
+   "cn_name": "逐步上升",
    "max": 5,
    "stats": [
     {
@@ -20794,7 +20794,7 @@
   {
    "id": "Branch - Row 3 - 3",
    "name": "Honed Point",
-   "cn_name": "锐利尖端",
+   "cn_name": "磨砺尖端",
    "max": 3,
    "stats": [
     {
@@ -20882,7 +20882,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Raging Inferno",
-   "cn_name": "狂怒烈焰",
+   "cn_name": "熊熊烈火",
    "max": 5,
    "stats": [
     {
@@ -20974,7 +20974,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Freezer Burn",
-   "cn_name": "冻伤",
+   "cn_name": "冻结烧伤",
    "max": 5,
    "stats": [
     {
@@ -21100,7 +21100,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Wildfire",
-   "cn_name": "野火",
+   "cn_name": "野火燎原",
    "max": 5,
    "stats": [
     {
@@ -21159,7 +21159,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Burning Rage",
-   "cn_name": "燃烧怒火",
+   "cn_name": "怒火燃烧",
    "max": 5,
    "stats": [
     {
@@ -21249,7 +21249,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Disco Infernus",
-   "cn_name": "地狱迪斯科",
+   "cn_name": "迪斯科地狱火",
    "max": 5,
    "stats": [
     {
@@ -21381,7 +21381,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Icy Rage",
-   "cn_name": "冰冷怒火",
+   "cn_name": "寒冰暴怒",
    "max": 5,
    "stats": [
     {
@@ -21433,7 +21433,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Winter's Kiss",
-   "cn_name": "凛冬之吻",
+   "cn_name": "冬日之吻",
    "max": 5,
    "stats": [
     {
@@ -21534,7 +21534,7 @@
   {
    "id": "Branch - Row 3 - 1",
    "name": "Winter's Kiss",
-   "cn_name": "凛冬之吻",
+   "cn_name": "冬日之吻",
    "max": 3,
    "stats": [
     {
@@ -21563,7 +21563,7 @@
   {
    "id": "Branch - Row 1 - 1",
    "name": "Blackout",
-   "cn_name": "断电",
+   "cn_name": "灯火管制",
    "max": 5,
    "stats": [
     {
@@ -21608,7 +21608,7 @@
   {
    "id": "Branch - Row 1 - 3",
    "name": "Thunderous Rage",
-   "cn_name": "雷霆怒火",
+   "cn_name": "雷霆之怒",
    "max": 5,
    "stats": [
     {
@@ -21653,7 +21653,7 @@
   {
    "id": "Branch - Row 2 - 1",
    "name": "Tactician",
-   "cn_name": "战术家",
+   "cn_name": "战略家",
    "max": 5,
    "stats": [
     {
@@ -21728,7 +21728,7 @@
   {
    "id": "Branch - Row 2 - 2",
    "name": "Smelter",
-   "cn_name": "熔炼者",
+   "cn_name": "熔炼炉",
    "max": 5,
    "stats": [
     {
@@ -21868,7 +21868,7 @@
   {
    "id": "Trunk - Row 1 - 3",
    "name": "What Burns Within",
-   "cn_name": "内在之火",
+   "cn_name": "灼烧之心",
    "max": 5,
    "stats": [
     {
@@ -21893,7 +21893,7 @@
   {
    "id": "Trunk - Row 1 - 4",
    "name": "Discombobulate",
-   "cn_name": "扰乱",
+   "cn_name": "乱其方寸",
    "max": 5,
    "stats": [
     {
@@ -21960,7 +21960,7 @@
   {
    "id": "Trunk - Row 2 - 1",
    "name": "Wield the Storm",
-   "cn_name": "驾驭风暴",
+   "cn_name": "执掌风暴",
    "max": 5,
    "stats": [
     {
@@ -22002,7 +22002,7 @@
   {
    "id": "Trunk - Row 2 - 3",
    "name": "Gut Punch",
-   "cn_name": "重击腹部",
+   "cn_name": "一拳击腹",
    "max": 3,
    "stats": [
     {
@@ -22072,7 +22072,7 @@
   {
    "id": "Trunk - Row 2 - 5",
    "name": "Tritanium Knuckles",
-   "cn_name": "三钛合金指节",
+   "cn_name": "三钛合金手指虎",
    "max": 5,
    "stats": [
     {
@@ -22177,7 +22177,7 @@
   {
    "id": "Trunk - Row 3 - 4",
    "name": "Metal Urge",
-   "cn_name": "金属冲动",
+   "cn_name": "金属涌动",
    "max": 5,
    "stats": [
     {
@@ -22222,7 +22222,7 @@
   {
    "id": "Trunk - Row 3 - 5",
    "name": "The Best Defense",
-   "cn_name": "最好的防御",
+   "cn_name": "最强防御",
    "max": 5,
    "stats": [
     {
@@ -22292,7 +22292,7 @@
   {
    "id": "Trunk - Row 1 - 2",
    "name": "Gathering Storm",
-   "cn_name": "风暴将至",
+   "cn_name": "暴风前夕",
    "max": 5,
    "stats": [
     {
@@ -22337,7 +22337,7 @@
   {
    "id": "Trunk - Row 1 - 4",
    "name": "Executioner",
-   "cn_name": "处刑者",
+   "cn_name": "刽子手",
    "max": 5,
    "stats": [
     {
@@ -22372,7 +22372,7 @@
   {
    "id": "Trunk - Row 1 - 5",
    "name": "Get the Lead Out",
-   "cn_name": "铅弹倾泻",
+   "cn_name": "速度加快",
    "max": 5,
    "stats": [
     {
@@ -22409,7 +22409,7 @@
   {
    "id": "Trunk - Row 2 - 1",
    "name": "Destruction Engine",
-   "cn_name": "毁灭引擎",
+   "cn_name": "毁灭仿生体",
    "max": 5,
    "stats": [
     {
@@ -22487,7 +22487,7 @@
   {
    "id": "Trunk - Row 2 - 5",
    "name": "Bolt Action",
-   "cn_name": "栓动",
+   "cn_name": "栓动电击",
    "max": 5,
    "stats": [
     {
@@ -22635,7 +22635,7 @@
   {
    "id": "Trunk - Row 3 - 5",
    "name": "Herald's Call",
-   "cn_name": "先驱呼唤",
+   "cn_name": "赫拉德的召唤",
    "max": 5,
    "stats": [
     {
@@ -22710,7 +22710,7 @@
   {
    "id": "Trunk - Row 1 - 3",
    "name": "Scorched Kairos",
-   "cn_name": "焦灼凯洛斯",
+   "cn_name": "焦土凯洛斯",
    "max": 5,
    "stats": [
     {
@@ -22756,7 +22756,7 @@
   {
    "id": "Trunk - Row 1 - 4",
    "name": "The Thrill",
-   "cn_name": "刺激快感",
+   "cn_name": "真实刺激",
    "max": 3,
    "stats": [
     {
@@ -22815,7 +22815,7 @@
   {
    "id": "Trunk - Row 1 - 5",
    "name": "Battleborn",
-   "cn_name": "天生战士",
+   "cn_name": "为战而生",
    "max": 5,
    "stats": [
     {
@@ -22886,7 +22886,7 @@
   {
    "id": "Trunk - Row 2 - 3",
    "name": "Tail of the Comet",
-   "cn_name": "彗星之尾",
+   "cn_name": "彗星尾",
    "max": 5,
    "stats": [
     {
@@ -22972,7 +22972,7 @@
   {
    "id": "Trunk - Row 3 - 1",
    "name": "Bullet Hail",
-   "cn_name": "枪林弹雨",
+   "cn_name": "子弹冰雹",
    "max": 5,
    "stats": [
     {
@@ -23282,7 +23282,7 @@
   {
    "id": "action_skill_0",
    "name": "Sleight of Hand",
-   "cn_name": "眼疾手快",
+   "cn_name": "手上功夫",
    "max": 0,
    "stats": []
   },

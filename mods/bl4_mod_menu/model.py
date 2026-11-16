@@ -129,8 +129,13 @@ def value_text(option: ValueOption[Any], value: Any) -> str:
         return fmt_number(option, value)
     if isinstance(option, KeybindOption):
         return keys.display_name(value)
-    labels = getattr(option, "cn_choices", {})
-    return labels.get(value, str(value)) if isinstance(labels, dict) else str(value)
+    if isinstance(option, (DropdownOption, SpinnerOption)):
+        labels = getattr(option, "cn_choices", {})
+        if isinstance(labels, dict) and isinstance(value, str):
+            label = labels.get(value)
+            if isinstance(label, str):
+                return label
+    return str(value)
 
 
 def slider_value(option: SliderOption, value: float) -> float:

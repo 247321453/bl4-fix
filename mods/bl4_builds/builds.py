@@ -103,15 +103,19 @@ _skill_names: dict[str, list[str | None]] | None = None
 
 
 def _skill_names_data() -> dict[str, list[str | None]]:
-    """Node names per graph, from Detailed Item Cards' skills.json when it's installed."""
+    """Presentation-only names, shared with Item Cards; local index also works without that mod."""
     global _skill_names
     if _skill_names is None:
         _skill_names = {}
         try:
-            raw = json.loads((resources.files("bl4_item_cards") / "card_page" / "skills.json").read_text(encoding="utf-8"))
-            _skill_names = {graph: [((node or {}).get("cn_name") or (node or {}).get("name")) for node in nodes] for graph, nodes in raw.items()}
-        except Exception:  # noqa: BLE001 - names are a nicety
-            pass
+            raw = json.loads((resources.files(__package__) / "skill_names.json").read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            try:
+                raw = json.loads((resources.files("bl4_item_cards") / "card_page" / "skills.json").read_text(encoding="utf-8"))
+            except Exception:  # noqa: BLE001 - names are optional; no gameplay depends on them
+                raw = {}
+        _skill_names = {graph: [(node or {}).get("cn_name") or (node or {}).get("name") for node in nodes]
+                        for graph, nodes in raw.items()}
     return _skill_names
 
 
