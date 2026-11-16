@@ -1,0 +1,10 @@
+[project]
+name = "Loot Map + Big Encore Travel (Preview)"
+cn_name = "掉落地图与盛大安可传送（预览版）"
+version = "0.6.0-preview.18"
+description = "显示专属掉落、地区首领及盛大安可传送列表；使用共享 UILink，无需单独安装 UI PAK。"
+authors = [{name = "BigEncoreDropInfo"}]
+requires-python = ">=3.11"
+
+[tool.sdkmod]
+supported_games = ["BL4"]

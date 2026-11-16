@@ -236,13 +236,14 @@ def request_open(scope: str | None = None) -> None:
 
 def _unavailable() -> str:
     link = uilink.status()
-    match link.get("state"):
+    link_state = link.get("state")
+    match link_state:
         case "next_start":
             return "伤害统计界面将在下次启动游戏后可用（页面连接刚刚配置完成）。"
         case "game_changed" | "conflict" | "error":
-            return f"无法显示伤害统计报告：{link.get('detail') or link.get('state')}"
+            return f"无法显示伤害统计报告：{link.get('detail') or link_state}"
         case _:
-            return "伤害统计报告尚未就绪，请稍后重试。"
+            return f"伤害统计报告尚未就绪，请稍后重试，状态: {link_state}"
 
 
 def request_close() -> None:

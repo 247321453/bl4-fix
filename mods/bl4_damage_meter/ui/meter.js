@@ -560,9 +560,6 @@
     // endregion
     // region Render
 
-        // max-width is the existing solo width. Account for either game-wide box-sizing rule.
-        // Grow with the team until the available screen width is used; then share it equally.
-
     function render() {
         if (!ui.root || !view.open || !state) return;
         try {

@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "waypoints": {
+    "waypoint_research_center": {
+      "id": "waypoint_research_center",
+      "name": "Research Center B-0451",
+      "region_key": "shatteredlands",
+      "kind": "native_waypoint",
+      "map_name": "tuba_p",
+      "world_name": "Tuba_P",
+      "station": "Tuba_P.FT_Tuba_Entry",
+      "position": [
+        115316.035283,
+        -142020.584967,
+        -23479.999901
+      ],
+      "has_native_conditions": true,
+      "source": "existing_worldmapnavigator_fast_travel",
+      "drop_catalog_id": "activity_takedown",
+      "cn_name": "研究中心B-0451"
+    },
+    "waypoint_timescope5": {
+      "id": "waypoint_timescope5",
+      "name": "Silent Crisis: Time Scope 5",
+      "region_key": "shatteredlands",
+      "kind": "native_waypoint",
+      "map_name": "mandolin_cos_p",
+      "world_name": "Mandolin_CoS_P",
+      "station": "Mandolin_CoS_P.FT_MandolinCos",
+      "position": [
+        -76367.67767,
+        8842.677669,
+        1570.0
+      ],
+      "has_native_conditions": false,
+      "source": "existing_worldmapnavigator_fast_travel",
+      "cn_name": "无声危机：时间镜5"
+    },
+    "waypoint_sanctuary_bones": {
+      "id": "waypoint_sanctuary_bones",
+      "name": "Bones of Sanctuary",
+      "region_key": "mountains",
+      "kind": "native_waypoint",
+      "map_name": "world_p",
+      "world_name": "World_P",
+      "station": "World_P.FT_MOU_Sanctuary3",
+      "position": [
+        391729.738417,
+        -28053.896853,
+        35083.520895
+      ],
+      "has_native_conditions": false,
+      "source": "existing_worldmapnavigator_fast_travel",
+      "cn_name": "避难所遗骸"
+    }
+  }
+}

@@ -1,0 +1,817 @@
+{
+  "schema": 1,
+  "source": "Existing WorldMapNavigator native fast-travel handles, exact destination map only",
+  "routes": {
+    "redguard": {
+      "station": "World_P.FT_MOU_Sanctuary3",
+      "map_name": "world_p",
+      "position": [
+        391729.738417,
+        -28053.896853,
+        35083.520895
+      ],
+      "conditional": false
+    },
+    "citycat": {
+      "station": "World_P.FT_SHA_ZanesBar",
+      "map_name": "world_p",
+      "position": [
+        -166419.778458,
+        -226629.59073,
+        10388.331049
+      ],
+      "conditional": false
+    },
+    "sidecity_psycho": {
+      "station": "World_P.FT_SHA_ZanesBar",
+      "map_name": "world_p",
+      "position": [
+        -166419.778458,
+        -226629.59073,
+        10388.331049
+      ],
+      "conditional": false
+    },
+    "thresher_bioarmoredbig": {
+      "station": "World_P.FT_SHA_ZanesBar",
+      "map_name": "world_p",
+      "position": [
+        -166419.778458,
+        -226629.59073,
+        10388.331049
+      ],
+      "conditional": false
+    },
+    "ministerscrew": {
+      "station": "Banjo_P.FT_BanjoStart",
+      "map_name": "banjo_p",
+      "position": [
+        -26602.021874,
+        31487.613682,
+        24860.0
+      ],
+      "conditional": false
+    },
+    "encore_dlc_bp2_01": {
+      "station": "cello_p.FT_Cello_ThirdDrop",
+      "map_name": "cello_p",
+      "position": [
+        120566.0,
+        -54522.0,
+        29619.237626
+      ],
+      "conditional": false
+    },
+    "ordonite_phalanx": {
+      "station": "cello_p.FT_Cello_ThirdDrop",
+      "map_name": "cello_p",
+      "position": [
+        120566.0,
+        -54522.0,
+        29619.237626
+      ],
+      "conditional": false
+    },
+    "ordonite_cat": {
+      "station": "cello_p.FT_Cello_ThirdDrop",
+      "map_name": "cello_p",
+      "position": [
+        120566.0,
+        -54522.0,
+        29619.237626
+      ],
+      "conditional": false
+    },
+    "ordonite_pangolin": {
+      "station": "cello_p.FT_Cello_ThirdDrop",
+      "map_name": "cello_p",
+      "position": [
+        120566.0,
+        -54522.0,
+        29619.237626
+      ],
+      "conditional": false
+    },
+    "glitchfixer": {
+      "station": "Mandolin1_P.FT_Mandolin_P",
+      "map_name": "mandolin1_p",
+      "position": [
+        58762.089844,
+        -32692.419822,
+        51260.0
+      ],
+      "conditional": false
+    },
+    "glitchcleaner": {
+      "station": "Mandolin1_P.FT_Mandolin_BossZane",
+      "map_name": "mandolin1_p",
+      "position": [
+        -46245.832963,
+        60340.464131,
+        61785.0
+      ],
+      "conditional": false
+    },
+    "murderer": {
+      "station": "Mandolin1_P.FT_Mandolin_BossZane",
+      "map_name": "mandolin1_p",
+      "position": [
+        -46245.832963,
+        60340.464131,
+        61785.0
+      ],
+      "conditional": false
+    },
+    "betamaxxx": {
+      "station": "Harp_P.FT_HarpFacBoss",
+      "map_name": "harp_p",
+      "position": [
+        94700.0,
+        -19350.0,
+        3200.0
+      ],
+      "conditional": false
+    },
+    "skankeyes": {
+      "station": "Harp_P.FT_DLC_Harp_Start",
+      "map_name": "harp_p",
+      "position": [
+        -22650.0,
+        15800.0,
+        3125.0
+      ],
+      "conditional": false
+    },
+    "maxxxsupreme": {
+      "station": "Harp_P.FT_HarpFacBoss",
+      "map_name": "harp_p",
+      "position": [
+        94700.0,
+        -19350.0,
+        3200.0
+      ],
+      "conditional": false
+    },
+    "infamousdave": {
+      "station": "Harp_P.FT_DLC_Harp_Start",
+      "map_name": "harp_p",
+      "position": [
+        -22650.0,
+        15800.0,
+        3125.0
+      ],
+      "conditional": false
+    },
+    "testzero": {
+      "station": "Viola_P.FT_Viola_Cove_Rift",
+      "map_name": "viola_p",
+      "position": [
+        -22495.892924,
+        -12222.224986,
+        3764.183166
+      ],
+      "conditional": false
+    },
+    "hybridthresher": {
+      "station": "Viola_ElpisVile_P.FT_Viola_ElpisVile_Entrance",
+      "map_name": "viola_elpisvile_p",
+      "position": [
+        3385.0,
+        31305.0,
+        28244.652696
+      ],
+      "conditional": false
+    },
+    "viledave": {
+      "station": "Viola_ElpisVile_P.FT_Viola_ElpisVile_Entrance",
+      "map_name": "viola_elpisvile_p",
+      "position": [
+        3385.0,
+        31305.0,
+        28244.652696
+      ],
+      "conditional": false
+    },
+    "dahlmech": {
+      "station": "cowbell_p.FT_CT_Elliesgarage",
+      "map_name": "cowbell_p",
+      "position": [
+        -34591.649288,
+        39548.75458,
+        39180.64955
+      ],
+      "conditional": false
+    },
+    "crazyearl": {
+      "station": "cowbell_p.FT_BSH_botanist",
+      "map_name": "cowbell_p",
+      "position": [
+        -12000.0,
+        -47000.0,
+        38049.154321
+      ],
+      "conditional": false
+    },
+    "crash": {
+      "station": "cowbell_p.FT_WSW_DahlShipEnt",
+      "map_name": "cowbell_p",
+      "position": [
+        29165.726562,
+        74008.578125,
+        47538.3965
+      ],
+      "conditional": false
+    },
+    "dahlfather": {
+      "station": "vaultofthedamned_p.FT_VotD_Bridge",
+      "map_name": "vaultofthedamned_p",
+      "position": [
+        -27568.425587,
+        -12431.208401,
+        22985.631262
+      ],
+      "conditional": false
+    },
+    "siphonscavone": {
+      "station": "cowbell_p.FT_WSW_DahlBunker",
+      "map_name": "cowbell_p",
+      "position": [
+        -30572.068087,
+        77600.886545,
+        44344.77776
+      ],
+      "conditional": false
+    },
+    "siphonscavtwo": {
+      "station": "cowbell_p.FT_CowbellStart",
+      "map_name": "cowbell_p",
+      "position": [
+        -119480.060745,
+        -69945.614428,
+        42690.0
+      ],
+      "conditional": false
+    },
+    "dronecaptain": {
+      "station": "cowbell_p.FT_WSW_DahlBunker",
+      "map_name": "cowbell_p",
+      "position": [
+        -30572.068087,
+        77600.886545,
+        44344.77776
+      ],
+      "conditional": false
+    },
+    "main_jrmanager": {
+      "station": "harmonica_p.FT_Harmonica_PowerStationEnt",
+      "map_name": "harmonica_p",
+      "position": [
+        31550.0,
+        -153500.0,
+        1349.598698
+      ],
+      "conditional": false
+    },
+    "main_lavamanager": {
+      "station": "harmonica_p.FT_Harmonica_Blind",
+      "map_name": "harmonica_p",
+      "position": [
+        6294.726585,
+        34444.660374,
+        5150.000095
+      ],
+      "conditional": false
+    },
+    "main_logimanager": {
+      "station": "harmonica_p.FT_Harmonica_PowerStationEnt",
+      "map_name": "harmonica_p",
+      "position": [
+        31550.0,
+        -153500.0,
+        1349.598698
+      ],
+      "conditional": false
+    },
+    "main_spamanager": {
+      "station": "harmonica_p.fast_travel_Harmonica_SanctuaryPod",
+      "map_name": "harmonica_p",
+      "position": [
+        -92335.41779,
+        -111588.113759,
+        41421.540938
+      ],
+      "conditional": false
+    },
+    "side_ltbume": {
+      "station": "harmonica_p.FT_Harmonica_Blind",
+      "map_name": "harmonica_p",
+      "position": [
+        6294.726585,
+        34444.660374,
+        5150.000095
+      ],
+      "conditional": false
+    },
+    "side_treasurehunt": {
+      "station": "harmonica_p.RS_Harmonica_ResortEnt",
+      "map_name": "harmonica_p",
+      "position": [
+        -49619.343523,
+        109039.484574,
+        4975.0
+      ],
+      "conditional": false
+    },
+    "main_villianess": {
+      "station": "VolcanoFortress_P.FTS_FL4K",
+      "map_name": "volcanofortress_p",
+      "position": [
+        51415.281253,
+        39178.538386,
+        419.500293
+      ],
+      "conditional": false
+    },
+    "lockdown_tedframe": {
+      "station": "harmonica_p.FT_Harmonica_LavaBridge",
+      "map_name": "harmonica_p",
+      "position": [
+        74837.216991,
+        -16898.222829,
+        17786.078654
+      ],
+      "conditional": false
+    },
+    "lockdown_glider": {
+      "station": "harmonica_p.FT_Harmonica_VillasEnt",
+      "map_name": "harmonica_p",
+      "position": [
+        -141549.910156,
+        -35106.819969,
+        8587.818899
+      ],
+      "conditional": false
+    },
+    "grotto_cat": {
+      "station": "harmonica_p.FT_Harmonica_LavaBridge",
+      "map_name": "harmonica_p",
+      "position": [
+        74837.216991,
+        -16898.222829,
+        17786.078654
+      ],
+      "conditional": false
+    },
+    "grotto_meathead": {
+      "station": "harmonica_p.FT_Harmonica_VillasEnt",
+      "map_name": "harmonica_p",
+      "position": [
+        -141549.910156,
+        -35106.819969,
+        8587.818899
+      ],
+      "conditional": false
+    },
+    "main_theatermanager": {
+      "station": "harmonica_p.FT_Harmonica_Blind",
+      "map_name": "harmonica_p",
+      "position": [
+        6294.726585,
+        34444.660374,
+        5150.000095
+      ],
+      "conditional": false
+    },
+    "main_hotelmanager": {
+      "station": "harmonica_p.RS_Harmonica_ResortEnt",
+      "map_name": "harmonica_p",
+      "position": [
+        -49619.343523,
+        109039.484574,
+        4975.0
+      ],
+      "conditional": false
+    },
+    "gauntlet_pangolin": {
+      "station": "VolcanoFortress_P.FTS_VolcanoFortress_Start",
+      "map_name": "volcanofortress_p",
+      "position": [
+        -28612.703111,
+        2571.70347,
+        170.804026
+      ],
+      "conditional": false
+    },
+    "gauntlet_cat": {
+      "station": "VolcanoFortress_P.FTS_FL4K",
+      "map_name": "volcanofortress_p",
+      "position": [
+        51415.281253,
+        39178.538386,
+        419.500293
+      ],
+      "conditional": false
+    },
+    "bloomreaper": {
+      "station": "Raid1_P.FT_Raid1_Approach",
+      "map_name": "raid1_p",
+      "position": [
+        -82045.501714,
+        -51787.571616,
+        18848.591826
+      ],
+      "conditional": false
+    },
+    "encore_dlc_raid2": {
+      "station": "raid2_p.FT_Raid2_Entrance",
+      "map_name": "raid2_p",
+      "position": [
+        -4740.833401,
+        -133679.773219,
+        205339.30259
+      ],
+      "conditional": false
+    },
+    "shatterlandscommanderelpis": {
+      "station": "Elpis_P.fast_travel",
+      "map_name": "elpis_p",
+      "position": [
+        -72434.753371,
+        -18699.069487,
+        -3068.953913
+      ],
+      "conditional": true,
+      "arrival_override": {
+        "kind": "boss_room_entrance",
+        "map_name": "elpis_p",
+        "world_name": "Elpis_P",
+        "position": [
+          55351.681173,
+          173820.406225,
+          22772.137251
+        ],
+        "rotation": [
+          0,
+          -148.00006059114384,
+          0
+        ],
+        "actor_name": "FinalRiftTravelStation_UAID_047BCBA5AA7F304E02_1654026314",
+        "destination_note": "Travel to the final Unknown boss-room entrance. Use the entrance manually after arrival.",
+        "source_record": "DLMD_Elpis_P_FinalRiftTravelStation_UAID_047BCBA5AA7F304E02_1654026314",
+        "source_table": "Nexus-Data-gbx_discovery_location_meta_data4",
+        "native_portal_station": "Elpis_P.Elpis_Arch_To_BossRoom",
+        "user_approved": true
+      }
+    },
+    "timekeeper_tkboss": {
+      "station": "UpperCity_P.FT_Entrance",
+      "map_name": "uppercity_p",
+      "position": [
+        18402.758729,
+        19855.186235,
+        21520.0
+      ],
+      "conditional": false
+    },
+    "arjay": {
+      "station": "UpperCity_P.FT_UpperCity_AfterPod",
+      "map_name": "uppercity_p",
+      "position": [
+        58993.2124,
+        19730.346167,
+        35422.500048
+      ],
+      "conditional": false
+    },
+    "grasslands_commander": {
+      "station": "Fortress_Grasslands_P.FT_GRA_Fortress_Start",
+      "map_name": "fortress_grasslands_p",
+      "position": [
+        -39928.553384,
+        19671.446603,
+        6770.438409
+      ],
+      "conditional": true
+    },
+    "mountaincommander": {
+      "station": "Fortress_Mountains_P.FT_Fortress_MOU_Start",
+      "map_name": "fortress_mountains_p",
+      "position": [
+        -1891.248887,
+        -7020.632259,
+        142.374262
+      ],
+      "conditional": false
+    },
+    "shatterlandscommanderfortress": {
+      "station": "Fortress_Shatteredlands_P.FT_Fortress_SHA_Start",
+      "map_name": "fortress_shatteredlands_p",
+      "position": [
+        -23901.938302,
+        -4887.112918,
+        7020.000356
+      ],
+      "conditional": false
+    },
+    "glidepackpsycho": {
+      "station": "World_P.FT_SHA_ZanesBar",
+      "map_name": "world_p",
+      "position": [
+        -166419.778458,
+        -226629.59073,
+        10388.331049
+      ],
+      "conditional": false
+    },
+    "surpriseattack": {
+      "station": "World_P.FT_SHA_ZanesBar",
+      "map_name": "world_p",
+      "position": [
+        -166419.778458,
+        -226629.59073,
+        10388.331049
+      ],
+      "conditional": false
+    },
+    "dronekeeper": {
+      "station": "World_P.FT_SHA_ZanesBar",
+      "map_name": "world_p",
+      "position": [
+        -166419.778458,
+        -226629.59073,
+        10388.331049
+      ],
+      "conditional": false
+    },
+    "kotolieutenant": {
+      "station": "World_P.FT_SHA_ZanesBar",
+      "map_name": "world_p",
+      "position": [
+        -166419.778458,
+        -226629.59073,
+        10388.331049
+      ],
+      "conditional": false
+    },
+    "spiderjumbo": {
+      "station": "World_P.FT_MOU_Sanctuary3",
+      "map_name": "world_p",
+      "position": [
+        391729.738417,
+        -28053.896853,
+        35083.520895
+      ],
+      "conditional": false
+    },
+    "trashthresher": {
+      "station": "World_P.FT_MOU_Sanctuary3",
+      "map_name": "world_p",
+      "position": [
+        391729.738417,
+        -28053.896853,
+        35083.520895
+      ],
+      "conditional": false
+    },
+    "strikersplitter": {
+      "station": "World_P.FT_MOU_Sanctuary3",
+      "map_name": "world_p",
+      "position": [
+        391729.738417,
+        -28053.896853,
+        35083.520895
+      ],
+      "conditional": false
+    },
+    "meatplantgunship": {
+      "station": "World_P.FT_MOU_Sanctuary3",
+      "map_name": "world_p",
+      "position": [
+        391729.738417,
+        -28053.896853,
+        35083.520895
+      ],
+      "conditional": false
+    },
+    "backhive": {
+      "station": "World_P.FT_MOU_Sanctuary3",
+      "map_name": "world_p",
+      "position": [
+        391729.738417,
+        -28053.896853,
+        35083.520895
+      ],
+      "conditional": false
+    },
+    "kotomotherbasebrute": {
+      "station": "World_P.FT_MOU_Sanctuary3",
+      "map_name": "world_p",
+      "position": [
+        391729.738417,
+        -28053.896853,
+        35083.520895
+      ],
+      "conditional": false
+    },
+    "encore_gra11": {
+      "station": "World_P.FT_MOU_Sanctuary3",
+      "map_name": "world_p",
+      "position": [
+        391729.738417,
+        -28053.896853,
+        35083.520895
+      ],
+      "conditional": false
+    },
+    "encore_mtn01": {
+      "station": "World_P.FT_MOU_Sanctuary3",
+      "map_name": "world_p",
+      "position": [
+        391729.738417,
+        -28053.896853,
+        35083.520895
+      ],
+      "conditional": false
+    },
+    "batmatriarch": {
+      "station": "World_P.FT_MOU_Sanctuary3",
+      "map_name": "world_p",
+      "position": [
+        391729.738417,
+        -28053.896853,
+        35083.520895
+      ],
+      "conditional": false
+    },
+    "stealthpredator": {
+      "station": "World_P.FT_MOU_Sanctuary3",
+      "map_name": "world_p",
+      "position": [
+        391729.738417,
+        -28053.896853,
+        35083.520895
+      ],
+      "conditional": false
+    },
+    "blasterbrute": {
+      "station": "World_P.FT_MOU_Sanctuary3",
+      "map_name": "world_p",
+      "position": [
+        391729.738417,
+        -28053.896853,
+        35083.520895
+      ],
+      "conditional": false
+    },
+    "cloningleader": {
+      "station": "World_P.FT_MOU_Sanctuary3",
+      "map_name": "world_p",
+      "position": [
+        391729.738417,
+        -28053.896853,
+        35083.520895
+      ],
+      "conditional": false
+    },
+    "battlewagon": {
+      "station": "World_P.FT_SHA_ZanesBar",
+      "map_name": "world_p",
+      "position": [
+        -166419.778458,
+        -226629.59073,
+        10388.331049
+      ],
+      "conditional": false
+    },
+    "destroyer": {
+      "station": "World_P.FT_SHA_ZanesBar",
+      "map_name": "world_p",
+      "position": [
+        -166419.778458,
+        -226629.59073,
+        10388.331049
+      ],
+      "conditional": false
+    },
+    "firstcorrupt": {
+      "station": "World_P.FT_MOU_Sanctuary3",
+      "map_name": "world_p",
+      "position": [
+        391729.738417,
+        -28053.896853,
+        35083.520895
+      ],
+      "conditional": false
+    },
+    "upgradedelectimole": {
+      "station": "World_P.FT_SHA_ZanesBar",
+      "map_name": "world_p",
+      "position": [
+        -166419.778458,
+        -226629.59073,
+        10388.331049
+      ],
+      "conditional": false
+    },
+    "leaderhologram": {
+      "station": "World_P.FT_SHA_ZanesBar",
+      "map_name": "world_p",
+      "position": [
+        -166419.778458,
+        -226629.59073,
+        10388.331049
+      ],
+      "conditional": false
+    },
+    "skullorchid": {
+      "station": "World_P.FT_SHA_ZanesBar",
+      "map_name": "world_p",
+      "position": [
+        -166419.778458,
+        -226629.59073,
+        10388.331049
+      ],
+      "conditional": false
+    },
+    "encore_sha04": {
+      "station": "World_P.FT_SHA_ZanesBar",
+      "map_name": "world_p",
+      "position": [
+        -166419.778458,
+        -226629.59073,
+        10388.331049
+      ],
+      "conditional": false
+    },
+    "soldierancient": {
+      "station": "World_P.FT_SHA_ZanesBar",
+      "map_name": "world_p",
+      "position": [
+        -166419.778458,
+        -226629.59073,
+        10388.331049
+      ],
+      "conditional": false
+    },
+    "hovercart": {
+      "station": "World_P.FT_SHA_ZanesBar",
+      "map_name": "world_p",
+      "position": [
+        -166419.778458,
+        -226629.59073,
+        10388.331049
+      ],
+      "conditional": false
+    },
+    "rockandroll": {
+      "station": "World_P.FT_SHA_ZanesBar",
+      "map_name": "world_p",
+      "position": [
+        -166419.778458,
+        -226629.59073,
+        10388.331049
+      ],
+      "conditional": false
+    },
+    "drillerhole": {
+      "station": "World_P.FT_SHA_ZanesBar",
+      "map_name": "world_p",
+      "position": [
+        -166419.778458,
+        -226629.59073,
+        10388.331049
+      ],
+      "conditional": false
+    },
+    "grasslands_guardian": {
+      "station": "Vault_Grasslands_P.fast_travel_vault_start",
+      "map_name": "vault_grasslands_p",
+      "position": [
+        -18335.094018,
+        -31618.702222,
+        -9224.9217
+      ],
+      "conditional": false
+    },
+    "mountainguardian": {
+      "station": "Vault_Mountains_P.FT_Vault_Mou_Start",
+      "map_name": "vault_mountains_p",
+      "position": [
+        -25774.092276,
+        -19198.994503,
+        -170.044749
+      ],
+      "conditional": false
+    },
+    "shatterlandsguardian": {
+      "station": "Vault_ShatteredLands_P.FT_Vault_Shatteredlands",
+      "map_name": "vault_shatteredlands_p",
+      "position": [
+        3420.0,
+        -91620.0,
+        16199.510377
+      ],
+      "conditional": false
+    }
+  }
+}

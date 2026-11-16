@@ -1,0 +1,5 @@
+uilink/, frametick/ and gamekeys/ are unmodified copies of BL4 Fix shared packages.
+Copyright (c) 2026 flameaway. GPL-3.0-or-later; see LICENSE-BL4Fix-shared.
+The supplied BigEncoreDropInfo code retains its original authorship. This notice does
+not assert a license grant for the original mod or for Gearbox game UI resources.
+The old integrated game-page PAK is not included in this build.
