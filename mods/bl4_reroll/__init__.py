@@ -457,7 +457,7 @@ def reroll_legendary(handle: int, serial: str | None = None) -> None:
 
 
 def sync_item_level(handle: int, serial: str) -> None:
-    if not mod.is_enabled or S.sync_pending is not None or menu_reroll.S.busy or card.S.pending is not None:
+    if not mod.is_enabled or S.sync_pending is not None or card.S.pending is not None:
         return
     try:
         plan = plan_sync_level(handle, serial)
@@ -483,7 +483,7 @@ def sync_item_level(handle: int, serial: str) -> None:
 
 
 def randomize_firmware(handle: int, serial: str) -> None:
-    if not mod.is_enabled or S.sync_pending is not None or menu_reroll.S.busy or card.S.pending is not None:
+    if not mod.is_enabled or S.sync_pending is not None or card.S.pending is not None:
         return
     try:
         plan = plan_firmware(handle, serial)
@@ -506,7 +506,7 @@ def randomize_firmware(handle: int, serial: str) -> None:
 
 
 def select_firmware(handle: int, serial: str, target: int) -> None:
-    if not mod.is_enabled or S.sync_pending is not None or menu_reroll.S.busy or card.S.pending is not None:
+    if not mod.is_enabled or S.sync_pending is not None or card.S.pending is not None:
         return
     try:
         plan = plan_firmware_target(handle, target, serial)

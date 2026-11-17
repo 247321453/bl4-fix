@@ -321,7 +321,7 @@
   ++s.epoch;s.closed=false;s.selected=null;s.notice=null;s.busy=false;s.data=null;s.collapsed=false;s.layoutReports=0;
   const launcher=button('盛大安可',()=>open(w));s.launcher=launcher;launcher.id='BigEncoreTravel_Open_v1';
   launcher.className='bm_mouseblocking small_text_2';
-  launcher.style.cssText+='position:absolute;left:2%;top:18%;z-index:26;pointer-events:auto;';w.appendChild(launcher);
+  launcher.style.cssText+='position:absolute;left:2%;top:25%;z-index:26;pointer-events:auto;';w.appendChild(launcher);
   if(collapsed){s.collapsed=true;return;}
   const p=document.createElement('div');s.panel=p;p.id='BigEncoreTravel_Panel_v1';
   p.className='bm_mouseblocking small_text_2';
