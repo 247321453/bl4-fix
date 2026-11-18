@@ -315,6 +315,8 @@ def plan_sync_level(handle: int, serial: str | None = None) -> Plan | None:
     """Raise this item's level to its owner's character level; never lower or reroll it."""
     slot = _slot(handle, serial)
     level = game.player_level()
+    if slot.item.level < 5 :
+        return Refused("不支持修改等级小于5的物品。")
     if level <= slot.item.level:
         return None
     cost = cost_legendary()
@@ -855,7 +857,7 @@ def reroll_command(args: argparse.Namespace) -> None:
         log(f"没有编号为 {args.item} 的装备，请使用 reroll 命令查看列表。")
         return
     slot = slots[args.item - 1]
-    if isinstance(slot.item, legendary.Legend):
+    if isinstance(slot.item, legendary.Legend) or args.modifier < 0:
         reroll_legendary(slot.handle)
     elif args.modifier is None:
         reroll_all(slot.handle)
