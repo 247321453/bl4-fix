@@ -351,7 +351,7 @@ def tick(role: str | None = None) -> None:
     if S.waiting_until and time.monotonic() > S.waiting_until:
         S.waiting_until = 0.0
         if not screen_open():
-            logging.error("[伤害统计] 界面未打开（游戏菜单页面没有运行统计脚本）。")
+            logging.warning("[伤害统计] 界面未打开（游戏菜单页面没有运行统计脚本）。")
     elif S.waiting_until and screen_open():
         S.waiting_until = 0.0
 
